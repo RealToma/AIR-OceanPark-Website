@@ -113,7 +113,7 @@ const Home = () => {
           </PartEachNFT>
         </PartNFTRotate01>
       </PartTop01>
-      {/* <PartContent01>
+      <PartContent01>
         <PartOcean01>
           <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
             <img src={imgBack01} width={"100%"} alt="" />
@@ -163,7 +163,7 @@ const Home = () => {
         >
           <img src={imgPumpkin01} width={"100%"} alt="" />
         </PartPumpkin01>
-      </PartContent01> */}
+      </PartContent01>
       <PartDetails01>
         <PartMarkGroup02
           data-aos="slide-up"
