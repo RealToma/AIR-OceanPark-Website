@@ -24,6 +24,23 @@ const StyledComponent = styled(Box)`
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
+
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 120px;
+    justify-content: center;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+  }
 `;
 
 export default FooterHome;

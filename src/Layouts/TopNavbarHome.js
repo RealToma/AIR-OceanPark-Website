@@ -132,10 +132,23 @@ const StyledComponent = styled(Box)`
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
-  transition: 0.3s;
+
   z-index: 90;
   background-color: ${({ flagscroll }) =>
-    !flagscroll ? "" : customColor.mainColor02}; ;
+    !flagscroll ? "" : customColor.mainColor02};
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 const PartLogo01 = styled(Box)`
   display: flex;
@@ -160,7 +173,7 @@ const PartMobile01 = styled(Box)`
   align-items: center;
   gap: 30px;
   transition: 0.5s;
-  @media (max-width: 1400px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
@@ -194,7 +207,7 @@ const PartMenuIcon01 = styled(Box)`
     !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   cursor: pointer;
   transition: 0.5s;
-  @media (max-width: 1400px) {
+  @media (max-width: 1200px) {
     display: flex;
   }
 `;

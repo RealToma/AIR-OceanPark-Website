@@ -354,6 +354,19 @@ const PartTop01 = styled(Box)`
   flex-direction: column;
   background-color: ${customColor.backColor01};
   z-index: 80;
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 const PartNFTRotate01 = styled(Box)`
@@ -487,6 +500,20 @@ const PartContent01 = styled(Box)`
   background-color: ${customColor.mainColor01};
   gap: 50px;
   z-index: 70;
+
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 const PartOcean01 = styled(Box)`
@@ -506,6 +533,7 @@ const PartOceanRight01 = styled(Box)`
   flex: 1;
   position: relative;
   flex-direction: column;
+
 `;
 
 const PartNFT01 = styled(Box)`
@@ -558,6 +586,11 @@ const PartLeaf01 = styled(Box)`
   position: absolute;
   left: -150px;
   top: -60px;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const PartBottle01 = styled(Box)`
@@ -565,6 +598,10 @@ const PartBottle01 = styled(Box)`
   position: absolute;
   left: 0px;
   bottom: 100px;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const PartPumpkin01 = styled(Box)`
@@ -572,6 +609,10 @@ const PartPumpkin01 = styled(Box)`
   position: absolute;
   right: 0px;
   top: 30%;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const PartNFTs01 = styled(Box)`
@@ -733,6 +774,11 @@ const PartBox01 = styled(Box)`
   height: 275px;
   left: 0px;
   top: 30%;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const PartCover01 = styled(Box)`
@@ -742,6 +788,11 @@ const PartCover01 = styled(Box)`
   height: 105px;
   right: 0px;
   bottom: 20%;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 export default Home;
