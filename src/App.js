@@ -1,0 +1,46 @@
+import React from "react";
+import { Box } from "@mui/material";
+import styled from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+import { customColor } from "./Config/Color";
+import Home from "./Pages/Home";
+import Login from "./Pages/Auth/Login";
+import Signup from "./Pages/Auth/Signup";
+import CreatePlayer from "./Pages/Auth/CreatePlayer";
+import BuyNFT from "./Pages/BuyNFT";
+
+const App = () => {
+  return (
+    <StyledComponent>
+      <BrowserRouter>
+        <Routes>
+          <Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/createPlayer" element={<CreatePlayer />} />
+            <Route
+              path="/buyNFT"
+              element={
+                localStorage.getItem("userToken") ? <BuyNFT /> : <Home />
+              }
+            />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      <NotificationContainer />
+    </StyledComponent>
+  );
+};
+
+const StyledComponent = styled(Box)`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-color: ${customColor.mainColor01};
+`;
+
+export default App;
