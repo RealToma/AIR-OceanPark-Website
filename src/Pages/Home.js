@@ -113,7 +113,7 @@ const Home = () => {
           </PartEachNFT>
         </PartNFTRotate01>
       </PartTop01>
-      <PartContent01>
+      {/* <PartContent01>
         <PartOcean01>
           <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
             <img src={imgBack01} width={"100%"} alt="" />
@@ -163,7 +163,7 @@ const Home = () => {
         >
           <img src={imgPumpkin01} width={"100%"} alt="" />
         </PartPumpkin01>
-      </PartContent01>
+      </PartContent01> */}
       <PartDetails01>
         <PartMarkGroup02
           data-aos="slide-up"
@@ -533,7 +533,6 @@ const PartOceanRight01 = styled(Box)`
   flex: 1;
   position: relative;
   flex-direction: column;
-
 `;
 
 const PartNFT01 = styled(Box)`
@@ -644,11 +643,46 @@ const PartMarkOcean02 = styled(Box)`
   display: flex;
   width: 305px;
   height: 150px;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    width: 250px;
+    height: 120px;
+  }
+  @media (max-width: 700px) {
+    width: 200px;
+    height: 100px;
+  }
+  @media (max-width: 500px) {
+    width: 160px;
+    height: 80px;
+  }
+  @media (max-width: 350px) {
+    width: 120px;
+    height: 60px;
+  }
 `;
 
 const PartMutiple02 = styled(Box)`
   display: flex;
   margin-left: 20px;
+
+  transition: 0.5s;
+  @media (max-width: 700px) {
+    margin-left: 10px;
+    > svg {
+      font-size: 2rem;
+    }
+  }
+  @media (max-width: 500px) {
+    margin-left: 5px;
+    > svg {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 350px) {
+    margin-left: 0px;
+  }
 `;
 
 const PartMark03 = styled(Box)`
@@ -656,6 +690,27 @@ const PartMark03 = styled(Box)`
   width: 260px;
   height: 70px;
   margin-left: 20px;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    width: 200px;
+    height: 60px;
+  }
+  @media (max-width: 700px) {
+    width: 160px;
+    height: 50px;
+    margin-left: 10px;
+  }
+  @media (max-width: 500px) {
+    width: 140px;
+    height: 40px;
+    margin-left: 5px;
+  }
+  @media (max-width: 350px) {
+    width: 100px;
+    height: 30px;
+    margin-left: 0px;
+  }
 `;
 
 const PartDetailsText01 = styled(Box)`
@@ -675,7 +730,26 @@ const PartDetailsText01 = styled(Box)`
   text-align: center;
   color: ${customColor.mainColor01};
   margin-top: 30px;
+
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    width: 50%;
+  }
+  @media (max-width: 1200px) {
+    width: 60%;
+  }
+  @media (max-width: 900px) {
+    width: 70%;
+    padding: 20px;
+    font-size: 14px;
+  }
+  @media (max-width: 500px) {
+    width: 80%;
+    padding: 10px;
+    font-size: 12px;
+  }
 `;
+
 
 const PartUtility01 = styled(Box)`
   display: flex;
