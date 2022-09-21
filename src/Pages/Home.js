@@ -521,7 +521,7 @@ const PartEachNFT = styled(Box)`
   transition: 1s;
   left: ${({ flagrotate }) =>
     flagrotate === 0
-      ? "800px"
+      ? "750px"
       : flagrotate === 1
       ? "600px"
       : flagrotate === 2
