@@ -57,7 +57,7 @@ const Home = () => {
       let tempFlag;
       tempFlag = flagRotate;
       tempFlag++;
-      if (tempFlag > 3) {
+      if (tempFlag > 5) {
         setFlagRotate(0);
       } else {
         setFlagRotate(tempFlag++);
@@ -76,7 +76,7 @@ const Home = () => {
       <TopNavbarHome />
       <PartTop01>
         <PartPolygon01>
-          <img src={imgPolygon01} weight={"100%"} alt={""} />
+          <img src={imgPolygon01} weight={"100%"} height={"100%"} alt={""} />
         </PartPolygon01>
         <PartLeaf02>
           <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
@@ -87,40 +87,47 @@ const Home = () => {
 
         <PartMarkDescription01>
           <PartMark01>
-            <img src={imgMark01} width={"100%"} alt={""} />
+            <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
           </PartMark01>
           <PartDescription01>{textHomeContent.tdes01.en}</PartDescription01>
-          <PartMarkGroup01>
-            <PartMarkOcean01>
-              <img src={imgMarkOcean01} width={"100%"} height={"100%"} alt="" />
-            </PartMarkOcean01>
-            <PartMutiple01>
-              <CloseIcon
-                size="small"
-                sx={{ color: "#88836A", fontSize: "1.5rem" }}
-              />
-            </PartMutiple01>
-            <PartMark02>
-              <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
-            </PartMark02>
-          </PartMarkGroup01>
         </PartMarkDescription01>
 
+        <PartMarkGroup01>
+          <PartMarkOcean01>
+            <img src={imgMarkOcean01} width={"100%"} height={"100%"} alt="" />
+          </PartMarkOcean01>
+          <PartMutiple01>
+            <CloseIcon
+              size="small"
+              sx={{ color: "#88836A", fontSize: "1.5rem" }}
+            />
+          </PartMutiple01>
+          <PartMark02>
+            <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
+          </PartMark02>
+        </PartMarkGroup01>
+
         <PartNFTRotate01>
-          <PartEachNFT flagrotate={(flagRotate + 0) % 4}>
+          <PartEachNFT flagrotate={(flagRotate + 0) % 6}>
             <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
           </PartEachNFT>
-          <PartEachNFT flagrotate={(flagRotate + 1) % 4}>
+          <PartEachNFT flagrotate={(flagRotate + 1) % 6}>
             <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
 
             {/* <PartShadow01>
               <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
             </PartShadow01> */}
           </PartEachNFT>
-          <PartEachNFT flagrotate={(flagRotate + 2) % 4}>
+          <PartEachNFT flagrotate={(flagRotate + 2) % 6}>
             <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
           </PartEachNFT>
-          <PartEachNFT flagrotate={(flagRotate + 3) % 4}>
+          <PartEachNFT flagrotate={(flagRotate + 3) % 6}>
+            <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
+          </PartEachNFT>
+          <PartEachNFT flagrotate={(flagRotate + 4) % 6}>
+            <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
+          </PartEachNFT>
+          <PartEachNFT flagrotate={(flagRotate + 5) % 6}>
             <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
           </PartEachNFT>
         </PartNFTRotate01>
@@ -373,6 +380,7 @@ const PartTop01 = styled(Box)`
     padding-left: 50px;
     padding-right: 50px;
   }
+
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
@@ -384,8 +392,17 @@ const PartNFTRotate01 = styled(Box)`
   width: 80%;
   position: absolute;
   left: 0px;
-  bottom: 0px;
+  bottom: 20px;
   transform-style: preserve-3d;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    bottom: 200px;
+  }
+  @media (max-width: 500px) {
+    left: -50px;
+    bottom: 280px;
+  }
 `;
 
 const PartEachNFT = styled(Box)`
@@ -395,38 +412,87 @@ const PartEachNFT = styled(Box)`
   height: 530px;
   transform: ${({ flagrotate }) =>
     flagrotate === 0
-      ? "scale(1) translateZ(-1px)"
+      ? "scale(0.5) translateZ(-3px) translateX(-40%)"
       : flagrotate === 1
-      ? "scale(0.9) translateZ(0px)"
+      ? "scale(0.7) translateZ(-2px) translateX(-40%)"
       : flagrotate === 2
-      ? "scale(0.8) translateZ(-2px)"
+      ? "scale(0.9) translateZ(-1px) translateX(-40%)"
       : flagrotate === 3
-      ? "scale(0.65) translateZ(-3px)"
+      ? "scale(1) translateZ(0px) translateX(-40%)"
+      : flagrotate === 4
+      ? "scale(0) translateZ(1px) translateX(-40%)"
+      : flagrotate === 5
+      ? "scale(0) translateZ(-4px) translateX(-40%)"
       : "none"};
   transform-style: preserve-3d;
   opacity: 1;
   transition: 1s;
   left: ${({ flagrotate }) =>
     flagrotate === 0
-      ? "0px"
+      ? "800px"
       : flagrotate === 1
-      ? "300px"
-      : flagrotate === 2
       ? "600px"
+      : flagrotate === 2
+      ? "350px"
       : flagrotate === 3
+      ? "0px"
+      : flagrotate === 4
+      ? "-1000px"
+      : flagrotate === 5
       ? "800px"
       : "none"};
   bottom: 0px;
   filter: ${({ flagrotate }) =>
     flagrotate === 0
-      ? "blur(3px)"
-      : flagrotate === 1
-      ? "blur(0px)"
-      : flagrotate === 2
-      ? "blur(5px)"
-      : flagrotate === 3
       ? "blur(7px)"
+      : flagrotate === 1
+      ? "blur(5px)"
+      : flagrotate === 2
+      ? "blur(0px)"
+      : flagrotate === 3
+      ? "blur(3px)"
+      : flagrotate === 4
+      ? "blur(3px)"
+      : flagrotate === 5
+      ? "blur(3px)"
       : "none"};
+
+  @media (max-width: 900px) {
+    width: 400px;
+    height: 400px;
+    left: ${({ flagrotate }) =>
+      flagrotate === 0
+        ? "550px"
+        : flagrotate === 1
+        ? "450px"
+        : flagrotate === 2
+        ? "250px"
+        : flagrotate === 3
+        ? "0px"
+        : flagrotate === 4
+        ? "-1000px"
+        : flagrotate === 5
+        ? "550px"
+        : "none"};
+  }
+  @media (max-width: 500px) {
+    width: 330px;
+    height: 330px;
+    left: ${({ flagrotate }) =>
+      flagrotate === 0
+        ? "400px"
+        : flagrotate === 1
+        ? "300px"
+        : flagrotate === 2
+        ? "180px"
+        : flagrotate === 3
+        ? "0px"
+        : flagrotate === 4
+        ? "-1000px"
+        : flagrotate === 5
+        ? "400px"
+        : "none"};
+  }
 `;
 
 // const PartShadow01 = styled(Box)`
@@ -442,10 +508,24 @@ const PartEachNFT = styled(Box)`
 const PartPolygon01 = styled(Box)`
   display: flex;
   position: absolute;
+  width: 650px;
+  height: 700px;
   top: -100px;
   left: 20%;
   filter: blur(5px);
   z-index: 81;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    width: 500px;
+    height: 540px;
+    left: 10%;
+  }
+  @media (max-width: 500px) {
+    width: 400px;
+    height: 430px;
+    left: -100px;
+  }
 `;
 
 const PartLeaf02 = styled(Box)`
@@ -486,20 +566,28 @@ const PartMarkHallo01 = styled(Box)`
 `;
 
 const PartMark01 = styled(Box)`
-  margin-top: 300px;
   width: 385px;
+  height: 120px;
   z-index: 87;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    width: 270px;
+    height: 90px;
+  }
 `;
 
 const PartMarkDescription01 = styled(Box)`
   display: flex;
+  width: 100%;
+  height: 100%;
   position: absolute;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
   right: 150px;
 
   transition: 0.5s;
-
   @media (max-width: 1400px) {
     right: 100px;
   }
@@ -508,9 +596,9 @@ const PartMarkDescription01 = styled(Box)`
   }
   @media (max-width: 900px) {
     align-items: center;
-  }
-  @media (max-width: 500px) {
-    right: 20px;
+    justify-content: flex-end;
+    bottom: 100px;
+    right: 0px;
   }
 `;
 
@@ -529,6 +617,12 @@ const PartDescription01 = styled(Box)`
   z-index: 88;
   transition: 0.5s;
   @media (max-width: 900px) {
+    width: 350px;
+    text-align: center;
+    font-size: 16px;
+  }
+  @media (max-width: 500px) {
+    width: 280px;
     text-align: center;
     font-size: 16px;
   }
@@ -536,16 +630,38 @@ const PartDescription01 = styled(Box)`
 
 const PartMarkGroup01 = styled(Box)`
   display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  position: absolute;
   align-items: center;
-  margin-top: 200px;
-  margin-bottom: 30px;
   z-index: 89;
+  bottom: 50px;
+  right: 150px;
+  transition: 0.5s;
+
+  @media (max-width: 1400px) {
+    right: 100px;
+  }
+  @media (max-width: 1200px) {
+    right: 50px;
+  }
+  @media (max-width: 900px) {
+    justify-content: center;
+    right: 0px;
+    bottom: 20px;
+  }
 `;
 
 const PartMarkOcean01 = styled(Box)`
   display: flex;
   width: 180px;
   height: 87px;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    width: 105px;
+    height: 50px;
+  }
 `;
 
 const PartMutiple01 = styled(Box)`
@@ -558,6 +674,12 @@ const PartMark02 = styled(Box)`
   width: 126px;
   height: 35px;
   margin-left: 10px;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    width: 105px;
+    height: 30px;
+  }
 `;
 
 const PartContent01 = styled(Box)`
