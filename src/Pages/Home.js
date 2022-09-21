@@ -203,12 +203,16 @@ const Home = () => {
       </PartContent01>
       <PartContent02>
         <PartContentUp01>
-          <TextTitle01>{textHomeContent.tt01.en}</TextTitle01>
-          <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+          <TextTitle01 data-aos="fade-up" data-aos-duration="800">
+            {textHomeContent.tt01.en}
+          </TextTitle01>
+          <PartOceanLeft01 data-aos="fade-up" data-aos-duration="800">
             <img src={imgBack01} width={"100%"} alt="" />
           </PartOceanLeft01>
-          <TextContent01>{textHomeContent.tc01.en}</TextContent01>
-          <ButtonVisitLink01>
+          <TextContent01 data-aos="fade-up" data-aos-duration="800">
+            {textHomeContent.tc01.en}
+          </TextContent01>
+          <ButtonVisitLink01 data-aos="fade-up" data-aos-duration="800">
             <InsertLinkRoundedIcon />
             {"\u00a0"}
             {"\u00a0"}
@@ -216,8 +220,10 @@ const Home = () => {
           </ButtonVisitLink01>
         </PartContentUp01>
         <PartContentDown01>
-          <TextTitle01>{textHomeContent.tt02.en}</TextTitle01>
-          <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+          <TextTitle01 data-aos="fade-up" data-aos-duration="800">
+            {textHomeContent.tt02.en}
+          </TextTitle01>
+          <PartOceanRight01 data-aos="fade-up" data-aos-duration="800">
             <img src={imgBack02} width={"100%"} alt="" />
             <PartNFT01>
               <img src={imgCNFT01} width={"100%"} height={"100%"} alt="" />
@@ -229,7 +235,9 @@ const Home = () => {
               <img src={imgCNFT03} width={"100%"} height={"100%"} alt="" />
             </PartNFT03>
           </PartOceanRight01>
-          <TextContent01 mt={"50px"}>{textHomeContent.tc02.en}</TextContent01>
+          <TextContent01 mt={"50px"} data-aos="fade-up" data-aos-duration="800">
+            {textHomeContent.tc02.en}
+          </TextContent01>
         </PartContentDown01>
       </PartContent02>
       <PartDetails01>
@@ -1288,7 +1296,7 @@ const PartIcon01 = styled(Box)`
 const TextDescription02 = styled(Box)`
   display: flex;
   padding-left: 15px;
-  padding-right:15px;
+  padding-right: 15px;
   box-sizing: border-box;
   font-family: "Rubik";
   font-style: normal;
