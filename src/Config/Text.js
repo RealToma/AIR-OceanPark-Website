@@ -54,6 +54,10 @@ export const textHomeContent = {
     en: "Ocean Park collaborates with AiR Metaverse to deliver “Metaverse-to-Go”, which adds Metaverse experience into the physical theme park for augmented entertainment through Metaverse gateways, accessible with the AiR Metaverse mobile app. Through AiR Metaverse, Ocean Park is extended into digital space in the form of a fantasy game world, where visitors can embark on an Adventure-in-Reality that crosses the boundaries between virtual and physical, to enjoy a journey that is fun and rewarding. In this unique digital world of adventure, visitors can play the roles of Panda care-takers, protectors of sea animals, or even heroes who are to defeat Halloween monsters to save both the virtual and physical worlds!",
     ch: "",
   },
+  textVisitSite: {
+    en: "Visit Official Site",
+    ch: "",
+  },
 };
 
 export const textHomeUtility = {

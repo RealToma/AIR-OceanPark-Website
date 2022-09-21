@@ -16,10 +16,17 @@ import imgMark03 from "../Assets/image/mark_AiR03.png";
 import imgMarkOcean01 from "../Assets/image/mark_Ocean01.png";
 import imgBack01 from "../Assets/image/back01.png";
 import imgBack02 from "../Assets/image/back02.png";
-import imgLeaf01 from "../Assets/image/leaf02.png";
 import imgLeaf02 from "../Assets/image/leaf03.png";
+import imgClean01 from "../Assets/image/clean01.png";
 import imgBottle01 from "../Assets/image/bottle01.png";
 import imgPumpkin01 from "../Assets/image/pumpkin01.png";
+import imgKnife01 from "../Assets/image/knife01.png";
+import imgDolphin01 from "../Assets/image/dolphin01.png";
+import imgBat01 from "../Assets/image/bat01.png";
+import imgCap01 from "../Assets/image/cap01.png";
+import imgPen01 from "../Assets/image/pen01.png";
+import imgRing01 from "../Assets/image/ring01.png";
+
 import imgTNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 import imgTNFT02 from "../Assets/image/nfts/OP nft_IT_A 1.png";
 import imgTNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png";
@@ -43,6 +50,7 @@ import iconUser01 from "../Assets/image/icons/user 1.png";
 import iconPeace01 from "../Assets/image/icons/peace 1.png";
 import iconChest01 from "../Assets/image/icons/chest 1.png";
 import CloseIcon from "@mui/icons-material/Close";
+import InsertLinkRoundedIcon from "@mui/icons-material/InsertLinkRounded";
 
 import TopNavbarHome from "../Layouts/TopNavbarHome";
 import FooterHome from "../Layouts/FooterHome";
@@ -140,6 +148,12 @@ const Home = () => {
           <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
             <TextTitle01>{textHomeContent.tt01.en}</TextTitle01>
             <TextContent01>{textHomeContent.tc01.en}</TextContent01>
+            <ButtonVisitLink01>
+              <InsertLinkRoundedIcon />
+              {"\u00a0"}
+              {"\u00a0"}
+              {textHomeContent.textVisitSite.en}
+            </ButtonVisitLink01>
           </PartOceanRight01>
         </PartOcean01>
         <PartOcean01>
@@ -160,29 +174,64 @@ const Home = () => {
             </PartNFT03>
           </PartOceanRight01>
         </PartOcean01>
-        <PartLeaf01>
-          <img
-            src={imgLeaf01}
-            width={"100%"}
-            style={{ transform: "rotate(0deg)", filter: "blur(1.5px)" }}
-            alt=""
-          />
-        </PartLeaf01>
         <PartBottle01
           data-aos="fade-right"
           data-aos-offset="150"
           data-aos-duration="500"
         >
-          <img src={imgBottle01} width={"100%"} alt="" />
+          <img
+            src={imgBottle01}
+            width={"100%"}
+            style={{ transform: "rotate(0deg)", filter: "blur(1.5px)" }}
+            alt=""
+          />
         </PartBottle01>
-        <PartPumpkin01
+        <PartClean01
+          data-aos="fade-right"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgClean01} width={"100%"} alt="" />
+        </PartClean01>
+        <PartBat01
           // data-aos="fade-left"
           data-aos-offset="150"
           data-aos-duration="500"
         >
-          <img src={imgPumpkin01} width={"100%"} alt="" />
-        </PartPumpkin01>
+          <img src={imgBat01} width={"100%"} alt="" />
+        </PartBat01>
       </PartContent01>
+      <PartContent02>
+        <PartContentUp01>
+          <TextTitle01>{textHomeContent.tt01.en}</TextTitle01>
+          <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+            <img src={imgBack01} width={"100%"} alt="" />
+          </PartOceanLeft01>
+          <TextContent01>{textHomeContent.tc01.en}</TextContent01>
+          <ButtonVisitLink01>
+            <InsertLinkRoundedIcon />
+            {"\u00a0"}
+            {"\u00a0"}
+            {textHomeContent.textVisitSite.en}
+          </ButtonVisitLink01>
+        </PartContentUp01>
+        <PartContentDown01>
+          <TextTitle01>{textHomeContent.tt02.en}</TextTitle01>
+          <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+            <img src={imgBack02} width={"100%"} alt="" />
+            <PartNFT01>
+              <img src={imgCNFT01} width={"100%"} height={"100%"} alt="" />
+            </PartNFT01>
+            <PartNFT02>
+              <img src={imgCNFT02} width={"100%"} height={"100%"} alt="" />
+            </PartNFT02>
+            <PartNFT03>
+              <img src={imgCNFT03} width={"100%"} height={"100%"} alt="" />
+            </PartNFT03>
+          </PartOceanRight01>
+          <TextContent01>{textHomeContent.tc02.en}</TextContent01>
+        </PartContentDown01>
+      </PartContent02>
       <PartDetails01>
         <PartMarkGroup02
           data-aos="slide-up"
@@ -703,6 +752,26 @@ const PartContent01 = styled(Box)`
     padding-right: 100px;
   }
   @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
+const PartContent02 = styled(Box)`
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: ${customColor.mainColor01};
+  gap: 50px;
+  z-index: 70;
+  transition: 0.5s;
+
+  @media (max-width: 1200px) {
+    display: flex;
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -710,6 +779,20 @@ const PartContent01 = styled(Box)`
     padding-left: 20px;
     padding-right: 20px;
   }
+`;
+
+const PartContentUp01 = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+`;
+
+const PartContentDown01 = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
 `;
 
 const PartOcean01 = styled(Box)`
@@ -722,6 +805,7 @@ const PartOceanLeft01 = styled(Box)`
   display: flex;
   flex: 1;
   flex-direction: column;
+  gap: 20px;
 `;
 
 const PartOceanRight01 = styled(Box)`
@@ -729,6 +813,7 @@ const PartOceanRight01 = styled(Box)`
   flex: 1;
   position: relative;
   flex-direction: column;
+  gap: 20px;
 `;
 
 const PartNFT01 = styled(Box)`
@@ -767,7 +852,6 @@ const TextTitle01 = styled(Box)`
 
 const TextContent01 = styled(Box)`
   display: flex;
-  margin-top: 30px;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
@@ -776,11 +860,11 @@ const TextContent01 = styled(Box)`
   color: ${customColor.textColor01};
 `;
 
-const PartLeaf01 = styled(Box)`
+const PartBottle01 = styled(Box)`
   display: flex;
   position: absolute;
-  left: -150px;
-  top: -60px;
+  left: 0px;
+  top: 150px;
 
   transition: 0.5s;
   @media (max-width: 1200px) {
@@ -788,7 +872,7 @@ const PartLeaf01 = styled(Box)`
   }
 `;
 
-const PartBottle01 = styled(Box)`
+const PartClean01 = styled(Box)`
   display: flex;
   position: absolute;
   left: 0px;
@@ -799,7 +883,7 @@ const PartBottle01 = styled(Box)`
   }
 `;
 
-const PartPumpkin01 = styled(Box)`
+const PartBat01 = styled(Box)`
   display: flex;
   position: absolute;
   right: 0px;
@@ -810,6 +894,21 @@ const PartPumpkin01 = styled(Box)`
   }
 `;
 
+const ButtonVisitLink01 = styled(Box)`
+  display: flex;
+  width: 190px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background-color: ${customColor.backColor05};
+  color: ${customColor.backColor01};
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+`;
 const PartNFTs01 = styled(Box)`
   display: flex;
   position: absolute;
