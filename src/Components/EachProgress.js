@@ -37,12 +37,20 @@ const StyledComponent = styled(Box)`
   width: 100%;
   gap: 20px;
   align-items: flex-start;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const PartLeft01 = styled(Box)`
   display: flex;
   flex: 1;
   gap: 20px;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const PartRight01 = styled(Box)`
@@ -56,6 +64,16 @@ const PartImage01 = styled(Box)`
   width: 200px;
   height: 150px;
   margin-right: 20px;
+
+  transition: 0.5s;
+  @media (max-width: 500px) {
+    width: 165px;
+    height: 120px;
+  }
+  @media (max-width: 350px) {
+    width: 150px;
+    height: 110px;
+  }
 `;
 
 const PartText01 = styled(Box)`

@@ -194,7 +194,7 @@ const Home = () => {
           <img src={imgClean01} width={"100%"} alt="" />
         </PartClean01>
         <PartBat01
-          // data-aos="fade-left"
+          data-aos="fade-left"
           data-aos-offset="150"
           data-aos-duration="500"
         >
@@ -229,7 +229,7 @@ const Home = () => {
               <img src={imgCNFT03} width={"100%"} height={"100%"} alt="" />
             </PartNFT03>
           </PartOceanRight01>
-          <TextContent01 mt={'50px'}>{textHomeContent.tc02.en}</TextContent01>
+          <TextContent01 mt={"50px"}>{textHomeContent.tc02.en}</TextContent01>
         </PartContentDown01>
       </PartContent02>
       <PartDetails01>
@@ -254,10 +254,24 @@ const Home = () => {
         <PartDetailsText01
           data-aos="slide-up"
           data-aos-offset="150"
-          data-aos-duration="2000"
+          data-aos-duration="1000"
         >
           {textHomeContent.tc03.en}
         </PartDetailsText01>
+        <PartBox01
+          data-aos="fade-right"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgBox01} width={"100%"} alt="" />
+        </PartBox01>
+        <PartCover01
+          data-aos="fade-left"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgCover01} width={"100%"} alt="" />
+        </PartCover01>
       </PartDetails01>
       <PartUtility01>
         <TextTitle01
@@ -336,6 +350,13 @@ const Home = () => {
             <TextDescription02>{textHomeUtility.tc06.en}</TextDescription02>
           </GridEach01>
         </PartGrid01>
+        <PartDolphin01
+          data-aos="fade-left"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgDolphin01} width={"100%"} alt="" />
+        </PartDolphin01>
       </PartUtility01>
       <PartProgress01>
         <TextTitle01
@@ -382,20 +403,34 @@ const Home = () => {
             text={textHomeProgress.tdes07.en}
           />
         </PartRoadmap01>
-        <PartBox01
+        <PartPen01
           data-aos="fade-right"
           data-aos-offset="150"
           data-aos-duration="500"
         >
-          <img src={imgBox01} width={"100%"} height={"100%"} alt="" />
-        </PartBox01>
-        <PartCover01
-          // data-aos="fade-left"
+          <img src={imgPen01} width={"100%"} height={"100%"} alt="" />
+        </PartPen01>
+        <PartCap01
+          data-aos="fade-left"
           data-aos-offset="150"
           data-aos-duration="500"
         >
-          <img src={imgCover01} width={"100%"} height={"100%"} alt="" />
-        </PartCover01>
+          <img src={imgCap01} width={"100%"} height={"100%"} alt="" />
+        </PartCap01>
+        <PartRing01
+          data-aos="fade-right"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgRing01} width={"100%"} alt="" />
+        </PartRing01>
+        <PartKnife01
+          data-aos="fade-left"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgKnife01} width={"100%"} alt="" />
+        </PartKnife01>
       </PartProgress01>
       <FooterHome />
     </StyledComponent>
@@ -818,17 +853,55 @@ const PartOceanRight01 = styled(Box)`
 
 const PartNFT01 = styled(Box)`
   display: flex;
+  width: 175px;
   position: absolute;
   bottom: -50px;
   left: -50px;
+
+  transition: 0.5s;
+  @media (max-width: 1600px) {
+    width: 150px;
+  }
+  @media (max-width: 1200px) {
+    width: 200px;
+  }
+  @media (max-width: 900px) {
+    width: 150px;
+  }
+  @media (max-width: 700px) {
+    width: 125px;
+  }
+  @media (max-width: 500px) {
+    width: 95px;
+    left: -20px;
+  }
 `;
 
 const PartNFT02 = styled(Box)`
   display: flex;
   position: absolute;
+  width: 167px;
+
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
+
+  transition: 0.5s;
+  @media (max-width: 1600px) {
+    width: 145px;
+  }
+  @media (max-width: 1200px) {
+    width: 190px;
+  }
+  @media (max-width: 900px) {
+    width: 145px;
+  }
+  @media (max-width: 700px) {
+    width: 120px;
+  }
+  @media (max-width: 500px) {
+    width: 90px;
+  }
 `;
 
 const PartNFT03 = styled(Box)`
@@ -836,6 +909,25 @@ const PartNFT03 = styled(Box)`
   position: absolute;
   bottom: -50px;
   right: -50px;
+  width: 195px;
+
+  transition: 0.5s;
+  @media (max-width: 1600px) {
+    width: 170px;
+  }
+  @media (max-width: 1200px) {
+    width: 220px;
+  }
+  @media (max-width: 900px) {
+    width: 170px;
+  }
+  @media (max-width: 700px) {
+    width: 150px;
+  }
+  @media (max-width: 500px) {
+    width: 110px;
+    right: -20px;
+  }
 `;
 
 const TextTitle01 = styled(Box)`
@@ -918,6 +1010,7 @@ const PartNFTs01 = styled(Box)`
 
 const PartDetails01 = styled(Box)`
   display: flex;
+  position: relative;
   width: 100%;
   align-items: center;
   flex-direction: column;
@@ -927,6 +1020,43 @@ const PartDetails01 = styled(Box)`
   background-size: cover;
   padding-top: 100px;
   padding-bottom: 100px;
+  z-index: 70;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  transition: 0.5s;
+  @media (max-width: 500px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+`;
+
+const PartBox01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  left: 0px;
+  bottom: -20px;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
+const PartCover01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  right: 0px;
+  top: -20px;
+  z-index: 61;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const PartMarkGroup02 = styled(Box)`
@@ -1047,6 +1177,7 @@ const PartDetailsText01 = styled(Box)`
 
 const PartUtility01 = styled(Box)`
   display: flex;
+  position: relative;
   width: 100%;
   align-items: center;
   background-color: ${customColor.backColor01};
@@ -1060,7 +1191,43 @@ const PartUtility01 = styled(Box)`
   padding-top: 100px;
   padding-bottom: 100px;
   box-sizing: border-box;
+  transition: 0.5s;
+
+  z-index: 50;
+
+  @media (max-width: 1400px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-items: flex-start;
+  }
+  @media (max-width: 700px) {
+    background-size: 50% 20%;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-size: 70% 20%;
+  }
 `;
+
+const PartDolphin01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  z-index: 51;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
 const TextDescription01 = styled(Box)`
   display: flex;
   font-family: "Rubik";
@@ -1070,6 +1237,14 @@ const TextDescription01 = styled(Box)`
   line-height: 160%;
   color: ${customColor.textColor02};
   padding-top: 50px;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    padding-top: 30px;
+  }
+  @media (max-width: 900px) {
+    padding-top: 20px;
+  }
 `;
 
 const PartGrid01 = styled(Box)`
@@ -1080,7 +1255,18 @@ const PartGrid01 = styled(Box)`
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   margin-top: 30px;
+
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+  }
 `;
+
 const GridEach01 = styled(Box)`
   display: flex;
   flex: 1;
@@ -1101,6 +1287,9 @@ const PartIcon01 = styled(Box)`
 
 const TextDescription02 = styled(Box)`
   display: flex;
+  padding-left: 15px;
+  padding-right:15px;
+  box-sizing: border-box;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 400;
@@ -1124,6 +1313,68 @@ const PartProgress01 = styled(Box)`
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
+
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-items: flex-start;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+`;
+
+const PartPen01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  left: 0px;
+  top: -100px;
+  z-index: 51;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+const PartCap01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  right: 0px;
+  top: 100px;
+  z-index: 51;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+const PartRing01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  z-index: 51;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+const PartKnife01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  z-index: 51;
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const PartRoadmap01 = styled(Box)`
@@ -1133,9 +1384,20 @@ const PartRoadmap01 = styled(Box)`
   gap: 20px;
   margin-top: 100px;
   z-index: 70;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    margin-top: 50px;
+  }
+  @media (max-width: 900px) {
+    margin-top: 3px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 20px;
+  }
 `;
 
-const PartBox01 = styled(Box)`
+const PartBox011 = styled(Box)`
   display: flex;
   position: absolute;
   width: 260px;
@@ -1149,7 +1411,7 @@ const PartBox01 = styled(Box)`
   }
 `;
 
-const PartCover01 = styled(Box)`
+const PartCover011 = styled(Box)`
   display: flex;
   position: absolute;
   width: 205px;
