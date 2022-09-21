@@ -23,11 +23,15 @@ export const textNavbar = {
     en: "Account",
     ch: "",
   },
+  textComingSoon: {
+    en: "COMING SEP 30th!",
+    ch: "",
+  },
 };
 
 export const textHomeContent = {
   tdes01: {
-    en: "Ocean Park sea animals in Halloween costume to be showcased as the first AiR CITIZEN!",
+    en: "Play-to-Earn enabling NFTs debut with Ocean Park Halloween theme",
     ch: "",
   },
   tt01: {

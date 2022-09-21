@@ -9,6 +9,7 @@ import {
 } from "../Config/Text";
 import EachProgress from "../Components/EachProgress";
 import imgPolygon01 from "../Assets/image/back_polygon01.png";
+import imgMarkHallo01 from "../Assets/image/markHallo01.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
 import imgMark02 from "../Assets/image/mark_AiR02.png";
 import imgMark03 from "../Assets/image/mark_AiR03.png";
@@ -16,6 +17,7 @@ import imgMarkOcean01 from "../Assets/image/mark_Ocean01.png";
 import imgBack01 from "../Assets/image/back01.png";
 import imgBack02 from "../Assets/image/back02.png";
 import imgLeaf01 from "../Assets/image/leaf02.png";
+import imgLeaf02 from "../Assets/image/leaf03.png";
 import imgBottle01 from "../Assets/image/bottle01.png";
 import imgPumpkin01 from "../Assets/image/pumpkin01.png";
 import imgTNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
@@ -76,24 +78,34 @@ const Home = () => {
         <PartPolygon01>
           <img src={imgPolygon01} weight={"100%"} alt={""} />
         </PartPolygon01>
-        <PartMark01>
-          <img src={imgMark01} width={"100%"} alt={""} />
-        </PartMark01>
-        <PartDescription01>{textHomeContent.tdes01.en}</PartDescription01>
-        <PartMarkGroup01>
-          <PartMarkOcean01>
-            <img src={imgMarkOcean01} width={"100%"} height={"100%"} alt="" />
-          </PartMarkOcean01>
-          <PartMutiple01>
-            <CloseIcon
-              size="small"
-              sx={{ color: "#88836A", fontSize: "1.5rem" }}
-            />
-          </PartMutiple01>
-          <PartMark02>
-            <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
-          </PartMark02>
-        </PartMarkGroup01>
+        <PartLeaf02>
+          <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
+        </PartLeaf02>
+        <PartMarkHallo01>
+          <img src={imgMarkHallo01} width={"100%"} height={"100%"} alt={""} />
+        </PartMarkHallo01>
+
+        <PartMarkDescription01>
+          <PartMark01>
+            <img src={imgMark01} width={"100%"} alt={""} />
+          </PartMark01>
+          <PartDescription01>{textHomeContent.tdes01.en}</PartDescription01>
+          <PartMarkGroup01>
+            <PartMarkOcean01>
+              <img src={imgMarkOcean01} width={"100%"} height={"100%"} alt="" />
+            </PartMarkOcean01>
+            <PartMutiple01>
+              <CloseIcon
+                size="small"
+                sx={{ color: "#88836A", fontSize: "1.5rem" }}
+              />
+            </PartMutiple01>
+            <PartMark02>
+              <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
+            </PartMark02>
+          </PartMarkGroup01>
+        </PartMarkDescription01>
+
         <PartNFTRotate01>
           <PartEachNFT flagrotate={(flagRotate + 0) % 4}>
             <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
@@ -346,12 +358,10 @@ const PartTop01 = styled(Box)`
   display: flex;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 800px;
   padding-left: 150px;
   padding-right: 150px;
   box-sizing: border-box;
-  align-items: flex-end;
-  flex-direction: column;
   background-color: ${customColor.backColor01};
   z-index: 80;
   transition: 0.5s;
@@ -438,26 +448,90 @@ const PartPolygon01 = styled(Box)`
   z-index: 81;
 `;
 
-const PartMark01 = styled(Box)`
+const PartLeaf02 = styled(Box)`
   display: flex;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 500px;
+  height: 300px;
+  z-index: 82;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
+const PartMarkHallo01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  top: 100px;
+  right: 150px;
+  width: 130px;
+  height: 120px;
+  z-index: 83;
+
+  transition: 0.5s;
+  @media (max-width: 1200px) {
+    right: 50px;
+  }
+  @media (max-width: 700px) {
+    width: 100px;
+    height: 90px;
+  }
+  @media (max-width: 500px) {
+    right: 20px;
+  }
+`;
+
+const PartMark01 = styled(Box)`
   margin-top: 300px;
   width: 385px;
   z-index: 87;
 `;
 
+const PartMarkDescription01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: flex-end;
+  right: 150px;
+
+  transition: 0.5s;
+
+  @media (max-width: 1400px) {
+    right: 100px;
+  }
+  @media (max-width: 1200px) {
+    right: 50px;
+  }
+  @media (max-width: 900px) {
+    align-items: center;
+  }
+  @media (max-width: 500px) {
+    right: 20px;
+  }
+`;
+
 const PartDescription01 = styled(Box)`
   display: flex;
-  width: 471px;
+  width: 380px;
   margin-top: 10px;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 21px;
   text-align: right;
   letter-spacing: -0.01em;
   color: ${customColor.textColor01};
   z-index: 88;
+  transition: 0.5s;
+  @media (max-width: 900px) {
+    text-align: center;
+    font-size: 16px;
+  }
 `;
 
 const PartMarkGroup01 = styled(Box)`
@@ -749,7 +823,6 @@ const PartDetailsText01 = styled(Box)`
     font-size: 12px;
   }
 `;
-
 
 const PartUtility01 = styled(Box)`
   display: flex;

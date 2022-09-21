@@ -65,6 +65,11 @@ const BuyNFT = () => {
           </PartSidebar01>
           <PartDisplayNFT01>
             <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
           </PartDisplayNFT01>
         </PartContent02>
       </PartContent01>
@@ -154,10 +159,12 @@ const TextID01 = styled(Box)`
 
 const PartDisplayNFT01 = styled(Box)`
   display: grid;
+
   flex: 1;
   width: 100%;
   padding: 30px;
   box-sizing: border-box;
+
 `;
 
 const PartLogout01 = styled(Box)`
