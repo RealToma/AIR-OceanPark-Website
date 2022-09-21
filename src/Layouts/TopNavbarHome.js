@@ -36,7 +36,10 @@ const TopNavbarHome = () => {
   }, []);
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
-      <PartLogo01>
+      <PartLogo01 onClick={()=>{
+        navigate('/');
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }}>
         <img
           src={!flagScroll ? imgLogo01 : imgLogo02}
           width={"100%"}

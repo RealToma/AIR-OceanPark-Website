@@ -5,8 +5,10 @@ import { customColor } from "../Config/Color";
 import imgLogo01 from "../Assets/image/logo01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
+import { useNavigate } from "react-router-dom";
 
 const TopNavbarAccount = () => {
+  const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagLanguage, setFlagLanguage] = useState(false);
 
@@ -27,8 +29,13 @@ const TopNavbarAccount = () => {
   }, []);
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
-      <PartLogo01>
-        <LogoLeft01 >
+      <PartLogo01
+        onClick={() => {
+          navigate("/");
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }}
+      >
+        <LogoLeft01>
           <img
             src={!flagScroll ? imgLogo01 : imgLogo02}
             width={"100%"}
