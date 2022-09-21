@@ -229,7 +229,7 @@ const Home = () => {
               <img src={imgCNFT03} width={"100%"} height={"100%"} alt="" />
             </PartNFT03>
           </PartOceanRight01>
-          <TextContent01>{textHomeContent.tc02.en}</TextContent01>
+          <TextContent01 mt={'50px'}>{textHomeContent.tc02.en}</TextContent01>
         </PartContentDown01>
       </PartContent02>
       <PartDetails01>
