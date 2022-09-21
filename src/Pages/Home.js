@@ -504,17 +504,17 @@ const PartEachNFT = styled(Box)`
   height: 530px;
   transform: ${({ flagrotate }) =>
     flagrotate === 0
-      ? "scale(0.5) translateZ(-3px) translateX(-40%)"
+      ? "scale(0.6) translateZ(-3px) translateX(-30%)"
       : flagrotate === 1
-      ? "scale(0.7) translateZ(-2px) translateX(-40%)"
+      ? "scale(0.75) translateZ(-2px) translateX(-30%)"
       : flagrotate === 2
-      ? "scale(0.9) translateZ(-1px) translateX(-40%)"
+      ? "scale(0.9) translateZ(-1px) translateX(-30%)"
       : flagrotate === 3
-      ? "scale(1) translateZ(0px) translateX(-40%)"
+      ? "scale(1.1) translateZ(0px) translateX(-30%)"
       : flagrotate === 4
-      ? "scale(0) translateZ(1px) translateX(-40%)"
+      ? "scale(0) translateZ(1px) translateX(-30%)"
       : flagrotate === 5
-      ? "scale(0) translateZ(-4px) translateX(-40%)"
+      ? "scale(0) translateZ(-4px) translateX(-30%)"
       : "none"};
   transform-style: preserve-3d;
   opacity: 1;
@@ -525,7 +525,7 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 1
       ? "600px"
       : flagrotate === 2
-      ? "350px"
+      ? "400px"
       : flagrotate === 3
       ? "0px"
       : flagrotate === 4
@@ -603,7 +603,7 @@ const PartPolygon01 = styled(Box)`
   width: 650px;
   height: 700px;
   top: -100px;
-  left: 20%;
+  left: 100px;
   filter: blur(5px);
   z-index: 81;
 
@@ -611,12 +611,12 @@ const PartPolygon01 = styled(Box)`
   @media (max-width: 900px) {
     width: 500px;
     height: 540px;
-    left: 10%;
+    left: 50px;
   }
   @media (max-width: 500px) {
     width: 400px;
     height: 430px;
-    left: -100px;
+    left: -50px;
   }
 `;
 
