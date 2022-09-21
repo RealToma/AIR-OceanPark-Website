@@ -36,10 +36,12 @@ const TopNavbarHome = () => {
   }, []);
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
-      <PartLogo01 onClick={()=>{
-        navigate('/');
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-      }}>
+      <PartLogo01
+        onClick={() => {
+          navigate("/");
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }}
+      >
         <img
           src={!flagScroll ? imgLogo01 : imgLogo02}
           width={"100%"}
@@ -86,7 +88,7 @@ const TopNavbarHome = () => {
           >
             {textNavbar.tb06.en}
           </Button02>
-          <ImgBoat01>
+          <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
             <img
               src={!flagScroll ? imgBoat01 : imgBoat02}
               width="100%"
@@ -154,7 +156,11 @@ const TopNavbarHome = () => {
                   }}
                 />
               </HeaderLeft01>
-              <HeaderRight01>
+              <HeaderRight01 onClick={() => {
+                    navigate('/');
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    handleClose();
+                  }}>
                 <img
                   src={imgMergeMark01}
                   width={"100%"}
@@ -320,6 +326,16 @@ const Button01 = styled(Box)`
   font-size: 16px;
   line-height: 76.5%;
   cursor: pointer;
+
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 10px
+      ${({ flagscroll }) =>
+        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  }
+  &:active {
+    box-shadow: none;
+  }
 `;
 
 const PartComingSoon01 = styled(Box)`
@@ -377,6 +393,7 @@ const PartMenuIcon01 = styled(Box)`
   @media (max-width: 1200px) {
     display: flex;
   }
+
 `;
 
 const EachLink01 = styled(Box)`
@@ -393,6 +410,14 @@ const EachLink01 = styled(Box)`
   color: ${({ flagscroll }) =>
     !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    text-shadow: 0px 0px 10px ${({ flagscroll }) =>
+        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  }
+  &:active {
+    text-shadow: none;
+  }
 `;
 
 const Button02 = styled(Box)`
@@ -415,6 +440,16 @@ const Button02 = styled(Box)`
   font-size: 16px;
   line-height: 76.5%;
   cursor: pointer;
+
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 10px
+      ${({ flagscroll }) =>
+        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  }
+  &:active {
+    box-shadow: none;
+  }
 `;
 
 const ImgBoat01 = styled(Box)`
@@ -422,8 +457,19 @@ const ImgBoat01 = styled(Box)`
   width: 34px;
   height: 34px;
   justify-content: center;
+  border-radius: 100%;
   align-items: center;
   cursor: pointer;
+
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 10px
+      ${({ flagscroll }) =>
+        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  }
+  &:active {
+    box-shadow: none;
+  }
 `;
 
 const ImgBoat02 = styled(Box)`
@@ -435,6 +481,17 @@ const ImgBoat02 = styled(Box)`
   border-radius: 100%;
   background: ${customColor.mainColor02};
   cursor: pointer;
+
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 10px
+      ${({ flagscroll }) =>
+        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  }
+  &:active {
+    box-shadow: none;
+  }
+
 `;
 
 const ButtonLanguage01 = styled(Box)`
@@ -447,6 +504,14 @@ const ButtonLanguage01 = styled(Box)`
   background-color: ${customColor.mainColor01};
   padding: 3px;
   box-sizing: border-box;
+
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 10px ${customColor.mainColor01};
+  }
+  &:active {
+    text-shadow: 0px 0px 10px ${customColor.mainColor01};
+  }
 `;
 
 const ButtonClicked01 = styled(Box)`
@@ -529,6 +594,7 @@ const ModalHeader01 = styled(Box)`
 `;
 const HeaderLeft01 = styled(Box)`
   display: flex;
+  cursor: pointer;
 `;
 const HeaderRight01 = styled(Box)`
   display: flex;
@@ -539,6 +605,7 @@ const HeaderRight01 = styled(Box)`
     width: 220px;
     height: 50px;
   }
+  cursor: pointer;
 `;
 
 const ModalLinkPart01 = styled(Box)`
@@ -561,6 +628,16 @@ const ModalEachLink01 = styled(Box)`
   text-align: right;
   letter-spacing: -0.02em;
   color: ${customColor.mainColor01};
+
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    text-shadow: 0px 0px 10px ${({ flagscroll }) =>
+        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  }
+  &:active {
+    text-shadow: none;
+  }
 `;
 
 const ModalPartUp01 = styled(Box)`
