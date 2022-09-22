@@ -160,7 +160,11 @@ export const textHomeProgress = {
 
 export const textFooter = {
   tt01: {
-    en: "© AiR 2022 ALL RIGHTS RESERVED.  |  Terms",
+    en: "© AiR 2022 ALL RIGHTS RESERVED.  |",
+    ch: "",
+  },
+  textTerm: {
+    en: "Terms",
     ch: "",
   },
 };

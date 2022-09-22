@@ -5,7 +5,21 @@ import { textFooter } from "../Config/Text";
 import { customColor } from "../Config/Color";
 
 const FooterHome = () => {
-  return <StyledComponent>{textFooter.tt01.en}</StyledComponent>;
+  return (
+    <StyledComponent>
+      {textFooter.tt01.en}
+      {"\u00a0"}
+      <Box
+        display={"flex"}
+        onClick={() => {
+          alert();
+        }}
+        style={{cursor:'pointer'}}
+      >
+        <u>{textFooter.textTerm.en}</u>
+      </Box>
+    </StyledComponent>
+  );
 };
 
 const StyledComponent = styled(Box)`

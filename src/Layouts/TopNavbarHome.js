@@ -12,10 +12,18 @@ import { useNavigate } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
-const TopNavbarHome = () => {
+const TopNavbarHome = ({
+  refOcean,
+  refOcean1,
+  refAbout,
+  refUtility,
+  refProgress,
+  flagLanguage,
+  setFlagLanguage,
+}) => {
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
-  const [flagLanguage, setFlagLanguage] = useState(false);
+
   const handleClose = () => setOpen(false);
   const [open, setOpen] = useState(false);
 
@@ -67,16 +75,41 @@ const TopNavbarHome = () => {
           <MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
         </PartMenuIcon01>
         <PartMobile01>
-          <EachLink01 flagscroll={flagScroll ? 1 : 0}>
+          <EachLink01
+            flagscroll={flagScroll ? 1 : 0}
+            onClick={() => {
+              refOcean.current.scrollIntoView({ behavior: "smooth" });
+              refOcean1.current.scrollIntoView({ behavior: "smooth" });
+              handleClose();
+            }}
+          >
             {textNavbar.tb02.en}
           </EachLink01>
-          <EachLink01 flagscroll={flagScroll ? 1 : 0}>
+          <EachLink01
+            flagscroll={flagScroll ? 1 : 0}
+            onClick={() => {
+              refAbout.current.scrollIntoView({ behavior: "smooth" });
+              handleClose();
+            }}
+          >
             {textNavbar.tb03.en}
           </EachLink01>
-          <EachLink01 flagscroll={flagScroll ? 1 : 0}>
+          <EachLink01
+            flagscroll={flagScroll ? 1 : 0}
+            onClick={() => {
+              refUtility.current.scrollIntoView({ behavior: "smooth" });
+              handleClose();
+            }}
+          >
             {textNavbar.tb04.en}
           </EachLink01>
-          <EachLink01 flagscroll={flagScroll ? 1 : 0}>
+          <EachLink01
+            flagscroll={flagScroll ? 1 : 0}
+            onClick={() => {
+              refProgress.current.scrollIntoView({ behavior: "smooth" });
+              handleClose();
+            }}
+          >
             {textNavbar.tb05.en}
           </EachLink01>
           <Button02
@@ -84,6 +117,7 @@ const TopNavbarHome = () => {
             onClick={() => {
               setFlagScroll(false);
               navigate("/login");
+              handleClose();
             }}
           >
             {textNavbar.tb06.en}
@@ -156,11 +190,13 @@ const TopNavbarHome = () => {
                   }}
                 />
               </HeaderLeft01>
-              <HeaderRight01 onClick={() => {
-                    navigate('/');
-                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                    handleClose();
-                  }}>
+              <HeaderRight01
+                onClick={() => {
+                  navigate("/");
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  handleClose();
+                }}
+              >
                 <img
                   src={imgMergeMark01}
                   width={"100%"}
@@ -170,14 +206,44 @@ const TopNavbarHome = () => {
               </HeaderRight01>
             </ModalHeader01>
             <ModalLinkPart01>
-              <ModalEachLink01> {textNavbar.tb02.en}</ModalEachLink01>
-              <ModalEachLink01> {textNavbar.tb03.en}</ModalEachLink01>
-              <ModalEachLink01> {textNavbar.tb04.en}</ModalEachLink01>
-              <ModalEachLink01> {textNavbar.tb05.en}</ModalEachLink01>
+              <ModalEachLink01
+                onClick={() => {
+                  refOcean.current.scrollIntoView({ behavior: "smooth" });
+                  refOcean1.current.scrollIntoView({ behavior: "smooth" });
+                  handleClose();
+                }}
+              >
+                {textNavbar.tb02.en}
+              </ModalEachLink01>
+              <ModalEachLink01
+                onClick={() => {
+                  refAbout.current.scrollIntoView({ behavior: "smooth" });
+                  handleClose();
+                }}
+              >
+                {textNavbar.tb03.en}
+              </ModalEachLink01>
+              <ModalEachLink01
+                onClick={() => {
+                  refUtility.current.scrollIntoView({ behavior: "smooth" });
+                  handleClose();
+                }}
+              >
+                {textNavbar.tb04.en}
+              </ModalEachLink01>
+              <ModalEachLink01
+                onClick={() => {
+                  refProgress.current.scrollIntoView({ behavior: "smooth" });
+                  handleClose();
+                }}
+              >
+                {textNavbar.tb05.en}
+              </ModalEachLink01>
               <Button02
                 flagscroll={flagScroll ? 1 : 1}
                 onClick={() => {
                   navigate("/login");
+                  handleClose();
                 }}
               >
                 {textNavbar.tb06.en}
@@ -237,7 +303,7 @@ const TopNavbarHome = () => {
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  height: 80px;
+  height:80px;
   position: fixed;
   padding-left: 150px;
   padding-right: 150px;
@@ -256,6 +322,7 @@ const StyledComponent = styled(Box)`
   @media (max-width: 1200px) {
     padding-left: 50px;
     padding-right: 50px;
+    height: 60px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
@@ -271,6 +338,10 @@ const PartLogo01 = styled(Box)`
   cursor: pointer;
 
   transition: 0.5s;
+  @media (max-width: 1200px) {
+    width: 80px;
+    height: 40px;
+  }
   @media (max-width: 500px) {
     width: 64px;
     height: 32px;
@@ -353,7 +424,7 @@ const PartComingSoon01 = styled(Box)`
   top: -50px;
 
   transition: 0.5s;
-  @media (max-width: 500px) {
+  @media (max-width: 1200px) {
     left: -75px;
     top: -40px;
     width: 92px;
@@ -377,7 +448,7 @@ const TextComingSoon01 = styled(Box)`
   transform: rotate(-15deg);
 
   transition: 0.5s;
-  @media (max-width: 500px) {
+  @media (max-width: 1200px) {
     width: 70%;
   }
 `;
@@ -393,7 +464,6 @@ const PartMenuIcon01 = styled(Box)`
   @media (max-width: 1200px) {
     display: flex;
   }
-
 `;
 
 const EachLink01 = styled(Box)`
@@ -412,7 +482,8 @@ const EachLink01 = styled(Box)`
   cursor: pointer;
   transition: 0.3s;
   &:hover {
-    text-shadow: 0px 0px 10px ${({ flagscroll }) =>
+    text-shadow: 0px 0px 10px
+      ${({ flagscroll }) =>
         !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {
@@ -491,7 +562,6 @@ const ImgBoat02 = styled(Box)`
   &:active {
     box-shadow: none;
   }
-
 `;
 
 const ButtonLanguage01 = styled(Box)`
@@ -632,7 +702,8 @@ const ModalEachLink01 = styled(Box)`
   cursor: pointer;
   transition: 0.3s;
   &:hover {
-    text-shadow: 0px 0px 10px ${({ flagscroll }) =>
+    text-shadow: 0px 0px 10px
+      ${({ flagscroll }) =>
         !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {

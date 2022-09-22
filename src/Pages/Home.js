@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../Config/Color";
@@ -9,12 +9,15 @@ import {
 } from "../Config/Text";
 import EachProgress from "../Components/EachProgress";
 import imgPolygon01 from "../Assets/image/back_polygon01.png";
-import imgMarkHallo01 from "../Assets/image/markHallo01_en.png";
+import imgMarkHalloEN01 from "../Assets/image/markHallo01_en.png";
+import imgMarkHalloCH01 from "../Assets/image/markHallo01_ch.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
 import imgMark02 from "../Assets/image/mark_AiR02.png";
 import imgMark03 from "../Assets/image/mark_AiR03.png";
 import imgMarkOcean01 from "../Assets/image/mark_Ocean01.png";
-import imgBack01 from "../Assets/image/back01_en.png";
+import imgMarkOcean02 from "../Assets/image/mark_Ocean02.png";
+import imgBackEN01 from "../Assets/image/back01_en.png";
+import imgBackCH01 from "../Assets/image/back01_ch.png";
 import imgBack02 from "../Assets/image/back02.png";
 import imgLeaf02 from "../Assets/image/leaf03.png";
 import imgClean01 from "../Assets/image/clean01.png";
@@ -59,7 +62,15 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Home = () => {
+  const refOcean = useRef();
+  const refOcean1 = useRef();
+  const refAbout = useRef();
+  const refUtility = useRef();
+  const refProgress = useRef();
+
   const [flagRotate, setFlagRotate] = useState(0);
+  const [flagLanguage, setFlagLanguage] = useState(false);
+
   useEffect(() => {
     setTimeout(() => {
       let tempFlag;
@@ -81,7 +92,15 @@ const Home = () => {
 
   return (
     <StyledComponent>
-      <TopNavbarHome />
+      <TopNavbarHome
+        refOcean={refOcean}
+        refOcean1={refOcean1}
+        refAbout={refAbout}
+        refUtility={refUtility}
+        refProgress={refProgress}
+        flagLanguage={flagLanguage}
+        setFlagLanguage={setFlagLanguage}
+      />
       <PartTop01>
         <PartPolygon01>
           <img src={imgPolygon01} weight={"100%"} height={"100%"} alt={""} />
@@ -90,7 +109,12 @@ const Home = () => {
           <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
         </PartLeaf02>
         <PartMarkHallo01>
-          <img src={imgMarkHallo01} width={"100%"} height={"100%"} alt={""} />
+          <img
+            src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
+            width={"100%"}
+            height={"100%"}
+            alt={""}
+          />
         </PartMarkHallo01>
 
         <PartMarkDescription01>
@@ -140,20 +164,39 @@ const Home = () => {
           </PartEachNFT>
         </PartNFTRotate01>
       </PartTop01>
-      <PartContent01>
+      <PartContent01 ref={refOcean}>
         <PartOcean01>
           <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-            <img src={imgBack01} width={"100%"} alt="" />
+            <img
+              src={!flagLanguage ? imgBackEN01 : imgBackCH01}
+              width={"100%"}
+              style={{ borderRadius: "6px" }}
+              alt=""
+            />
           </PartOceanLeft01>
           <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
             <TextTitle01>{textHomeContent.tt01.en}</TextTitle01>
             <TextContent01>{textHomeContent.tc01.en}</TextContent01>
-            <ButtonVisitLink01>
-              <InsertLinkRoundedIcon />
-              {"\u00a0"}
-              {"\u00a0"}
-              {textHomeContent.textVisitSite.en}
-            </ButtonVisitLink01>
+            <a
+              href={
+                !flagLanguage
+                  ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
+                  : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
+              }
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              <ButtonVisitLink01 onClick={() => {}}>
+                <InsertLinkRoundedIcon />
+                {"\u00a0"}
+                {"\u00a0"}
+                {textHomeContent.textVisitSite.en}
+              </ButtonVisitLink01>
+            </a>
           </PartOceanRight01>
         </PartOcean01>
         <PartOcean01>
@@ -174,6 +217,7 @@ const Home = () => {
             </PartNFT03>
           </PartOceanRight01>
         </PartOcean01>
+
         <PartBottle01
           data-aos="fade-right"
           data-aos-offset="150"
@@ -186,6 +230,7 @@ const Home = () => {
             alt=""
           />
         </PartBottle01>
+
         <PartClean01
           data-aos="fade-right"
           data-aos-offset="150"
@@ -201,13 +246,18 @@ const Home = () => {
           <img src={imgBat01} width={"100%"} alt="" />
         </PartBat01>
       </PartContent01>
-      <PartContent02>
+      <PartContent02 ref={refOcean1}>
         <PartContentUp01>
           <TextTitle01 data-aos="fade-up" data-aos-duration="800">
             {textHomeContent.tt01.en}
           </TextTitle01>
           <PartOceanLeft01 data-aos="fade-up" data-aos-duration="800">
-            <img src={imgBack01} width={"100%"} alt="" />
+            <img
+              src={!flagLanguage ? imgBackEN01 : imgBackCH01}
+              width={"100%"}
+              style={{ borderRadius: "6px" }}
+              alt=""
+            />
           </PartOceanLeft01>
           <TextContent01 data-aos="fade-up" data-aos-duration="800">
             {textHomeContent.tc01.en}
@@ -240,14 +290,14 @@ const Home = () => {
           </TextContent01>
         </PartContentDown01>
       </PartContent02>
-      <PartDetails01>
+      <PartDetails01 ref={refAbout}>
         <PartMarkGroup02
           data-aos="slide-up"
           data-aos-offset="150"
           data-aos-duration="500"
         >
           <PartMarkOcean02>
-            <img src={imgMarkOcean01} width={"100%"} height={"100%"} alt="" />
+            <img src={imgMarkOcean02} width={"100%"} height={"100%"} alt="" />
           </PartMarkOcean02>
           <PartMutiple02>
             <CloseIcon
@@ -281,7 +331,7 @@ const Home = () => {
           <img src={imgCover01} width={"100%"} alt="" />
         </PartCover01>
       </PartDetails01>
-      <PartUtility01>
+      <PartUtility01 ref={refUtility}>
         <TextTitle01
           data-aos="fade-up"
           data-aos-offset="250"
@@ -298,7 +348,7 @@ const Home = () => {
         </TextDescription01>
         <PartGrid01>
           <GridEach01
-            data-aos="flip-down"
+            data-aos="fade-up"
             data-aos-offset="250"
             data-aos-duration="1000"
           >
@@ -308,7 +358,7 @@ const Home = () => {
             <TextDescription02>{textHomeUtility.tc01.en}</TextDescription02>
           </GridEach01>
           <GridEach01
-            data-aos="flip-up"
+            data-aos="fade-up"
             data-aos-offset="250"
             data-aos-duration="1000"
           >
@@ -318,7 +368,7 @@ const Home = () => {
             <TextDescription02>{textHomeUtility.tc02.en}</TextDescription02>
           </GridEach01>
           <GridEach01
-            data-aos="flip-down"
+            data-aos="fade-up"
             data-aos-offset="250"
             data-aos-duration="1000"
           >
@@ -328,7 +378,7 @@ const Home = () => {
             <TextDescription02>{textHomeUtility.tc03.en}</TextDescription02>
           </GridEach01>
           <GridEach01
-            data-aos="flip-up"
+            data-aos="fade-up"
             data-aos-offset="250"
             data-aos-duration="1000"
           >
@@ -338,7 +388,7 @@ const Home = () => {
             <TextDescription02>{textHomeUtility.tc04.en}</TextDescription02>
           </GridEach01>
           <GridEach01
-            data-aos="flip-down"
+            data-aos="fade-up"
             data-aos-offset="250"
             data-aos-duration="1000"
           >
@@ -348,7 +398,7 @@ const Home = () => {
             <TextDescription02>{textHomeUtility.tc05.en}</TextDescription02>
           </GridEach01>
           <GridEach01
-            data-aos="flip-up"
+            data-aos="fade-up"
             data-aos-offset="250"
             data-aos-duration="1000"
           >
@@ -366,7 +416,7 @@ const Home = () => {
           <img src={imgDolphin01} width={"100%"} alt="" />
         </PartDolphin01>
       </PartUtility01>
-      <PartProgress01>
+      <PartProgress01 ref={refProgress}>
         <TextTitle01
           data-aos="fade-up"
           data-aos-offset="150"
@@ -474,6 +524,7 @@ const PartTop01 = styled(Box)`
   }
 
   @media (max-width: 500px) {
+    height: 650px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -492,8 +543,8 @@ const PartNFTRotate01 = styled(Box)`
     bottom: 200px;
   }
   @media (max-width: 500px) {
-    left: -50px;
-    bottom: 280px;
+    left: -100px;
+    bottom: 190px;
   }
 `;
 
@@ -504,13 +555,13 @@ const PartEachNFT = styled(Box)`
   height: 530px;
   transform: ${({ flagrotate }) =>
     flagrotate === 0
-      ? "scale(0.6) translateZ(-3px) translateX(-30%)"
+      ? "scale(0.5) translateZ(-3px) translateX(-30%)"
       : flagrotate === 1
-      ? "scale(0.75) translateZ(-2px) translateX(-30%)"
+      ? "scale(0.7) translateZ(-2px) translateX(-30%)"
       : flagrotate === 2
       ? "scale(0.9) translateZ(-1px) translateX(-30%)"
       : flagrotate === 3
-      ? "scale(1.1) translateZ(0px) translateX(-30%)"
+      ? "scale(1) translateZ(0px) translateX(-30%)"
       : flagrotate === 4
       ? "scale(0) translateZ(1px) translateX(-30%)"
       : flagrotate === 5
@@ -531,7 +582,7 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 4
       ? "-1000px"
       : flagrotate === 5
-      ? "800px"
+      ? "750px"
       : "none"};
   bottom: 0px;
   filter: ${({ flagrotate }) =>
@@ -616,7 +667,7 @@ const PartPolygon01 = styled(Box)`
   @media (max-width: 500px) {
     width: 400px;
     height: 430px;
-    left: -50px;
+    left: -100px;
   }
 `;
 
@@ -664,7 +715,11 @@ const PartMark01 = styled(Box)`
 
   transition: 0.5s;
   @media (max-width: 900px) {
-    width: 270px;
+    width: 330px;
+    height: 100px;
+  }
+  @media (max-width: 500px) {
+    width: 300px;
     height: 90px;
   }
 `;
@@ -711,10 +766,10 @@ const PartDescription01 = styled(Box)`
   @media (max-width: 900px) {
     width: 350px;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
   }
   @media (max-width: 500px) {
-    width: 280px;
+    width: 300px;
     text-align: center;
     font-size: 16px;
   }
@@ -1402,34 +1457,6 @@ const PartRoadmap01 = styled(Box)`
   }
   @media (max-width: 500px) {
     margin-top: 20px;
-  }
-`;
-
-const PartBox011 = styled(Box)`
-  display: flex;
-  position: absolute;
-  width: 260px;
-  height: 275px;
-  left: 0px;
-  top: 30%;
-
-  transition: 0.5s;
-  @media (max-width: 1200px) {
-    display: none;
-  }
-`;
-
-const PartCover011 = styled(Box)`
-  display: flex;
-  position: absolute;
-  width: 205px;
-  height: 105px;
-  right: 0px;
-  bottom: 20%;
-
-  transition: 0.5s;
-  @media (max-width: 1200px) {
-    display: none;
   }
 `;
 
