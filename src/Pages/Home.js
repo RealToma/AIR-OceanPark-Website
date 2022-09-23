@@ -32,12 +32,12 @@ import imgPen01 from "../Assets/image/pen01.png";
 import imgRing01 from "../Assets/image/ring01.png";
 
 // rotate images
-import imgTNFT01 from "../Assets/image/nfts_/07.png";
-import imgTNFT02 from "../Assets/image/nfts_/02.png";
-import imgTNFT03 from "../Assets/image/nfts_/03.png";
-import imgTNFT04 from "../Assets/image/nfts_/04.png";
-import imgTNFT05 from "../Assets/image/nfts_/05.png";
-import imgTNFT06 from "../Assets/image/nfts_/08.png";
+import imgTNFT01 from "../Assets/image/nfts__/01.png";
+import imgTNFT02 from "../Assets/image/nfts__/02.png";
+import imgTNFT03 from "../Assets/image/nfts__/03.png";
+import imgTNFT04 from "../Assets/image/nfts__/04.png";
+import imgTNFT05 from "../Assets/image/nfts__/05.png";
+import imgTNFT06 from "../Assets/image/nfts__/06.png";
 
 // import imgTNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgTNFT02 from "../Assets/image/nfts/OP nft_IT_A 1.png";
@@ -667,8 +667,8 @@ const PartNFTRotate01 = styled(Box)`
 const PartEachNFT = styled(Box)`
   display: flex;
   position: absolute;
-  width: 530px;
-  height: 530px;
+  width: 600px;
+  height: 600px;
   transform: ${({ flagrotate }) =>
     flagrotate === 0
       ? "scale(0.5) translateZ(-3px) translateX(-30%)"
@@ -825,19 +825,11 @@ const PartMarkHallo01 = styled(Box)`
 `;
 
 const PartMark01 = styled(Box)`
-  width: 385px;
-  height: 120px;
+  width: 282px;
+  height: 105px;
   z-index: 87;
 
   transition: 0.5s;
-  @media (max-width: 900px) {
-    width: 330px;
-    height: 100px;
-  }
-  @media (max-width: 500px) {
-    width: 300px;
-    height: 90px;
-  }
 `;
 
 const PartMarkDescription01 = styled(Box)`
