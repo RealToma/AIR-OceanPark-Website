@@ -968,6 +968,9 @@ const PartMainOcean01 = styled(Box)`
   @media (max-width: 1200px) {
     padding-left: 50px;
     padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    gap: 30px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
@@ -981,6 +984,7 @@ const PartOcean01 = styled(Box)`
   gap: 50px;
   @media (max-width: 1200px) {
     flex-direction: column;
+    gap: 20px;
   }
 `;
 
