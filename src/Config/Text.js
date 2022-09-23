@@ -21,7 +21,8 @@ export const TEXT_TopNavbar = {
 
 export const TEXT_HomeContent = {
   EN: {
-    tdes01: "Play-to-Earn enabling NFTs debut with Ocean Park Halloween theme",
+    tdes01: "Play-to-Earn enabling NFTs debut with",
+    tdes02: "Ocean Park Halloween theme",
     tt01: "//Ocean Park Hong Kong : Halloween 2022",
     tt02: "//What is AiR Citizen?",
     tc01: "Every October in Hong Kong, the Halloween event held by Ocean Park is a talk-of-the-town sensation that brings joyful thrills and adrenaline rush to visitors through a series of scarily-creative and cleverly-crafted Haunted House attractions. This year, Ocean Park is working with AiR Metaverse to deliver the first ever Online + Offline Ocean Park Halloween experience in which visitors can play through a fascinating story BEFORE, DURING, and AFTER the event. A cast of sea animals dress up in wonderful Halloween costumes to become the first of many upcoming AiR Citizen NFT collection!",
@@ -30,7 +31,8 @@ export const TEXT_HomeContent = {
     textVisitSite: "Visit Official Site",
   },
   CH: {
-    tdes01: "邊玩邊賺的元住民NFT系列聯乘海洋公園哈佬喂驚喜面世",
+    tdes01: "邊玩邊賺的元住民NFT系列聯乘",
+    tdes02: "海洋公園哈囉喂驚喜面世",
     tt01: "//海洋公園哈囉喂2022",
     tt02: "//甚麼是「元住民」?",
     tc01: "每年十月，海洋公園「哈囉喂」都成為全城熱話。園內特設一系列兼具創新與驚嚇的鬼屋及設施，為遊客帶來新奇、好玩又刺激的體驗。今年海洋公園與AiR元宇宙推出首個線上線下互動哈囉喂，讓遊客可以在入場前、公園內及離開後都能體驗一個與別不同的萬聖故事。而首批 AiR Citizen NFT已穿起海洋動物的萬聖主題服飾率先登場！",

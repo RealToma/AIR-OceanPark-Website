@@ -166,7 +166,11 @@ const Home = () => {
               <PartMark01>
                 <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
               </PartMark01>
-              <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
+              <PartDescription01>
+                {textHomeContent.tdes01}
+                <br />
+                {textHomeContent.tdes02}
+              </PartDescription01>
             </PartMarkDescription01>
 
             <PartMarkGroup01>
@@ -241,7 +245,7 @@ const Home = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <ButtonVisitLink01 onClick={() => {}}>
+                  <ButtonVisitLink01 onClick={() => { }}>
                     <InsertLinkRoundedIcon />
                     {"\u00a0"}
                     {"\u00a0"}
@@ -673,16 +677,16 @@ const PartEachNFT = styled(Box)`
     flagrotate === 0
       ? "scale(0.5) translateZ(-3px) translateX(-30%)"
       : flagrotate === 1
-      ? "scale(0.7) translateZ(-2px) translateX(-30%)"
-      : flagrotate === 2
-      ? "scale(0.9) translateZ(-1px) translateX(-30%)"
-      : flagrotate === 3
-      ? "scale(1) translateZ(0px) translateX(-30%)"
-      : flagrotate === 4
-      ? "scale(0) translateZ(1px) translateX(-30%)"
-      : flagrotate === 5
-      ? "scale(0) translateZ(-4px) translateX(-30%)"
-      : "none"};
+        ? "scale(0.7) translateZ(-2px) translateX(-30%)"
+        : flagrotate === 2
+          ? "scale(0.9) translateZ(-1px) translateX(-30%)"
+          : flagrotate === 3
+            ? "scale(1) translateZ(0px) translateX(-30%)"
+            : flagrotate === 4
+              ? "scale(0) translateZ(1px) translateX(-30%)"
+              : flagrotate === 5
+                ? "scale(0) translateZ(-4px) translateX(-30%)"
+                : "none"};
   transform-style: preserve-3d;
   opacity: 1;
   transition: 1s;
@@ -690,67 +694,67 @@ const PartEachNFT = styled(Box)`
     flagrotate === 0
       ? "750px"
       : flagrotate === 1
-      ? "600px"
-      : flagrotate === 2
-      ? "400px"
-      : flagrotate === 3
-      ? "0px"
-      : flagrotate === 4
-      ? "-1000px"
-      : flagrotate === 5
-      ? "750px"
-      : "none"};
+        ? "600px"
+        : flagrotate === 2
+          ? "400px"
+          : flagrotate === 3
+            ? "0px"
+            : flagrotate === 4
+              ? "-1000px"
+              : flagrotate === 5
+                ? "750px"
+                : "none"};
   bottom: 0px;
   filter: ${({ flagrotate }) =>
     flagrotate === 0
       ? "blur(7px)"
       : flagrotate === 1
-      ? "blur(5px)"
-      : flagrotate === 2
-      ? "blur(0px)"
-      : flagrotate === 3
-      ? "blur(3px)"
-      : flagrotate === 4
-      ? "blur(3px)"
-      : flagrotate === 5
-      ? "blur(3px)"
-      : "none"};
+        ? "blur(5px)"
+        : flagrotate === 2
+          ? "blur(0px)"
+          : flagrotate === 3
+            ? "blur(3px)"
+            : flagrotate === 4
+              ? "blur(3px)"
+              : flagrotate === 5
+                ? "blur(3px)"
+                : "none"};
 
   @media (max-width: 900px) {
     width: 400px;
     height: 400px;
     left: ${({ flagrotate }) =>
-      flagrotate === 0
-        ? "550px"
-        : flagrotate === 1
+    flagrotate === 0
+      ? "550px"
+      : flagrotate === 1
         ? "450px"
         : flagrotate === 2
-        ? "250px"
-        : flagrotate === 3
-        ? "0px"
-        : flagrotate === 4
-        ? "-1000px"
-        : flagrotate === 5
-        ? "550px"
-        : "none"};
+          ? "250px"
+          : flagrotate === 3
+            ? "0px"
+            : flagrotate === 4
+              ? "-1000px"
+              : flagrotate === 5
+                ? "550px"
+                : "none"};
   }
   @media (max-width: 500px) {
     width: 330px;
     height: 330px;
     left: ${({ flagrotate }) =>
-      flagrotate === 0
-        ? "400px"
-        : flagrotate === 1
+    flagrotate === 0
+      ? "400px"
+      : flagrotate === 1
         ? "300px"
         : flagrotate === 2
-        ? "180px"
-        : flagrotate === 3
-        ? "0px"
-        : flagrotate === 4
-        ? "-1000px"
-        : flagrotate === 5
-        ? "400px"
-        : "none"};
+          ? "180px"
+          : flagrotate === 3
+            ? "0px"
+            : flagrotate === 4
+              ? "-1000px"
+              : flagrotate === 5
+                ? "400px"
+                : "none"};
   }
 `;
 
