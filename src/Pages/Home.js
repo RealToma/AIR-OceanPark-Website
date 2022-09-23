@@ -132,12 +132,22 @@ const Home = () => {
               <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
             </PartLeaf02>
             <PartMarkHallo01>
-              <img
-                src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
-                width={"100%"}
-                height={"100%"}
-                alt={""}
-              />
+              <a
+                href={
+                  !flagLanguage
+                    ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
+                    : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
+                }
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
+                  width={"100%"}
+                  height={"100%"}
+                  alt={""}
+                />
+              </a>
             </PartMarkHallo01>
 
             <PartMarkDescription01>
