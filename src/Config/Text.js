@@ -104,11 +104,11 @@ export const TEXT_HomeProgress = {
 };
 export const TEXT_Footer = {
   EN: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
     textTerm: "Terms",
   },
   CH: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
     textTerm: "Terms",
   },
 };
