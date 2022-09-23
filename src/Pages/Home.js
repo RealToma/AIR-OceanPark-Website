@@ -167,9 +167,11 @@ const Home = () => {
                 <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
               </PartMark01>
               <PartDescription01>
-                {textHomeContent.tdes01}
-                <br />
-                {textHomeContent.tdes02}
+                <PartDescriptionInner01>
+                    {textHomeContent.tdes01}
+                    <br />
+                    {textHomeContent.tdes02}
+                </PartDescriptionInner01>
               </PartDescription01>
             </PartMarkDescription01>
 
@@ -867,6 +869,10 @@ const PartMarkDescription01 = styled(Box)`
     bottom: 100px;
     right: 0px;
   }
+`;
+
+const PartDescriptionInner01 = styled(Box)`
+  width: 100%;
 `;
 
 const PartDescription01 = styled(Box)`
