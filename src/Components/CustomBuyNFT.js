@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { customColor } from "../Config/Color";
 
 const CustomBuyNFT = ({ imageNFT, imageCoin, imageMethod, text, backColor }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
