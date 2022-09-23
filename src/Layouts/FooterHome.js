@@ -8,17 +8,22 @@ const FooterHome = ({ setFlagTerms, setFlagScroll }) => {
   return (
     <StyledComponent>
       {textFooter.tt01.en}
-      {"\u00a0"}
-      <Box
-        display={"flex"}
-        onClick={() => {
-          setFlagScroll(true);
-          setFlagTerms(true);
-        }}
-        style={{ cursor: "pointer" }}
-      >
-        <u>{textFooter.textTerm.en}</u>
-      </Box>
+      {false ?
+      <>
+        {"\u00a0"}
+        <Box
+          display={"flex"}
+          onClick={() => {
+            setFlagScroll(true);
+            setFlagTerms(true);
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          <u>{textFooter.textTerm.en}</u>
+        </Box>
+        </>
+      : <></>  
+    }
     </StyledComponent>
   );
 };
