@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../Config/Color";
-import { textNavbar } from "../Config/Text";
+import { TEXT_TopNavbar } from "../Config/Text";
 import imgLogo01 from "../Assets/image/logo01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
 import imgBoat01 from "../Assets/image/boat01.png";
@@ -21,10 +21,9 @@ const TopNavbarHome = ({
   setFlagTerms,
 }) => {
   const navigate = useNavigate();
-
+  const textNavbar = !flagLanguage ? TEXT_TopNavbar.EN : TEXT_TopNavbar.CH;
   const handleClose = () => setOpen(false);
   const [open, setOpen] = useState(false);
-
   const handleScroll = () => {
     let position = window.pageYOffset;
     if (position > 80) {
@@ -63,10 +62,10 @@ const TopNavbarHome = ({
       </PartLogo01>
       <PartLink01>
         <Button01 flagscroll={flagScroll ? 1 : 0}>
-          {textNavbar.tb01.en}
+          {textNavbar.tb01}
           <PartComingSoon01 flagscroll={flagScroll ? 1 : 0}>
             <TextComingSoon01 flagscroll={flagScroll ? 1 : 0}>
-              {textNavbar.textComingSoon.en}
+              {textNavbar.textComingSoon}
             </TextComingSoon01>
           </PartComingSoon01>
         </Button01>
@@ -86,7 +85,7 @@ const TopNavbarHome = ({
                 setFlagTerms(false);
               }}
             >
-              {textNavbar.tb02.en}
+              {textNavbar.tb02}
             </EachLink01>
           </a>
           <a href="#about" style={{ textDecoration: "none" }}>
@@ -96,7 +95,7 @@ const TopNavbarHome = ({
                 setFlagTerms(false);
               }}
             >
-              {textNavbar.tb03.en}
+              {textNavbar.tb03}
             </EachLink01>
           </a>
           <a href="#utility" style={{ textDecoration: "none" }}>
@@ -106,7 +105,7 @@ const TopNavbarHome = ({
                 setFlagTerms(false);
               }}
             >
-              {textNavbar.tb04.en}
+              {textNavbar.tb04}
             </EachLink01>
           </a>
           <a href="#progress" style={{ textDecoration: "none" }}>
@@ -116,7 +115,7 @@ const TopNavbarHome = ({
                 setFlagTerms(false);
               }}
             >
-              {textNavbar.tb05.en}
+              {textNavbar.tb05}
             </EachLink01>
           </a>
           <Button02
@@ -127,7 +126,7 @@ const TopNavbarHome = ({
               handleClose();
             }}
           >
-            {textNavbar.tb06.en}
+            {textNavbar.tb06}
           </Button02>
           <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
             <img
@@ -220,7 +219,7 @@ const TopNavbarHome = ({
                     handleClose();
                   }}
                 >
-                  {textNavbar.tb02.en}
+                  {textNavbar.tb02}
                 </ModalEachLink01>
               </a>
               <a href="#about" style={{ textDecoration: "none" }}>
@@ -230,7 +229,7 @@ const TopNavbarHome = ({
                     handleClose();
                   }}
                 >
-                  {textNavbar.tb03.en}
+                  {textNavbar.tb03}
                 </ModalEachLink01>
               </a>
               <a href="#utility" style={{ textDecoration: "none" }}>
@@ -240,7 +239,7 @@ const TopNavbarHome = ({
                     handleClose();
                   }}
                 >
-                  {textNavbar.tb04.en}
+                  {textNavbar.tb04}
                 </ModalEachLink01>
               </a>
               <a href="#progress" style={{ textDecoration: "none" }}>
@@ -250,7 +249,7 @@ const TopNavbarHome = ({
                     handleClose();
                   }}
                 >
-                  {textNavbar.tb05.en}
+                  {textNavbar.tb05}
                 </ModalEachLink01>
               </a>
               <Button02
@@ -260,7 +259,7 @@ const TopNavbarHome = ({
                   handleClose();
                 }}
               >
-                {textNavbar.tb06.en}
+                {textNavbar.tb06}
               </Button02>
             </ModalLinkPart01>
           </ModalPartUp01>

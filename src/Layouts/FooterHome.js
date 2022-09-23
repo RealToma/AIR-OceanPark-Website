@@ -1,13 +1,14 @@
 import React from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textFooter } from "../Config/Text";
+import { TEXT_Footer } from "../Config/Text";
 import { customColor } from "../Config/Color";
 
-const FooterHome = ({ setFlagTerms, setFlagScroll }) => {
+const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
+  const textFooter = !flagLanguage ? TEXT_Footer.EN : TEXT_Footer.CH;
   return (
     <StyledComponent>
-      {textFooter.tt01.en}
+      {textFooter.tt01}
       {"\u00a0"}
       <Box
         display={"flex"}
@@ -17,7 +18,7 @@ const FooterHome = ({ setFlagTerms, setFlagScroll }) => {
         }}
         style={{ cursor: "pointer" }}
       >
-        <u>{textFooter.textTerm.en}</u>
+        <u>{textFooter.textTerm}</u>
       </Box>
     </StyledComponent>
   );

@@ -3,10 +3,10 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../Config/Color";
 import {
-  textHomeContent,
-  textHomeUtility,
-  textHomeProgress,
-  textTerms,
+  TEXT_HomeContent,
+  TEXT_HomeUtility,
+  TEXT_HomeProgress,
+  TEXT_Terms,
 } from "../Config/Text";
 import EachProgress from "../Components/EachProgress";
 import imgPolygon01 from "../Assets/image/back_polygon01.png";
@@ -77,6 +77,17 @@ const Home = () => {
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagTerms, setFlagTerms] = useState(false);
 
+  const textHomeContent = !flagLanguage
+    ? TEXT_HomeContent.EN
+    : TEXT_HomeContent.CH;
+  const textHomeUtility = !flagLanguage
+    ? TEXT_HomeUtility.EN
+    : TEXT_HomeUtility.CH;
+  const textHomeProgress = !flagLanguage
+    ? TEXT_HomeProgress.EN
+    : TEXT_HomeProgress.CH;
+  const textTerms = !flagLanguage ? TEXT_Terms.EN : TEXT_Terms.CH;
+
   useEffect(() => {
     setTimeout(() => {
       let tempFlag;
@@ -133,7 +144,7 @@ const Home = () => {
               <PartMark01>
                 <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
               </PartMark01>
-              <PartDescription01>{textHomeContent.tdes01.en}</PartDescription01>
+              <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
             </PartMarkDescription01>
 
             <PartMarkGroup01>
@@ -184,7 +195,7 @@ const Home = () => {
           <PartMainOcean01 id="ocean">
             <PartOcean01>
               <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle02>{textHomeContent.tt01.en}</TextTitle02>
+                <TextTitle02>{textHomeContent.tt01}</TextTitle02>
                 <img
                   src={!flagLanguage ? imgBackEN01 : imgBackCH01}
                   width={"100%"}
@@ -193,8 +204,8 @@ const Home = () => {
                 />
               </PartOceanLeft01>
               <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle03>{textHomeContent.tt01.en}</TextTitle03>
-                <TextContent01>{textHomeContent.tc01.en}</TextContent01>
+                <TextTitle03>{textHomeContent.tt01}</TextTitle03>
+                <TextContent01>{textHomeContent.tc01}</TextContent01>
                 <a
                   href={
                     !flagLanguage
@@ -212,15 +223,15 @@ const Home = () => {
                     <InsertLinkRoundedIcon />
                     {"\u00a0"}
                     {"\u00a0"}
-                    {textHomeContent.textVisitSite.en}
+                    {textHomeContent.textVisitSite}
                   </ButtonVisitLink01>
                 </a>
               </PartOceanRight01>
             </PartOcean01>
             <PartOcean01>
               <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle01>{textHomeContent.tt02.en}</TextTitle01>
-                <TextContent01>{textHomeContent.tc02.en}</TextContent01>
+                <TextTitle01>{textHomeContent.tt02}</TextTitle01>
+                <TextContent01>{textHomeContent.tc02}</TextContent01>
               </PartOceanLeft01>
               <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
                 <img src={imgBack02} width={"100%"} alt="" />
@@ -293,7 +304,7 @@ const Home = () => {
               data-aos-offset="150"
               data-aos-duration="1000"
             >
-              {textHomeContent.tc03.en}
+              {textHomeContent.tc03}
             </PartDetailsText01>
             <PartBox01
               data-aos="fade-right"
@@ -316,14 +327,14 @@ const Home = () => {
               data-aos-offset="250"
               data-aos-duration="500"
             >
-              {textHomeUtility.tt01.en}
+              {textHomeUtility.tt01}
             </TextTitle01>
             <TextDescription01
               data-aos="fade-up"
               data-aos-offset="250"
               data-aos-duration="500"
             >
-              {textHomeUtility.tdes01.en}
+              {textHomeUtility.tdes01}
             </TextDescription01>
             <PartGrid01>
               <GridEach01
@@ -339,7 +350,7 @@ const Home = () => {
                     alt=""
                   />
                 </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc01.en}</TextDescription02>
+                <TextDescription02>{textHomeUtility.tc01}</TextDescription02>
               </GridEach01>
               <GridEach01
                 data-aos="fade-up"
@@ -354,7 +365,7 @@ const Home = () => {
                     alt=""
                   />
                 </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc02.en}</TextDescription02>
+                <TextDescription02>{textHomeUtility.tc02}</TextDescription02>
               </GridEach01>
               <GridEach01
                 data-aos="fade-up"
@@ -369,7 +380,7 @@ const Home = () => {
                     alt=""
                   />
                 </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc03.en}</TextDescription02>
+                <TextDescription02>{textHomeUtility.tc03}</TextDescription02>
               </GridEach01>
               <GridEach01
                 data-aos="fade-up"
@@ -379,7 +390,7 @@ const Home = () => {
                 <PartIcon01>
                   <img src={iconUser01} width={"100%"} height={"100%"} alt="" />
                 </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc04.en}</TextDescription02>
+                <TextDescription02>{textHomeUtility.tc04}</TextDescription02>
               </GridEach01>
               <GridEach01
                 data-aos="fade-up"
@@ -394,7 +405,7 @@ const Home = () => {
                     alt=""
                   />
                 </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc05.en}</TextDescription02>
+                <TextDescription02>{textHomeUtility.tc05}</TextDescription02>
               </GridEach01>
               <GridEach01
                 data-aos="fade-up"
@@ -409,7 +420,7 @@ const Home = () => {
                     alt=""
                   />
                 </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc06.en}</TextDescription02>
+                <TextDescription02>{textHomeUtility.tc06}</TextDescription02>
               </GridEach01>
             </PartGrid01>
             <PartDolphin01
@@ -426,43 +437,43 @@ const Home = () => {
               data-aos-offset="150"
               data-aos-duration="500"
             >
-              {textHomeProgress.tt01.en}
+              {textHomeProgress.tt01}
             </TextTitle01>
             <PartRoadmap01>
               <EachProgress
-                date={textHomeProgress.tdate01.en}
+                date={textHomeProgress.tdate01}
                 image={imgProgress01}
-                text={textHomeProgress.tdes01.en}
+                text={textHomeProgress.tdes01}
               />
               <EachProgress
-                date={textHomeProgress.tdate02.en}
+                date={textHomeProgress.tdate02}
                 image={imgProgress02}
-                text={textHomeProgress.tdes02.en}
+                text={textHomeProgress.tdes02}
               />
               <EachProgress
-                date={textHomeProgress.tdate03.en}
+                date={textHomeProgress.tdate03}
                 image={imgProgress03}
-                text={textHomeProgress.tdes03.en}
+                text={textHomeProgress.tdes03}
               />
               <EachProgress
-                date={textHomeProgress.tdate04.en}
+                date={textHomeProgress.tdate04}
                 image=""
-                text={textHomeProgress.tdes04.en}
+                text={textHomeProgress.tdes04}
               />
               <EachProgress
-                date={textHomeProgress.tdate05.en}
+                date={textHomeProgress.tdate05}
                 image=""
-                text={textHomeProgress.tdes05.en}
+                text={textHomeProgress.tdes05}
               />
               <EachProgress
-                date={textHomeProgress.tdate06.en}
+                date={textHomeProgress.tdate06}
                 image=""
-                text={textHomeProgress.tdes06.en}
+                text={textHomeProgress.tdes06}
               />
               <EachProgress
-                date={textHomeProgress.tdate07.en}
+                date={textHomeProgress.tdate07}
                 image=""
-                text={textHomeProgress.tdes07.en}
+                text={textHomeProgress.tdes07}
               />
             </PartRoadmap01>
             <PartPen01
@@ -497,7 +508,7 @@ const Home = () => {
         </>
       ) : (
         <PartTems01>
-          <PartTermsTitle01>{textTerms.title01.en}</PartTermsTitle01>
+          <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
           <PartTermsContent01>
             Age requirements
             <br />
@@ -569,14 +580,17 @@ const Home = () => {
           </PartTermsContent01>
         </PartTems01>
       )}
-      <FooterHome setFlagTerms={setFlagTerms} setFlagScroll={setFlagScroll} />
+      <FooterHome
+        setFlagTerms={setFlagTerms}
+        setFlagScroll={setFlagScroll}
+        flagLanguage={flagLanguage}
+      />
     </StyledComponent>
   );
 };
 
 const StyledComponent = styled(Box)`
   display: flex;
-  width: 100%;
   height: ${({ flagterms }) => (!flagterms ? "100%" : "100vh")};
   flex-direction: column;
   align-items: center;
@@ -1584,11 +1598,10 @@ const PartTermsTitle01 = styled(Box)`
   /* identical to box height */
   letter-spacing: -0.02em;
 
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 500px) {
     font-size: 20px;
   }
-
 `;
 
 const PartTermsContent01 = styled(Box)`

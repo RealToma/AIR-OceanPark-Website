@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textBuyNFT } from "../Config/Text";
+import { textBuyNFT } from "../Config/Text_";
 import { customColor } from "../Config/Color";
 import TopNavbarAccount from "../Layouts/TopNavbarAccount";
 import FooterAccount from "../Layouts/FooterAccount";

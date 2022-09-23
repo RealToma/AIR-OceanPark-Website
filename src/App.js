@@ -10,29 +10,24 @@ import Login from "./Pages/Auth/Login";
 import Signup from "./Pages/Auth/Signup";
 import CreatePlayer from "./Pages/Auth/CreatePlayer";
 import BuyNFT from "./Pages/BuyNFT";
-import { ParallaxProvider } from "react-scroll-parallax";
 
 const App = () => {
   return (
-    <ParallaxProvider>
-      <StyledComponent>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/createPlayer" element={<CreatePlayer />} />
-            <Route
-              path="/buyNFT"
-              element={
-                localStorage.getItem("userToken") ? <BuyNFT /> : <Home />
-              }
-            />
-          </Routes>
-        </BrowserRouter>
-        <NotificationContainer />
-      </StyledComponent>
-    </ParallaxProvider>
+    <StyledComponent>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/createPlayer" element={<CreatePlayer />} />
+          <Route
+            path="/buyNFT"
+            element={localStorage.getItem("userToken") ? <BuyNFT /> : <Home />}
+          />
+        </Routes>
+      </BrowserRouter>
+      <NotificationContainer />
+    </StyledComponent>
   );
 };
 

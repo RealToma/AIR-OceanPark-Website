@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textFooter } from "../Config/Text";
+import { textFooter } from "../Config/Text_";
 import { customColor } from "../Config/Color";
 
 const FooterAccount = () => {

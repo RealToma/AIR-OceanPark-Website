@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textSignup } from "../../Config/Text";
+import { textSignup } from "../../Config/Text_";
 import { customColor } from "../../Config/Color";
 import TopNavbarAccount from "../../Layouts/TopNavbarAccount";
 import FooterAccount from "../../Layouts/FooterAccount";
