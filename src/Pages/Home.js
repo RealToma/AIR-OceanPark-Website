@@ -71,7 +71,19 @@ import FooterHome from "../Layouts/FooterHome";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import { useParallax } from "react-scroll-parallax";
+
 const Home = () => {
+  const parallaxAbout = useParallax({
+    speed: -3,
+    offset: 0.1,
+  });
+
+  const parallaxUtility = useParallax({
+    speed: -3,
+    offset: 0.1,
+  });
+
   const [flagRotate, setFlagRotate] = useState(0);
   const [flagLanguage, setFlagLanguage] = useState(false);
   const [flagScroll, setFlagScroll] = useState(false);
@@ -285,7 +297,7 @@ const Home = () => {
               <img src={imgBat01} width={"100%"} alt="" />
             </PartBat01>
           </PartMainOcean01>
-          <PartAbout01 id="about">
+          <PartAbout01 id="about" ref={parallaxAbout.ref}>
             <PartMarkGroup02
               data-aos="slide-up"
               data-aos-offset="150"
@@ -312,7 +324,7 @@ const Home = () => {
             <PartDetailsText01
               data-aos="slide-up"
               data-aos-offset="150"
-              data-aos-duration="1000"
+              data-aos-duration="500"
             >
               {textHomeContent.tc03}
             </PartDetailsText01>
@@ -331,7 +343,7 @@ const Home = () => {
               <img src={imgCover01} width={"100%"} alt="" />
             </PartCover01>
           </PartAbout01>
-          <PartUtility01 id="utility">
+          <PartUtility01 id="utility" ref={parallaxUtility.ref}>
             <TextTitle01
               data-aos="fade-up"
               data-aos-offset="250"
@@ -956,6 +968,9 @@ const PartMainOcean01 = styled(Box)`
   @media (max-width: 1200px) {
     padding-left: 50px;
     padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    gap: 30px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
@@ -969,6 +984,7 @@ const PartOcean01 = styled(Box)`
   gap: 50px;
   @media (max-width: 1200px) {
     flex-direction: column;
+    gap: 20px;
   }
 `;
 
