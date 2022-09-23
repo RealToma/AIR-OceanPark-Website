@@ -825,19 +825,19 @@ const PartMarkHallo01 = styled(Box)`
 `;
 
 const PartMark01 = styled(Box)`
-  width: 385px;
-  height: 120px;
+  width: 282px;
+  height: 110px;
   z-index: 87;
 
   transition: 0.5s;
-  @media (max-width: 900px) {
+  /* @media (max-width: 900px) {
     width: 330px;
     height: 100px;
   }
   @media (max-width: 500px) {
     width: 300px;
     height: 90px;
-  }
+  } */
 `;
 
 const PartMarkDescription01 = styled(Box)`
