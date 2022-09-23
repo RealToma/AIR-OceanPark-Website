@@ -18,18 +18,16 @@ const App = () => {
       <StyledComponent>
         <BrowserRouter>
           <Routes>
-            <Route>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/createPlayer" element={<CreatePlayer />} />
-              <Route
-                path="/buyNFT"
-                element={
-                  localStorage.getItem("userToken") ? <BuyNFT /> : <Home />
-                }
-              />
-            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/createPlayer" element={<CreatePlayer />} />
+            <Route
+              path="/buyNFT"
+              element={
+                localStorage.getItem("userToken") ? <BuyNFT /> : <Home />
+              }
+            />
           </Routes>
         </BrowserRouter>
         <NotificationContainer />

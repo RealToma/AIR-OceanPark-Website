@@ -13,16 +13,14 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 const TopNavbarHome = ({
-  refOcean,
-  refOcean1,
-  refAbout,
-  refUtility,
-  refProgress,
   flagLanguage,
   setFlagLanguage,
+  flagScroll,
+  setFlagScroll,
+  flagTerms,
+  setFlagTerms,
 }) => {
   const navigate = useNavigate();
-  const [flagScroll, setFlagScroll] = useState(false);
 
   const handleClose = () => setOpen(false);
   const [open, setOpen] = useState(false);
@@ -37,15 +35,21 @@ const TopNavbarHome = ({
   };
 
   useEffect(() => {
+    if (flagTerms) {
+      setFlagScroll(true);
+      return;
+    }
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [flagTerms]);
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
       <PartLogo01
         onClick={() => {
+          setFlagTerms(false);
+          setFlagScroll(false);
           navigate("/");
           window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }}
@@ -75,43 +79,46 @@ const TopNavbarHome = ({
           <MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
         </PartMenuIcon01>
         <PartMobile01>
-          <EachLink01
-            flagscroll={flagScroll ? 1 : 0}
-            onClick={() => {
-              refOcean.current.scrollIntoView({ behavior: "smooth" });
-              refOcean1.current.scrollIntoView({ behavior: "smooth" });
-              handleClose();
-            }}
-          >
-            {textNavbar.tb02.en}
-          </EachLink01>
-          <EachLink01
-            flagscroll={flagScroll ? 1 : 0}
-            onClick={() => {
-              refAbout.current.scrollIntoView({ behavior: "smooth" });
-              handleClose();
-            }}
-          >
-            {textNavbar.tb03.en}
-          </EachLink01>
-          <EachLink01
-            flagscroll={flagScroll ? 1 : 0}
-            onClick={() => {
-              refUtility.current.scrollIntoView({ behavior: "smooth" });
-              handleClose();
-            }}
-          >
-            {textNavbar.tb04.en}
-          </EachLink01>
-          <EachLink01
-            flagscroll={flagScroll ? 1 : 0}
-            onClick={() => {
-              refProgress.current.scrollIntoView({ behavior: "smooth" });
-              handleClose();
-            }}
-          >
-            {textNavbar.tb05.en}
-          </EachLink01>
+          <a href="#ocean" style={{ textDecoration: "none" }}>
+            <EachLink01
+              flagscroll={flagScroll ? 1 : 0}
+              onClick={() => {
+                setFlagTerms(false);
+              }}
+            >
+              {textNavbar.tb02.en}
+            </EachLink01>
+          </a>
+          <a href="#about" style={{ textDecoration: "none" }}>
+            <EachLink01
+              flagscroll={flagScroll ? 1 : 0}
+              onClick={() => {
+                setFlagTerms(false);
+              }}
+            >
+              {textNavbar.tb03.en}
+            </EachLink01>
+          </a>
+          <a href="#utility" style={{ textDecoration: "none" }}>
+            <EachLink01
+              flagscroll={flagScroll ? 1 : 0}
+              onClick={() => {
+                setFlagTerms(false);
+              }}
+            >
+              {textNavbar.tb04.en}
+            </EachLink01>
+          </a>
+          <a href="#progress" style={{ textDecoration: "none" }}>
+            <EachLink01
+              flagscroll={flagScroll ? 1 : 0}
+              onClick={() => {
+                setFlagTerms(false);
+              }}
+            >
+              {textNavbar.tb05.en}
+            </EachLink01>
+          </a>
           <Button02
             flagscroll={flagScroll ? 1 : 0}
             onClick={() => {
@@ -206,39 +213,46 @@ const TopNavbarHome = ({
               </HeaderRight01>
             </ModalHeader01>
             <ModalLinkPart01>
-              <ModalEachLink01
-                onClick={() => {
-                  refOcean.current.scrollIntoView({ behavior: "smooth" });
-                  refOcean1.current.scrollIntoView({ behavior: "smooth" });
-                  handleClose();
-                }}
-              >
-                {textNavbar.tb02.en}
-              </ModalEachLink01>
-              <ModalEachLink01
-                onClick={() => {
-                  refAbout.current.scrollIntoView({ behavior: "smooth" });
-                  handleClose();
-                }}
-              >
-                {textNavbar.tb03.en}
-              </ModalEachLink01>
-              <ModalEachLink01
-                onClick={() => {
-                  refUtility.current.scrollIntoView({ behavior: "smooth" });
-                  handleClose();
-                }}
-              >
-                {textNavbar.tb04.en}
-              </ModalEachLink01>
-              <ModalEachLink01
-                onClick={() => {
-                  refProgress.current.scrollIntoView({ behavior: "smooth" });
-                  handleClose();
-                }}
-              >
-                {textNavbar.tb05.en}
-              </ModalEachLink01>
+              <a href="#ocean" style={{ textDecoration: "none" }}>
+                <ModalEachLink01
+                  onClick={() => {
+                    setFlagTerms(false);
+                    handleClose();
+                  }}
+                >
+                  {textNavbar.tb02.en}
+                </ModalEachLink01>
+              </a>
+              <a href="#about" style={{ textDecoration: "none" }}>
+                <ModalEachLink01
+                  onClick={() => {
+                    setFlagTerms(false);
+                    handleClose();
+                  }}
+                >
+                  {textNavbar.tb03.en}
+                </ModalEachLink01>
+              </a>
+              <a href="#utility" style={{ textDecoration: "none" }}>
+                <ModalEachLink01
+                  onClick={() => {
+                    setFlagTerms(false);
+                    handleClose();
+                  }}
+                >
+                  {textNavbar.tb04.en}
+                </ModalEachLink01>
+              </a>
+              <a href="#progress" style={{ textDecoration: "none" }}>
+                <ModalEachLink01
+                  onClick={() => {
+                    setFlagTerms(false);
+                    handleClose();
+                  }}
+                >
+                  {textNavbar.tb05.en}
+                </ModalEachLink01>
+              </a>
               <Button02
                 flagscroll={flagScroll ? 1 : 1}
                 onClick={() => {
@@ -303,7 +317,7 @@ const TopNavbarHome = ({
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  height:80px;
+  height: 80px;
   position: fixed;
   padding-left: 150px;
   padding-right: 150px;

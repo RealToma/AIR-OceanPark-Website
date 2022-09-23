@@ -10,4 +10,5 @@ export const customColor = {
   textColor02: "#414141",
   textColor03: "black",
   textColor04: "#E93030",
+  textTerms: "#414141"
 };

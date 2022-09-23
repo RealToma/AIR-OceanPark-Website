@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { textFooter } from "../Config/Text";
 import { customColor } from "../Config/Color";
 
-const FooterHome = () => {
+const FooterHome = ({ setFlagTerms, setFlagScroll }) => {
   return (
     <StyledComponent>
       {textFooter.tt01.en}
@@ -12,9 +12,10 @@ const FooterHome = () => {
       <Box
         display={"flex"}
         onClick={() => {
-          alert();
+          setFlagScroll(true);
+          setFlagTerms(true);
         }}
-        style={{cursor:'pointer'}}
+        style={{ cursor: "pointer" }}
       >
         <u>{textFooter.textTerm.en}</u>
       </Box>
@@ -25,7 +26,8 @@ const FooterHome = () => {
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  height: 175px;
+  min-height: 175px;
+
   background-color: ${customColor.mainColor02};
   color: ${customColor.mainColor01};
   padding-left: 150px;
@@ -47,7 +49,7 @@ const StyledComponent = styled(Box)`
   @media (max-width: 1200px) {
     padding-left: 50px;
     padding-right: 50px;
-    height: 120px;
+    min-height: 120px;
     justify-content: center;
   }
   @media (max-width: 500px) {

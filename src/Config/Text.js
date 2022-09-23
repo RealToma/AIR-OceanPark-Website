@@ -332,3 +332,14 @@ export const textBuyNFT = {
     ch: "",
   },
 };
+
+export const textTerms = {
+  title01: {
+    en: "Terms & Conditions",
+    ch: "",
+  },
+  content01: {
+    en: "Age requirements If you’re under the age required to manage your own Google Account, you must have your parent or legal guardian’s permission to use a Google Account. Please ask your parent or legal guardian to read these terms with you. If you’re a parent or legal guardian, and you allow your child to use the services, then these terms apply to you and you’re responsible for your child’s activity on the services. Some Google services have additional age requirements as described in their service-specific additional terms and policies. Your relationship with Google These terms help define the relationship between you and Google. Broadly speaking, we give you permission to use our services if you agree to follow these terms, which reflect how Google’s business works and how we earn money. When we speak of 'Google', 'we', 'us' and 'our', we mean Google LLC and its affiliates. What you can expect from us Provide a broad range of useful services We provide a broad range of services that are subject to these terms, including: apps and sites (like Search and Maps) platforms (like Google Shopping) integrated services (like Maps embedded in other companies’ apps or sites) devices (like Google Nest) Many of these services also include content that you can stream or interact with. Our services are designed to work together, making it easier for you to move from one activity to the next. For example, if your Calendar event includes an address, you can click on that address and Maps can show you how to get there. Develop, improve and update Google services We’re constantly developing new technologies and features to improve our services. For example, we use artificial intelligence and machine learning to provide you with simultaneous translations and to better detect and block spam and malware. As part of this continual improvement, we sometimes add or remove features and functionalities, increase or decrease limits to our services and start offering new services or stop offering old ones. When a service requires or includes downloadable software, that software sometimes updates automatically on your device once a new version or feature is available. Some services let you adjust your automatic update settings. If we make material changes that negatively impact your use of our services or if we stop offering a service, we’ll provide you with reasonable advance notice, except in urgent situations such as preventing abuse, responding to legal requirements or addressing security and operability issues. We’ll also provide you with an opportunity to export your content from your Google Account using Google Takeout, subject to applicable law and policies.",
+    ch: "",
+  },
+};

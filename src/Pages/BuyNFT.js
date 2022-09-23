@@ -13,9 +13,9 @@ import EachList from "../Components/EachList";
 import CustomBuyNFT from "../Components/CustomBuyNFT";
 
 import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png"
-import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
-import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
-import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
+// import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
+// import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
+// import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 
 const BuyNFT = () => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
