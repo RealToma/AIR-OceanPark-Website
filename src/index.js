@@ -27,9 +27,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <I18nextProvider i18n={i18next}> */}
-      <ParallaxProvider>
-        <App />
-      </ParallaxProvider>
+    <ParallaxProvider>
+      <App />
+    </ParallaxProvider>
     {/* </I18nextProvider> */}
   </React.StrictMode>
 );
