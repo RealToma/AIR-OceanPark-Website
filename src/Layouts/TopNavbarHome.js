@@ -118,25 +118,29 @@ const TopNavbarHome = ({
               {textNavbar.tb05}
             </EachLink01>
           </a>
-          <Button02
-            flagscroll={flagScroll ? 1 : 0}
-            onClick={() => {
-              setFlagScroll(false);
-              navigate("/login");
-              handleClose();
-            }}
-          >
-            {textNavbar.tb06}
-          </Button02>
-          <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
-            <img
-              src={!flagScroll ? imgBoat01 : imgBoat02}
-              width="100%"
-              height="100%"
-              alt=""
-            />
-          </ImgBoat01>
-
+          {false ?
+            <>
+              <Button02
+                flagscroll={flagScroll ? 1 : 0}
+                onClick={() => {
+                  setFlagScroll(false);
+                  navigate("/login");
+                  handleClose();
+                }}
+              >
+                {textNavbar.tb06}
+              </Button02>
+              <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
+                <img
+                  src={!flagScroll ? imgBoat01 : imgBoat02}
+                  width="100%"
+                  height="100%"
+                  alt=""
+                />
+              </ImgBoat01>
+            </>
+            : <></>
+          }
           <ButtonLanguage01>
             {!flagLanguage ? (
               <>
@@ -252,22 +256,32 @@ const TopNavbarHome = ({
                   {textNavbar.tb05}
                 </ModalEachLink01>
               </a>
-              <Button02
-                flagscroll={flagScroll ? 1 : 1}
-                onClick={() => {
-                  navigate("/login");
-                  handleClose();
-                }}
-              >
-                {textNavbar.tb06}
-              </Button02>
+              {false ?
+                <>
+                  <Button02
+                    flagscroll={flagScroll ? 1 : 1}
+                    onClick={() => {
+                      navigate("/login");
+                      handleClose();
+                    }}
+                  >
+                    {textNavbar.tb06}
+                  </Button02>
+                </>
+                : <></>
+              }
             </ModalLinkPart01>
           </ModalPartUp01>
 
           <ModalFooter01>
-            <ImgBoat02>
-              <img src={imgBoat02} width="100%" height="100%" alt="" />
-            </ImgBoat02>
+            {false ?
+              <>
+                <ImgBoat02>
+                  <img src={imgBoat02} width="100%" height="100%" alt="" />
+                </ImgBoat02>
+              </>
+              : <></>
+            }
 
             <ButtonLanguage01 ml={"20px"}>
               {!flagLanguage ? (
@@ -415,7 +429,7 @@ const Button01 = styled(Box)`
   &:hover {
     box-shadow: 0px 0px 10px
       ${({ flagscroll }) =>
-        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {
     box-shadow: none;
@@ -497,7 +511,7 @@ const EachLink01 = styled(Box)`
   &:hover {
     text-shadow: 0px 0px 10px
       ${({ flagscroll }) =>
-        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {
     text-shadow: none;
@@ -513,7 +527,7 @@ const Button02 = styled(Box)`
     !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   border: 1px solid
     ${({ flagscroll }) =>
-      !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   justify-content: center;
   align-items: center;
   font-family: "Rubik";
@@ -529,7 +543,7 @@ const Button02 = styled(Box)`
   &:hover {
     box-shadow: 0px 0px 10px
       ${({ flagscroll }) =>
-        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {
     box-shadow: none;
@@ -549,7 +563,7 @@ const ImgBoat01 = styled(Box)`
   &:hover {
     box-shadow: 0px 0px 10px
       ${({ flagscroll }) =>
-        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {
     box-shadow: none;
@@ -570,7 +584,7 @@ const ImgBoat02 = styled(Box)`
   &:hover {
     box-shadow: 0px 0px 10px
       ${({ flagscroll }) =>
-        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {
     box-shadow: none;
@@ -717,7 +731,7 @@ const ModalEachLink01 = styled(Box)`
   &:hover {
     text-shadow: 0px 0px 10px
       ${({ flagscroll }) =>
-        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   }
   &:active {
     text-shadow: none;
