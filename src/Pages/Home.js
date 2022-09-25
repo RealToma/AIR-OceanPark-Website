@@ -132,102 +132,19 @@ const Home = () => {
       {!flagTerms ? (
         <>
           <PartTop01>
-            <PartPolygon01>
-              <img
-                src={imgPolygon01}
-                weight={"100%"}
-                height={"100%"}
-                alt={""}
-              />
-            </PartPolygon01>
-            <PartLeaf02>
-              <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
-            </PartLeaf02>
-            <PartMarkHallo01>
-              <a
-                href={
-                  !flagLanguage
-                    ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
-                    : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
-                }
-                target="_blank"
-                rel="noreferrer"
-              >
+            <PartMaxTop01>
+              <PartPolygon01>
                 <img
-                  src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
-                  width={"100%"}
+                  src={imgPolygon01}
+                  weight={"100%"}
                   height={"100%"}
                   alt={""}
                 />
-              </a>
-            </PartMarkHallo01>
-
-            <PartMarkDescription01>
-              <PartMark01>
-                <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
-              </PartMark01>
-              <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
-            </PartMarkDescription01>
-
-            <PartMarkGroup01>
-              <PartMarkOcean01>
-                <img
-                  src={imgMarkOcean01}
-                  width={"100%"}
-                  height={"100%"}
-                  alt=""
-                />
-              </PartMarkOcean01>
-              <PartMutiple01>
-                <CloseIcon
-                  size="small"
-                  sx={{ color: "#88836A", fontSize: "1.5rem" }}
-                />
-              </PartMutiple01>
-              <PartMark02>
-                <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
-              </PartMark02>
-            </PartMarkGroup01>
-
-            <PartNFTRotate01>
-              <PartEachNFT flagrotate={(flagRotate + 0) % 6}>
-                <img src={imgTNFT01} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 1) % 6}>
-                <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
-
-                {/* <PartShadow01>
-              <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
-            </PartShadow01> */}
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 2) % 6}>
-                <img src={imgTNFT03} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 3) % 6}>
-                <img src={imgTNFT04} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 4) % 6}>
-                <img src={imgTNFT05} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 5) % 6}>
-                <img src={imgTNFT06} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-            </PartNFTRotate01>
-          </PartTop01>
-          <PartMainOcean01 id="ocean">
-            <PartOcean01>
-              <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle02>{textHomeContent.tt01}</TextTitle02>
-                <img
-                  src={!flagLanguage ? imgBackEN01 : imgBackCH01}
-                  width={"100%"}
-                  style={{ borderRadius: "6px" }}
-                  alt=""
-                />
-              </PartOceanLeft01>
-              <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle03>{textHomeContent.tt01}</TextTitle03>
-                <TextContent01>{textHomeContent.tc01}</TextContent01>
+              </PartPolygon01>
+              <PartLeaf02>
+                <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
+              </PartLeaf02>
+              <PartMarkHallo01>
                 <a
                   href={
                     !flagLanguage
@@ -236,39 +153,145 @@ const Home = () => {
                   }
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
                 >
-                  <ButtonVisitLink01 onClick={() => {}}>
-                    <InsertLinkRoundedIcon />
-                    {"\u00a0"}
-                    {"\u00a0"}
-                    {textHomeContent.textVisitSite}
-                  </ButtonVisitLink01>
+                  <img
+                    src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt={""}
+                  />
                 </a>
-              </PartOceanRight01>
-            </PartOcean01>
-            <PartOcean01>
-              <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle01>{textHomeContent.tt02}</TextTitle01>
-                <TextContent01>{textHomeContent.tc02}</TextContent01>
-              </PartOceanLeft01>
-              <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
-                <img src={imgBack02} width={"100%"} alt="" />
-                <PartNFT01>
-                  <img src={imgCNFT01} width={"100%"} height={"100%"} alt="" />
-                </PartNFT01>
-                <PartNFT02>
-                  <img src={imgCNFT02} width={"100%"} height={"100%"} alt="" />
-                </PartNFT02>
-                <PartNFT03>
-                  <img src={imgCNFT03} width={"100%"} height={"100%"} alt="" />
-                </PartNFT03>
-              </PartOceanRight01>
-            </PartOcean01>
+              </PartMarkHallo01>
 
+              <PartMarkDescription01>
+                <PartMark01>
+                  <img
+                    src={imgMark01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt={""}
+                  />
+                </PartMark01>
+                <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
+              </PartMarkDescription01>
+
+              <PartMarkGroup01>
+                <PartMarkOcean01>
+                  <img
+                    src={imgMarkOcean01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartMarkOcean01>
+                <PartMutiple01>
+                  <CloseIcon
+                    size="small"
+                    sx={{ color: "#88836A", fontSize: "1.5rem" }}
+                  />
+                </PartMutiple01>
+                <PartMark02>
+                  <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
+                </PartMark02>
+              </PartMarkGroup01>
+
+              <PartNFTRotate01>
+                <PartEachNFT flagrotate={(flagRotate + 0) % 6}>
+                  <img src={imgTNFT01} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 1) % 6}>
+                  <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
+
+                  {/* <PartShadow01>
+              <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
+            </PartShadow01> */}
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 2) % 6}>
+                  <img src={imgTNFT03} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 3) % 6}>
+                  <img src={imgTNFT04} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 4) % 6}>
+                  <img src={imgTNFT05} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 5) % 6}>
+                  <img src={imgTNFT06} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+              </PartNFTRotate01>
+            </PartMaxTop01>
+          </PartTop01>
+          <PartMainOcean01 id="ocean">
+            <PartMaxMainOcean01>
+              <PartOcean01>
+                <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+                  <TextTitle02>{textHomeContent.tt01}</TextTitle02>
+                  <img
+                    src={!flagLanguage ? imgBackEN01 : imgBackCH01}
+                    width={"100%"}
+                    style={{ borderRadius: "6px" }}
+                    alt=""
+                  />
+                </PartOceanLeft01>
+                <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+                  <TextTitle03>{textHomeContent.tt01}</TextTitle03>
+                  <TextContent01>{textHomeContent.tc01}</TextContent01>
+                  <a
+                    href={
+                      !flagLanguage
+                        ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
+                        : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <ButtonVisitLink01 onClick={() => {}}>
+                      <InsertLinkRoundedIcon />
+                      {"\u00a0"}
+                      {"\u00a0"}
+                      {textHomeContent.textVisitSite}
+                    </ButtonVisitLink01>
+                  </a>
+                </PartOceanRight01>
+              </PartOcean01>
+              <PartOcean01>
+                <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+                  <TextTitle01>{textHomeContent.tt02}</TextTitle01>
+                  <TextContent01>{textHomeContent.tc02}</TextContent01>
+                </PartOceanLeft01>
+                <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+                  <img src={imgBack02} width={"100%"} alt="" />
+                  <PartNFT01>
+                    <img
+                      src={imgCNFT01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartNFT01>
+                  <PartNFT02>
+                    <img
+                      src={imgCNFT02}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartNFT02>
+                  <PartNFT03>
+                    <img
+                      src={imgCNFT03}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartNFT03>
+                </PartOceanRight01>
+              </PartOcean01>
+            </PartMaxMainOcean01>
             <PartBottle01
               data-aos="fade-right"
               data-aos-offset="150"
@@ -298,36 +321,38 @@ const Home = () => {
             </PartBat01>
           </PartMainOcean01>
           <PartAbout01 id="about" ref={parallaxAbout.ref}>
-            <PartMarkGroup02
-              data-aos="slide-up"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <PartMarkOcean02>
-                <img
-                  src={imgMarkOcean02}
-                  width={"100%"}
-                  height={"100%"}
-                  alt=""
-                />
-              </PartMarkOcean02>
-              <PartMutiple02>
-                <CloseIcon
-                  size="small"
-                  sx={{ color: "white", fontSize: "2.5rem" }}
-                />
-              </PartMutiple02>
-              <PartMark03>
-                <img src={imgMark03} width={"100%"} height={"100%"} alt="" />
-              </PartMark03>
-            </PartMarkGroup02>
-            <PartDetailsText01
-              data-aos="slide-up"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              {textHomeContent.tc03}
-            </PartDetailsText01>
+            <PartMaxAbout01>
+              <PartMarkGroup02
+                data-aos="slide-up"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                <PartMarkOcean02>
+                  <img
+                    src={imgMarkOcean02}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartMarkOcean02>
+                <PartMutiple02>
+                  <CloseIcon
+                    size="small"
+                    sx={{ color: "white", fontSize: "2.5rem" }}
+                  />
+                </PartMutiple02>
+                <PartMark03>
+                  <img src={imgMark03} width={"100%"} height={"100%"} alt="" />
+                </PartMark03>
+              </PartMarkGroup02>
+              <PartDetailsText01
+                data-aos="slide-up"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                {textHomeContent.tc03}
+              </PartDetailsText01>
+            </PartMaxAbout01>
             <PartBox01
               data-aos="fade-right"
               data-aos-offset="150"
@@ -613,6 +638,7 @@ const Home = () => {
 
 const StyledComponent = styled(Box)`
   display: flex;
+  width: 100%;
   height: ${({ flagterms }) => (!flagterms ? "100%" : "100vh")};
   flex-direction: column;
   align-items: center;
@@ -621,28 +647,45 @@ const StyledComponent = styled(Box)`
 
 const PartTop01 = styled(Box)`
   display: flex;
-  position: relative;
   width: 100%;
-  height: 800px;
-  padding-left: 150px;
-  padding-right: 150px;
-  box-sizing: border-box;
+  justify-content: center;
   background-color: ${customColor.backColor01};
   z-index: 80;
+`;
+
+const PartMaxTop01 = styled(Box)`
+  display: flex;
+  position: relative;
+
+  width: 100%;
+  max-width: 1440px;
+  height: 800px;
   transition: 0.5s;
+
+  padding-left: 120px;
+  padding-right: 120px;
+  box-sizing: border-box;
+
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
-
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   @media (max-width: 500px) {
     height: 650px;
     padding-left: 20px;
     padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
@@ -669,6 +712,7 @@ const PartEachNFT = styled(Box)`
   position: absolute;
   width: 530px;
   height: 530px;
+  display: ${({ flagrotate }) => flagrotate === 5 && "none"};
   transform: ${({ flagrotate }) =>
     flagrotate === 0
       ? "scale(0.5) translateZ(-3px) translateX(-30%)"
@@ -679,7 +723,7 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 3
       ? "scale(1) translateZ(0px) translateX(-30%)"
       : flagrotate === 4
-      ? "scale(0) translateZ(1px) translateX(-30%)"
+      ? "scale(1.5) translateZ(1px) translateX(-30%)"
       : flagrotate === 5
       ? "scale(0) translateZ(-4px) translateX(-30%)"
       : "none"};
@@ -696,7 +740,7 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 3
       ? "0px"
       : flagrotate === 4
-      ? "-1000px"
+      ? "-2000px"
       : flagrotate === 5
       ? "750px"
       : "none"};
@@ -947,34 +991,53 @@ const PartMark02 = styled(Box)`
 
 const PartMainOcean01 = styled(Box)`
   display: flex;
-  position: relative;
   width: 100%;
   height: 100%;
-  padding-left: 150px;
-  padding-right: 150px;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  box-sizing: border-box;
-  flex-direction: column;
+  position: relative;
+  justify-content: center;
   background-color: ${customColor.mainColor01};
-  gap: 50px;
   z-index: 70;
+`;
+
+const PartMaxMainOcean01 = styled(Box)`
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  flex-direction: column;
+  gap: 50px;
 
   transition: 0.5s;
+
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 50px;
     padding-bottom: 100px;
+
     gap: 30px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
@@ -982,7 +1045,7 @@ const PartOcean01 = styled(Box)`
   display: flex;
   width: 100%;
   gap: 50px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
     gap: 20px;
   }
@@ -1192,26 +1255,50 @@ const PartAbout01 = styled(Box)`
   display: flex;
   position: relative;
   width: 100%;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
   background-image: url(${imgBack04});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  z-index: 70;
+`;
+
+const PartMaxAbout01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s;
   padding-top: 100px;
   padding-bottom: 100px;
-  z-index: 70;
+  padding-left: 120px;
+  padding-right: 120px;
+  box-sizing: border-box;
 
-  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
   @media (max-width: 1200px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 50px;
     padding-bottom: 50px;
   }
-
-  transition: 0.5s;
   @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
