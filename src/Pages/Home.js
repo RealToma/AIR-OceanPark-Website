@@ -173,9 +173,11 @@ const Home = () => {
                   />
                 </PartMark01>
                 <PartDescription01>
-                  {textHomeContent.tdes01}
-                  <br />
-                  {textHomeContent.tdes02}
+                  <PartDescriptionInner01>
+                    {textHomeContent.tdes01}
+                    <br />
+                    {textHomeContent.tdes02}
+                  </PartDescriptionInner01>
                 </PartDescription01>
               </PartMarkDescription01>
 
