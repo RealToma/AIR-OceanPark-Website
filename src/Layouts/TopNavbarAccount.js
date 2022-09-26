@@ -7,10 +7,9 @@ import imgLogo02 from "../Assets/image/logo02.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
 import { useNavigate } from "react-router-dom";
 
-const TopNavbarAccount = () => {
+const TopNavbarAccount = ({ flagLanguage, setFlagLanguage }) => {
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
-  const [flagLanguage, setFlagLanguage] = useState(false);
 
   const handleScroll = () => {
     let position = window.pageYOffset;
@@ -111,7 +110,7 @@ const PartMax01 = styled(Box)`
   display: flex;
   width: 100%;
   max-width: 1400px;
-  
+
   z-index: 90;
   padding-left: 120px;
   padding-right: 120px;

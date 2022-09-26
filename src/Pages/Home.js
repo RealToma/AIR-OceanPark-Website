@@ -731,12 +731,25 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 3
       ? "scale(1.2) translateZ(0px) translateX(-30%)"
       : flagrotate === 4
-      ? "scale(1.5) translateZ(1px) translateX(-30%)"
+      ? "scale(1.35) translateZ(1px) translateX(-30%)"
       : flagrotate === 5
       ? "scale(0) translateZ(-4px) translateX(-30%)"
       : "none"};
   transform-style: preserve-3d;
-  opacity: 1;
+  opacity: ${({ flagrotate }) =>
+    flagrotate === 0
+      ? "1"
+      : flagrotate === 1
+      ? "1"
+      : flagrotate === 2
+      ? "1"
+      : flagrotate === 3
+      ? "1"
+      : flagrotate === 4
+      ? "0"
+      : flagrotate === 5
+      ? "1"
+      : "none"};
   transition: 1s;
   left: ${({ flagrotate }) =>
     flagrotate === 0
@@ -748,7 +761,7 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 3
       ? "150px"
       : flagrotate === 4
-      ? "-2000px"
+      ? "-200px"
       : flagrotate === 5
       ? "750px"
       : "none"};
