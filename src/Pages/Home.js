@@ -733,7 +733,7 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 4
       ? "scale(1.35) translateZ(1px) translateX(-30%)"
       : flagrotate === 5
-      ? "scale(0) translateZ(-4px) translateX(-30%)"
+      ? "scale(0.6) translateZ(-4px) translateX(-30%)"
       : "none"};
   transform-style: preserve-3d;
   opacity: ${({ flagrotate }) =>
