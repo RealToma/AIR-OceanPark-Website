@@ -132,108 +132,19 @@ const Home = () => {
       {!flagTerms ? (
         <>
           <PartTop01>
-            <PartPolygon01>
-              <img
-                src={imgPolygon01}
-                weight={"100%"}
-                height={"100%"}
-                alt={""}
-              />
-            </PartPolygon01>
-            <PartLeaf02>
-              <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
-            </PartLeaf02>
-            <PartMarkHallo01>
-              <a
-                href={
-                  !flagLanguage
-                    ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
-                    : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
-                }
-                target="_blank"
-                rel="noreferrer"
-              >
+            <PartMaxTop01>
+              <PartPolygon01>
                 <img
-                  src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
-                  width={"100%"}
+                  src={imgPolygon01}
+                  weight={"100%"}
                   height={"100%"}
                   alt={""}
                 />
-              </a>
-            </PartMarkHallo01>
-
-            <PartMarkDescription01>
-              <PartMark01>
-                <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
-              </PartMark01>
-              <PartDescription01>
-                <PartDescriptionInner01>
-                    {textHomeContent.tdes01}
-                    <br />
-                    {textHomeContent.tdes02}
-                </PartDescriptionInner01>
-              </PartDescription01>
-            </PartMarkDescription01>
-
-            <PartMarkGroup01>
-              <PartMarkOcean01>
-                <img
-                  src={imgMarkOcean01}
-                  width={"100%"}
-                  height={"100%"}
-                  alt=""
-                />
-              </PartMarkOcean01>
-              <PartMutiple01>
-                <CloseIcon
-                  size="small"
-                  sx={{ color: "#88836A", fontSize: "1.5rem" }}
-                />
-              </PartMutiple01>
-              <PartMark02>
-                <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
-              </PartMark02>
-            </PartMarkGroup01>
-
-            <PartNFTRotate01>
-              <PartEachNFT flagrotate={(flagRotate + 0) % 6}>
-                <img src={imgTNFT01} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 1) % 6}>
-                <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
-
-                {/* <PartShadow01>
-              <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
-            </PartShadow01> */}
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 2) % 6}>
-                <img src={imgTNFT03} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 3) % 6}>
-                <img src={imgTNFT04} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 4) % 6}>
-                <img src={imgTNFT05} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-              <PartEachNFT flagrotate={(flagRotate + 5) % 6}>
-                <img src={imgTNFT06} width={"100%"} height={"100%"} alt="" />
-              </PartEachNFT>
-            </PartNFTRotate01>
-          </PartTop01>
-          <PartMainOcean01 id="ocean">
-            <PartOcean01>
-              <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle02>{textHomeContent.tt01}</TextTitle02>
-                <img
-                  src={!flagLanguage ? imgBackEN01 : imgBackCH01}
-                  width={"100%"}
-                  style={{ borderRadius: "6px" }}
-                  alt=""
-                />
-              </PartOceanLeft01>
-              <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle03>{textHomeContent.tt01}</TextTitle03>
-                <TextContent01>{textHomeContent.tc01}</TextContent01>
+              </PartPolygon01>
+              <PartLeaf02>
+                <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
+              </PartLeaf02>
+              <PartMarkHallo01>
                 <a
                   href={
                     !flagLanguage
@@ -242,39 +153,149 @@ const Home = () => {
                   }
                   target="_blank"
                   rel="noreferrer"
-                  style={{
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
                 >
-                  <ButtonVisitLink01 onClick={() => { }}>
-                    <InsertLinkRoundedIcon />
-                    {"\u00a0"}
-                    {"\u00a0"}
-                    {textHomeContent.textVisitSite}
-                  </ButtonVisitLink01>
+                  <img
+                    src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt={""}
+                  />
                 </a>
-              </PartOceanRight01>
-            </PartOcean01>
-            <PartOcean01>
-              <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                <TextTitle01>{textHomeContent.tt02}</TextTitle01>
-                <TextContent01>{textHomeContent.tc02}</TextContent01>
-              </PartOceanLeft01>
-              <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
-                <img src={imgBack02} width={"100%"} alt="" />
-                <PartNFT01>
-                  <img src={imgCNFT01} width={"100%"} height={"100%"} alt="" />
-                </PartNFT01>
-                <PartNFT02>
-                  <img src={imgCNFT02} width={"100%"} height={"100%"} alt="" />
-                </PartNFT02>
-                <PartNFT03>
-                  <img src={imgCNFT03} width={"100%"} height={"100%"} alt="" />
-                </PartNFT03>
-              </PartOceanRight01>
-            </PartOcean01>
+              </PartMarkHallo01>
 
+              <PartMarkDescription01>
+                <PartMark01>
+                  <img
+                    src={imgMark01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt={""}
+                  />
+                </PartMark01>
+                <PartDescription01>
+                  {textHomeContent.tdes01}
+                  <br />
+                  {textHomeContent.tdes02}
+                </PartDescription01>
+              </PartMarkDescription01>
+
+              <PartMarkGroup01>
+                <PartMarkOcean01>
+                  <img
+                    src={imgMarkOcean01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartMarkOcean01>
+                <PartMutiple01>
+                  <CloseIcon
+                    size="small"
+                    sx={{ color: "#88836A", fontSize: "1.5rem" }}
+                  />
+                </PartMutiple01>
+                <PartMark02>
+                  <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
+                </PartMark02>
+              </PartMarkGroup01>
+
+              <PartNFTRotate01>
+                <PartEachNFT flagrotate={(flagRotate + 0) % 6}>
+                  <img src={imgTNFT01} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 1) % 6}>
+                  <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
+
+                  {/* <PartShadow01>
+              <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
+            </PartShadow01> */}
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 2) % 6}>
+                  <img src={imgTNFT03} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 3) % 6}>
+                  <img src={imgTNFT04} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 4) % 6}>
+                  <img src={imgTNFT05} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+                <PartEachNFT flagrotate={(flagRotate + 5) % 6}>
+                  <img src={imgTNFT06} width={"100%"} height={"100%"} alt="" />
+                </PartEachNFT>
+              </PartNFTRotate01>
+            </PartMaxTop01>
+          </PartTop01>
+          <PartMainOcean01 id="ocean">
+            <PartMaxMainOcean01>
+              <PartOcean01>
+                <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+                  <TextTitle02>{textHomeContent.tt01}</TextTitle02>
+                  <img
+                    src={!flagLanguage ? imgBackEN01 : imgBackCH01}
+                    width={"100%"}
+                    style={{ borderRadius: "6px" }}
+                    alt=""
+                  />
+                </PartOceanLeft01>
+                <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+                  <TextTitle03>{textHomeContent.tt01}</TextTitle03>
+                  <TextContent01>{textHomeContent.tc01}</TextContent01>
+                  <a
+                    href={
+                      !flagLanguage
+                        ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
+                        : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <ButtonVisitLink01 onClick={() => {}}>
+                      <InsertLinkRoundedIcon />
+                      {"\u00a0"}
+                      {"\u00a0"}
+                      {textHomeContent.textVisitSite}
+                    </ButtonVisitLink01>
+                  </a>
+                </PartOceanRight01>
+              </PartOcean01>
+              <PartOcean01>
+                <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+                  <TextTitle01>{textHomeContent.tt02}</TextTitle01>
+                  <TextContent01>{textHomeContent.tc02}</TextContent01>
+                </PartOceanLeft01>
+                <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+                  <img src={imgBack02} width={"100%"} alt="" />
+                  <PartNFT01>
+                    <img
+                      src={imgCNFT01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartNFT01>
+                  <PartNFT02>
+                    <img
+                      src={imgCNFT02}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartNFT02>
+                  <PartNFT03>
+                    <img
+                      src={imgCNFT03}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartNFT03>
+                </PartOceanRight01>
+              </PartOcean01>
+            </PartMaxMainOcean01>
             <PartBottle01
               data-aos="fade-right"
               data-aos-offset="150"
@@ -304,36 +325,38 @@ const Home = () => {
             </PartBat01>
           </PartMainOcean01>
           <PartAbout01 id="about" ref={parallaxAbout.ref}>
-            <PartMarkGroup02
-              data-aos="slide-up"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <PartMarkOcean02>
-                <img
-                  src={imgMarkOcean02}
-                  width={"100%"}
-                  height={"100%"}
-                  alt=""
-                />
-              </PartMarkOcean02>
-              <PartMutiple02>
-                <CloseIcon
-                  size="small"
-                  sx={{ color: "white", fontSize: "2.5rem" }}
-                />
-              </PartMutiple02>
-              <PartMark03>
-                <img src={imgMark03} width={"100%"} height={"100%"} alt="" />
-              </PartMark03>
-            </PartMarkGroup02>
-            <PartDetailsText01
-              data-aos="slide-up"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              {textHomeContent.tc03}
-            </PartDetailsText01>
+            <PartMaxAbout01>
+              <PartMarkGroup02
+                data-aos="slide-up"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                <PartMarkOcean02>
+                  <img
+                    src={imgMarkOcean02}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartMarkOcean02>
+                <PartMutiple02>
+                  <CloseIcon
+                    size="small"
+                    sx={{ color: "white", fontSize: "2.5rem" }}
+                  />
+                </PartMutiple02>
+                <PartMark03>
+                  <img src={imgMark03} width={"100%"} height={"100%"} alt="" />
+                </PartMark03>
+              </PartMarkGroup02>
+              <PartDetailsText01
+                data-aos="slide-up"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                {textHomeContent.tc03}
+              </PartDetailsText01>
+            </PartMaxAbout01>
             <PartBox01
               data-aos="fade-right"
               data-aos-offset="150"
@@ -535,90 +558,91 @@ const Home = () => {
           </PartProgress01>
         </>
       ) : (
-        <PartTems01>
-          <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
-          <PartTermsContent01>
-            Age requirements
-            <br />
-            If you’re under the age required to manage your own Google Account,
-            you must have your parent or legal guardian’s permission to use a
-            Google Account. Please ask your parent or legal guardian to read
-            these terms with you.
-            <br />
-            <br />
-            If you’re a parent or legal guardian, and you allow your child to
-            use the services, then these terms apply to you and you’re
-            responsible for your child’s activity on the services.
-            <br />
-            <br />
-            Some Google services have additional age requirements as described
-            in their service-specific additional terms and policies.
-            <br />
-            <br />
-            Your relationship with Google <br />
-            These terms help define the relationship between you and Google.
-            Broadly speaking, we give you permission to use our services if you
-            agree to follow these terms, which reflect how Google’s business
-            works and how we earn money. When we speak of 'Google', 'we', 'us'
-            and 'our', we mean Google LLC and its affiliates.
-            <br />
-            <br />
-            What you can expect from us <br />
-            Provide a broad range of useful services
-            <br />
-            <br />
-            We provide a broad range of services that are subject to these
-            terms, including: <br />
-            apps and sites (like Search and Maps)
-            <br /> platforms (like Google Shopping) <br />
-            integrated services (like Maps embedded in other companies’ apps or
-            sites)
-            <br /> devices (like Google Nest)
-            <br /> Many of these services also include content that you can
-            stream or interact with.
-            <br />
-            <br />
-            Our services are designed to work together, making it easier for you
-            to move from one activity to the next. For example, if your Calendar
-            event includes an address, you can click on that address and Maps
-            can show you how to get there.
-            <br />
-            <br />
-            Develop, improve and update Google services
-            <br />
-            <br /> We’re constantly developing new technologies and features to
-            improve our services. For example, we use artificial intelligence
-            and machine learning to provide you with simultaneous translations
-            and to better detect and block spam and malware. As part of this
-            continual improvement, we sometimes add or remove features and
-            functionalities, increase or decrease limits to our services and
-            start offering new services or stop offering old ones. When a
-            service requires or includes downloadable software, that software
-            sometimes updates automatically on your device once a new version or
-            feature is available. Some services let you adjust your automatic
-            update settings. <br />
-            <br />
-            If we make material changes that negatively impact your use of our
-            services or if we stop offering a service, we’ll provide you with
-            reasonable advance notice, except in urgent situations such as
-            preventing abuse, responding to legal requirements or addressing
-            security and operability issues. We’ll also provide you with an
-            opportunity to export your content from your Google Account using
-            Google Takeout, subject to applicable law and policies.
-          </PartTermsContent01>
-        </PartTems01>
-      )}
-      <FooterHome
-        setFlagTerms={setFlagTerms}
-        setFlagScroll={setFlagScroll}
-        flagLanguage={flagLanguage}
-      />
-    </StyledComponent>
+  <PartTems01>
+    <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
+    <PartTermsContent01>
+      Age requirements
+      <br />
+      If you’re under the age required to manage your own Google Account,
+      you must have your parent or legal guardian’s permission to use a
+      Google Account. Please ask your parent or legal guardian to read
+      these terms with you.
+      <br />
+      <br />
+      If you’re a parent or legal guardian, and you allow your child to
+      use the services, then these terms apply to you and you’re
+      responsible for your child’s activity on the services.
+      <br />
+      <br />
+      Some Google services have additional age requirements as described
+      in their service-specific additional terms and policies.
+      <br />
+      <br />
+      Your relationship with Google <br />
+      These terms help define the relationship between you and Google.
+      Broadly speaking, we give you permission to use our services if you
+      agree to follow these terms, which reflect how Google’s business
+      works and how we earn money. When we speak of 'Google', 'we', 'us'
+      and 'our', we mean Google LLC and its affiliates.
+      <br />
+      <br />
+      What you can expect from us <br />
+      Provide a broad range of useful services
+      <br />
+      <br />
+      We provide a broad range of services that are subject to these
+      terms, including: <br />
+      apps and sites (like Search and Maps)
+      <br /> platforms (like Google Shopping) <br />
+      integrated services (like Maps embedded in other companies’ apps or
+      sites)
+      <br /> devices (like Google Nest)
+      <br /> Many of these services also include content that you can
+      stream or interact with.
+      <br />
+      <br />
+      Our services are designed to work together, making it easier for you
+      to move from one activity to the next. For example, if your Calendar
+      event includes an address, you can click on that address and Maps
+      can show you how to get there.
+      <br />
+      <br />
+      Develop, improve and update Google services
+      <br />
+      <br /> We’re constantly developing new technologies and features to
+      improve our services. For example, we use artificial intelligence
+      and machine learning to provide you with simultaneous translations
+      and to better detect and block spam and malware. As part of this
+      continual improvement, we sometimes add or remove features and
+      functionalities, increase or decrease limits to our services and
+      start offering new services or stop offering old ones. When a
+      service requires or includes downloadable software, that software
+      sometimes updates automatically on your device once a new version or
+      feature is available. Some services let you adjust your automatic
+      update settings. <br />
+      <br />
+      If we make material changes that negatively impact your use of our
+      services or if we stop offering a service, we’ll provide you with
+      reasonable advance notice, except in urgent situations such as
+      preventing abuse, responding to legal requirements or addressing
+      security and operability issues. We’ll also provide you with an
+      opportunity to export your content from your Google Account using
+      Google Takeout, subject to applicable law and policies.
+    </PartTermsContent01>
+  </PartTems01>
+)}
+<FooterHome
+  setFlagTerms={setFlagTerms}
+  setFlagScroll={setFlagScroll}
+  flagLanguage={flagLanguage}
+/>
+    </StyledComponent >
   );
 };
 
 const StyledComponent = styled(Box)`
   display: flex;
+  width: 100%;
   height: ${({ flagterms }) => (!flagterms ? "100%" : "100vh")};
   flex-direction: column;
   align-items: center;
@@ -627,28 +651,45 @@ const StyledComponent = styled(Box)`
 
 const PartTop01 = styled(Box)`
   display: flex;
-  position: relative;
   width: 100%;
-  height: 800px;
-  padding-left: 150px;
-  padding-right: 150px;
-  box-sizing: border-box;
+  justify-content: center;
   background-color: ${customColor.backColor01};
   z-index: 80;
+`;
+
+const PartMaxTop01 = styled(Box)`
+  display: flex;
+  position: relative;
+
+  width: 100%;
+  max-width: 1440px;
+  height: 800px;
   transition: 0.5s;
+
+  padding-left: 120px;
+  padding-right: 120px;
+  box-sizing: border-box;
+
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
-
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   @media (max-width: 500px) {
     height: 650px;
     padding-left: 20px;
     padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
@@ -675,20 +716,21 @@ const PartEachNFT = styled(Box)`
   position: absolute;
   width: 530px;
   height: 530px;
+  display: ${({ flagrotate }) => flagrotate === 5 && "none"};
   transform: ${({ flagrotate }) =>
     flagrotate === 0
       ? "scale(0.5) translateZ(-3px) translateX(-30%)"
       : flagrotate === 1
-        ? "scale(0.7) translateZ(-2px) translateX(-30%)"
-        : flagrotate === 2
-          ? "scale(0.9) translateZ(-1px) translateX(-30%)"
-          : flagrotate === 3
-            ? "scale(1) translateZ(0px) translateX(-30%)"
-            : flagrotate === 4
-              ? "scale(0) translateZ(1px) translateX(-30%)"
-              : flagrotate === 5
-                ? "scale(0) translateZ(-4px) translateX(-30%)"
-                : "none"};
+      ? "scale(0.7) translateZ(-2px) translateX(-30%)"
+      : flagrotate === 2
+      ? "scale(0.9) translateZ(-1px) translateX(-30%)"
+      : flagrotate === 3
+      ? "scale(1) translateZ(0px) translateX(-30%)"
+      : flagrotate === 4
+      ? "scale(1.5) translateZ(1px) translateX(-30%)"
+      : flagrotate === 5
+      ? "scale(0) translateZ(-4px) translateX(-30%)"
+      : "none"};
   transform-style: preserve-3d;
   opacity: 1;
   transition: 1s;
@@ -696,16 +738,16 @@ const PartEachNFT = styled(Box)`
     flagrotate === 0
       ? "750px"
       : flagrotate === 1
-        ? "600px"
-        : flagrotate === 2
-          ? "400px"
-          : flagrotate === 3
-            ? "0px"
-            : flagrotate === 4
-              ? "-1000px"
-              : flagrotate === 5
-                ? "750px"
-                : "none"};
+      ? "600px"
+      : flagrotate === 2
+      ? "400px"
+      : flagrotate === 3
+      ? "0px"
+      : flagrotate === 4
+      ? "-2000px"
+      : flagrotate === 5
+      ? "750px"
+      : "none"};
   bottom: 0px;
   filter: ${({ flagrotate }) =>
     flagrotate === 0
@@ -957,34 +999,53 @@ const PartMark02 = styled(Box)`
 
 const PartMainOcean01 = styled(Box)`
   display: flex;
-  position: relative;
   width: 100%;
   height: 100%;
-  padding-left: 150px;
-  padding-right: 150px;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  box-sizing: border-box;
-  flex-direction: column;
+  position: relative;
+  justify-content: center;
   background-color: ${customColor.mainColor01};
-  gap: 50px;
   z-index: 70;
+`;
+
+const PartMaxMainOcean01 = styled(Box)`
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  flex-direction: column;
+  gap: 50px;
 
   transition: 0.5s;
+
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 50px;
     padding-bottom: 100px;
+
     gap: 30px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
@@ -992,7 +1053,7 @@ const PartOcean01 = styled(Box)`
   display: flex;
   width: 100%;
   gap: 50px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     flex-direction: column;
     gap: 20px;
   }
@@ -1202,26 +1263,50 @@ const PartAbout01 = styled(Box)`
   display: flex;
   position: relative;
   width: 100%;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
   background-image: url(${imgBack04});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  z-index: 70;
+`;
+
+const PartMaxAbout01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s;
   padding-top: 100px;
   padding-bottom: 100px;
-  z-index: 70;
+  padding-left: 120px;
+  padding-right: 120px;
+  box-sizing: border-box;
 
-  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
   @media (max-width: 1200px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 50px;
     padding-bottom: 50px;
   }
-
-  transition: 0.5s;
   @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 

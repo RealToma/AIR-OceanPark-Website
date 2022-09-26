@@ -45,141 +45,139 @@ const TopNavbarHome = ({
   }, [flagTerms]);
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
-      <PartLogo01
-        onClick={() => {
-          setFlagTerms(false);
-          setFlagScroll(false);
-          navigate("/");
-          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        }}
-      >
-        <img
-          src={!flagScroll ? imgLogo01 : imgLogo02}
-          width={"100%"}
-          height={"100%"}
-          alt={""}
-        />
-      </PartLogo01>
-      <PartLink01>
-        <Button01 flagscroll={flagScroll ? 1 : 0}>
-          {textNavbar.tb01}
-          <PartComingSoon01 flagscroll={flagScroll ? 1 : 0}>
-            <TextComingSoon01 flagscroll={flagScroll ? 1 : 0}>
-              {textNavbar.textComingSoon}
-            </TextComingSoon01>
-          </PartComingSoon01>
-        </Button01>
-        <PartMenuIcon01
-          flagscroll={flagScroll ? 1 : 0}
+      <PartMax01>
+        <PartLogo01
           onClick={() => {
-            setOpen(true);
+            setFlagTerms(false);
+            setFlagScroll(false);
+            navigate("/");
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
           }}
         >
-          <MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
-        </PartMenuIcon01>
-        <PartMobile01>
-          <a href="#ocean" style={{ textDecoration: "none" }}>
-            <EachLink01
-              flagscroll={flagScroll ? 1 : 0}
-              onClick={() => {
-                setFlagTerms(false);
-              }}
-            >
-              {textNavbar.tb02}
-            </EachLink01>
-          </a>
-          <a href="#about" style={{ textDecoration: "none" }}>
-            <EachLink01
-              flagscroll={flagScroll ? 1 : 0}
-              onClick={() => {
-                setFlagTerms(false);
-              }}
-            >
-              {textNavbar.tb03}
-            </EachLink01>
-          </a>
-          <a href="#utility" style={{ textDecoration: "none" }}>
-            <EachLink01
-              flagscroll={flagScroll ? 1 : 0}
-              onClick={() => {
-                setFlagTerms(false);
-              }}
-            >
-              {textNavbar.tb04}
-            </EachLink01>
-          </a>
-          <a href="#progress" style={{ textDecoration: "none" }}>
-            <EachLink01
-              flagscroll={flagScroll ? 1 : 0}
-              onClick={() => {
-                setFlagTerms(false);
-              }}
-            >
-              {textNavbar.tb05}
-            </EachLink01>
-          </a>
-          {false ?
-            <>
-              <Button02
+          <img
+            src={!flagScroll ? imgLogo01 : imgLogo02}
+            width={"100%"}
+            height={"100%"}
+            alt={""}
+          />
+        </PartLogo01>
+        <PartLink01>
+          <Button01 flagscroll={flagScroll ? 1 : 0}>
+            {textNavbar.tb01}
+            <PartComingSoon01 flagscroll={flagScroll ? 1 : 0}>
+              <TextComingSoon01 flagscroll={flagScroll ? 1 : 0}>
+                {textNavbar.textComingSoon}
+              </TextComingSoon01>
+            </PartComingSoon01>
+          </Button01>
+          <PartMenuIcon01
+            flagscroll={flagScroll ? 1 : 0}
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            <MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
+          </PartMenuIcon01>
+          <PartPageLink01>
+            <a href="#ocean" style={{ textDecoration: "none" }}>
+              <EachLink01
                 flagscroll={flagScroll ? 1 : 0}
                 onClick={() => {
-                  setFlagScroll(false);
-                  navigate("/login");
-                  handleClose();
+                  setFlagTerms(false);
                 }}
               >
-                {textNavbar.tb06}
-              </Button02>
-              <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
-                <img
-                  src={!flagScroll ? imgBoat01 : imgBoat02}
-                  width="100%"
-                  height="100%"
-                  alt=""
-                />
-              </ImgBoat01>
-            </>
-            : <></>
-          }
-          <ButtonLanguage01>
-            {!flagLanguage ? (
-              <>
-                <ButtonClicked01
-                  onClick={() => {
-                    setFlagLanguage(false);
-                  }}
-                >
-                  ENG
-                </ButtonClicked01>
-                <ButtonUnclicked01
-                  onClick={() => {
-                    setFlagLanguage(true);
-                  }}
-                >
-                  中文
-                </ButtonUnclicked01>
-              </>
-            ) : (
-              <>
-                <ButtonUnclicked01
-                  onClick={() => {
-                    setFlagLanguage(false);
-                  }}
-                >
-                  ENG
-                </ButtonUnclicked01>
-                <ButtonClicked01
-                  onClick={() => {
-                    setFlagLanguage(true);
-                  }}
-                >
-                  中文
-                </ButtonClicked01>
-              </>
-            )}
-          </ButtonLanguage01>
-        </PartMobile01>
-      </PartLink01>
+                {textNavbar.tb02}
+              </EachLink01>
+            </a>
+            <a href="#about" style={{ textDecoration: "none" }}>
+              <EachLink01
+                flagscroll={flagScroll ? 1 : 0}
+                onClick={() => {
+                  setFlagTerms(false);
+                }}
+              >
+                {textNavbar.tb03}
+              </EachLink01>
+            </a>
+            <a href="#utility" style={{ textDecoration: "none" }}>
+              <EachLink01
+                flagscroll={flagScroll ? 1 : 0}
+                onClick={() => {
+                  setFlagTerms(false);
+                }}
+              >
+                {textNavbar.tb04}
+              </EachLink01>
+            </a>
+            <a href="#progress" style={{ textDecoration: "none" }}>
+              <EachLink01
+                flagscroll={flagScroll ? 1 : 0}
+                onClick={() => {
+                  setFlagTerms(false);
+                }}
+              >
+                {textNavbar.tb05}
+              </EachLink01>
+            </a>
+            <Button02
+              flagscroll={flagScroll ? 1 : 0}
+              onClick={() => {
+                setFlagScroll(false);
+                navigate("/login");
+                handleClose();
+              }}
+            >
+              {textNavbar.tb06}
+            </Button02>
+            <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
+              <img
+                src={!flagScroll ? imgBoat01 : imgBoat02}
+                width="100%"
+                height="100%"
+                alt=""
+              />
+            </ImgBoat01>
+
+            <ButtonLanguage01>
+              {!flagLanguage ? (
+                <>
+                  <ButtonClicked01
+                    onClick={() => {
+                      setFlagLanguage(false);
+                    }}
+                  >
+                    ENG
+                  </ButtonClicked01>
+                  <ButtonUnclicked01
+                    onClick={() => {
+                      setFlagLanguage(true);
+                    }}
+                  >
+                    中文
+                  </ButtonUnclicked01>
+                </>
+              ) : (
+                <>
+                  <ButtonUnclicked01
+                    onClick={() => {
+                      setFlagLanguage(false);
+                    }}
+                  >
+                    ENG
+                  </ButtonUnclicked01>
+                  <ButtonClicked01
+                    onClick={() => {
+                      setFlagLanguage(true);
+                    }}
+                  >
+                    中文
+                  </ButtonClicked01>
+                </>
+              )}
+            </ButtonLanguage01>
+          </PartPageLink01>
+        </PartLink01>
+      </PartMax01>
       <Modal
         open={open}
         onClose={handleClose}
@@ -332,28 +330,41 @@ const StyledComponent = styled(Box)`
   width: 100%;
   height: 80px;
   position: fixed;
-  padding-left: 150px;
-  padding-right: 150px;
-  box-sizing: border-box;
-  justify-content: space-between;
-  align-items: center;
-
+  justify-content: center;
   z-index: 90;
   background-color: ${({ flagscroll }) =>
     !flagscroll ? "" : customColor.mainColor02};
+`;
+
+const PartMax01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  padding-left: 125px;
+  padding-right: 125px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
   transition: 0.5s;
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
     height: 60px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 const PartLogo01 = styled(Box)`
@@ -365,7 +376,7 @@ const PartLogo01 = styled(Box)`
   cursor: pointer;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     width: 80px;
     height: 40px;
   }
@@ -380,26 +391,28 @@ const PartLink01 = styled(Box)`
   height: 100%;
   justify-content: flex-end;
   align-items: center;
-  gap: 30px;
   transition: 0.5s;
-
+  gap: 24px;
   @media (max-width: 1400px) {
     gap: 20px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 1200px) {
     gap: 10px;
   }
 `;
 
-const PartMobile01 = styled(Box)`
+const PartPageLink01 = styled(Box)`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 24px;
   transition: 0.5s;
   @media (max-width: 1400px) {
     gap: 20px;
   }
   @media (max-width: 1200px) {
+    gap: 10px;
+  }
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -407,7 +420,7 @@ const PartMobile01 = styled(Box)`
 const Button01 = styled(Box)`
   display: flex;
   position: relative;
-  width: 90px;
+  width: 102px;
   height: 34px;
   border-radius: 6px;
   color: ${({ flagscroll }) =>
@@ -451,7 +464,7 @@ const PartComingSoon01 = styled(Box)`
   top: -50px;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     left: -75px;
     top: -40px;
     width: 92px;
@@ -488,7 +501,7 @@ const PartMenuIcon01 = styled(Box)`
     !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
   cursor: pointer;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: flex;
   }
 `;
