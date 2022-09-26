@@ -369,188 +369,197 @@ const Home = () => {
             </PartCover01>
           </PartAbout01>
           <PartUtility01 id="utility" ref={parallaxUtility.ref}>
-            <TextTitle01
-              data-aos="fade-up"
-              data-aos-offset="250"
-              data-aos-duration="500"
-            >
-              {textHomeUtility.tt01}
-            </TextTitle01>
-            <TextDescription01
-              data-aos="fade-up"
-              data-aos-offset="250"
-              data-aos-duration="500"
-            >
-              {textHomeUtility.tdes01}
-            </TextDescription01>
-            <PartGrid01>
-              <GridEach01
+            <PartMaxUtility01>
+              <TextTitle01
                 data-aos="fade-up"
                 data-aos-offset="250"
-                data-aos-duration="1000"
+                data-aos-duration="500"
               >
-                <PartIcon01>
-                  <img
-                    src={iconGroup01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc01}</TextDescription02>
-              </GridEach01>
-              <GridEach01
+                {textHomeUtility.tt01}
+              </TextTitle01>
+              <TextDescription01
                 data-aos="fade-up"
                 data-aos-offset="250"
-                data-aos-duration="1000"
+                data-aos-duration="500"
               >
-                <PartIcon01>
-                  <img
-                    src={iconTicket01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc02}</TextDescription02>
-              </GridEach01>
-              <GridEach01
-                data-aos="fade-up"
-                data-aos-offset="250"
-                data-aos-duration="1000"
+                {textHomeUtility.tdes01}
+              </TextDescription01>
+              <PartGrid01>
+                <GridEach01
+                  data-aos="fade-up"
+                  data-aos-offset="250"
+                  data-aos-duration="1000"
+                >
+                  <PartIcon01>
+                    <img
+                      src={iconGroup01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon01>
+                  <TextDescription02>{textHomeUtility.tc01}</TextDescription02>
+                </GridEach01>
+                <GridEach01
+                  data-aos="fade-up"
+                  data-aos-offset="250"
+                  data-aos-duration="1000"
+                >
+                  <PartIcon01>
+                    <img
+                      src={iconTicket01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon01>
+                  <TextDescription02>{textHomeUtility.tc02}</TextDescription02>
+                </GridEach01>
+                <GridEach01
+                  data-aos="fade-up"
+                  data-aos-offset="250"
+                  data-aos-duration="1000"
+                >
+                  <PartIcon01>
+                    <img
+                      src={iconDiscount01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon01>
+                  <TextDescription02>{textHomeUtility.tc03}</TextDescription02>
+                </GridEach01>
+                <GridEach01
+                  data-aos="fade-up"
+                  data-aos-offset="250"
+                  data-aos-duration="1000"
+                >
+                  <PartIcon01>
+                    <img
+                      src={iconUser01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon01>
+                  <TextDescription02>{textHomeUtility.tc04}</TextDescription02>
+                </GridEach01>
+                <GridEach01
+                  data-aos="fade-up"
+                  data-aos-offset="250"
+                  data-aos-duration="1000"
+                >
+                  <PartIcon01>
+                    <img
+                      src={iconPeace01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon01>
+                  <TextDescription02>{textHomeUtility.tc05}</TextDescription02>
+                </GridEach01>
+                <GridEach01
+                  data-aos="fade-up"
+                  data-aos-offset="250"
+                  data-aos-duration="1000"
+                >
+                  <PartIcon01>
+                    <img
+                      src={iconChest01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon01>
+                  <TextDescription02>{textHomeUtility.tc06}</TextDescription02>
+                </GridEach01>
+              </PartGrid01>
+              <PartDolphin01
+                data-aos="fade-left"
+                data-aos-offset="150"
+                data-aos-duration="500"
               >
-                <PartIcon01>
-                  <img
-                    src={iconDiscount01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc03}</TextDescription02>
-              </GridEach01>
-              <GridEach01
-                data-aos="fade-up"
-                data-aos-offset="250"
-                data-aos-duration="1000"
-              >
-                <PartIcon01>
-                  <img src={iconUser01} width={"100%"} height={"100%"} alt="" />
-                </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc04}</TextDescription02>
-              </GridEach01>
-              <GridEach01
-                data-aos="fade-up"
-                data-aos-offset="250"
-                data-aos-duration="1000"
-              >
-                <PartIcon01>
-                  <img
-                    src={iconPeace01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc05}</TextDescription02>
-              </GridEach01>
-              <GridEach01
-                data-aos="fade-up"
-                data-aos-offset="250"
-                data-aos-duration="1000"
-              >
-                <PartIcon01>
-                  <img
-                    src={iconChest01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartIcon01>
-                <TextDescription02>{textHomeUtility.tc06}</TextDescription02>
-              </GridEach01>
-            </PartGrid01>
-            <PartDolphin01
-              data-aos="fade-left"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgDolphin01} width={"100%"} alt="" />
-            </PartDolphin01>
+                <img src={imgDolphin01} width={"100%"} alt="" />
+              </PartDolphin01>
+            </PartMaxUtility01>
           </PartUtility01>
           <PartProgress01 id="progress">
-            <TextTitle01
-              data-aos="fade-up"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              {textHomeProgress.tt01}
-            </TextTitle01>
-            <PartRoadmap01>
-              <EachProgress
-                date={textHomeProgress.tdate01}
-                image={imgProgress01}
-                text={textHomeProgress.tdes01}
-              />
-              <EachProgress
-                date={textHomeProgress.tdate02}
-                image={imgProgress02}
-                text={textHomeProgress.tdes02}
-              />
-              <EachProgress
-                date={textHomeProgress.tdate03}
-                image={imgProgress03}
-                text={textHomeProgress.tdes03}
-              />
-              <EachProgress
-                date={textHomeProgress.tdate04}
-                image=""
-                text={textHomeProgress.tdes04}
-              />
-              <EachProgress
-                date={textHomeProgress.tdate05}
-                image=""
-                text={textHomeProgress.tdes05}
-              />
-              <EachProgress
-                date={textHomeProgress.tdate06}
-                image=""
-                text={textHomeProgress.tdes06}
-              />
-              <EachProgress
-                date={textHomeProgress.tdate07}
-                image=""
-                text={textHomeProgress.tdes07}
-              />
-            </PartRoadmap01>
-            <PartPen01
-              data-aos="fade-right"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgPen01} width={"100%"} height={"100%"} alt="" />
-            </PartPen01>
-            <PartCap01
-              data-aos="fade-left"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgCap01} width={"100%"} height={"100%"} alt="" />
-            </PartCap01>
-            <PartRing01
-              data-aos="fade-right"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgRing01} width={"100%"} alt="" />
-            </PartRing01>
-            <PartKnife01
-              data-aos="fade-left"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgKnife01} width={"100%"} alt="" />
-            </PartKnife01>
+            <PartMaxProgress01>
+              <TextTitle01
+                data-aos="fade-up"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                {textHomeProgress.tt01}
+              </TextTitle01>
+              <PartRoadmap01>
+                <EachProgress
+                  date={textHomeProgress.tdate01}
+                  image={imgProgress01}
+                  text={textHomeProgress.tdes01}
+                />
+                <EachProgress
+                  date={textHomeProgress.tdate02}
+                  image={imgProgress02}
+                  text={textHomeProgress.tdes02}
+                />
+                <EachProgress
+                  date={textHomeProgress.tdate03}
+                  image={imgProgress03}
+                  text={textHomeProgress.tdes03}
+                />
+                <EachProgress
+                  date={textHomeProgress.tdate04}
+                  image=""
+                  text={textHomeProgress.tdes04}
+                />
+                <EachProgress
+                  date={textHomeProgress.tdate05}
+                  image=""
+                  text={textHomeProgress.tdes05}
+                />
+                <EachProgress
+                  date={textHomeProgress.tdate06}
+                  image=""
+                  text={textHomeProgress.tdes06}
+                />
+                <EachProgress
+                  date={textHomeProgress.tdate07}
+                  image=""
+                  text={textHomeProgress.tdes07}
+                />
+              </PartRoadmap01>
+              <PartPen01
+                data-aos="fade-right"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                <img src={imgPen01} width={"100%"} height={"100%"} alt="" />
+              </PartPen01>
+              <PartCap01
+                data-aos="fade-left"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                <img src={imgCap01} width={"100%"} height={"100%"} alt="" />
+              </PartCap01>
+              <PartRing01
+                data-aos="fade-right"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                <img src={imgRing01} width={"100%"} alt="" />
+              </PartRing01>
+              <PartKnife01
+                data-aos="fade-left"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                <img src={imgKnife01} width={"100%"} alt="" />
+              </PartKnife01>
+            </PartMaxProgress01>
           </PartProgress01>
         </>
       ) : (
@@ -841,7 +850,7 @@ const PartLeaf02 = styled(Box)`
   z-index: 82;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -856,7 +865,7 @@ const PartMarkHallo01 = styled(Box)`
   z-index: 83;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     right: 50px;
   }
   @media (max-width: 700px) {
@@ -898,7 +907,7 @@ const PartMarkDescription01 = styled(Box)`
   @media (max-width: 1400px) {
     right: 100px;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     right: 50px;
   }
   @media (max-width: 900px) {
@@ -949,7 +958,7 @@ const PartMarkGroup01 = styled(Box)`
   @media (max-width: 1400px) {
     right: 100px;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     right: 50px;
   }
   @media (max-width: 900px) {
@@ -1077,7 +1086,7 @@ const PartNFT01 = styled(Box)`
   @media (max-width: 1600px) {
     width: 150px;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     width: 200px;
   }
   @media (max-width: 900px) {
@@ -1105,7 +1114,7 @@ const PartNFT02 = styled(Box)`
   @media (max-width: 1600px) {
     width: 145px;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     width: 190px;
   }
   @media (max-width: 900px) {
@@ -1130,7 +1139,7 @@ const PartNFT03 = styled(Box)`
   @media (max-width: 1600px) {
     width: 170px;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     width: 220px;
   }
   @media (max-width: 900px) {
@@ -1157,7 +1166,7 @@ const TextTitle02 = styled(Box)`
   color: ${customColor.mainColor02};
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: flex;
   }
 `;
@@ -1174,7 +1183,7 @@ const TextTitle03 = styled(Box)`
   color: ${customColor.mainColor02};
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1208,7 +1217,7 @@ const PartBottle01 = styled(Box)`
   top: 150px;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1219,7 +1228,7 @@ const PartClean01 = styled(Box)`
   left: 0px;
   bottom: 100px;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1230,7 +1239,7 @@ const PartBat01 = styled(Box)`
   right: 0px;
   top: 30%;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1309,7 +1318,7 @@ const PartBox01 = styled(Box)`
   bottom: -20px;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1321,7 +1330,7 @@ const PartCover01 = styled(Box)`
   top: -20px;
   z-index: 61;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1407,7 +1416,7 @@ const PartMark03 = styled(Box)`
 
 const PartDetailsText01 = styled(Box)`
   display: flex;
-  width: 40%;
+  width: 50%;
   padding: 30px;
   box-sizing: border-box;
   background-color: ${customColor.backColor02};
@@ -1427,7 +1436,7 @@ const PartDetailsText01 = styled(Box)`
   @media (max-width: 1400px) {
     width: 50%;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     width: 60%;
   }
   @media (max-width: 900px) {
@@ -1446,29 +1455,40 @@ const PartUtility01 = styled(Box)`
   display: flex;
   position: relative;
   width: 100%;
-  align-items: center;
   background-color: ${customColor.backColor01};
+  justify-content: center;
+`;
+
+const PartMaxUtility01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
   background-image: url(${imgBack03});
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 50% 50%;
   flex-direction: column;
-  padding-left: 150px;
-  padding-right: 150px;
+  align-items: center;
+
+  padding-left: 120px;
+  padding-right: 120px;
   padding-top: 100px;
   padding-bottom: 100px;
   box-sizing: border-box;
   transition: 0.5s;
-
   z-index: 50;
 
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 50px;
     padding-bottom: 50px;
     align-items: flex-start;
@@ -1481,16 +1501,20 @@ const PartUtility01 = styled(Box)`
     padding-right: 20px;
     background-size: 70% 20%;
   }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `;
 
 const PartDolphin01 = styled(Box)`
   display: flex;
   position: absolute;
   right: 0px;
-  top: 10px;
-  z-index: 51;
+  top: 50px;
+  z-index: 71;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1506,7 +1530,7 @@ const TextDescription01 = styled(Box)`
   padding-top: 50px;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     padding-top: 30px;
   }
   @media (max-width: 900px) {
@@ -1573,8 +1597,16 @@ const PartProgress01 = styled(Box)`
   display: flex;
   position: relative;
   width: 100%;
-  padding-left: 150px;
-  padding-right: 150px;
+  justify-content: center;
+`;
+
+const PartMaxProgress01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+
+  padding-left: 120px;
+  padding-right: 120px;
   padding-top: 100px;
   padding-bottom: 100px;
   box-sizing: border-box;
@@ -1582,13 +1614,18 @@ const PartProgress01 = styled(Box)`
   align-items: center;
 
   transition: 0.5s;
+
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 50px;
     padding-bottom: 50px;
     align-items: flex-start;
@@ -1596,6 +1633,10 @@ const PartProgress01 = styled(Box)`
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
@@ -1606,7 +1647,7 @@ const PartPen01 = styled(Box)`
   top: -100px;
   z-index: 51;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1617,7 +1658,7 @@ const PartCap01 = styled(Box)`
   top: 100px;
   z-index: 51;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1628,7 +1669,7 @@ const PartRing01 = styled(Box)`
   top: 50%;
   z-index: 51;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1639,7 +1680,7 @@ const PartKnife01 = styled(Box)`
   bottom: 10px;
   z-index: 51;
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -1653,7 +1694,7 @@ const PartRoadmap01 = styled(Box)`
   z-index: 70;
 
   transition: 0.5s;
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     margin-top: 50px;
   }
   @media (max-width: 900px) {

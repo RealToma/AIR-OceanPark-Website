@@ -318,7 +318,6 @@ const TopNavbarHome = ({
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  height: 80px;
   position: fixed;
   justify-content: center;
   z-index: 90;
@@ -330,7 +329,7 @@ const PartMax01 = styled(Box)`
   display: flex;
   width: 100%;
   max-width: 1440px;
-  height: 100%;
+  height: 80px;
   padding-left: 125px;
   padding-right: 125px;
   box-sizing: border-box;
