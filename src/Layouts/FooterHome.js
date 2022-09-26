@@ -8,24 +8,26 @@ const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
   const textFooter = !flagLanguage ? TEXT_Footer.EN : TEXT_Footer.CH;
   return (
     <StyledComponent>
-      {textFooter.tt01}
-      {false ? (
-        <>
-          {"\u00a0"}
-          <Box
-            display={"flex"}
-            onClick={() => {
-              setFlagScroll(true);
-              setFlagTerms(true);
-            }}
-            style={{ cursor: "pointer" }}
-          >
-            <u>{textFooter.textTerm}</u>
-          </Box>
-        </>
-      ) : (
-        <></>
-      )}
+      <PartMax01>
+        {textFooter.tt01}
+        {false ? (
+          <>
+            {"\u00a0"}
+            <Box
+              display={"flex"}
+              onClick={() => {
+                setFlagScroll(true);
+                setFlagTerms(true);
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              <u>{textFooter.textTerm}</u>
+            </Box>
+          </>
+        ) : (
+          <></>
+        )}
+      </PartMax01>
     </StyledComponent>
   );
 };
@@ -33,10 +35,16 @@ const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  min-height: 175px;
-
   background-color: ${customColor.mainColor02};
   color: ${customColor.mainColor01};
+  justify-content: center;
+`;
+
+const PartMax01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 175px;
   padding-left: 120px;
   padding-right: 120px;
   box-sizing: border-box;
