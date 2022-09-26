@@ -119,24 +119,28 @@ const TopNavbarHome = ({
                 {textNavbar.tb05}
               </EachLink01>
             </a>
-            <Button02
-              flagscroll={flagScroll ? 1 : 0}
-              onClick={() => {
-                setFlagScroll(false);
-                navigate("/login");
-                handleClose();
-              }}
-            >
-              {textNavbar.tb06}
-            </Button02>
-            <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
-              <img
-                src={!flagScroll ? imgBoat01 : imgBoat02}
-                width="100%"
-                height="100%"
-                alt=""
-              />
-            </ImgBoat01>
+            {false &&
+              <Button02
+                flagscroll={flagScroll ? 1 : 0}
+                onClick={() => {
+                  setFlagScroll(false);
+                  navigate("/login");
+                  handleClose();
+                }}
+              >
+                {textNavbar.tb06}
+              </Button02>
+            }
+            {false &&
+              <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
+                <img
+                  src={!flagScroll ? imgBoat01 : imgBoat02}
+                  width="100%"
+                  height="100%"
+                  alt=""
+                />
+              </ImgBoat01>
+            }
 
             <ButtonLanguage01>
               {!flagLanguage ? (
