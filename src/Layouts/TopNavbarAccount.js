@@ -29,68 +29,70 @@ const TopNavbarAccount = () => {
   }, []);
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
-      <PartLogo01
-        onClick={() => {
-          navigate("/");
-          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        }}
-      >
-        <LogoLeft01>
-          <img
-            src={!flagScroll ? imgLogo01 : imgLogo02}
-            width={"100%"}
-            height={"100%"}
-            alt={""}
-          />
-        </LogoLeft01>
-        <LogoRight01>
-          <img
-            src={!flagScroll ? imgMark01 : imgMark01}
-            width={"100%"}
-            height={"100%"}
-            alt={""}
-          />
-        </LogoRight01>
-      </PartLogo01>
-      <PartLink01>
-        <ButtonLanguage01>
-          {!flagLanguage ? (
-            <>
-              <ButtonClicked01
-                onClick={() => {
-                  setFlagLanguage(false);
-                }}
-              >
-                ENG
-              </ButtonClicked01>
-              <ButtonUnclicked01
-                onClick={() => {
-                  setFlagLanguage(true);
-                }}
-              >
-                中文
-              </ButtonUnclicked01>
-            </>
-          ) : (
-            <>
-              <ButtonUnclicked01
-                onClick={() => {
-                  setFlagLanguage(false);
-                }}
-              >
-                ENG
-              </ButtonUnclicked01>
-              <ButtonClicked01
-                onClick={() => {
-                  setFlagLanguage(true);
-                }}
-              >
-                中文
-              </ButtonClicked01>
-            </>
-          )}
-        </ButtonLanguage01>
-      </PartLink01>
+      <PartMax01>
+        <PartLogo01
+          onClick={() => {
+            navigate("/");
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
+        >
+          <LogoLeft01>
+            <img
+              src={!flagScroll ? imgLogo01 : imgLogo02}
+              width={"100%"}
+              height={"100%"}
+              alt={""}
+            />
+          </LogoLeft01>
+          <LogoRight01>
+            <img
+              src={!flagScroll ? imgMark01 : imgMark01}
+              width={"100%"}
+              height={"100%"}
+              alt={""}
+            />
+          </LogoRight01>
+        </PartLogo01>
+        <PartLink01>
+          <ButtonLanguage01>
+            {!flagLanguage ? (
+              <>
+                <ButtonClicked01
+                  onClick={() => {
+                    setFlagLanguage(false);
+                  }}
+                >
+                  ENG
+                </ButtonClicked01>
+                <ButtonUnclicked01
+                  onClick={() => {
+                    setFlagLanguage(true);
+                  }}
+                >
+                  中文
+                </ButtonUnclicked01>
+              </>
+            ) : (
+              <>
+                <ButtonUnclicked01
+                  onClick={() => {
+                    setFlagLanguage(false);
+                  }}
+                >
+                  ENG
+                </ButtonUnclicked01>
+                <ButtonClicked01
+                  onClick={() => {
+                    setFlagLanguage(true);
+                  }}
+                >
+                  中文
+                </ButtonClicked01>
+              </>
+            )}
+          </ButtonLanguage01>
+        </PartLink01>
+      </PartMax01>
     </StyledComponent>
   );
 };
@@ -98,30 +100,50 @@ const TopNavbarAccount = () => {
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  height: 80px;
+  min-height: 80px;
   position: fixed;
-  padding-left: 150px;
-  padding-right: 150px;
+  justify-content: center;
+  background-color: ${({ flagscroll }) =>
+    !flagscroll ? "" : customColor.mainColor02};
+`;
+
+const PartMax01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  
+  z-index: 90;
+  padding-left: 120px;
+  padding-right: 120px;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
-  z-index: 90;
-  background-color: ${({ flagscroll }) =>
-    !flagscroll ? "" : customColor.mainColor02};
+
   transition: 0.5s;
-  @media (max-width: 900px) {
-    padding-left: 100px;
-    padding-right: 100px;
+
+  @media (max-width: 1400px) {
+    padding-left: 90px;
+    padding-right: 90px;
   }
-  @media (max-width: 700px) {
-    padding-left: 50px;
-    padding-right: 50px;
+  @media (max-width: 1200px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
+    min-height: 60px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
   }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `;
+
 const PartLogo01 = styled(Box)`
   display: flex;
   justify-content: flex-start;

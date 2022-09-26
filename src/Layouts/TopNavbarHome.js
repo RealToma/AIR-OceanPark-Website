@@ -332,7 +332,6 @@ const TopNavbarHome = ({
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  height: 80px;
   position: fixed;
   justify-content: center;
   z-index: 90;
@@ -344,7 +343,7 @@ const PartMax01 = styled(Box)`
   display: flex;
   width: 100%;
   max-width: 1440px;
-  height: 100%;
+  min-height: 80px;
   padding-left: 125px;
   padding-right: 125px;
   box-sizing: border-box;
@@ -360,7 +359,7 @@ const PartMax01 = styled(Box)`
     padding-right: 40px;
   }
   @media (max-width: 1024px) {
-    height: 60px;
+    min-height: 60px;
   }
   @media (max-width: 500px) {
     padding-left: 20px;

@@ -8,23 +8,26 @@ const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
   const textFooter = !flagLanguage ? TEXT_Footer.EN : TEXT_Footer.CH;
   return (
     <StyledComponent>
-      {textFooter.tt01}
-      {false ?
-      <>
-        {"\u00a0"}
-        <Box
-          display={"flex"}
-          onClick={() => {
-            setFlagScroll(true);
-            setFlagTerms(true);
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          <u>{textFooter.textTerm}</u>
-        </Box>
-        </>
-      : <></>  
-    }
+      <PartMax01>
+        {textFooter.tt01}
+        {false ? (
+          <>
+            {"\u00a0"}
+            <Box
+              display={"flex"}
+              onClick={() => {
+                setFlagScroll(true);
+                setFlagTerms(true);
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              <u>{textFooter.textTerm}</u>
+            </Box>
+          </>
+        ) : (
+          <></>
+        )}
+      </PartMax01>
     </StyledComponent>
   );
 };
@@ -32,12 +35,18 @@ const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  min-height: 175px;
-
   background-color: ${customColor.mainColor02};
   color: ${customColor.mainColor01};
-  padding-left: 150px;
-  padding-right: 150px;
+  justify-content: center;
+`;
+
+const PartMax01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 175px;
+  padding-left: 120px;
+  padding-right: 120px;
   box-sizing: border-box;
   justify-content: flex-end;
   align-items: center;
@@ -48,13 +57,18 @@ const StyledComponent = styled(Box)`
   line-height: 160%;
 
   transition: 0.5s;
+
   @media (max-width: 1400px) {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 90px;
+    padding-right: 90px;
   }
   @media (max-width: 1200px) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
     min-height: 120px;
     justify-content: center;
   }
@@ -62,6 +76,10 @@ const StyledComponent = styled(Box)`
     padding-left: 20px;
     padding-right: 20px;
     font-size: 12px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
