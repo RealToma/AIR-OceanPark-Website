@@ -2,29 +2,41 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textBuyNFT } from "../Config/Text_";
-import { TEXT_BuyNFT } from "../Config/Text";
+import { textMyNFT } from "../Config/Text_";
+import { TEXT_MyNFT } from "../Config/Text";
 import { customColor } from "../Config/Color";
 import TopNavbarAccount from "../Layouts/TopNavbarAccount";
 import FooterAccount from "../Layouts/FooterAccount";
 import imgMark01 from "../Assets/image/mark01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
+import imgGetMore01 from "../Assets/image/icons/get_more01.png"
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
-import CustomBuyNFT from "../Components/CustomBuyNFT";
+import CustomMyEachNFT from "../Components/CustomMyEachNFT";
 
 import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
 // import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
+import { actionGetCitizens } from "../Actions/Auth";
 
-const BuyNFT = () => {
+const MyNFT = () => {
   const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
-  const textBuyNFT = !flagLanguage ? TEXT_BuyNFT.EN : TEXT_BuyNFT.CH;
+  const textMyNFT = !flagLanguage ? TEXT_MyNFT.EN : TEXT_MyNFT.CH;
+  const token = localStorage.getItem("token");
+  const [myNFTData, setMyNFTData] = useState();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    actionGetCitizens(token).then((res) => {
+      if (res.status === 2000) {
+        setMyNFTData(res.citizens);
+      } else {
+        setMyNFTData([]);
+      }
+    });
+  }, []);
 
   return (
     <StyledComponent>
@@ -33,7 +45,17 @@ const BuyNFT = () => {
         <PartContent02>
           <PartSidebar01>
             <PartList01>
-              <EachList image={imgLogo02} text={"My AiR CITIZEN (2)"} />
+              <EachList
+                image={imgLogo02}
+                text={
+                  myNFTData
+                    ? "My AiR CITIZEN" +
+                      " (" +
+                      Object.keys(myNFTData).length +
+                      ")"
+                    : "My AiR CITIZEN (0)"
+                }
+              />
             </PartList01>
             <PartAccount01>
               <TextUsername01>{userInfo.name}</TextUsername01>
@@ -43,11 +65,11 @@ const BuyNFT = () => {
                   localStorage.removeItem("userInfo");
                   localStorage.removeItem("userToken");
                   localStorage.removeItem("token");
-                  navigate("/");
+                  navigate("/login");
                   window.location.reload();
                 }}
               >
-                <ButtonLogout01>{textBuyNFT.tLogout01}</ButtonLogout01>
+                <ButtonLogout01>{textMyNFT.tLogout01}</ButtonLogout01>
                 <PartMark01>
                   <img
                     src={imgMark01}
@@ -63,24 +85,29 @@ const BuyNFT = () => {
                   <AccountBalanceWalletIcon sx={{ fontSize: "1.5rem" }} />
                 </PartWalletIcon01>
                 <PartWalletText01>
-                  {textBuyNFT.tConnectWallet01}
+                  {textMyNFT.tConnectWallet01}
                 </PartWalletText01>
               </PartConnectWallet01>
             </PartAccount01>
           </PartSidebar01>
           <PartDisplayNFT01>
             <PartDisplayNFT02>
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              {myNFTData?.map((each, index) => {
+                return <CustomMyEachNFT key={index} dataNFT={each.citizen} />;
+              })}
+              <PartGetMore01>
+                <PartGetMoreIcon01>
+                  <img
+                    src={imgGetMore01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartGetMoreIcon01>
+                <PartGetMoreText01>
+                  {textMyNFT.tGetMore}
+                </PartGetMoreText01>
+              </PartGetMore01>
             </PartDisplayNFT02>
           </PartDisplayNFT01>
         </PartContent02>
@@ -193,11 +220,17 @@ const PartDisplayNFT01 = styled(Box)`
   width: 100%;
   padding: 30px;
   box-sizing: border-box;
+
+  transition: .5s;
+  @media (max-width: 1200px) {
+    padding: 15px;
+  }
 `;
 
 const PartDisplayNFT02 = styled(Box)`
   display: grid;
   overflow-y: auto;
+  position: relative;
   /* flex-wrap: wrap;
   justify-content: space-between; */
   width: 100%;
@@ -208,6 +241,41 @@ const PartDisplayNFT02 = styled(Box)`
   @media (max-width: 1400px) {
     grid-template-columns: auto auto auto;
   }
+`;
+
+const PartGetMore01 = styled(Box)`
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 90px;
+  height: 90px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: ${customColor.mainColor02};
+  color: ${customColor.backColor01};
+  cursor: pointer;
+`;
+
+const PartGetMoreIcon01 = styled(Box)`
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PartGetMoreText01 = styled(Box)`
+  display: flex;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 160%;
+  /* or 19px */
+  text-align: center;
 `;
 
 const PartLogout01 = styled(Box)`
@@ -267,4 +335,4 @@ const PartWalletText01 = styled(Box)`
   margin-left: 10px;
 `;
 
-export default BuyNFT;
+export default MyNFT;

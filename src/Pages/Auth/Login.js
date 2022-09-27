@@ -57,7 +57,7 @@ const Login = () => {
         if (res.playerInfo.player.name === undefined) {
           navigate("/createPlayer");
         } else {
-          navigate("/buyNFT");
+          navigate("/myNFT");
           window.location.reload();
         }
       } else {
