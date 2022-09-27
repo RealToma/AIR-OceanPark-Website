@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
@@ -19,17 +19,16 @@ import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 
 const BuyNFT = () => {
-  const [flagLanguage, setFlagLanguage] = useState(false);
+  
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
   const textBuyNFT = !flagLanguage ? TEXT_BuyNFT.EN : TEXT_BuyNFT.CH;
 
+  useEffect(() => {}, []);
+
   return (
     <StyledComponent>
-      <TopNavbarAccount
-        flagLanguage={flagLanguage}
-        setFlagLanguage={setFlagLanguage}
-      />
+      <TopNavbarAccount />
       <PartContent01>
         <PartContent02>
           <PartSidebar01>
@@ -205,11 +204,10 @@ const PartDisplayNFT02 = styled(Box)`
   grid-template-columns: auto auto auto auto;
   grid-column-gap: auto;
   grid-row-gap: 40px;
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 1400px) {
     grid-template-columns: auto auto auto;
   }
-
 `;
 
 const PartLogout01 = styled(Box)`

@@ -7,9 +7,10 @@ import imgLogo02 from "../Assets/image/logo02.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
 import { useNavigate } from "react-router-dom";
 
-const TopNavbarAccount = ({ flagLanguage, setFlagLanguage }) => {
+const TopNavbarAccount = () => {
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
+  const [flagLanguage, setFlagLanguage] = useState(false);
 
   const handleScroll = () => {
     let position = window.pageYOffset;
@@ -59,6 +60,7 @@ const TopNavbarAccount = ({ flagLanguage, setFlagLanguage }) => {
                 <ButtonClicked01
                   onClick={() => {
                     setFlagLanguage(false);
+
                   }}
                 >
                   ENG

@@ -59,7 +59,6 @@ const Login = () => {
         } else {
           navigate("/buyNFT");
           window.location.reload();
-          // alert("coming soon!");
         }
       } else {
         setMsgAlert(textLogin.ta06.en);

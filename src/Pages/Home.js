@@ -31,14 +31,6 @@ import imgCap01 from "../Assets/image/cap01.png";
 import imgPen01 from "../Assets/image/pen01.png";
 import imgRing01 from "../Assets/image/ring01.png";
 
-// rotate images
-import imgTNFT01 from "../Assets/image/nfts__/01.png";
-import imgTNFT02 from "../Assets/image/nfts__/02.png";
-import imgTNFT03 from "../Assets/image/nfts__/03.png";
-import imgTNFT04 from "../Assets/image/nfts__/04.png";
-import imgTNFT05 from "../Assets/image/nfts__/05.png";
-import imgTNFT06 from "../Assets/image/nfts__/06.png";
-
 // import imgTNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgTNFT02 from "../Assets/image/nfts/OP nft_IT_A 1.png";
 // import imgTNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png";
@@ -102,14 +94,15 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      let tempFlag;
-      tempFlag = flagRotate;
-      tempFlag++;
-      if (tempFlag > 5) {
-        setFlagRotate(0);
-      } else {
-        setFlagRotate(tempFlag++);
-      }
+      setFlagRotate((flagRotate + 1) % 8);
+      // let tempFlag;
+      // tempFlag = flagRotate;
+      // tempFlag++;
+      // if (tempFlag > 5) {
+      //   setFlagRotate(0);
+      // } else {
+      //   setFlagRotate(tempFlag++);
+      // }
     }, 3000);
   }, [flagRotate]);
 
@@ -197,26 +190,27 @@ const Home = () => {
 
               <PartNFTRotate01>
                 {/* <PartShadow01>
-              <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
-            </PartShadow01> */}
-                <PartEachNFT flagrotate={(flagRotate + 0) % 6}>
-                  <img src={imgTNFT01} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 1) % 6}>
-                  <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 2) % 6}>
-                  <img src={imgTNFT03} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 3) % 6}>
-                  <img src={imgTNFT04} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 4) % 6}>
-                  <img src={imgTNFT05} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 5) % 6}>
-                  <img src={imgTNFT06} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
+                  <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
+                </PartShadow01> */}
+                {Array(8)
+                  .fill(0)
+                  .map((_, index) => {
+                    return (
+                      <PartEachNFT
+                        key={index}
+                        flagrotate={(flagRotate + index) % 8}
+                      >
+                        <img
+                          src={require(`../Assets/image/nfts__/0${
+                            index + 1
+                          }.png`)}
+                          width={"100%"}
+                          height={"100%"}
+                          alt=""
+                        />
+                      </PartEachNFT>
+                    );
+                  })}
               </PartNFTRotate01>
             </PartMaxTop01>
           </PartTop01>
@@ -720,7 +714,6 @@ const PartEachNFT = styled(Box)`
   position: absolute;
   width: 530px;
   height: 530px;
-  display: ${({ flagrotate }) => flagrotate === 5 && "none"};
   transform: ${({ flagrotate }) =>
     flagrotate === 0
       ? "scale(0.6) translateZ(-3px) translateX(-30%)"
@@ -734,7 +727,7 @@ const PartEachNFT = styled(Box)`
       ? "scale(1.35) translateZ(1px) translateX(-30%)"
       : flagrotate === 5
       ? "scale(0.6) translateZ(-4px) translateX(-30%)"
-      : "none"};
+      : "scale(0.6) translateZ(-4px) translateX(-30%)"};
   transform-style: preserve-3d;
   opacity: ${({ flagrotate }) =>
     flagrotate === 0
@@ -748,8 +741,8 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 4
       ? "0"
       : flagrotate === 5
-      ? "1"
-      : "none"};
+      ? "0"
+      : "0"};
   transition: 1s;
   left: ${({ flagrotate }) =>
     flagrotate === 0
@@ -779,7 +772,7 @@ const PartEachNFT = styled(Box)`
       ? "blur(3px)"
       : flagrotate === 5
       ? "blur(3px)"
-      : "none"};
+      : "blur(3px)"};
 
   @media (max-width: 900px) {
     width: 400px;

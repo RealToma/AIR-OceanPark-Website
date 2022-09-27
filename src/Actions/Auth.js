@@ -40,33 +40,22 @@ export const actionSignup = async (signupData) => {
 };
 
 export const actionCreatePlayer = async (token, playerData) => {
-  console.log(token);
+  let url = process.env.REACT_APP_STRAPI_URL + "/createPlayer";
   let response;
+
   try {
     response = await axios.post(
-      process.env.REACT_APP_STRAPI_URL + "/createPlayer",
+      url, //https://api-pre-prod.air-world.io/airapi/createPlayer
       playerData,
       {
         headers: {
           token: token,
-          "Accept": "*/*",
-          "Accept-Encoding": "gzip, deflate, br",
-          "Access-Control-Allow-Origin": "*/*",
-          "Access-Control-Allow-Headers": "*/*", // this will allow all CORS requests
-          "Access-Control-Allow-Methods": "*/*", // this states the allowed methods
-          "Content-Type": "*/*",
         },
       }
     );
   } catch (error) {
     console.log(error);
   }
-  console.log(response);
   let code = response.data.code;
-  if (code === 2000) {
-    console.log(response);
-  } else {
-    return { status: code };
-  }
-  console.log(response);
+  return { status: code };
 };

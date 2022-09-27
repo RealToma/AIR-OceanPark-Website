@@ -39,7 +39,7 @@ const CreatePlayer = () => {
       {
         navigate('/login');
       }
-      else if(res.status === 1000)
+      else if(res.status === 1010)
       {
         setMsgAlert(textCreatePlayer.ta04.en);
       }
