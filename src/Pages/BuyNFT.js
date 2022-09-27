@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import { textBuyNFT } from "../Config/Text_";
@@ -13,12 +13,15 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomBuyNFT from "../Components/CustomBuyNFT";
 
+
 import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
 // import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 
 const BuyNFT = () => {
+  const { id, step } = useParams()
+  console.log(id, step)
   const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();

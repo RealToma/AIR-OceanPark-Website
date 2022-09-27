@@ -8,6 +8,7 @@ export const customColor = {
   backColor05: "#37245F",
   textColor01: "#5F4221",
   textColor02: "#414141",
+  textColor02_50: "rgba(65, 65, 65, .5)",
   textColor03: "black",
   textColor04: "#E93030",
   textTerms: "#414141"

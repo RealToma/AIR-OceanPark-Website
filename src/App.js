@@ -9,7 +9,8 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Auth/Login";
 import Signup from "./Pages/Auth/Signup";
 import CreatePlayer from "./Pages/Auth/CreatePlayer";
-import BuyNFT from "./Pages/BuyNFT";
+import BuyNFT from "./Pages/BuyNFT"; // rename to MyNFT ?
+import BuyNFT2 from "./Pages/BuyNFT/[id]"; // rename to MyNFT ?
 
 const App = () => {
   return (
@@ -23,6 +24,14 @@ const App = () => {
           <Route
             path="/buyNFT"
             element={localStorage.getItem("userToken") ? <BuyNFT /> : <Home />}
+          />
+          <Route
+            path="/buyNFT/:id"
+            element={localStorage.getItem("userToken") ? <BuyNFT2 /> : <Home />}
+          />
+          <Route
+            path="/buyNFT/:id/:step"
+            element={<BuyNFT2 />}
           />
         </Routes>
       </BrowserRouter>
