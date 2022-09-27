@@ -19,7 +19,7 @@ import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 
 const BuyNFT = () => {
-  
+  const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
   const textBuyNFT = !flagLanguage ? TEXT_BuyNFT.EN : TEXT_BuyNFT.CH;
