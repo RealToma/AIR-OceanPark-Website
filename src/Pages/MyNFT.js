@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
 import { textMyNFT } from "../Config/Text_";
 import { TEXT_MyNFT } from "../Config/Text";
@@ -9,7 +9,8 @@ import TopNavbarAccount from "../Layouts/TopNavbarAccount";
 import FooterAccount from "../Layouts/FooterAccount";
 import imgMark01 from "../Assets/image/mark01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
-import imgGetMore01 from "../Assets/image/icons/get_more01.png"
+import imgGetMore01 from "../Assets/image/icons/get_more01.png";
+import imgPhantom01 from "../Assets/image/icons/phantom01.png";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomMyEachNFT from "../Components/CustomMyEachNFT";
@@ -19,9 +20,9 @@ import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 import { actionGetCitizens } from "../Actions/Auth";
+import { NotificationManager } from "react-notifications";
 
 const MyNFT = () => {
-
   const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
@@ -29,7 +30,16 @@ const MyNFT = () => {
   const token = localStorage.getItem("token");
   const [myNFTData, setMyNFTData] = useState();
 
-  const [walletConnected, setWalletConnected] = useState(false);
+  const [openConnectWallet, setOpenConnectWallet] = useState(false);
+  const handleOpenConnectWallet = () => {
+    setOpenConnectWallet(true);
+  };
+  const handleCloseConnectWallet = () => {
+    setOpenConnectWallet(false);
+  };
+
+  const [flagWalletConnected, setFlagWalletConnected] = useState(false);
+  const [publicKey, setPublicKey] = useState("");
 
   useEffect(() => {
     actionGetCitizens(token).then((res) => {
@@ -40,6 +50,45 @@ const MyNFT = () => {
       }
     });
   }, []);
+
+  const shortWalletAddress = (address) => {
+    return address.slice(0, 4) + "..." + address.slice(-4);
+  };
+
+  const handleConnectWallet = async () => {
+    if (typeof window.solana === "undefined") {
+      NotificationManager.error(
+        "Please install Solana Phantom Wallet Plugin.",
+        "Hi!",
+        3000
+      );
+      return;
+    }
+    if (true !== window.solana.isPhantom) {
+      NotificationManager.error("No Phantom Wallet found.", "Hi!", 3000);
+      return;
+    }
+    try {
+      let response;
+      response = await window.solana.connect();
+      if (!window.solana.isConnected) {
+        if (true !== window.solana.isPhantom) {
+          NotificationManager.error("Not connected.", "Hi!", 3000);
+          return;
+        }
+        handleCloseConnectWallet();
+        return;
+      }
+
+      let tempPublicKey = response.publicKey.toString();
+      setPublicKey(tempPublicKey);
+      setFlagWalletConnected(true);
+      handleCloseConnectWallet();
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+  };
 
   return (
     <StyledComponent>
@@ -83,14 +132,21 @@ const MyNFT = () => {
                 </PartMark01>
               </PartLogout01>
               <PartBorder01></PartBorder01>
-              <PartConnectWallet01 onClick={()=>{
-                console.log(window.solana);
-              }}>
+              <PartConnectWallet01
+                onClick={() => {
+                  if (flagWalletConnected) {
+                    return;
+                  }
+                  handleOpenConnectWallet();
+                }}
+              >
                 <PartWalletIcon01>
                   <AccountBalanceWalletIcon sx={{ fontSize: "1.5rem" }} />
                 </PartWalletIcon01>
                 <PartWalletText01>
-                  {textMyNFT.tConnectWallet01}
+                  {!flagWalletConnected
+                    ? textMyNFT.tConnectWallet01
+                    : shortWalletAddress(publicKey)}
                 </PartWalletText01>
               </PartConnectWallet01>
             </PartAccount01>
@@ -98,7 +154,7 @@ const MyNFT = () => {
           <PartDisplayNFT01>
             <PartDisplayNFT02>
               {myNFTData?.map((each, index) => {
-                return <CustomMyEachNFT key={index} dataNFT={each.citizen} />;
+                return <CustomMyEachNFT key={index} dataNFT={each.citizen} flagWalletConnected={flagWalletConnected} />;
               })}
               <PartGetMore01>
                 <PartGetMoreIcon01>
@@ -109,15 +165,42 @@ const MyNFT = () => {
                     alt=""
                   />
                 </PartGetMoreIcon01>
-                <PartGetMoreText01>
-                  {textMyNFT.tGetMore}
-                </PartGetMoreText01>
+                <PartGetMoreText01>{textMyNFT.tGetMore}</PartGetMoreText01>
               </PartGetMore01>
             </PartDisplayNFT02>
           </PartDisplayNFT01>
         </PartContent02>
       </PartContent01>
       <FooterAccount />
+      <Modal
+        open={openConnectWallet}
+        onClose={handleCloseConnectWallet}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <PartModalWalletConnect01>
+          <TextTitleWalletConnect01>
+            Connect web3 wallet
+          </TextTitleWalletConnect01>
+          <TextContentWalletConnect01>
+            By connecting to the blockchain (Solana), you can withdraw and read
+            AiR CITIZEN between AiR and your wallet
+          </TextContentWalletConnect01>
+          <ButtonConnectPhantom01 onClick={() => handleConnectWallet()}>
+            <ImagePhantom01>
+              <img src={imgPhantom01} width={"100%"} height={"100%"} alt="" />
+            </ImagePhantom01>
+            <TextPhantom01>Connect Phantom</TextPhantom01>
+          </ButtonConnectPhantom01>
+          <ButtonCancelConnectPhantom01
+            onClick={() => {
+              handleCloseConnectWallet();
+            }}
+          >
+            Cancel
+          </ButtonCancelConnectPhantom01>
+        </PartModalWalletConnect01>
+      </Modal>
     </StyledComponent>
   );
 };
@@ -226,7 +309,7 @@ const PartDisplayNFT01 = styled(Box)`
   padding: 30px;
   box-sizing: border-box;
 
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 1200px) {
     padding: 15px;
   }
@@ -340,4 +423,107 @@ const PartWalletText01 = styled(Box)`
   margin-left: 10px;
 `;
 
+const PartModalWalletConnect01 = styled(Box)`
+  display: flex;
+  position: fixed;
+  width: 420px;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: ${customColor.mainColor01};
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: box-shadow 300ms;
+  transition: transform 505ms cubic-bezier(0, 0, 0.2, 1) 0ms !important;
+  outline: none;
+  animation: back_animation1 0.5s 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  @keyframes back_animation1 {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+`;
+
+const TextTitleWalletConnect01 = styled(Box)`
+  display: flex;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 160%;
+  /* identical to box height, or 26px */
+
+  text-align: center;
+  color: ${customColor.mainColor02};
+`;
+
+const TextContentWalletConnect01 = styled(Box)`
+  display: flex;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 22px */
+
+  text-align: center;
+  color: ${customColor.textColor03};
+  margin-top: 10px;
+`;
+
+const ButtonConnectPhantom01 = styled(Box)`
+  display: flex;
+  height: 45px;
+  width: 100%;
+  background-color: ${customColor.backColor06};
+  color: ${customColor.mainColor01};
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 20px;
+`;
+
+const ImagePhantom01 = styled(Box)`
+  display: flex;
+  width: 32px;
+  height: 26px;
+  margin-right: 10px;
+`;
+
+const TextPhantom01 = styled(Box)`
+  display: flex;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 22px */
+
+  text-align: center;
+  color: ${customColor.mainColor01};
+`;
+
+const ButtonCancelConnectPhantom01 = styled(Box)`
+  display: flex;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 22px */
+
+  text-align: center;
+  color: ${customColor.mainColor02};
+  cursor: pointer;
+  margin-top: 20px;
+`;
 export default MyNFT;

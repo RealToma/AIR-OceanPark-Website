@@ -8,7 +8,7 @@ import imgWithdraw02 from "../Assets/image/icons/withdraw02.png";
 import { customColor } from "../Config/Color";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const CustomMyEachNFT = ({ dataNFT }) => {
+const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -22,6 +22,11 @@ const CustomMyEachNFT = ({ dataNFT }) => {
     <>
       <StyledComponent
         onClick={() => {
+          if(!flagWalletConnected)
+          {
+            handleClose();
+            return;
+          }
           handleOpen();
         }}
       >
@@ -86,28 +91,51 @@ const CustomMyEachNFT = ({ dataNFT }) => {
             <PartLeft01>
               <PartText02>{dataNFT.nftID}</PartText02>
             </PartLeft01>
-            <PartWithdraw02>
-              <PartIcon02>
-                <img src={imgAiRMark01} width={"100%"} height={"100%"} alt="" />
-              </PartIcon02>
-              <PartRightIcon01>
-                <ArrowForwardIcon />
-              </PartRightIcon01>
-              <PartIcon02>
-                <img src={imgSolana01} width={"100%"} height={"100%"} alt="" />
-              </PartIcon02>
-              <ButtonWithdraw01>
-                <PartIcon03>
+            {!dataNFT.withdrawn ? (
+              <PartWithdraw02>
+                <PartIcon02>
                   <img
-                    src={imgWithdraw02}
+                    src={imgAiRMark01}
                     width={"100%"}
                     height={"100%"}
                     alt=""
                   />
-                </PartIcon03>
-                <PartTextWithdraw01>{"Withdraw"}</PartTextWithdraw01>
-              </ButtonWithdraw01>
-            </PartWithdraw02>
+                </PartIcon02>
+                <PartRightIcon01>
+                  <ArrowForwardIcon />
+                </PartRightIcon01>
+                <PartIcon02>
+                  <img
+                    src={imgSolana01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartIcon02>
+                <ButtonWithdraw01>
+                  <PartIcon03>
+                    <img
+                      src={imgWithdraw02}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon03>
+                  <PartTextWithdraw01>{"Withdraw"}</PartTextWithdraw01>
+                </ButtonWithdraw01>
+              </PartWithdraw02>
+            ) : (
+              <PartWithdraw02>
+                <PartIcon02>
+                  <img
+                    src={imgSolana01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartIcon02>
+              </PartWithdraw02>
+            )}
           </PartModalFooter01>
         </PartModal01>
       </Modal>

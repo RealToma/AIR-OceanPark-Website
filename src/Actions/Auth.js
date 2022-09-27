@@ -81,5 +81,3 @@ export const actionGetCitizens = async (token) => {
   }
 };
 
-// curl --location --request GET ‘https://api-pre-prod.air-world.io/citizens/citizens’ \
-// --header ‘token: qzRjVH88QoB4natR’
