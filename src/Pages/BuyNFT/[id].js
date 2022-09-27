@@ -7,12 +7,25 @@ import { customColor } from "../../Config/Color";
 import TopNavbarAccount from "../../Layouts/TopNavbarAccount";
 import FooterAccount from "../../Layouts/FooterAccount";
 import BuyNFTContainer from "../../Components/BuyNFT/Container";
+import LoginPane from '../../Components/Login'
+import Checkout from '../../Components/BuyNFT/Checkout'
+import Payment from '../../Components/BuyNFT/Payment'
+
+const StyledComponent = styled(Box)`
+  width: 100%;
+  min-height: 100vh;
+  background-color: ${customColor.backColor01};
+  position: relative;
+  font-family: "Rubik";
+`;
 
 const BuyNFT = () => {
   const { id, step: stepParam } = useParams()
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  let stepNumber = userInfo ? 2 : 1 // define init step, logged in = 2, guest = 1
-  if (stepNumber > 2 && Number(stepParam) <= 4) stepNumber = Number(stepParam) // update step by url, with login checking
+  let stepNumber = Number(stepParam)
+  if (!userInfo && stepNumber > 1) stepNumber = 1
+  if (userInfo && stepNumber < 2) stepNumber = 2
+  if (userInfo && stepParam > 4) stepNumber = 4
   
   const [step, setStep] = useState(stepNumber)
   const flagLanguage = false;
@@ -24,13 +37,13 @@ const BuyNFT = () => {
   let component
   switch (step) {
     case 1:
-      component = <>login</>
+      component = <LoginPane />
       break
     case 2:
-      component = <>checkout</>
+      component = <Checkout />
       break
     case 3:
-      component = <>payment</>
+      component = <Payment />
       break
     case 4:
       component = <>re</>
@@ -48,16 +61,5 @@ const BuyNFT = () => {
   );
 };
 
-const StyledComponent = styled(Box)`
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  justify-content: center;
-  background-color: ${customColor.backColor01};
-`;
-
-const StyledContainer = styled(Box)`
-  padding-top:500px;
-`
 
 export default BuyNFT;
