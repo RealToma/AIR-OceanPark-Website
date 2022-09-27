@@ -31,14 +31,6 @@ import imgCap01 from "../Assets/image/cap01.png";
 import imgPen01 from "../Assets/image/pen01.png";
 import imgRing01 from "../Assets/image/ring01.png";
 
-// rotate images
-import imgTNFT01 from "../Assets/image/nfts__/01.png";
-import imgTNFT02 from "../Assets/image/nfts__/02.png";
-import imgTNFT03 from "../Assets/image/nfts__/03.png";
-import imgTNFT04 from "../Assets/image/nfts__/04.png";
-import imgTNFT05 from "../Assets/image/nfts__/05.png";
-import imgTNFT06 from "../Assets/image/nfts__/06.png";
-
 // import imgTNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgTNFT02 from "../Assets/image/nfts/OP nft_IT_A 1.png";
 // import imgTNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png";
@@ -102,14 +94,15 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      let tempFlag;
-      tempFlag = flagRotate;
-      tempFlag++;
-      if (tempFlag > 5) {
-        setFlagRotate(0);
-      } else {
-        setFlagRotate(tempFlag++);
-      }
+      setFlagRotate((flagRotate + 1) % 8);
+      // let tempFlag;
+      // tempFlag = flagRotate;
+      // tempFlag++;
+      // if (tempFlag > 5) {
+      //   setFlagRotate(0);
+      // } else {
+      //   setFlagRotate(tempFlag++);
+      // }
     }, 3000);
   }, [flagRotate]);
 
@@ -172,13 +165,7 @@ const Home = () => {
                     alt={""}
                   />
                 </PartMark01>
-                <PartDescription01>
-                  <PartDescriptionInner01>
-                    {textHomeContent.tdes01}
-                    <br />
-                    {textHomeContent.tdes02}
-                  </PartDescriptionInner01>
-                </PartDescription01>
+                <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
               </PartMarkDescription01>
 
               <PartMarkGroup01>
@@ -203,26 +190,27 @@ const Home = () => {
 
               <PartNFTRotate01>
                 {/* <PartShadow01>
-              <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
-            </PartShadow01> */}
-                <PartEachNFT flagrotate={(flagRotate + 0) % 6}>
-                  <img src={imgTNFT01} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 1) % 6}>
-                  <img src={imgTNFT02} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 2) % 6}>
-                  <img src={imgTNFT03} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 3) % 6}>
-                  <img src={imgTNFT04} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 4) % 6}>
-                  <img src={imgTNFT05} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
-                <PartEachNFT flagrotate={(flagRotate + 5) % 6}>
-                  <img src={imgTNFT06} width={"100%"} height={"100%"} alt="" />
-                </PartEachNFT>
+                  <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
+                </PartShadow01> */}
+                {Array(8)
+                  .fill(0)
+                  .map((_, index) => {
+                    return (
+                      <PartEachNFT
+                        key={index}
+                        flagrotate={(flagRotate + index) % 8}
+                      >
+                        <img
+                          src={require(`../Assets/image/nfts__/0${
+                            index + 1
+                          }.png`)}
+                          width={"100%"}
+                          height={"100%"}
+                          alt=""
+                        />
+                      </PartEachNFT>
+                    );
+                  })}
               </PartNFTRotate01>
             </PartMaxTop01>
           </PartTop01>
@@ -568,85 +556,85 @@ const Home = () => {
           </PartProgress01>
         </>
       ) : (
-  <PartTems01>
-    <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
-    <PartTermsContent01>
-      Age requirements
-      <br />
-      If you’re under the age required to manage your own Google Account,
-      you must have your parent or legal guardian’s permission to use a
-      Google Account. Please ask your parent or legal guardian to read
-      these terms with you.
-      <br />
-      <br />
-      If you’re a parent or legal guardian, and you allow your child to
-      use the services, then these terms apply to you and you’re
-      responsible for your child’s activity on the services.
-      <br />
-      <br />
-      Some Google services have additional age requirements as described
-      in their service-specific additional terms and policies.
-      <br />
-      <br />
-      Your relationship with Google <br />
-      These terms help define the relationship between you and Google.
-      Broadly speaking, we give you permission to use our services if you
-      agree to follow these terms, which reflect how Google’s business
-      works and how we earn money. When we speak of 'Google', 'we', 'us'
-      and 'our', we mean Google LLC and its affiliates.
-      <br />
-      <br />
-      What you can expect from us <br />
-      Provide a broad range of useful services
-      <br />
-      <br />
-      We provide a broad range of services that are subject to these
-      terms, including: <br />
-      apps and sites (like Search and Maps)
-      <br /> platforms (like Google Shopping) <br />
-      integrated services (like Maps embedded in other companies’ apps or
-      sites)
-      <br /> devices (like Google Nest)
-      <br /> Many of these services also include content that you can
-      stream or interact with.
-      <br />
-      <br />
-      Our services are designed to work together, making it easier for you
-      to move from one activity to the next. For example, if your Calendar
-      event includes an address, you can click on that address and Maps
-      can show you how to get there.
-      <br />
-      <br />
-      Develop, improve and update Google services
-      <br />
-      <br /> We’re constantly developing new technologies and features to
-      improve our services. For example, we use artificial intelligence
-      and machine learning to provide you with simultaneous translations
-      and to better detect and block spam and malware. As part of this
-      continual improvement, we sometimes add or remove features and
-      functionalities, increase or decrease limits to our services and
-      start offering new services or stop offering old ones. When a
-      service requires or includes downloadable software, that software
-      sometimes updates automatically on your device once a new version or
-      feature is available. Some services let you adjust your automatic
-      update settings. <br />
-      <br />
-      If we make material changes that negatively impact your use of our
-      services or if we stop offering a service, we’ll provide you with
-      reasonable advance notice, except in urgent situations such as
-      preventing abuse, responding to legal requirements or addressing
-      security and operability issues. We’ll also provide you with an
-      opportunity to export your content from your Google Account using
-      Google Takeout, subject to applicable law and policies.
-    </PartTermsContent01>
-  </PartTems01>
-)}
-<FooterHome
-  setFlagTerms={setFlagTerms}
-  setFlagScroll={setFlagScroll}
-  flagLanguage={flagLanguage}
-/>
-    </StyledComponent >
+        <PartTems01>
+          <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
+          <PartTermsContent01>
+            Age requirements
+            <br />
+            If you’re under the age required to manage your own Google Account,
+            you must have your parent or legal guardian’s permission to use a
+            Google Account. Please ask your parent or legal guardian to read
+            these terms with you.
+            <br />
+            <br />
+            If you’re a parent or legal guardian, and you allow your child to
+            use the services, then these terms apply to you and you’re
+            responsible for your child’s activity on the services.
+            <br />
+            <br />
+            Some Google services have additional age requirements as described
+            in their service-specific additional terms and policies.
+            <br />
+            <br />
+            Your relationship with Google <br />
+            These terms help define the relationship between you and Google.
+            Broadly speaking, we give you permission to use our services if you
+            agree to follow these terms, which reflect how Google’s business
+            works and how we earn money. When we speak of 'Google', 'we', 'us'
+            and 'our', we mean Google LLC and its affiliates.
+            <br />
+            <br />
+            What you can expect from us <br />
+            Provide a broad range of useful services
+            <br />
+            <br />
+            We provide a broad range of services that are subject to these
+            terms, including: <br />
+            apps and sites (like Search and Maps)
+            <br /> platforms (like Google Shopping) <br />
+            integrated services (like Maps embedded in other companies’ apps or
+            sites)
+            <br /> devices (like Google Nest)
+            <br /> Many of these services also include content that you can
+            stream or interact with.
+            <br />
+            <br />
+            Our services are designed to work together, making it easier for you
+            to move from one activity to the next. For example, if your Calendar
+            event includes an address, you can click on that address and Maps
+            can show you how to get there.
+            <br />
+            <br />
+            Develop, improve and update Google services
+            <br />
+            <br /> We’re constantly developing new technologies and features to
+            improve our services. For example, we use artificial intelligence
+            and machine learning to provide you with simultaneous translations
+            and to better detect and block spam and malware. As part of this
+            continual improvement, we sometimes add or remove features and
+            functionalities, increase or decrease limits to our services and
+            start offering new services or stop offering old ones. When a
+            service requires or includes downloadable software, that software
+            sometimes updates automatically on your device once a new version or
+            feature is available. Some services let you adjust your automatic
+            update settings. <br />
+            <br />
+            If we make material changes that negatively impact your use of our
+            services or if we stop offering a service, we’ll provide you with
+            reasonable advance notice, except in urgent situations such as
+            preventing abuse, responding to legal requirements or addressing
+            security and operability issues. We’ll also provide you with an
+            opportunity to export your content from your Google Account using
+            Google Takeout, subject to applicable law and policies.
+          </PartTermsContent01>
+        </PartTems01>
+      )}
+      <FooterHome
+        setFlagTerms={setFlagTerms}
+        setFlagScroll={setFlagScroll}
+        flagLanguage={flagLanguage}
+      />
+    </StyledComponent>
   );
 };
 
@@ -726,7 +714,6 @@ const PartEachNFT = styled(Box)`
   position: absolute;
   width: 530px;
   height: 530px;
-  display: ${({ flagrotate }) => flagrotate === 5 && "none"};
   transform: ${({ flagrotate }) =>
     flagrotate === 0
       ? "scale(0.6) translateZ(-3px) translateX(-30%)"
@@ -737,12 +724,25 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 3
       ? "scale(1.2) translateZ(0px) translateX(-30%)"
       : flagrotate === 4
-      ? "scale(1.5) translateZ(1px) translateX(-30%)"
+      ? "scale(1.35) translateZ(1px) translateX(-30%)"
       : flagrotate === 5
-      ? "scale(0) translateZ(-4px) translateX(-30%)"
-      : "none"};
+      ? "scale(0.6) translateZ(-4px) translateX(-30%)"
+      : "scale(0.6) translateZ(-4px) translateX(-30%)"};
   transform-style: preserve-3d;
-  opacity: 1;
+  opacity: ${({ flagrotate }) =>
+    flagrotate === 0
+      ? "1"
+      : flagrotate === 1
+      ? "1"
+      : flagrotate === 2
+      ? "1"
+      : flagrotate === 3
+      ? "1"
+      : flagrotate === 4
+      ? "0"
+      : flagrotate === 5
+      ? "0"
+      : "0"};
   transition: 1s;
   left: ${({ flagrotate }) =>
     flagrotate === 0
@@ -754,7 +754,7 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 3
       ? "150px"
       : flagrotate === 4
-      ? "-2000px"
+      ? "-200px"
       : flagrotate === 5
       ? "750px"
       : "none"};
@@ -763,52 +763,52 @@ const PartEachNFT = styled(Box)`
     flagrotate === 0
       ? "blur(7px)"
       : flagrotate === 1
-        ? "blur(5px)"
-        : flagrotate === 2
-          ? "blur(0px)"
-          : flagrotate === 3
-            ? "blur(3px)"
-            : flagrotate === 4
-              ? "blur(3px)"
-              : flagrotate === 5
-                ? "blur(3px)"
-                : "none"};
+      ? "blur(5px)"
+      : flagrotate === 2
+      ? "blur(0px)"
+      : flagrotate === 3
+      ? "blur(3px)"
+      : flagrotate === 4
+      ? "blur(3px)"
+      : flagrotate === 5
+      ? "blur(3px)"
+      : "blur(3px)"};
 
   @media (max-width: 900px) {
     width: 400px;
     height: 400px;
     left: ${({ flagrotate }) =>
-    flagrotate === 0
-      ? "550px"
-      : flagrotate === 1
+      flagrotate === 0
+        ? "550px"
+        : flagrotate === 1
         ? "450px"
         : flagrotate === 2
-          ? "250px"
-          : flagrotate === 3
-            ? "0px"
-            : flagrotate === 4
-              ? "-1000px"
-              : flagrotate === 5
-                ? "550px"
-                : "none"};
+        ? "250px"
+        : flagrotate === 3
+        ? "0px"
+        : flagrotate === 4
+        ? "-1000px"
+        : flagrotate === 5
+        ? "550px"
+        : "none"};
   }
   @media (max-width: 500px) {
     width: 330px;
     height: 330px;
     left: ${({ flagrotate }) =>
-    flagrotate === 0
-      ? "400px"
-      : flagrotate === 1
+      flagrotate === 0
+        ? "400px"
+        : flagrotate === 1
         ? "300px"
         : flagrotate === 2
-          ? "180px"
-          : flagrotate === 3
-            ? "0px"
-            : flagrotate === 4
-              ? "-1000px"
-              : flagrotate === 5
-                ? "400px"
-                : "none"};
+        ? "180px"
+        : flagrotate === 3
+        ? "0px"
+        : flagrotate === 4
+        ? "-1000px"
+        : flagrotate === 5
+        ? "400px"
+        : "none"};
   }
 `;
 
@@ -921,10 +921,6 @@ const PartMarkDescription01 = styled(Box)`
     bottom: 100px;
     right: 0px;
   }
-`;
-
-const PartDescriptionInner01 = styled(Box)`
-  width: 100%;
 `;
 
 const PartDescription01 = styled(Box)`

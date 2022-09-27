@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import { textBuyNFT } from "../Config/Text_";
+import { TEXT_BuyNFT } from "../Config/Text";
 import { customColor } from "../Config/Color";
 import TopNavbarAccount from "../Layouts/TopNavbarAccount";
 import FooterAccount from "../Layouts/FooterAccount";
@@ -12,14 +13,18 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomBuyNFT from "../Components/CustomBuyNFT";
 
-import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png"
+import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
 // import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 
 const BuyNFT = () => {
+  const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
+  const textBuyNFT = !flagLanguage ? TEXT_BuyNFT.EN : TEXT_BuyNFT.CH;
+
+  useEffect(() => {}, []);
 
   return (
     <StyledComponent>
@@ -42,7 +47,7 @@ const BuyNFT = () => {
                   window.location.reload();
                 }}
               >
-                <ButtonLogout01>{textBuyNFT.tLogout01.en}</ButtonLogout01>
+                <ButtonLogout01>{textBuyNFT.tLogout01}</ButtonLogout01>
                 <PartMark01>
                   <img
                     src={imgMark01}
@@ -58,18 +63,25 @@ const BuyNFT = () => {
                   <AccountBalanceWalletIcon sx={{ fontSize: "1.5rem" }} />
                 </PartWalletIcon01>
                 <PartWalletText01>
-                  {textBuyNFT.tConnectWallet01.en}
+                  {textBuyNFT.tConnectWallet01}
                 </PartWalletText01>
               </PartConnectWallet01>
             </PartAccount01>
           </PartSidebar01>
           <PartDisplayNFT01>
-            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
-            <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+            <PartDisplayNFT02>
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+              <CustomBuyNFT imageNFT={imgNFT01} backColor={"#F5DD86"} />
+            </PartDisplayNFT02>
           </PartDisplayNFT01>
         </PartContent02>
       </PartContent01>
@@ -82,21 +94,40 @@ const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
   height: 100vh;
+  justify-content: center;
   background-color: ${customColor.backColor01};
 `;
 
 const PartContent01 = styled(Box)`
   display: flex;
   width: 100%;
+  max-width: 1440px;
   height: 100%;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 120px;
+  padding-right: 120px;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  @media (max-width: 900px) {
-    padding-left: 100px;
-    padding-right: 100px;
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 
@@ -111,7 +142,7 @@ const PartContent02 = styled(Box)`
 
 const PartSidebar01 = styled(Box)`
   display: flex;
-  width: 285px;
+  min-width: 285px;
   background-color: ${customColor.mainColor02};
   border-radius: 16px 0px 0px 16px;
   flex-direction: column;
@@ -158,13 +189,25 @@ const TextID01 = styled(Box)`
 `;
 
 const PartDisplayNFT01 = styled(Box)`
-  display: grid;
-
-  flex: 1;
+  display: flex;
   width: 100%;
   padding: 30px;
   box-sizing: border-box;
+`;
 
+const PartDisplayNFT02 = styled(Box)`
+  display: grid;
+  overflow-y: auto;
+  /* flex-wrap: wrap;
+  justify-content: space-between; */
+  width: 100%;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: auto;
+  grid-row-gap: 40px;
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    grid-template-columns: auto auto auto;
+  }
 `;
 
 const PartLogout01 = styled(Box)`
