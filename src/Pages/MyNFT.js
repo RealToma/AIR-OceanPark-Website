@@ -21,12 +21,15 @@ import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 import { actionGetCitizens } from "../Actions/Auth";
 
 const MyNFT = () => {
+
   const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
   const textMyNFT = !flagLanguage ? TEXT_MyNFT.EN : TEXT_MyNFT.CH;
   const token = localStorage.getItem("token");
   const [myNFTData, setMyNFTData] = useState();
+
+  const [walletConnected, setWalletConnected] = useState(false);
 
   useEffect(() => {
     actionGetCitizens(token).then((res) => {
@@ -80,7 +83,9 @@ const MyNFT = () => {
                 </PartMark01>
               </PartLogout01>
               <PartBorder01></PartBorder01>
-              <PartConnectWallet01>
+              <PartConnectWallet01 onClick={()=>{
+                console.log(window.solana);
+              }}>
                 <PartWalletIcon01>
                   <AccountBalanceWalletIcon sx={{ fontSize: "1.5rem" }} />
                 </PartWalletIcon01>

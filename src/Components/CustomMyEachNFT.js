@@ -6,45 +6,73 @@ import imgSolana01 from "../Assets/image/icons/solana01.png";
 import imgWithdraw01 from "../Assets/image/icons/withdraw01.png";
 import imgWithdraw02 from "../Assets/image/icons/withdraw02.png";
 import { customColor } from "../Config/Color";
-import  ArrowForwardIcon  from "@mui/icons-material/ArrowForward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const CustomMyEachNFT = ({ dataNFT }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
-  const handleClose = () => setOpen(false);
   const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <StyledComponent
-      onClick={() => {
-        setOpen(true);
-      }}
-    >
-      <PartImage01>
-        <img
-          src={dataNFT.images}
-          width={"100%"}
-          height={"100%"}
-          style={{ borderRadius: "6px" }}
-          alt=""
-        />
-      </PartImage01>
-      <PartFooter01>
-        <PartLeft01>
-          <PartIcon01>
-            <img src={imgAiRMark01} width={"100%"} height={"100%"} alt="" />
-          </PartIcon01>
-          <PartText01>{dataNFT.nftID}</PartText01>
-        </PartLeft01>
-        <PartWithdraw01>
-          <img src={imgWithdraw01} width={"100%"} height={"100%"} alt="" />
-        </PartWithdraw01>
-      </PartFooter01>
+    <>
+      <StyledComponent
+        onClick={() => {
+          handleOpen();
+        }}
+      >
+        <PartImage01>
+          <img
+            src={dataNFT.images}
+            width={"100%"}
+            height={"100%"}
+            style={{ borderRadius: "6px" }}
+            alt=""
+          />
+        </PartImage01>
+        <PartFooter01>
+          {!dataNFT.withdrawn ? (
+            <>
+              <PartLeft01>
+                <PartIcon01>
+                  <img
+                    src={imgAiRMark01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartIcon01>
+                <PartText01>{dataNFT.nftID}</PartText01>
+              </PartLeft01>
+              <PartWithdraw01>
+                <img
+                  src={imgWithdraw01}
+                  width={"100%"}
+                  height={"100%"}
+                  alt=""
+                />
+              </PartWithdraw01>
+            </>
+          ) : (
+            <PartLeft01>
+              <PartIcon01>
+                <img src={imgSolana01} width={"100%"} height={"100%"} alt="" />
+              </PartIcon01>
+              <PartText01>{dataNFT.nftID}</PartText01>
+            </PartLeft01>
+          )}
+        </PartFooter01>
+      </StyledComponent>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        BackdropComponent={customBackdrop}
+        // BackdropComponent={customBackdrop}
       >
         <PartModal01>
           <img
@@ -83,7 +111,7 @@ const CustomMyEachNFT = ({ dataNFT }) => {
           </PartModalFooter01>
         </PartModal01>
       </Modal>
-    </StyledComponent>
+    </>
   );
 };
 
@@ -135,11 +163,16 @@ const PartIcon03 = styled(Box)`
   display: flex;
   width: 20px;
   height: 20px;
+  margin-right: 10px;
 `;
 
 const PartRightIcon01 = styled(Box)`
   display: flex;
   margin-right: 10px;
+  color: ${customColor.mainColor01};
+  > svg {
+    font-size: 2rem;
+  }
 `;
 
 const ButtonWithdraw01 = styled(Box)`
@@ -151,6 +184,7 @@ const ButtonWithdraw01 = styled(Box)`
   border-radius: 6px;
   background-color: ${customColor.textColor03};
   color: ${customColor.mainColor01};
+  cursor: pointer;
 `;
 
 const PartIcon01 = styled(Box)`
