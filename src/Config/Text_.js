@@ -352,6 +352,7 @@ export const textMyNFT = {
     en: "GET MORE",
     ch: "",
   },
+  
 };
 
 export const textTerms = {
