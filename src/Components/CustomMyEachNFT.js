@@ -9,7 +9,7 @@ import { customColor } from "../Config/Color";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CustomModalSimpleAlert from "./CustomModalSimpleAlert";
 
-const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
+const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -27,10 +27,24 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
     setOpenAlertWalletConnect(false);
   };
 
+  const [openAlertWalletConfirm, setOpenAlertWalletConfirm] = useState(false);
+  const handleOpenAlertWalletConfirm = () => {
+    setOpenAlertWalletConfirm(true);
+  };
+  const handleCloseAlertWalletConfirm = () => {
+    setOpenAlertWalletConfirm(false);
+  };
+
   const handleWithdraw = () => {
     if (!flagWalletConnected) {
       handleOpenAlertWalletConnect();
+      return;
     }
+    handleOpenAlertWalletConfirm();
+  };
+
+  const handleConfirm = () => {
+    alert("coming soon!");
   };
 
   return (
@@ -154,6 +168,25 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
             handleClose={handleCloseAlertWalletConnect}
           />
         </PartModal01>
+      </Modal>
+
+      <Modal
+        open={openAlertWalletConfirm}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <ModalPart02>
+          <TextTitleWalletConnect02>Withdraw to</TextTitleWalletConnect02>
+          <TextContentWalletConnect02>{publicKey}</TextContentWalletConnect02>
+          <ButtonPart02>
+            <ButtonCancel01 onClick={() => handleCloseAlertWalletConfirm()}>
+              Cancel
+            </ButtonCancel01>
+            <ButtonConfirm01 onClick={() => handleConfirm()}>
+              Confirm
+            </ButtonConfirm01>
+          </ButtonPart02>
+        </ModalPart02>
       </Modal>
     </>
   );
@@ -301,6 +334,115 @@ const PartModalFooter01 = styled(Box)`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+`;
+
+const ModalPart02 = styled(Box)`
+  display: flex;
+  width: 310px;
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: ${customColor.mainColor01};
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: box-shadow 300ms;
+  transition: transform 505ms cubic-bezier(0, 0, 0.2, 1) 0ms !important;
+  outline: none;
+  animation: back_animation1 0.5s 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.1);
+  @keyframes back_animation1 {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+`;
+
+const TextTitleWalletConnect02 = styled(Box)`
+  display: flex;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 160%;
+  /* identical to box height, or 26px */
+
+  text-align: center;
+  color: ${customColor.mainColor02};
+`;
+
+const TextContentWalletConnect02 = styled(Box)`
+  width: 100%;
+  overflow-wrap: break-word;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 22px */
+
+  text-align: center;
+  color: ${customColor.textColor03};
+  margin-top: 10px;
+`;
+
+const ButtonPart02 = styled(Box)`
+  display: flex;
+  height: 45px;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-top: 20px;
+`;
+
+const ButtonCancel01 = styled(Box)`
+  display: flex;
+  flex: 1;
+  height: 100%;
+  background-color: ${customColor.backColor01};
+  color: ${customColor.textColor02};
+  border-radius: 6px;
+  border: 1px solid ${customColor.backColor01};
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 22px */
+
+  text-align: center;
+`;
+
+const ButtonConfirm01 = styled(Box)`
+  display: flex;
+  flex: 1;
+  height: 100%;
+  background-color: ${customColor.mainColor02};
+  color: ${customColor.mainColor01};
+  border-radius: 6px;
+  border: 1px solid ${customColor.mainColor02};
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 22px */
+
+  text-align: center;
 `;
 
 export const customBackdrop = styled(Box)`
