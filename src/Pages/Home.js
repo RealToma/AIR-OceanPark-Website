@@ -769,18 +769,6 @@ const PartEachNFT = styled(Box)`
     flagrotate === 0
       ? "blur(7px)"
       : flagrotate === 1
-<<<<<<< HEAD
-        ? "blur(5px)"
-        : flagrotate === 2
-          ? "blur(0px)"
-          : flagrotate === 3
-            ? "blur(3px)"
-            : flagrotate === 4
-              ? "blur(3px)"
-              : flagrotate === 5
-                ? "blur(3px)"
-                : "none"};
-=======
       ? "blur(5px)"
       : flagrotate === 2
       ? "blur(0px)"
@@ -791,7 +779,6 @@ const PartEachNFT = styled(Box)`
       : flagrotate === 5
       ? "blur(3px)"
       : "blur(3px)"};
->>>>>>> dev_thomas
 
   @media (max-width: 900px) {
     width: 400px;
