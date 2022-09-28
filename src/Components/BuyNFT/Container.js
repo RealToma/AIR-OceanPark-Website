@@ -55,21 +55,27 @@ const BuyNFTContainer = (props) => {
   const { children, step } = props
   return (
     <StyledComponent>
-      <StyledHead>
-        <StyledReturn><SvgReturn /></StyledReturn>
-        <StyledBuyHeading>Get your AiR CITIZEN</StyledBuyHeading>
-        <div></div>
-      </StyledHead>
-      <StyledProgressWrapper>
-        <StyledCancel onClick={onCancel}>
-          <RoundBtn bgColor="none" color={customColor.mainColor02} border={`1px solid ${customColor.mainColor02}`}>
-            <div style={{padding: '5px 12px'}}>
-            Cancel
-            </div>
-          </RoundBtn>
-        </StyledCancel>
-        <BuyNFTProgress step={step} />
-      </StyledProgressWrapper>
+      {step < 4 && (
+        <StyledHead>
+          <StyledReturn><SvgReturn /></StyledReturn>
+          <StyledBuyHeading>Get your AiR CITIZEN</StyledBuyHeading>
+          <div></div>
+        </StyledHead>
+      )}
+      
+      {step < 4 && (
+        <StyledProgressWrapper>
+          <StyledCancel onClick={onCancel}>
+            <RoundBtn bgColor="none" color={customColor.mainColor02} border={`1px solid ${customColor.mainColor02}`}>
+              <div style={{padding: '5px 12px'}}>
+              Cancel
+              </div>
+            </RoundBtn>
+          </StyledCancel>
+          <BuyNFTProgress step={step} />
+        </StyledProgressWrapper>
+      )}
+
       <div>{children}</div>
     </StyledComponent>
   )
