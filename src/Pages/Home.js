@@ -165,13 +165,7 @@ const Home = () => {
                     alt={""}
                   />
                 </PartMark01>
-                <PartDescription01>
-                  <PartDescriptionInner01>
-                    {textHomeContent.tdes01}
-                    <br />
-                    {textHomeContent.tdes02}
-                  </PartDescriptionInner01>
-                </PartDescription01>
+                <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
               </PartMarkDescription01>
 
               <PartMarkGroup01>
@@ -562,85 +556,85 @@ const Home = () => {
           </PartProgress01>
         </>
       ) : (
-  <PartTems01>
-    <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
-    <PartTermsContent01>
-      Age requirements
-      <br />
-      If you’re under the age required to manage your own Google Account,
-      you must have your parent or legal guardian’s permission to use a
-      Google Account. Please ask your parent or legal guardian to read
-      these terms with you.
-      <br />
-      <br />
-      If you’re a parent or legal guardian, and you allow your child to
-      use the services, then these terms apply to you and you’re
-      responsible for your child’s activity on the services.
-      <br />
-      <br />
-      Some Google services have additional age requirements as described
-      in their service-specific additional terms and policies.
-      <br />
-      <br />
-      Your relationship with Google <br />
-      These terms help define the relationship between you and Google.
-      Broadly speaking, we give you permission to use our services if you
-      agree to follow these terms, which reflect how Google’s business
-      works and how we earn money. When we speak of 'Google', 'we', 'us'
-      and 'our', we mean Google LLC and its affiliates.
-      <br />
-      <br />
-      What you can expect from us <br />
-      Provide a broad range of useful services
-      <br />
-      <br />
-      We provide a broad range of services that are subject to these
-      terms, including: <br />
-      apps and sites (like Search and Maps)
-      <br /> platforms (like Google Shopping) <br />
-      integrated services (like Maps embedded in other companies’ apps or
-      sites)
-      <br /> devices (like Google Nest)
-      <br /> Many of these services also include content that you can
-      stream or interact with.
-      <br />
-      <br />
-      Our services are designed to work together, making it easier for you
-      to move from one activity to the next. For example, if your Calendar
-      event includes an address, you can click on that address and Maps
-      can show you how to get there.
-      <br />
-      <br />
-      Develop, improve and update Google services
-      <br />
-      <br /> We’re constantly developing new technologies and features to
-      improve our services. For example, we use artificial intelligence
-      and machine learning to provide you with simultaneous translations
-      and to better detect and block spam and malware. As part of this
-      continual improvement, we sometimes add or remove features and
-      functionalities, increase or decrease limits to our services and
-      start offering new services or stop offering old ones. When a
-      service requires or includes downloadable software, that software
-      sometimes updates automatically on your device once a new version or
-      feature is available. Some services let you adjust your automatic
-      update settings. <br />
-      <br />
-      If we make material changes that negatively impact your use of our
-      services or if we stop offering a service, we’ll provide you with
-      reasonable advance notice, except in urgent situations such as
-      preventing abuse, responding to legal requirements or addressing
-      security and operability issues. We’ll also provide you with an
-      opportunity to export your content from your Google Account using
-      Google Takeout, subject to applicable law and policies.
-    </PartTermsContent01>
-  </PartTems01>
-)}
-<FooterHome
-  setFlagTerms={setFlagTerms}
-  setFlagScroll={setFlagScroll}
-  flagLanguage={flagLanguage}
-/>
-    </StyledComponent >
+        <PartTems01>
+          <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
+          <PartTermsContent01>
+            Age requirements
+            <br />
+            If you’re under the age required to manage your own Google Account,
+            you must have your parent or legal guardian’s permission to use a
+            Google Account. Please ask your parent or legal guardian to read
+            these terms with you.
+            <br />
+            <br />
+            If you’re a parent or legal guardian, and you allow your child to
+            use the services, then these terms apply to you and you’re
+            responsible for your child’s activity on the services.
+            <br />
+            <br />
+            Some Google services have additional age requirements as described
+            in their service-specific additional terms and policies.
+            <br />
+            <br />
+            Your relationship with Google <br />
+            These terms help define the relationship between you and Google.
+            Broadly speaking, we give you permission to use our services if you
+            agree to follow these terms, which reflect how Google’s business
+            works and how we earn money. When we speak of 'Google', 'we', 'us'
+            and 'our', we mean Google LLC and its affiliates.
+            <br />
+            <br />
+            What you can expect from us <br />
+            Provide a broad range of useful services
+            <br />
+            <br />
+            We provide a broad range of services that are subject to these
+            terms, including: <br />
+            apps and sites (like Search and Maps)
+            <br /> platforms (like Google Shopping) <br />
+            integrated services (like Maps embedded in other companies’ apps or
+            sites)
+            <br /> devices (like Google Nest)
+            <br /> Many of these services also include content that you can
+            stream or interact with.
+            <br />
+            <br />
+            Our services are designed to work together, making it easier for you
+            to move from one activity to the next. For example, if your Calendar
+            event includes an address, you can click on that address and Maps
+            can show you how to get there.
+            <br />
+            <br />
+            Develop, improve and update Google services
+            <br />
+            <br /> We’re constantly developing new technologies and features to
+            improve our services. For example, we use artificial intelligence
+            and machine learning to provide you with simultaneous translations
+            and to better detect and block spam and malware. As part of this
+            continual improvement, we sometimes add or remove features and
+            functionalities, increase or decrease limits to our services and
+            start offering new services or stop offering old ones. When a
+            service requires or includes downloadable software, that software
+            sometimes updates automatically on your device once a new version or
+            feature is available. Some services let you adjust your automatic
+            update settings. <br />
+            <br />
+            If we make material changes that negatively impact your use of our
+            services or if we stop offering a service, we’ll provide you with
+            reasonable advance notice, except in urgent situations such as
+            preventing abuse, responding to legal requirements or addressing
+            security and operability issues. We’ll also provide you with an
+            opportunity to export your content from your Google Account using
+            Google Takeout, subject to applicable law and policies.
+          </PartTermsContent01>
+        </PartTems01>
+      )}
+      <FooterHome
+        setFlagTerms={setFlagTerms}
+        setFlagScroll={setFlagScroll}
+        flagLanguage={flagLanguage}
+      />
+    </StyledComponent>
   );
 };
 
@@ -784,37 +778,37 @@ const PartEachNFT = styled(Box)`
     width: 400px;
     height: 400px;
     left: ${({ flagrotate }) =>
-    flagrotate === 0
-      ? "550px"
-      : flagrotate === 1
+      flagrotate === 0
+        ? "550px"
+        : flagrotate === 1
         ? "450px"
         : flagrotate === 2
-          ? "250px"
-          : flagrotate === 3
-            ? "0px"
-            : flagrotate === 4
-              ? "-1000px"
-              : flagrotate === 5
-                ? "550px"
-                : "none"};
+        ? "250px"
+        : flagrotate === 3
+        ? "0px"
+        : flagrotate === 4
+        ? "-1000px"
+        : flagrotate === 5
+        ? "550px"
+        : "none"};
   }
   @media (max-width: 500px) {
     width: 330px;
     height: 330px;
     left: ${({ flagrotate }) =>
-    flagrotate === 0
-      ? "400px"
-      : flagrotate === 1
+      flagrotate === 0
+        ? "400px"
+        : flagrotate === 1
         ? "300px"
         : flagrotate === 2
-          ? "180px"
-          : flagrotate === 3
-            ? "0px"
-            : flagrotate === 4
-              ? "-1000px"
-              : flagrotate === 5
-                ? "400px"
-                : "none"};
+        ? "180px"
+        : flagrotate === 3
+        ? "0px"
+        : flagrotate === 4
+        ? "-1000px"
+        : flagrotate === 5
+        ? "400px"
+        : "none"};
   }
 `;
 
@@ -927,10 +921,6 @@ const PartMarkDescription01 = styled(Box)`
     bottom: 100px;
     right: 0px;
   }
-`;
-
-const PartDescriptionInner01 = styled(Box)`
-  width: 100%;
 `;
 
 const PartDescription01 = styled(Box)`

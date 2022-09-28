@@ -21,8 +21,7 @@ export const TEXT_TopNavbar = {
 
 export const TEXT_HomeContent = {
   EN: {
-    tdes01: "Play-to-Earn enabling NFTs debut with",
-    tdes02: "Ocean Park Halloween theme",
+    tdes01: "Play-to-Earn enabling NFTs debut with Ocean Park Halloween theme",
     tt01: "//Ocean Park Hong Kong : Halloween 2022",
     tt02: "//What is AiR Citizen?",
     tc01: "Every October in Hong Kong, the Halloween event held by Ocean Park is a talk-of-the-town sensation that brings joyful thrills and adrenaline rush to visitors through a series of scarily-creative and cleverly-crafted Haunted House attractions. This year, Ocean Park is working with AiR Metaverse to deliver the first ever Online + Offline Ocean Park Halloween experience in which visitors can play through a fascinating story BEFORE, DURING, and AFTER the event. A cast of sea animals dress up in wonderful Halloween costumes to become the first of many upcoming AiR Citizen NFT collection!",
@@ -31,8 +30,7 @@ export const TEXT_HomeContent = {
     textVisitSite: "Visit Official Site",
   },
   CH: {
-    tdes01: "邊玩邊賺的元住民NFT系列聯乘",
-    tdes02: "海洋公園哈囉喂驚喜面世",
+    tdes01: "支援「玩住賺」的NFT將於海洋公園「哈囉喂」中首次亮相。",
     tt01: "//海洋公園哈囉喂2022",
     tt02: "//甚麼是「元住民」?",
     tc01: "每年十月，海洋公園「哈囉喂」都成為全城熱話。園內特設一系列兼具創新與驚嚇的鬼屋及設施，為遊客帶來新奇、好玩又刺激的體驗。今年海洋公園與AiR元宇宙推出首個線上線下互動哈囉喂，讓遊客可以在入場前、公園內及離開後都能體驗一個與別不同的萬聖故事。而首批 AiR Citizen NFT已穿起海洋動物的萬聖主題服飾率先登場！",
@@ -47,22 +45,22 @@ export const TEXT_HomeUtility = {
     tt01: "//Utility",
     tdes01:
       "AiR Citizens are hard-working fellows who demonstrate an ever-growing list of utility in the world of AiR:",
-    tc01: "Enjoy real world loyalty benefits and privileges from Ocean Park including an entrance ticket Buy-one-Get-one-Free",
-    tc02: "Form a team of AiR Citizens to participate in Ocean Park Halloween Play-to-Earn game play to earn from a pool of rewards",
-    tc03: "Own AiR Citizens from different collections to be qualified for future Play-to-earn missions",
-    tc04: "Work as care-takers of the virtual space of each Hodler",
-    tc05: "Represent the Hodlers as Avatars in the Metaverse",
+    tc01: "Form a team of AiR Citizens to participate in present and future game plays",
+    tc02: "Own AiR Citizens from different collections to be qualified for Play-to-earn missions",
+    tc03: "Enjoy real world loyalty benefits and privileges from partners",
+    tc04: "Represent the Hodlers as Avatars in the Metaverse",
+    tc05: "Work as care-takers of the virtual space of each Hodler",
     tc06: "Participate in the upcoming Gamefi to earn digital assets",
   },
   CH: {
     tt01: "//用途",
     tdes01:
       "元住民是AiR世界中，辛勤工作的居民。他們不辭勞苦地拓展AiR元宇宙的，展現出AiR無窮的可能。",
-    tc01: "由海洋公園送出豐富獎賞及禮遇，包括「買一送一」入場門票。",
-    tc02: "集結多個元住民參與「海洋公園哈囉喂」的「玩住賺」任務，贏得各式富豐獎品！",
-    tc03: "持有元住民NFT的人可參與將來「玩住賺」任務。",
-    tc04: "元住民作為守護者存在於虛擬世界中。",
-    tc05: "元住民是持有者於AiR元宇宙的化身。",
+    tc01: "集結多個元住民參與「海洋公園哈囉喂」的「玩住賺」任務，贏得各式富豐獎品！",
+    tc02: "持有元住民NFT的人可參與將來「玩住賺」任務。",
+    tc03: "由海洋公園送出豐富獎賞及禮遇，包括「買一送一」入票門。",
+    tc04: "元住民是持有者於AiR元宇宙的化身。",
+    tc05: "元住民作為守護者存在於虛擬世界中。",
     tc06: "元住民持有者可於未來的Gamefi（遊戲化金融系統）中賺到意想不到的數碼資產。",
   },
 };
@@ -88,13 +86,13 @@ export const TEXT_HomeProgress = {
   },
   CH: {
     tt01: "//里程",
-    tdate01: "2022 八月",
-    tdate02: "2022 九月",
-    tdate03: "2022 十月",
-    tdate04: "2022 第三季",
-    tdate05: "進行中",
-    tdate06: "進行中",
-    tdate07: "進行中",
+    tdate01: "2022 August",
+    tdate02: "2022 September",
+    tdate03: "2022 October",
+    tdate04: "2022 Q3",
+    tdate05: "On going",
+    tdate06: "On going",
+    tdate07: "On going",
     tdes01: "海洋公園元宇宙動物護理員計劃啟動，並於AiR悼念安安。",
     tdes02: "海洋公園「哈囉喂」2022 首次公開發售元住民NFT。",
     tdes03: "海洋公園「哈囉喂」2022正式於 AiR亮相。",
@@ -106,11 +104,11 @@ export const TEXT_HomeProgress = {
 };
 export const TEXT_Footer = {
   EN: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
     textTerm: "Terms",
   },
   CH: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
     textTerm: "Terms",
   },
 };
