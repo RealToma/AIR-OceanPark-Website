@@ -22,7 +22,7 @@ const StyledComponent = styled(Box)`
 const BuyNFT = () => {
   const { step: stepParam } = useParams()
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  let stepNumber = Number(stepParam)
+  let stepNumber = Number(stepParam || 1)
   if (!userInfo && stepNumber > 1) stepNumber = 1
   if (userInfo && stepNumber < 2) stepNumber = 2
   if (userInfo && stepParam > 4) stepNumber = 4
@@ -38,13 +38,13 @@ const BuyNFT = () => {
   let component
   switch (step) {
     case 1:
-      component = <LoginPane setStep={setStep} />
+      component = <LoginPane setStep={setStep} redirectPath="/buyNFT" />
       break
     case 2:
-      component = <Checkout setStep={setStep} setOrderId={setOrderId} />
+      component = <Checkout setStep={setStep} setOrderId={setOrderId} setNftData={setNftData} />
       break
     case 3:
-      component = <Payment setStep={setStep} orderId={orderId} />
+      component = <Payment setStep={setStep} nftData={nftData} />
       break
     case 4:
       component = <Nft nftData={nftData} />

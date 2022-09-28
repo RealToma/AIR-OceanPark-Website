@@ -7,7 +7,8 @@ import map from 'lodash/map'
 import { get } from 'lodash'
 import RoundBtn from '../Button/RoundBtn'
 import { customColor } from '../../Config/Color'
-import { red } from '@mui/material/colors'
+import { Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
 
 const StyledContainer = styled.div`
   background: url('${Bg}');
@@ -52,6 +53,9 @@ const StyledBtnWrapper = styled.div`
   margin: auto;
   padding-top: 33px;
   width: 178px;
+  a {
+    text-decoration: none;
+  }
 `
 
 const StyledBtnText = styled.div`
@@ -67,12 +71,23 @@ border: 1px solid red;
   padding-top: 56px;
   @media (min-width: 900px) {
     padding-top: 39px;
+    width: 100%;
+  }
+`
+
+const StyledImageWrapper = styled.div`
+  @media (min-width: 900px) {
+    width: 300px;
   }
 `
 
 const Nft = (props) => {
-  // const { nftData } = props
-  const ntfData =[
+  const { nftData } = props
+  const detectViewport = () => {
+    return window.innerWidth >= 900 ? 'desktop' : 'mobile'
+  }
+  const [viewport, setViewport] = useState(detectViewport())
+  const nftData2 =[
     {
       "_id": "632ed3dcedbc649a2d15a186",
       "valid": true,
@@ -173,12 +188,12 @@ const Nft = (props) => {
     ]
   }
 
-  const list = map(ntfData, (item) => {
+  const list = map(nftData, (item, key) => {
     return (
-      <StyledNftItem>
+      <StyledNftItem key={`nft-${key}`}>
         <div style={{padding: '0 20px'}}>
             {get(item, 'images[0]') && (
-              <div style={{width: '300px'}}><img src={item.images[0]} width="100%" /></div>
+              <StyledImageWrapper><img src={item.images[0]} width="100%" /></StyledImageWrapper>
             )}
             <StyledNftID>{item.nftID}</StyledNftID>
           </div>
@@ -186,27 +201,42 @@ const Nft = (props) => {
     )
   })
 
+  const changeViewport = () => {
+    setViewport(detectViewport())
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', changeViewport)
+    return () => {
+      window.removeEventListener('resize', changeViewport)
+    }
+  }, [])
+
   return (
     <StyledContainer>
       <StyledCongrats>Congratulations!</StyledCongrats>
       <StyledSliderWrapper>
         <Slider {...settings}>
-          <div >
-            <div style={{width: 'calc(50vw - 300px - 40px)', height: '20px'}} />
-          </div>
+          {viewport === 'desktop' && (
+            <div>
+              <div style={{width: 'calc(50vw - 300px - 40px)'}} />
+            </div>
+          )}
           {list}
-          {/* {list}
           {list}
-          {list} */}
+          {list}
+          {list}
         </Slider>
       </StyledSliderWrapper>
 
       <StyledBtnWrapper>
-        <RoundBtn>
-          <StyledBtnText>
-            Goto my collections
-          </StyledBtnText>
-        </RoundBtn>
+        <Link to="/myNFT">
+          <RoundBtn>
+            <StyledBtnText>
+              Goto my collections
+            </StyledBtnText>
+          </RoundBtn>
+        </Link>
       </StyledBtnWrapper>
     </StyledContainer>
   )

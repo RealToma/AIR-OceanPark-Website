@@ -13,7 +13,8 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
 import { actionLogin } from "../../Actions/Auth";
 
-const Login = () => {
+const Login = (props) => {
+  const { redirectPath = '/buyNFT' } = props
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,7 +56,7 @@ const Login = () => {
         if (res.playerInfo.player.name === undefined) {
           navigate("/createPlayer");
         } else {
-          navigate("/buyNFT");
+          navigate(redirectPath);
           window.location.reload();
         }
       } else {

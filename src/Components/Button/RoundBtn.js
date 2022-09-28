@@ -11,6 +11,9 @@ const StyledNextBtn = styled.div`
   color: ${(props) => props.color};
   border: ${(props) => props.border};
   border-radius: 6px;
+  a {
+    text-decoration: none;
+  }
 `
 
 const RoundBtn = (props) => {

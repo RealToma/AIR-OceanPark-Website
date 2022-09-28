@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import {ReactComponent as SvgSuccess} from "../../Assets/svg/success.svg"
 import {ReactComponent as SvgFail} from "../../Assets/svg/fail.svg"
-import { useState } from 'react'
 import RoundBtn from '../../Components/Button/RoundBtn'
 import { customColor } from '../../Config/Color'
 
@@ -36,20 +35,21 @@ const StyledBtnWrapper = styled.div`
   margin: auto;
 `
 
-const Payment = () => {
-  const [paymentStatus, setPaymentStatus] = useState('')
+const Payment = (props) => {
+  const { nftData = [], setStep } = props
+  const success = !!nftData.length
 
   const onReveal = () => {
-    console.log('onReveal')
+    setStep(4)
   }
 
   const onRetry = () => {
-    console.log('onRetry')
+    setStep(2)
   }
 
   return (
     <StyledContainer>
-      {paymentStatus === 'success' && (
+      {success && (
         <StyledSuccessPane>
           <SvgSuccess />
           <StyledMsg>Payment success, Thank You!</StyledMsg>
@@ -60,7 +60,7 @@ const Payment = () => {
           </StyledBtnWrapper>
         </StyledSuccessPane>
       )}
-      {paymentStatus === 'failed' && (
+      {!success && (
         <StyledFailedPane>
           <SvgFail />
           <StyledMsg>Sorry, Error message.</StyledMsg>
@@ -71,8 +71,6 @@ const Payment = () => {
           </StyledBtnWrapper>
         </StyledFailedPane>
       )}
-      
-      
     </StyledContainer>
   )
 }

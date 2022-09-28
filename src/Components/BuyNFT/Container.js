@@ -3,6 +3,7 @@ import BuyNFTProgress from './Progress'
 import { customColor } from "../../Config/Color"
 import {ReactComponent as SvgReturn} from "../../Assets/svg/return.svg"
 import RoundBtn from '../../Components/Button/RoundBtn'
+import { Link } from 'react-router-dom'
 
 const StyledComponent = styled.div`
   padding: 100px 20px;
@@ -57,7 +58,7 @@ const BuyNFTContainer = (props) => {
     <StyledComponent>
       {step < 4 && (
         <StyledHead>
-          <StyledReturn><SvgReturn /></StyledReturn>
+          <StyledReturn><Link to="/"><SvgReturn /></Link></StyledReturn>
           <StyledBuyHeading>Get your AiR CITIZEN</StyledBuyHeading>
           <div></div>
         </StyledHead>

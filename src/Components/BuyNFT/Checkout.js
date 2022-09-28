@@ -5,7 +5,7 @@ import nft from "../../Assets/image/nft.png"
 import {ReactComponent as SvgTick} from "../../Assets/svg/tick.svg"
 import {ReactComponent as SvgIncrease} from "../../Assets/svg/increase.svg"
 import {ReactComponent as SvgDecrease} from "../../Assets/svg/decrease.svg"
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js"
 import get from 'lodash/get'
 import axios from "axios"
@@ -44,6 +44,7 @@ const StyledKlookBtnContent = styled.div`
 
 const StyledCheckoutPane = styled.div`
   padding-top: 20px;
+  position: relative;
 `
 
 const StyledCheckoutContent = styled.div`
@@ -73,7 +74,7 @@ const StyledCheckoutContentBubble = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  top: -25px;
+  top: 0;
   right: -10px;
 `
 
@@ -149,8 +150,9 @@ const StyledAmountValue = styled.div`
 `
 
 const StyledPaypalWrapper = styled.div`
-  padding-top: 15px;
   position: relative;
+  padding: 15px 16px 0 16px;
+  min-height: 161px;
 `
 
 const StyledPaypalMask = styled.div`
@@ -159,8 +161,8 @@ const StyledPaypalMask = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 200;
 `
 
 const StyledNextBtnWrapper = styled.div`
@@ -196,14 +198,18 @@ const StyledKlookRedemptionCodeWrapper = styled.div`
 `
 
 const Checkout = (props) => {
-  const { setStep } = props
+  const { setStep, setNftData } = props
   const token = localStorage.getItem("token")
   const [amount, setAmount] = useState(1)
   const [agreement, setAgreement] = useState(false)
   const [klookAgreement, setKlookAgreement] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [showKlookDialog, setShowKlookDialog] = useState(false)
   const [klookCode, setKlookCode] = useState('')
   const [redeemProcessing, setRedeemProcessing] = useState(false)
+  const [allowCloseModal, setAllowCloseModal] = useState(true)
+
+  const redeemable = (!redeemProcessing && !!klookAgreement && !!klookCode)
   // const klookCodeRef = useRef()
   const total = 500 * amount
 
@@ -224,6 +230,10 @@ const Checkout = (props) => {
   }
 
   const onCreatePaypalOrder = async (data, actions) => {
+    // if (data.paymentSource === 'paypal') {
+    //   showPaymentModal()
+    // }
+    
     return await axios.post(
       process.env.REACT_APP_CITIZEN_URL + "/createOrder",
       {
@@ -238,26 +248,52 @@ const Checkout = (props) => {
         },
       }
     ).then(({ data }) => {
-      if (get(data, 'result.orderID')) {
-        return actions.order.create({
-          purchase_units: [
-              {
-                  invoice_id: `${data.result.orderID}`,
-                  reference_id: `${data.result.orderID}`,
-                  amount: {
-                      value: total,
-                  },
-              },
-          ],
-        })
+      if (get(data, 'success')) {
+        if (get(data, 'result.orderID')) {
+          return actions.order.create({
+            purchase_units: [
+                {
+                    invoice_id: `${data.result.orderID}`,
+                    reference_id: `${data.result.orderID}`,
+                    amount: {
+                        value: total,
+                    },
+                },
+            ],
+          })
+        } else {
+          console.log('no order id')
+        }
+      } else {
+        alert('soldout')
+        // closePaymentModal()
       }
     })
   }
 
+  const showPaymentModal = () => {
+    setShowModal(true)
+    setAllowCloseModal(false)
+  }
+
+  const closePaymentModal = () => {
+    setShowModal(false)
+    setAllowCloseModal(true)
+  }
+
   const onApprovePaypal = async (data, actions) => {
+    showPaymentModal()
     actions.order.capture().then((orderData) => {
       if (get(orderData, 'status') === 'COMPLETED') {
-        console.log('done')
+        console.log('done', orderData)
+        const invoice_id = get(orderData, 'purchase_units[0].invoice_id')
+        if (invoice_id) {
+          checkOrder(invoice_id)
+        } else {
+          // console.log('invoice not found')
+        }
+      } else {
+        console.log('order status is not completed')
       }
     })
   }
@@ -270,7 +306,7 @@ const Checkout = (props) => {
   }
 
   const redeemByKlook = async () => {
-    if (!redeemProcessing) {
+    if (redeemable) {
       setRedeemProcessing(true)
       await axios.post(
         process.env.REACT_APP_CITIZEN_URL + "/redeem",
@@ -285,18 +321,65 @@ const Checkout = (props) => {
         }
       ).then(({ data }) => {
         if (get(data, 'success')) {
-          setStep(3)
+          setNftData(get(data, 'result.citizens', []))
         }
-      }).catch(() => {
-        setShowModal(false)
       })
+      setStep(3)
       setRedeemProcessing(false)
     }
   }
 
+  const checkOrder = async (invoice_id) => {
+    const maxRetryCount = 10
+    let retryCount = 0
+    const fetch = () => {
+      axios.get(
+        process.env.REACT_APP_CITIZEN_URL + "/checkOrder",
+        {
+          params: {
+            orderID: invoice_id,
+          },
+          headers: {
+            token,
+          },
+        },
+      ).then(({ data }) => {
+        retryCount += 1
+        const status = get(data, 'result.status', 0)
+        if (status === 0) { // pending
+          if (retryCount < maxRetryCount) {
+            setTimeout(() => {
+              fetch()
+            }, 5000)
+          }
+        }
+  
+        if (status === 1) { // success
+          console.log('success')
+          setNftData(get(data, 'result.citizens', []))
+          setStep(3)
+        }
+  
+        if (status === 2) { // failed
+          setStep(3)
+        }
+      })
+    }
+    if (invoice_id) {
+      fetch()
+    }
+  }
+
+  const onPaypalCancel = () => {
+    closePaymentModal()
+  }
+
   return (
     <StyledContainer>
-      <StyledKlookWrapper onClick={() => setShowModal(true)}>
+      <StyledKlookWrapper onClick={() => {
+        setShowModal(true)
+        setShowKlookDialog(true)  
+      }}>
         <StyledKlookBtn>
           <StyledKlookBtnContent>
             <div style={{width: '78px'}}>
@@ -339,67 +422,77 @@ const Checkout = (props) => {
                   <SvgTick />
                 )}
               </StyledConsentBox>
-              <div style={{ paddingLeft: '12px'}}>I agree to the T&C</div>
+              <div style={{ paddingLeft: '12px'}}>I agree to the T&amp;C</div>
             </StyledConsentPane>
-
-            <StyledCheckoutContentBubble>
-              <div style={{ fontSize: '20px' }}>70%</div>
-              <div>REMAIN</div>
-            </StyledCheckoutContentBubble>
           </StyledCheckoutContentPadding>
           <StyledPaypalWrapper>
             <PayPalScriptProvider options={initialOptions}>
-              <PayPalButtons createOrder={onCreatePaypalOrder} onApprove={onApprovePaypal} key={`ppl-amount-${amount}`} />
+              <PayPalButtons createOrder={onCreatePaypalOrder} onApprove={onApprovePaypal} forceReRender={[amount]} onCancel={onPaypalCancel} />
             </PayPalScriptProvider>
             {!agreement && (
               <StyledPaypalMask />
             )}
           </StyledPaypalWrapper>
         </StyledCheckoutContent>
+
+        <StyledCheckoutContentBubble>
+          <div style={{ fontSize: '20px' }}>70%</div>
+          <div>REMAIN</div>
+        </StyledCheckoutContentBubble>
       </StyledCheckoutPane>
 
       <Modal
         open={showModal}
-        onClose={() => setShowModal(false)}
+        onClose={() => {
+          if (allowCloseModal) {
+            setShowModal(false)
+            setShowKlookDialog(false)
+          }
+        }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: 400,
-            bgcolor: 'background.paper',
-            borderRadius: '20px',
-            p: '22px 34px',
-            textAlign: 'center',
-        }}>
-          <StyledKlookRedemptionTxt>Redemption</StyledKlookRedemptionTxt>
-          <StyledKlookRedemptionCodeWrapper>
-            <input placeholder='My code' onChange={onChangeCode} value={klookCode} maxLength="10" />
-          </StyledKlookRedemptionCodeWrapper>
-          <div>
-            <StyledKlookConsentPane>
-              <StyledConsentBox onClick={() => setKlookAgreement(!klookAgreement)}>
-                {klookAgreement && (
-                  <SvgTick />
-                )}
-              </StyledConsentBox>
-              <div style={{ paddingLeft: '12px'}}>I agree to the T&C</div>
-            </StyledKlookConsentPane>
-      
-            <StyledNextBtnWrapper>
-              <RoundBtn bgColor={redeemProcessing ? customColor.progressBar : customColor.mainColor02}>
-                <div onClick={redeemByKlook}>
-                  <StyledNextBtn>
-                    Next
-                  </StyledNextBtn>
-                </div>
-              </RoundBtn>
-            </StyledNextBtnWrapper>
-          </div>
-        </Box>
+        <>
+          {showKlookDialog && (
+            <Box sx={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: 400,
+                maxWidth: '70vw',
+                bgcolor: 'background.paper',
+                borderRadius: '20px',
+                p: '22px 34px',
+                textAlign: 'center',
+            }}>
+              <StyledKlookRedemptionTxt>Redemption</StyledKlookRedemptionTxt>
+              <StyledKlookRedemptionCodeWrapper>
+                <input placeholder='My code' onChange={onChangeCode} value={klookCode} maxLength="10" />
+              </StyledKlookRedemptionCodeWrapper>
+              <div>
+                <StyledKlookConsentPane>
+                  <StyledConsentBox onClick={() => setKlookAgreement(!klookAgreement)}>
+                    {klookAgreement && (
+                      <SvgTick />
+                    )}
+                  </StyledConsentBox>
+                  <div style={{ paddingLeft: '12px'}}>I agree to the T&amp;C</div>
+                </StyledKlookConsentPane>
+          
+                <StyledNextBtnWrapper>
+                  <RoundBtn bgColor={redeemable ? customColor.mainColor02 : customColor.progressBar}>
+                    <div onClick={redeemByKlook}>
+                      <StyledNextBtn>
+                        Next
+                      </StyledNextBtn>
+                    </div>
+                  </RoundBtn>
+                </StyledNextBtnWrapper>
+              </div>
+            </Box>
+          )}
+        </>
       </Modal>
     </StyledContainer>
   )
