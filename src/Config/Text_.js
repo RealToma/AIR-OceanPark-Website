@@ -314,7 +314,7 @@ export const textCreatePlayer = {
     ch: "",
   },
   ta04: {
-    en: "Invalid token.",
+    en: "Already created.",
     ch: "",
   },
   ti02: {
@@ -339,7 +339,7 @@ export const textCreatePlayer = {
   },
 };
 
-export const textBuyNFT = {
+export const textMyNFT = {
   tLogout01: {
     en: "Logout",
     ch: "",
@@ -352,6 +352,7 @@ export const textBuyNFT = {
     en: "GET MORE",
     ch: "",
   },
+  
 };
 
 export const textTerms = {

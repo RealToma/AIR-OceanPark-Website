@@ -60,6 +60,7 @@ const TopNavbarAccount = () => {
                 <ButtonClicked01
                   onClick={() => {
                     setFlagLanguage(false);
+
                   }}
                 >
                   ENG
@@ -111,7 +112,7 @@ const PartMax01 = styled(Box)`
   display: flex;
   width: 100%;
   max-width: 1400px;
-  
+
   z-index: 90;
   padding-left: 120px;
   padding-right: 120px;

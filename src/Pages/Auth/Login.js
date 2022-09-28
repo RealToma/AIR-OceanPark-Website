@@ -57,9 +57,8 @@ const Login = () => {
         if (res.playerInfo.player.name === undefined) {
           navigate("/createPlayer");
         } else {
-          // navigate("/buyNFT");
-          // window.location.reload();
-          alert("coming soon!");
+          navigate("/myNFT");
+          window.location.reload();
         }
       } else {
         setMsgAlert(textLogin.ta06.en);

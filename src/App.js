@@ -9,7 +9,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Auth/Login";
 import Signup from "./Pages/Auth/Signup";
 import CreatePlayer from "./Pages/Auth/CreatePlayer";
-import BuyNFT from "./Pages/BuyNFT";
+import MyNFT from "./Pages/MyNFT";
 
 const App = () => {
   return (
@@ -21,8 +21,8 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/createPlayer" element={<CreatePlayer />} />
           <Route
-            path="/buyNFT"
-            element={localStorage.getItem("userToken") ? <BuyNFT /> : <Home />}
+            path="/myNFT"
+            element={localStorage.getItem("userToken") ? <MyNFT /> : <Home />}
           />
         </Routes>
       </BrowserRouter>

@@ -57,6 +57,7 @@ const Signup = () => {
     actionSignup(signupData).then((res) => {
       if (res.status === 2000) {
         localStorage.setItem("token", res.token);
+        console.log("token:",res.token);
         navigate("/createPlayer");
       } else if (res.status === 1010) {
         setMsgAlert(textSignup.ta06.en);
@@ -69,6 +70,7 @@ const Signup = () => {
   return (
     <StyledComponent>
       <TopNavbarAccount />
+      
       <PartSign01>
         <PartHeader01>
           <img src={imgMark01} width={"170px"} height={"47px"} alt="" />

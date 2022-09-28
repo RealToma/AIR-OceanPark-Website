@@ -206,7 +206,7 @@ export const TEXT_CreatePlayer = {
   },
 };
 
-export const TEXT_BuyNFT = {
+export const TEXT_MyNFT = {
   EN: {
     tLogout01: "Logout",
     tConnectWallet01: "Connect web3 wallet",
