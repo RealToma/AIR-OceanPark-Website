@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { TEXT_BuyNFT } from "../../Config/Text";
 import { customColor } from "../../Config/Color";
 import TopNavbarAccount from "../../Layouts/TopNavbarAccount";
 import FooterAccount from "../../Layouts/FooterAccount";
@@ -10,6 +9,7 @@ import BuyNFTContainer from "../../Components/BuyNFT/Container";
 import LoginPane from '../../Components/Login'
 import Checkout from '../../Components/BuyNFT/Checkout'
 import Payment from '../../Components/BuyNFT/Payment'
+import Nft from '../../Components/BuyNFT/Nft'
 
 const StyledComponent = styled(Box)`
   width: 100%;
@@ -20,7 +20,7 @@ const StyledComponent = styled(Box)`
 `;
 
 const BuyNFT = () => {
-  const { id, step: stepParam } = useParams()
+  const { step: stepParam } = useParams()
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   let stepNumber = Number(stepParam)
   if (!userInfo && stepNumber > 1) stepNumber = 1
@@ -28,26 +28,29 @@ const BuyNFT = () => {
   if (userInfo && stepParam > 4) stepNumber = 4
   
   const [step, setStep] = useState(stepNumber)
-  const flagLanguage = false;
-  const navigate = useNavigate();
-  const textBuyNFT = !flagLanguage ? TEXT_BuyNFT.EN : TEXT_BuyNFT.CH;
+  const [orderId, setOrderId] = useState(stepNumber)
+  const [nftData, setNftData] = useState()
+  // const flagLanguage = false;
+  // const navigate = useNavigate();
 
   useEffect(() => {}, []);
 
   let component
   switch (step) {
     case 1:
-      component = <LoginPane />
+      component = <LoginPane setStep={setStep} />
       break
     case 2:
-      component = <Checkout />
+      component = <Checkout setStep={setStep} setOrderId={setOrderId} />
       break
     case 3:
-      component = <Payment />
+      component = <Payment setStep={setStep} orderId={orderId} />
       break
     case 4:
-      component = <>re</>
+      component = <Nft nftData={nftData} />
       break
+    default:
+      component = <></>
   }
 
   return (

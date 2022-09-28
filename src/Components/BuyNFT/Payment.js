@@ -37,7 +37,7 @@ const StyledBtnWrapper = styled.div`
 `
 
 const Payment = () => {
-  const [paymentStatus, setPaymentStatus] = useState('failed')
+  const [paymentStatus, setPaymentStatus] = useState('')
 
   const onReveal = () => {
     console.log('onReveal')

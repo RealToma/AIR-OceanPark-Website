@@ -26,11 +26,7 @@ const App = () => {
             element={localStorage.getItem("userToken") ? <MyNFT /> : <Home />}
           />
           <Route
-            path="/buyNFT/:id"
-            element={localStorage.getItem("userToken") ? <BuyNFT /> : <Home />}
-          />
-          <Route
-            path="/buyNFT/:id/:step"
+            path="/buyNFT/:step"
             element={<BuyNFT />}
           />
         </Routes>
