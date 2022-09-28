@@ -21,6 +21,7 @@ import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 import { actionGetCitizens } from "../Actions/Auth";
 import { NotificationManager } from "react-notifications";
+import CustomModalSimpleAlert from "../Components/CustomModalSimpleAlert";
 
 const MyNFT = () => {
   const flagLanguage = false;
@@ -36,6 +37,15 @@ const MyNFT = () => {
   };
   const handleCloseConnectWallet = () => {
     setOpenConnectWallet(false);
+  };
+
+  const [openAlertWalletConnected, setOpenAlertWalletConnected] =
+    useState(false);
+  const handleOpenAlertWalletConnected = () => {
+    setOpenAlertWalletConnected(true);
+  };
+  const handleCloseAlertWalletConnected = () => {
+    setOpenAlertWalletConnected(false);
   };
 
   const [flagWalletConnected, setFlagWalletConnected] = useState(false);
@@ -84,6 +94,7 @@ const MyNFT = () => {
       setPublicKey(tempPublicKey);
       setFlagWalletConnected(true);
       handleCloseConnectWallet();
+      handleOpenAlertWalletConnected();
     } catch (error) {
       console.log(error);
       return;
@@ -154,7 +165,14 @@ const MyNFT = () => {
           <PartDisplayNFT01>
             <PartDisplayNFT02>
               {myNFTData?.map((each, index) => {
-                return <CustomMyEachNFT key={index} dataNFT={each.citizen} flagWalletConnected={flagWalletConnected} />;
+                return (
+                  <CustomMyEachNFT
+                    key={index}
+                    dataNFT={each.citizen}
+                    flagWalletConnected={flagWalletConnected}
+                    publicKey={publicKey}
+                  />
+                );
               })}
               <PartGetMore01>
                 <PartGetMoreIcon01>
@@ -201,6 +219,12 @@ const MyNFT = () => {
           </ButtonCancelConnectPhantom01>
         </PartModalWalletConnect01>
       </Modal>
+      <CustomModalSimpleAlert
+        title={"Wallet Connected"}
+        text={"Wallet connected to" + shortWalletAddress(publicKey)}
+        open={openAlertWalletConnected}
+        handleClose={handleCloseAlertWalletConnected}
+      />
     </StyledComponent>
   );
 };
