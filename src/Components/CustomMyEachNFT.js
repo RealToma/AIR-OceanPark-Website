@@ -7,6 +7,7 @@ import imgWithdraw01 from "../Assets/image/icons/withdraw01.png";
 import imgWithdraw02 from "../Assets/image/icons/withdraw02.png";
 import { customColor } from "../Config/Color";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CustomModalSimpleAlert from "./CustomModalSimpleAlert";
 
 const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
@@ -18,15 +19,24 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
     setOpen(false);
   };
 
+  const [openAlertWalletConnect, setOpenAlertWalletConnect] = useState(false);
+  const handleOpenAlertWalletConnect = () => {
+    setOpenAlertWalletConnect(true);
+  };
+  const handleCloseAlertWalletConnect = () => {
+    setOpenAlertWalletConnect(false);
+  };
+
+  const handleWithdraw = () => {
+    if (!flagWalletConnected) {
+      handleOpenAlertWalletConnect();
+    }
+  };
+
   return (
     <>
       <StyledComponent
         onClick={() => {
-          if(!flagWalletConnected)
-          {
-            handleClose();
-            return;
-          }
           handleOpen();
         }}
       >
@@ -112,7 +122,7 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
                     alt=""
                   />
                 </PartIcon02>
-                <ButtonWithdraw01>
+                <ButtonWithdraw01 onClick={() => handleWithdraw()}>
                   <PartIcon03>
                     <img
                       src={imgWithdraw02}
@@ -137,6 +147,12 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected }) => {
               </PartWithdraw02>
             )}
           </PartModalFooter01>
+          <CustomModalSimpleAlert
+            title={"Please connect wallet"}
+            text={"Please connect to Phantom wallet before withdraw"}
+            open={openAlertWalletConnect}
+            handleClose={handleCloseAlertWalletConnect}
+          />
         </PartModal01>
       </Modal>
     </>
@@ -148,6 +164,7 @@ const StyledComponent = styled(Box)`
   position: relative;
   width: 200px;
   height: 200px;
+  cursor: pointer;
 `;
 
 const PartImage01 = styled(Box)`
