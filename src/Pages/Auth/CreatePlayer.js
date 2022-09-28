@@ -35,12 +35,9 @@ const CreatePlayer = () => {
       gender: !flagGender ? "male" : "female",
     };
     actionCreatePlayer(token, playerData).then((res) => {
-      if(res.status===2000)
-      {
-        navigate('/login');
-      }
-      else if(res.status === 1010)
-      {
+      if (res.status === 2000) {
+        navigate("/login");
+      } else if (res.status === 1010) {
         setMsgAlert(textCreatePlayer.ta04.en);
       }
     });
@@ -306,7 +303,6 @@ const TextAgree01 = styled(Box)`
   /* or 22px */
   text-align: center;
   margin-left: 10px;
-
 `;
 
 export default CreatePlayer;
