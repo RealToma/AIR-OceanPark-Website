@@ -10,6 +10,7 @@ import LoginPane from '../../Components/Login'
 import Checkout from '../../Components/BuyNFT/Checkout'
 import Payment from '../../Components/BuyNFT/Payment'
 import Nft from '../../Components/BuyNFT/Nft'
+import { TEXT_BuyNFTContent } from "../../Config/Text"
 
 const StyledComponent = styled(Box)`
   width: 100%;
@@ -33,21 +34,23 @@ const BuyNFT = () => {
   // const flagLanguage = false;
   // const navigate = useNavigate();
 
+  const siteCopy = TEXT_BuyNFTContent.CH
+
   useEffect(() => {}, []);
 
   let component
   switch (step) {
     case 1:
-      component = <LoginPane setStep={setStep} redirectPath="/buyNFT" />
+      component = <LoginPane setStep={setStep} redirectPath="/buyNFT" siteCopy={siteCopy} />
       break
     case 2:
-      component = <Checkout setStep={setStep} setOrderId={setOrderId} setNftData={setNftData} />
+      component = <Checkout setStep={setStep} setOrderId={setOrderId} setNftData={setNftData} siteCopy={siteCopy} />
       break
     case 3:
-      component = <Payment setStep={setStep} nftData={nftData} />
+      component = <Payment setStep={setStep} nftData={nftData} siteCopy={siteCopy} />
       break
     case 4:
-      component = <Nft nftData={nftData} />
+      component = <Nft nftData={nftData} siteCopy={siteCopy} />
       break
     default:
       component = <></>
@@ -56,7 +59,7 @@ const BuyNFT = () => {
   return (
     <StyledComponent>
       <TopNavbarAccount />
-      <BuyNFTContainer step={step}>
+      <BuyNFTContainer step={step} siteCopy={siteCopy}>
         <div>{component}</div>
       </BuyNFTContainer>
       <FooterAccount />

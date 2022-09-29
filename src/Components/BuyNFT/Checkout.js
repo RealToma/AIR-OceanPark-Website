@@ -14,6 +14,7 @@ import Box from '@mui/material/Box'
 import RoundBtn from '../../Components/Button/RoundBtn'
 import Loading from '../../Components/Common/Loading'
 
+
 const StyledContainer = styled.div`
   position: relative;
   padding-top: 37px;
@@ -199,7 +200,7 @@ const StyledKlookRedemptionCodeWrapper = styled.div`
 `
 
 const Checkout = (props) => {
-  const { setStep, setNftData } = props
+  const { setStep, setNftData, siteCopy } = props
   const token = localStorage.getItem("token")
   const [amount, setAmount] = useState(1)
   const [agreement, setAgreement] = useState(false)
@@ -412,7 +413,7 @@ const Checkout = (props) => {
             </StyleAmountControlPane>
 
             <StyledTotalPane>
-              <StyledTotalLabel>Total</StyledTotalLabel>
+              <StyledTotalLabel>{siteCopy.total}</StyledTotalLabel>
               <StyledTotalValue>HKD ${total}</StyledTotalValue>
             </StyledTotalPane>
 
@@ -422,7 +423,11 @@ const Checkout = (props) => {
                   <SvgTick />
                 )}
               </StyledConsentBox>
-              <div style={{ paddingLeft: '12px'}}>I agree to the T&amp;C</div>
+              <div style={{ paddingLeft: '12px'}}>
+                {siteCopy.agree}
+                {"\u00a0"}
+                <u style={{ cursor: "pointer" }}>{siteCopy.tnc}</u>
+              </div>
             </StyledConsentPane>
           </StyledCheckoutContentPadding>
           <StyledPaypalWrapper>

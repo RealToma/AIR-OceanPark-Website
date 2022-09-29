@@ -49,7 +49,8 @@ const StyledCancel = styled.div`
 `
 
 const BuyNFTContainer = (props) => {
-  const { children, step } = props
+  const { children, step, siteCopy } = props
+
   const navigate = useNavigate()
   const onCancel = () => {
     navigate('/myNFT')
@@ -59,7 +60,7 @@ const BuyNFTContainer = (props) => {
       {step < 4 && (
         <StyledHead>
           <StyledReturn><Link to="/"><SvgReturn /></Link></StyledReturn>
-          <StyledBuyHeading>Get your AiR CITIZEN</StyledBuyHeading>
+          <StyledBuyHeading>{siteCopy.headline}</StyledBuyHeading>
           <div></div>
         </StyledHead>
       )}
@@ -69,11 +70,11 @@ const BuyNFTContainer = (props) => {
           <StyledCancel onClick={onCancel}>
             <RoundBtn bgColor="none" color={customColor.mainColor02} border={`1px solid ${customColor.mainColor02}`}>
               <div style={{padding: '5px 12px'}}>
-              Cancel
+              {siteCopy.cancel}
               </div>
             </RoundBtn>
           </StyledCancel>
-          <BuyNFTProgress step={step} />
+          <BuyNFTProgress step={step} siteCopy={siteCopy} />
         </StyledProgressWrapper>
       )}
 

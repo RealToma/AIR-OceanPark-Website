@@ -18,11 +18,18 @@ const StyledContainer = styled.div`
   }
 `
 
-const StyledSuccessPane = styled.div`
+const StyledPane = styled.div`
+  padding-top: 96px;
+  @media (min-width: 900px) {
+    padding-top: 86px;
+  }
+`
+
+const StyledSuccessPane = styled(StyledPane)`
   color: ${customColor.mainColor02};
 `
 
-const StyledFailedPane = styled.div`
+const StyledFailedPane = styled(StyledPane)`
   color: ${customColor.textColor04};
 `
 
@@ -36,7 +43,7 @@ const StyledBtnWrapper = styled.div`
 `
 
 const Payment = (props) => {
-  const { nftData = [], setStep } = props
+  const { nftData = [], setStep, siteCopy } = props
   const success = !!nftData.length
 
   const onReveal = () => {
@@ -52,10 +59,10 @@ const Payment = (props) => {
       {success && (
         <StyledSuccessPane>
           <SvgSuccess />
-          <StyledMsg>Payment success, Thank You!</StyledMsg>
+          <StyledMsg>{siteCopy.paymentSuccess}</StyledMsg>
           <StyledBtnWrapper onClick={onReveal}>
             <RoundBtn>
-              <div style={{ padding: '12px 30px' }}>Reveal my AiR CITIZEN!</div>
+              <div style={{ padding: '12px 30px' }}>{siteCopy.revealNft}</div>
             </RoundBtn>
           </StyledBtnWrapper>
         </StyledSuccessPane>
@@ -63,7 +70,7 @@ const Payment = (props) => {
       {!success && (
         <StyledFailedPane>
           <SvgFail />
-          <StyledMsg>Sorry, Error message.</StyledMsg>
+          <StyledMsg>{siteCopy.errorMsg}</StyledMsg>
           <StyledBtnWrapper onClick={onRetry}>
             <RoundBtn>
               <div style={{ padding: '12px 30px' }}>Try Again</div>

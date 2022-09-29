@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { customColor } from "../../Config/Color"
 
+
 const StyledStepNumber = styled.div`
   width: 30px;
   height: 30px;
@@ -23,11 +24,14 @@ const StyledContainer = styled.div`
 const StyledSteps = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   text-align: center;
+  padding: 0 20px;
 `
 
 const StyledStep = styled.div`
+  position: relative;
   color: ${(props) => props.active ? customColor.mainColor02 : customColor.progressBar};
   ${StyledStepNumber} {
     background-color: ${(props) => props.active ? customColor.mainColor02 : customColor.progressBar};
@@ -35,80 +39,69 @@ const StyledStep = styled.div`
 `
 
 const StyledStepContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-size: 14px;
   font-weight: 700;
-`
-
-const StyledBarWrapper = styled.div`
   position: absolute;
-  width: 100%;
-  top: 13px;
-`
-
-const StyledPadding = styled.div`
-  padding: 0 10px;
-  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 76px;
+  @media (min-width: 900px) {
+    width: 132px;
+  }
 `
 
 const StyledBar = styled.div`
   background-color: ${(props) => props.bgColor};
-  width: ${(props) => props.width}%;
+  flex: 1;
   height: 4px;
-  position: absolute;
-  top: 0;
-  left: 0;
 `
 
-const StyledStepTwoThree = styled(StyledStep)`
-  width: 25%;
-  @media (min-width: 900px) {
-    width: auto;
-  }
-`
 
 const BuyNFTProgress = (props) => {
-  const { step } = props
+  const { step, siteCopy } = props
   return (
     <StyledContainer>
-      <StyledBarWrapper>
-        <StyledPadding>
-          <div style={{position: 'relative'}}>
-            <StyledBar bgColor={customColor.progressBar} width={100} />
-            <StyledBar bgColor={customColor.mainColor02} width={(step - 1) * 33.3 - 1.5} />
-          </div>
-        </StyledPadding>
-      </StyledBarWrapper>
-
       <StyledSteps>
         <StyledStep active={step >= 1}>
+          <StyledStepNumber>1</StyledStepNumber>
           <StyledStepContent>
-            <StyledStepNumber>1</StyledStepNumber>
-            <div>Login</div>
+            <div>{siteCopy.login}</div>
           </StyledStepContent>
         </StyledStep>
-        <StyledStepTwoThree active={step >= 2}>
+
+        <StyledBar  bgColor={customColor.progressBar}>
+          {step > 1 && <StyledBar  bgColor={customColor.mainColor02}></StyledBar>}
+        </StyledBar>
+
+        <StyledStep active={step >= 2}>
+          <StyledStepNumber>2</StyledStepNumber>
           <StyledStepContent>
-            <StyledStepNumber>2</StyledStepNumber>
-            <div>Check out</div>
+            <div>{siteCopy.checkout}</div>
           </StyledStepContent>
-        </StyledStepTwoThree>
-        <StyledStepTwoThree active={step >= 3}>
+        </StyledStep>
+
+        <StyledBar  bgColor={customColor.progressBar}>
+          {step > 2 && <StyledBar  bgColor={customColor.mainColor02}></StyledBar>}
+        </StyledBar>
+
+        <StyledStep active={step >= 3}>
+          <StyledStepNumber>3</StyledStepNumber>
           <StyledStepContent>
-            <StyledStepNumber>3</StyledStepNumber>
-            <div>Payment / Redeem</div>
+            <div>{siteCopy.paymentRedeem}</div>
           </StyledStepContent>
-        </StyledStepTwoThree>
+        </StyledStep>
+        
+        <StyledBar  bgColor={customColor.progressBar}>
+          {step > 3 && <StyledBar  bgColor={customColor.mainColor02}></StyledBar>}
+        </StyledBar>
+        
         <StyledStep active={step >= 4}>
+          <StyledStepNumber>4</StyledStepNumber>
           <StyledStepContent>
-            <StyledStepNumber>4</StyledStepNumber>
-            <div>Reveal</div>
+            <div>{siteCopy.reveal}</div>
           </StyledStepContent>
         </StyledStep>
       </StyledSteps>
-    
     </StyledContainer>
   )
 }
