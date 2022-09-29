@@ -12,6 +12,7 @@ import axios from "axios"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import RoundBtn from '../../Components/Button/RoundBtn'
+import Loading from '../../Components/Common/Loading'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -207,7 +208,7 @@ const Checkout = (props) => {
   const [showKlookDialog, setShowKlookDialog] = useState(false)
   const [klookCode, setKlookCode] = useState('')
   const [redeemProcessing, setRedeemProcessing] = useState(false)
-  const [allowCloseModal, setAllowCloseModal] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const redeemable = (!redeemProcessing && !!klookAgreement && !!klookCode)
   // const klookCodeRef = useRef()
@@ -273,13 +274,11 @@ const Checkout = (props) => {
   }
 
   const showPaymentModal = () => {
-    setShowModal(true)
-    setAllowCloseModal(false)
+    setLoading(true)
   }
 
   const closePaymentModal = () => {
-    setShowModal(false)
-    setAllowCloseModal(true)
+    setLoading(false)
   }
 
   const onApprovePaypal = async (data, actions) => {
@@ -399,7 +398,7 @@ const Checkout = (props) => {
         <StyledCheckoutContent>
           <StyledCheckoutContentPadding>
             <StyledNFT>
-              <img src={nft} width="100%" />
+              <img src={nft} width="100%" alt="" />
             </StyledNFT>
 
             <StyleAmountControlPane>
@@ -445,10 +444,8 @@ const Checkout = (props) => {
       <Modal
         open={showModal}
         onClose={() => {
-          if (allowCloseModal) {
-            setShowModal(false)
-            setShowKlookDialog(false)
-          }
+          setShowModal(false)
+          setShowKlookDialog(false)
         }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -495,6 +492,7 @@ const Checkout = (props) => {
           )}
         </>
       </Modal>
+      <Loading loading={loading} />
     </StyledContainer>
   )
 }
