@@ -390,7 +390,7 @@ const Checkout = (props) => {
                 alt={""}
               />
             </div>
-            <div style={{ paddingLeft: '13px' }}>Redeem here</div>
+            <div style={{ paddingLeft: '13px' }}>{siteCopy.redeemHere}</div>
           </StyledKlookBtnContent>
         </StyledKlookBtn>
       </StyledKlookWrapper> 
@@ -469,9 +469,9 @@ const Checkout = (props) => {
                 p: '22px 34px',
                 textAlign: 'center',
             }}>
-              <StyledKlookRedemptionTxt>Redemption</StyledKlookRedemptionTxt>
+              <StyledKlookRedemptionTxt>{siteCopy.redemption}</StyledKlookRedemptionTxt>
               <StyledKlookRedemptionCodeWrapper>
-                <input placeholder='My code' onChange={onChangeCode} value={klookCode} maxLength="10" />
+                <input placeholder={siteCopy.myCode} onChange={onChangeCode} value={klookCode} maxLength="10" />
               </StyledKlookRedemptionCodeWrapper>
               <div>
                 <StyledKlookConsentPane>
@@ -480,14 +480,18 @@ const Checkout = (props) => {
                       <SvgTick />
                     )}
                   </StyledConsentBox>
-                  <div style={{ paddingLeft: '12px'}}>I agree to the T&amp;C</div>
+                  <div style={{ paddingLeft: '12px'}}>
+                    {siteCopy.agree}
+                    {"\u00a0"}
+                    <u style={{ cursor: "pointer" }}>{siteCopy.tnc}</u>
+                  </div>
                 </StyledKlookConsentPane>
           
                 <StyledNextBtnWrapper>
                   <RoundBtn bgColor={redeemable ? customColor.mainColor02 : customColor.progressBar}>
                     <div onClick={redeemByKlook}>
                       <StyledNextBtn>
-                        Next
+                        {siteCopy.next}
                       </StyledNextBtn>
                     </div>
                   </RoundBtn>

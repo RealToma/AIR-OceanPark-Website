@@ -250,6 +250,7 @@ export const TEXT_BuyNFTContent = {
     myCode: 'My Code',
     goToMyCollection: 'Go to my collections',
     revealNft: 'Reveal my AiR Citizen',
+    redemption: 'Redemption',
   },
   CH: {
     errorMsg: '錯誤信息',
@@ -269,5 +270,6 @@ export const TEXT_BuyNFTContent = {
     myCode: '兌換碼',
     goToMyCollection: '查看我的收藏',
     revealNft: '展示我的元住民',
+    redemption: '兌換',
   },
 };
