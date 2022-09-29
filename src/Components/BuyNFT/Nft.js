@@ -64,7 +64,6 @@ const StyledBtnText = styled.div`
 `
 
 const StyledSliderWrapper = styled.div`
-border: 1px solid red;
   width: 100vw;
   position: relative;
   overflow: hidden;
@@ -193,7 +192,7 @@ const Nft = (props) => {
       <StyledNftItem key={`nft-${key}`}>
         <div style={{padding: '0 20px'}}>
             {get(item, 'images[0]') && (
-              <StyledImageWrapper><img src={item.images[0]} width="100%" /></StyledImageWrapper>
+              <StyledImageWrapper><img src={item.images[0]} width="100%" alt="" /></StyledImageWrapper>
             )}
             <StyledNftID>{item.nftID}</StyledNftID>
           </div>
