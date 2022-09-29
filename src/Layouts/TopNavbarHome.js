@@ -19,6 +19,7 @@ const TopNavbarHome = ({
   setFlagScroll,
   flagTerms,
   setFlagTerms,
+  switchLangCallback,
 }) => {
   const navigate = useNavigate();
   const textNavbar = !flagLanguage ? TEXT_TopNavbar.EN : TEXT_TopNavbar.CH;
@@ -43,6 +44,13 @@ const TopNavbarHome = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, [flagTerms]);
+
+  const switchFlagLanguage = (value) => {
+    setFlagLanguage(value)
+    localStorage.setItem("flagLang", value ? 1 : 0);
+    if (switchLangCallback) switchLangCallback(value)
+  }
+
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
       <PartMax01>
@@ -143,14 +151,14 @@ const TopNavbarHome = ({
                 <>
                   <ButtonClicked01
                     onClick={() => {
-                      setFlagLanguage(false);
+                      switchFlagLanguage(false);
                     }}
                   >
                     ENG
                   </ButtonClicked01>
                   <ButtonUnclicked01
                     onClick={() => {
-                      setFlagLanguage(true);
+                      switchFlagLanguage(true);
                     }}
                   >
                     中文
@@ -160,14 +168,14 @@ const TopNavbarHome = ({
                 <>
                   <ButtonUnclicked01
                     onClick={() => {
-                      setFlagLanguage(false);
+                      switchFlagLanguage(false);
                     }}
                   >
                     ENG
                   </ButtonUnclicked01>
                   <ButtonClicked01
                     onClick={() => {
-                      setFlagLanguage(true);
+                      switchFlagLanguage(true);
                     }}
                   >
                     中文
@@ -276,14 +284,14 @@ const TopNavbarHome = ({
                 <>
                   <ButtonClicked01
                     onClick={() => {
-                      setFlagLanguage(false);
+                      switchFlagLanguage(false);
                     }}
                   >
                     ENG
                   </ButtonClicked01>
                   <ButtonUnclicked01
                     onClick={() => {
-                      setFlagLanguage(true);
+                      switchFlagLanguage(true);
                     }}
                   >
                     中文
@@ -293,14 +301,14 @@ const TopNavbarHome = ({
                 <>
                   <ButtonUnclicked01
                     onClick={() => {
-                      setFlagLanguage(false);
+                      switchFlagLanguage(false);
                     }}
                   >
                     ENG
                   </ButtonUnclicked01>
                   <ButtonClicked01
                     onClick={() => {
-                      setFlagLanguage(true);
+                      switchFlagLanguage(true);
                     }}
                   >
                     中文

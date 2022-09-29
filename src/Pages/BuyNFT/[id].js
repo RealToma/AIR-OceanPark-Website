@@ -29,12 +29,15 @@ const BuyNFT = () => {
   if (userInfo && stepParam > 4) stepNumber = 4
   
   const [step, setStep] = useState(stepNumber)
-  const [orderId, setOrderId] = useState(stepNumber)
   const [nftData, setNftData] = useState()
+  const [siteCopy, setSiteCopy] = useState(localStorage.getItem("flagLang") === '1' ? TEXT_BuyNFTContent.CH : TEXT_BuyNFTContent.EN)
+  const switchLangCallback = () => {
+    setSiteCopy(localStorage.getItem("flagLang") === '1' ? TEXT_BuyNFTContent.CH : TEXT_BuyNFTContent.EN)
+  }
   // const flagLanguage = false;
   // const navigate = useNavigate();
 
-  const siteCopy = TEXT_BuyNFTContent.CH
+  // const siteCopy = TEXT_BuyNFTContent.CH
 
   useEffect(() => {}, []);
 
@@ -44,7 +47,7 @@ const BuyNFT = () => {
       component = <LoginPane setStep={setStep} redirectPath="/buyNFT" siteCopy={siteCopy} />
       break
     case 2:
-      component = <Checkout setStep={setStep} setOrderId={setOrderId} setNftData={setNftData} siteCopy={siteCopy} />
+      component = <Checkout setStep={setStep} setNftData={setNftData} siteCopy={siteCopy} />
       break
     case 3:
       component = <Payment setStep={setStep} nftData={nftData} siteCopy={siteCopy} />
@@ -58,7 +61,7 @@ const BuyNFT = () => {
 
   return (
     <StyledComponent>
-      <TopNavbarAccount />
+      <TopNavbarAccount switchLangCallback={switchLangCallback} />
       <BuyNFTContainer step={step} siteCopy={siteCopy}>
         <div>{component}</div>
       </BuyNFTContainer>

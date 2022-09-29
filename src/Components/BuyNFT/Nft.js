@@ -52,7 +52,7 @@ const StyledNftID = styled.div`
 const StyledBtnWrapper = styled.div`
   margin: auto;
   padding-top: 33px;
-  width: 178px;
+  width: 208px;
   a {
     text-decoration: none;
   }
