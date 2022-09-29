@@ -211,10 +211,11 @@ const Checkout = (props) => {
 
   const redeemable = (!redeemProcessing && !!klookAgreement && !!klookCode)
   // const klookCodeRef = useRef()
-  const total = 500 * amount
+  const price = 666
+  const total = price * amount
 
   const increase = () => {
-    setAmount(amount + 1)
+    if (amount < 10) setAmount(amount + 1)
   }
 
   const descrease = () => {
