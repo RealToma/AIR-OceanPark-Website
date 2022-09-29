@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { customColor } from "../Config/Color";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
+import Collapse from "@mui/material/Collapse";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -13,7 +14,7 @@ const CustomDropdownFAQ = ({ content }) => {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 3000,
     });
   }, []);
   return (
@@ -23,15 +24,13 @@ const CustomDropdownFAQ = ({ content }) => {
       }}
       data-aos="fade-up"
       data-aos-offset="150"
-      data-aos-duration="500"
+      data-aos-duration="1000"
     >
       <PartText01>
         <TextTitle01>{content.title}</TextTitle01>
-        {!flagClicked ? (
-          <></>
-        ) : (
+        <Collapse in={flagClicked}>
           <TextDescription01>{content.description}</TextDescription01>
-        )}
+        </Collapse>
       </PartText01>
       <PartIcon01>
         {!flagClicked ? (
@@ -46,6 +45,8 @@ const CustomDropdownFAQ = ({ content }) => {
 
 const StyledComponent = styled(Box)`
   display: flex;
+  position: relative;
+
   width: 100%;
   padding: 30px;
   box-sizing: border-box;
@@ -57,7 +58,7 @@ const StyledComponent = styled(Box)`
   cursor: pointer;
   transition: 0.5s;
 
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 1024px) {
     padding: 20px;
     gap: 30px;
@@ -76,6 +77,7 @@ const PartText01 = styled(Box)`
 
 const TextTitle01 = styled(Box)`
   display: flex;
+  align-items: center;
   font-family: "Rubik";
   font-style: normal;
   font-weight: 700;
@@ -86,7 +88,7 @@ const TextTitle01 = styled(Box)`
   letter-spacing: -0.02em;
   color: ${customColor.mainColor01};
 
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 1024px) {
     font-size: 16px;
     line-height: 160%;
@@ -111,7 +113,7 @@ const TextDescription01 = styled(Box)`
   color: ${customColor.mainColor01};
   opacity: 0.8;
 
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 1024px) {
     font-size: 16px;
     line-height: 160%;
@@ -124,6 +126,9 @@ const TextDescription01 = styled(Box)`
 
 const PartIcon01 = styled(Box)`
   display: flex;
+  right: 0px;
+  top: 15px;
+  position: absolute;
   color: ${customColor.mainColor01};
   > svg {
     font-size: 50px;

@@ -174,9 +174,11 @@ const MyNFT = () => {
                   />
                 );
               })}
-              <PartGetMore01 onClick={() => {
-                navigate('/buyNFT');
-              }}>
+              <PartGetMore01
+                onClick={() => {
+                  navigate("/buyNFT");
+                }}
+              >
                 <PartGetMoreIcon01>
                   <img
                     src={imgGetMore01}
