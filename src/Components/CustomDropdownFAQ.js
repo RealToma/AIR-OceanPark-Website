@@ -5,7 +5,6 @@ import { customColor } from "../Config/Color";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
 
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -48,15 +47,25 @@ const CustomDropdownFAQ = ({ content }) => {
 const StyledComponent = styled(Box)`
   display: flex;
   width: 100%;
-  padding: 30px 35px;
+  padding: 30px;
   box-sizing: border-box;
   background-color: ${customColor.mainColor02};
   border-radius: 11px;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
   cursor: pointer;
   transition: 0.5s;
+
+  transition: .5s;
+  @media (max-width: 1024px) {
+    padding: 20px;
+    gap: 30px;
+  }
+  @media (max-width: 500px) {
+    padding: 15px;
+    gap: 10px;
+  }
 `;
 
 const PartText01 = styled(Box)`
@@ -76,6 +85,16 @@ const TextTitle01 = styled(Box)`
 
   letter-spacing: -0.02em;
   color: ${customColor.mainColor01};
+
+  transition: .5s;
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    line-height: 160%;
+  }
+  @media (max-width: 500px) {
+    font-size: 14px;
+    line-height: 160%;
+  }
 `;
 
 const TextDescription01 = styled(Box)`
@@ -91,6 +110,16 @@ const TextDescription01 = styled(Box)`
   letter-spacing: -0.02em;
   color: ${customColor.mainColor01};
   opacity: 0.8;
+
+  transition: .5s;
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    line-height: 160%;
+  }
+  @media (max-width: 500px) {
+    font-size: 14px;
+    line-height: 160%;
+  }
 `;
 
 const PartIcon01 = styled(Box)`
