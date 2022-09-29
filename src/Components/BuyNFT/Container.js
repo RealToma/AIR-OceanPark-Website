@@ -4,6 +4,7 @@ import { customColor } from "../../Config/Color"
 import {ReactComponent as SvgReturn} from "../../Assets/svg/return.svg"
 import RoundBtn from '../../Components/Button/RoundBtn'
 import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const StyledComponent = styled.div`
   padding: 100px 20px;
@@ -47,12 +48,12 @@ const StyledCancel = styled.div`
   }
 `
 
-const onCancel = () => {
-  console.log('onCancel')
-}
-
 const BuyNFTContainer = (props) => {
   const { children, step } = props
+  const navigate = useNavigate()
+  const onCancel = () => {
+    navigate('/myNFT')
+  }
   return (
     <StyledComponent>
       {step < 4 && (

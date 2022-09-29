@@ -60,24 +60,24 @@ const StyledCheckoutContentPadding = styled.div`
   padding: 16px 16px 20px 16px;
 `
 
-const StyledCheckoutContentBubble = styled.div`
-  font-weight: 700;
-  font-size: 14px;
-  color: white;
-  border-radius: 100%;
-  background-color: ${customColor.mainColor02};
-  line-height: 160%;
-  transform: rotate(15deg);
-  width: 96px;
-  height: 96px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  top: 0;
-  right: -10px;
-`
+// const StyledCheckoutContentBubble = styled.div`
+//   font-weight: 700;
+//   font-size: 14px;
+//   color: white;
+//   border-radius: 100%;
+//   background-color: ${customColor.mainColor02};
+//   line-height: 160%;
+//   transform: rotate(15deg);
+//   width: 96px;
+//   height: 96px;
+//   position: absolute;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   top: 0;
+//   right: -10px;
+// `
 
 const StyledNFT = styled.div`
   width: 150px;
@@ -435,10 +435,10 @@ const Checkout = (props) => {
           </StyledPaypalWrapper>
         </StyledCheckoutContent>
 
-        <StyledCheckoutContentBubble>
+        {/* <StyledCheckoutContentBubble>
           <div style={{ fontSize: '20px' }}>70%</div>
           <div>REMAIN</div>
-        </StyledCheckoutContentBubble>
+        </StyledCheckoutContentBubble> */}
       </StyledCheckoutPane>
 
       <Modal
