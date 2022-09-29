@@ -324,6 +324,7 @@ const TopNavbarHome = ({
 };
 
 const StyledComponent = styled(Box)`
+  z-index: 200;
   display: flex;
   width: 100%;
   position: fixed;
