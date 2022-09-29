@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 
 const StyledComponent = styled.div`
   padding: 100px 20px;
-  position: relative;
 `
 
 const StyledProgressWrapper = styled.div`
