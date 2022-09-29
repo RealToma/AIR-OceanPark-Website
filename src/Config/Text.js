@@ -102,6 +102,58 @@ export const TEXT_HomeProgress = {
     tdes07: "舉辦海洋公園的 AiR元住民的元宇宙社區遊戲。",
   },
 };
+
+export const TEXT_FAQ = {
+  EN: {
+    title01: "//FAQ",
+    content: [
+      {
+        title: "What is AiR CITIZEN?",
+        description: "",
+      },
+      {
+        title: "What is NFT?",
+        description: "",
+      },
+      {
+        title: "How many unit will be available in this collection?",
+        description: "2000 unique AiR CITIZEN will be available in this Ocean Park Holloween collection",
+      },
+      {
+        title: "What can AiR CITIZEN do?",
+        description: "",
+      },
+      {
+        title: "What is AiR?",
+        description: "",
+      },
+      {
+        title: "How much and where can I buy?",
+        description: "",
+      },
+      {
+        title: "Can I buy with fiat? Why not crypto? ",
+        description: "",
+      },
+      {
+        title: "Which chain are AiR CITIZEN using? Why?",
+        description: "",
+      },
+      {
+        title: "What is web3 wallet? Which wallet do you support?",
+        description: "",
+      },
+      {
+        title: "Can I sell it? And how?",
+        description: "",
+      },
+    ],
+  },
+  CH: {
+    title01: "//FAQ",
+  },
+};
+
 export const TEXT_Footer = {
   EN: {
     tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
