@@ -8,9 +8,11 @@ import imgWithdraw02 from "../Assets/image/icons/withdraw02.png";
 import { customColor } from "../Config/Color";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CustomModalSimpleAlert from "./CustomModalSimpleAlert";
+import { actionWithdraw } from "../Actions/MyNFT";
 
 const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
+  const token = localStorage.getItem("token");
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -44,7 +46,14 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
   };
 
   const handleConfirm = () => {
-    alert("coming soon!");
+
+    let data ={
+      nftID: dataNFT.nftID,
+      walletAddress: publicKey
+    }
+    actionWithdraw(data, token).then(res=>{
+
+    })
   };
 
   return (

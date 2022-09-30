@@ -7,6 +7,7 @@ import {
   TEXT_HomeUtility,
   TEXT_HomeProgress,
   TEXT_Terms,
+  TEXT_FAQ
 } from "../Config/Text";
 import EachProgress from "../Components/EachProgress";
 import imgPolygon01 from "../Assets/image/back_polygon01.png";
@@ -59,6 +60,7 @@ import InsertLinkRoundedIcon from "@mui/icons-material/InsertLinkRounded";
 
 import TopNavbarHome from "../Layouts/TopNavbarHome";
 import FooterHome from "../Layouts/FooterHome";
+import CustomDropdownFAQ from "../Components/CustomDropdownFAQ";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -75,9 +77,8 @@ const Home = () => {
     speed: -3,
     offset: 0.1,
   });
-
-  const [flagRotate, setFlagRotate] = useState(0);
   const [flagLanguage, setFlagLanguage] = useState(false);
+  const [flagRotate, setFlagRotate] = useState(0);
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagTerms, setFlagTerms] = useState(false);
 
@@ -91,6 +92,7 @@ const Home = () => {
     ? TEXT_HomeProgress.EN
     : TEXT_HomeProgress.CH;
   const textTerms = !flagLanguage ? TEXT_Terms.EN : TEXT_Terms.CH;
+  const textFAQ = !flagLanguage? TEXT_FAQ.EN: TEXT_FAQ.CH;
 
   useEffect(() => {
     setTimeout(() => {
@@ -108,7 +110,7 @@ const Home = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 3000,
     });
   }, []);
 
@@ -554,6 +556,26 @@ const Home = () => {
               </PartKnife01>
             </PartMaxProgress01>
           </PartProgress01>
+          <PartFAQ01>
+            <PartMaxFAQ01>
+              <TextTitle01
+                data-aos="fade-up"
+                data-aos-offset="150"
+                data-aos-duration="500"
+              >
+                {textFAQ.title01}
+              </TextTitle01>
+              <ContentFAQ01>
+                {
+                  (textFAQ.content).map((each, index)=>{
+                    return(
+                      <CustomDropdownFAQ content={each} key={index} />
+                    )
+                  })
+                }
+              </ContentFAQ01>
+            </PartMaxFAQ01>
+          </PartFAQ01>
         </>
       ) : (
         <PartTems01>
@@ -1775,4 +1797,56 @@ const PartTermsContent01 = styled(Box)`
   line-height: 160%;
 `;
 
+const PartFAQ01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: ${customColor.backColor01};
+`;
+
+const PartMaxFAQ01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.5s;
+
+  @media (max-width: 1400px) {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  @media (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+`;
+
+const ContentFAQ01= styled(Box)`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 50px;
+
+`
 export default Home;
