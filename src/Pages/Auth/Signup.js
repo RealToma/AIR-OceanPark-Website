@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textSignup } from "../../Config/Text_";
 import { customColor } from "../../Config/Color";
 import TopNavbarAccount from "../../Layouts/TopNavbarAccount";
 import FooterAccount from "../../Layouts/FooterAccount";
@@ -14,8 +13,18 @@ import imgNFT01 from "../../Assets/image/nfts/OP nft_IT_A 1_shadow.png";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { useNavigate } from "react-router-dom";
 import { actionSignup } from "../../Actions/Auth";
+import { TEXT_Signup } from "../../Config/Text";
 
 const Signup = () => {
+  const [textSignup, setSiteCopy] = useState(
+    localStorage.getItem("flagLang") === "1" ? TEXT_Signup.CH : TEXT_Signup.EN
+  );
+  const switchLangCallback = () => {
+    setSiteCopy(
+      localStorage.getItem("flagLang") === "1" ? TEXT_Signup.CH : TEXT_Signup.EN
+    );
+  };
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,25 +37,25 @@ const Signup = () => {
 
   const handleSignup = () => {
     if (email === "") {
-      setMsgAlert(textSignup.ta01.en);
+      setMsgAlert(textSignup.ta01);
       return;
     }
     if (email !== "") {
       if (!isValidEmail(email)) {
-        setMsgAlert(textSignup.ta02.en);
+        setMsgAlert(textSignup.ta02);
         return;
       }
     }
     if (password === "") {
-      setMsgAlert(textSignup.ta03.en);
+      setMsgAlert(textSignup.ta03);
       return;
     }
     if (repassword === "") {
-      setMsgAlert(textSignup.ta04.en);
+      setMsgAlert(textSignup.ta04);
       return;
     }
     if (password !== repassword) {
-      setMsgAlert(textSignup.ta05.en);
+      setMsgAlert(textSignup.ta05);
       return;
     }
     let signupData = {
@@ -57,29 +66,29 @@ const Signup = () => {
     actionSignup(signupData).then((res) => {
       if (res.status === 2000) {
         localStorage.setItem("token", res.token);
-        console.log("token:",res.token);
+        console.log("token:", res.token);
         navigate("/createPlayer");
       } else if (res.status === 1010) {
-        setMsgAlert(textSignup.ta06.en);
+        setMsgAlert(textSignup.ta06);
       } else {
-        setMsgAlert(textSignup.ta07.en);
+        setMsgAlert(textSignup.ta07);
       }
     });
   };
 
   return (
     <StyledComponent>
-      <TopNavbarAccount />
-      
+      <TopNavbarAccount switchLangCallback={switchLangCallback} />
+
       <PartSign01>
         <PartHeader01>
           <img src={imgMark01} width={"170px"} height={"47px"} alt="" />
         </PartHeader01>
         <PartContent01>
-          <TextTitle01>{textSignup.tt01.en}</TextTitle01>
+          <TextTitle01>{textSignup.tt01}</TextTitle01>
           <InputCustom01
             component={"input"}
-            placeholder={textSignup.ti01.en}
+            placeholder={textSignup.ti01}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -87,7 +96,7 @@ const Signup = () => {
           ></InputCustom01>
           <InputCustom01
             component={"input"}
-            placeholder={textSignup.ti02.en}
+            placeholder={textSignup.ti02}
             value={password}
             type={"password"}
             onChange={(e) => {
@@ -97,7 +106,7 @@ const Signup = () => {
           <PartNext01>
             <InputCustom02
               component={"input"}
-              placeholder={textSignup.ti03.en}
+              placeholder={textSignup.ti03}
               value={repassword}
               type={"password"}
               onChange={(e) => {
@@ -143,7 +152,7 @@ const Signup = () => {
           <PartLeft01>
             <NavigateBeforeIcon sx={{ color: customColor.mainColor02 }} />
           </PartLeft01>
-          <PartRight01>{textSignup.ts01.en}</PartRight01>
+          <PartRight01>{textSignup.ts01}</PartRight01>
         </PartSignup01>
         <PartImage01>
           <img src={imgNFT01} width={"100%"} height={"100%"} alt="" />

@@ -24,12 +24,18 @@ import { NotificationManager } from "react-notifications";
 import CustomModalSimpleAlert from "../Components/CustomModalSimpleAlert";
 
 const MyNFT = () => {
-  const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
-  const textMyNFT = !flagLanguage ? TEXT_MyNFT.EN : TEXT_MyNFT.CH;
   const token = localStorage.getItem("token");
   const [myNFTData, setMyNFTData] = useState();
+  const [textMyNFT, setSiteCopy] = useState(
+    localStorage.getItem("flagLang") === "1" ? TEXT_MyNFT.CH : TEXT_MyNFT.EN
+  );
+  const switchLangCallback = () => {
+    setSiteCopy(
+      localStorage.getItem("flagLang") === "1" ? TEXT_MyNFT.CH : TEXT_MyNFT.EN
+    );
+  };
 
   const [openConnectWallet, setOpenConnectWallet] = useState(false);
   const handleOpenConnectWallet = () => {
@@ -103,7 +109,7 @@ const MyNFT = () => {
 
   return (
     <StyledComponent>
-      <TopNavbarAccount />
+      <TopNavbarAccount switchLangCallback={switchLangCallback} />
       <PartContent01>
         <PartContent02>
           <PartSidebar01>
@@ -202,11 +208,10 @@ const MyNFT = () => {
       >
         <PartModalWalletConnect01>
           <TextTitleWalletConnect01>
-            Connect web3 wallet
+            {textMyNFT.tConnectWallet01}
           </TextTitleWalletConnect01>
           <TextContentWalletConnect01>
-            By connecting to the blockchain (Solana), you can withdraw and read
-            AiR CITIZEN between AiR and your wallet
+            {textMyNFT.byconnecting}
           </TextContentWalletConnect01>
           <ButtonConnectPhantom01 onClick={() => handleConnectWallet()}>
             <ImagePhantom01>
@@ -281,6 +286,11 @@ const PartContent02 = styled(Box)`
   box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   background-color: ${customColor.mainColor01};
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    height: 70%;
+  }
 `;
 
 const PartSidebar01 = styled(Box)`
@@ -293,6 +303,11 @@ const PartSidebar01 = styled(Box)`
   padding-bottom: 30px;
   box-sizing: border-box;
   justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const PartList01 = styled(Box)`
@@ -357,6 +372,10 @@ const PartDisplayNFT02 = styled(Box)`
   @media (max-width: 1400px) {
     grid-template-columns: auto auto auto;
   }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: auto auto auto auto;
+  }
 `;
 
 const PartGetMore01 = styled(Box)`
@@ -373,6 +392,8 @@ const PartGetMore01 = styled(Box)`
   background-color: ${customColor.mainColor02};
   color: ${customColor.backColor01};
   cursor: pointer;
+
+  transition: 0.5s;
 `;
 
 const PartGetMoreIcon01 = styled(Box)`

@@ -8,7 +8,7 @@ import imgMark01 from "../Assets/image/mark_AiR01.png";
 import { useNavigate } from "react-router-dom";
 
 const TopNavbarAccount = (props) => {
-  const { switchLangCallback } = props
+  const { switchLangCallback } = props;
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagLanguage, setFlagLanguage] = useState(false);
@@ -23,10 +23,10 @@ const TopNavbarAccount = (props) => {
   };
 
   const switchFlagLanguage = (value) => {
-    setFlagLanguage(value)
+    setFlagLanguage(value);
     localStorage.setItem("flagLang", value ? 1 : 0);
-    if (switchLangCallback) switchLangCallback(value)
-  }
+    if (switchLangCallback) switchLangCallback(value);
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -67,7 +67,6 @@ const TopNavbarAccount = (props) => {
                 <ButtonClicked01
                   onClick={() => {
                     switchFlagLanguage(false);
-
                   }}
                 >
                   ENG

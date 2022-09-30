@@ -92,9 +92,9 @@ export const TEXT_HomeProgress = {
     tdate02: "2022 September",
     tdate03: "2022 October",
     tdate04: "2022 Q3",
-    tdate05: "On going",
-    tdate06: "On going",
-    tdate07: "On going",
+    tdate05: "進行中",
+    tdate06: "進行中",
+    tdate07: "進行中",
     tdes01: "海洋公園元宇宙動物護理員計劃啟動，並於AiR悼念安安。",
     tdes02: "海洋公園「哈囉喂」2022 首次公開發售元住民NFT。",
     tdes03: "海洋公園「哈囉喂」2022正式於 AiR亮相。",
@@ -233,8 +233,8 @@ export const TEXT_Footer = {
   },
   CH: {
     tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
-    textTerm: "Terms",
-    textContactUs: "Contact Us",
+    textTerm: "政策",
+    textContactUs: "聯絡我們",
   },
 };
 
@@ -253,16 +253,16 @@ export const TEXT_Login = {
     tr02: "Register here",
   },
   CH: {
-    tt01: "Login to your AiR account",
-    ti01: "Email",
-    ti02: "Password",
+    tt01: "登入AiR帳號",
+    ti01: "電郵",
+    ti02: "密碼",
     ta01: "Type your email.",
     ta02: "Invalid email address.",
     ta03: "Type your password.",
     ta04: "Account doesn't exist.",
     ta05: "Password is wrong.",
     ta06: "Invalid login.",
-    tr01: "New to AiR? ",
+    tr01: "未加入AiR?",
     tr02: "Register here",
   },
 };
@@ -284,10 +284,10 @@ export const TEXT_Signup = {
     ts01: "Login",
   },
   CH: {
-    tt01: "Register",
-    ti01: "Email",
-    ti02: "Password",
-    ti03: "Re-type password",
+    tt01: "註冊",
+    ti01: "電郵",
+    ti02: "密碼",
+    ti03: "再次輸入密碼",
     ta01: "Type your email.",
     ta02: "Invalid email address.",
     ta03: "Type your password.",
@@ -296,7 +296,7 @@ export const TEXT_Signup = {
     ta06: "The account exists.",
     ta07: "Server error.",
     to01: "or",
-    ts01: "Login",
+    ts01: "登入",
   },
 };
 
@@ -315,7 +315,7 @@ export const TEXT_CreatePlayer = {
     tb03: "Cancel",
   },
   CH: {
-    tt01: "Player Info",
+    tt01: "玩家資訊",
     ti01: "NFTcollector",
     ta01: "Type your name.",
     ta02: "Please agree to the T&C.",
@@ -323,9 +323,9 @@ export const TEXT_CreatePlayer = {
     ta04: "Invalid token.",
     ti02: "I agree to the",
     tiu02: "T&C",
-    tb01: "Create account",
-    tb02: "OK",
-    tb03: "Cancel",
+    tb01: "創建帳號",
+    tb02: "完成",
+    tb03: "取消",
   },
 };
 
@@ -334,11 +334,17 @@ export const TEXT_MyNFT = {
     tLogout01: "Logout",
     tConnectWallet01: "Connect web3 wallet",
     tGetMore: "GET MORE",
+    pleaseconnect: "Pelase connect to Phantom wallet before withdraw",
+    byconnecting:
+      "By connecting to the blockchain (Solana), you can withdraw and read AiR CITIZEN between AiR and your wallet",
   },
   CH: {
-    tLogout01: "Logout",
-    tConnectWallet01: "Connect web3 wallet",
-    tGetMore: "GET MORE",
+    tLogout01: "登出",
+    tConnectWallet01: "連接錢包",
+    tGetMore: "繼續購買",
+    pleaseconnect: "提取前請連接至Phantom錢包",
+    byconnecting:
+      "連接至區塊鏈（Solana）後，您可以提取並在錢包及AiR中讀取您的元住民",
   },
 };
 
