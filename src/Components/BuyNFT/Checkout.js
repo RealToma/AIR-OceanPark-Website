@@ -13,6 +13,7 @@ import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import RoundBtn from '../../Components/Button/RoundBtn'
 import Loading from '../../Components/Common/Loading'
+import { useNavigate } from "react-router-dom";
 
 
 const StyledContainer = styled.div`
@@ -200,6 +201,7 @@ const StyledKlookRedemptionCodeWrapper = styled.div`
 `
 
 const Checkout = (props) => {
+  const navigate = useNavigate()
   const { setStep, setNftData, siteCopy } = props
   const token = localStorage.getItem("token")
   const [amount, setAmount] = useState(1)
@@ -431,7 +433,7 @@ const Checkout = (props) => {
               <div style={{ paddingLeft: '12px'}}>
                 {siteCopy.agree}
                 {"\u00a0"}
-                <u style={{ cursor: "pointer" }}>{siteCopy.tnc}</u>
+                <u style={{ cursor: "pointer" }} onClick={() => navigate('/tnc')}>{siteCopy.tnc}</u>
               </div>
             </StyledConsentPane>
           </StyledCheckoutContentPadding>
@@ -488,7 +490,7 @@ const Checkout = (props) => {
                   <div style={{ paddingLeft: '12px'}}>
                     {siteCopy.agree}
                     {"\u00a0"}
-                    <u style={{ cursor: "pointer" }}>{siteCopy.tnc}</u>
+                    <u style={{ cursor: "pointer" }} onClick={() => navigate('/tnc')}>{siteCopy.tnc}</u>
                   </div>
                 </StyledKlookConsentPane>
           
