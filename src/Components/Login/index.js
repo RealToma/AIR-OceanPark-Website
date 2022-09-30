@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textLogin } from "../../Config/Text_";
 import { customColor } from "../../Config/Color";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import imgMark01 from "../../Assets/image/mark_AiR03.png";
@@ -14,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { actionLogin } from "../../Actions/Auth";
 
 const Login = (props) => {
+  const { textLogin } = props;
   const { redirectPath = "/buyNFT" } = props;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -26,17 +26,17 @@ const Login = (props) => {
 
   const handleLogin = () => {
     if (email === "") {
-      setMsgAlert(textLogin.ta01.en);
+      setMsgAlert(textLogin.ta01);
       return;
     }
     if (email !== "") {
       if (!isValidEmail(email)) {
-        setMsgAlert(textLogin.ta02.en);
+        setMsgAlert(textLogin.ta02);
         return;
       }
     }
     if (password === "") {
-      setMsgAlert(textLogin.ta03.en);
+      setMsgAlert(textLogin.ta03);
       return;
     }
     let loginData = {
@@ -46,9 +46,9 @@ const Login = (props) => {
     };
     actionLogin(loginData).then((res) => {
       if (res.status === 1001) {
-        setMsgAlert(textLogin.ta04.en);
+        setMsgAlert(textLogin.ta04);
       } else if (res.status === 1002) {
-        setMsgAlert(textLogin.ta05.en);
+        setMsgAlert(textLogin.ta05);
       } else if (res.status === 2000) {
         localStorage.setItem("userInfo", JSON.stringify(res.playerInfo.player));
         localStorage.setItem("userToken", res.playerInfo.userToken);
@@ -60,7 +60,7 @@ const Login = (props) => {
           window.location.reload();
         }
       } else {
-        setMsgAlert(textLogin.ta06.en);
+        setMsgAlert(textLogin.ta06);
       }
     });
   };
@@ -71,10 +71,10 @@ const Login = (props) => {
         <img src={imgMark01} width={"170px"} height={"47px"} alt="" />
       </PartHeader01>
       <PartContent01>
-        <TextTitle01>{textLogin.tt01.en}</TextTitle01>
+        <TextTitle01>{textLogin.tt01}</TextTitle01>
         <InputCustom01
           component={"input"}
-          placeholder={textLogin.ti01.en}
+          placeholder={textLogin.ti01}
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -84,7 +84,7 @@ const Login = (props) => {
           <InputCustom02
             component={"input"}
             type={"password"}
-            placeholder={textLogin.ti02.en}
+            placeholder={textLogin.ti02}
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
@@ -118,8 +118,8 @@ const Login = (props) => {
         }}
       >
         <PartLeft01>
-          <PartUp01>{textLogin.tr01.en} </PartUp01>
-          <PartDown01>{textLogin.tr02.en}</PartDown01>
+          <PartUp01>{textLogin.tr01} </PartUp01>
+          <PartDown01>{textLogin.tr02}</PartDown01>
         </PartLeft01>
         <PartRight01>
           <NavigateNextIcon sx={{ color: customColor.mainColor02 }} />

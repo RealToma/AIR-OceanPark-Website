@@ -24,12 +24,18 @@ import { NotificationManager } from "react-notifications";
 import CustomModalSimpleAlert from "../Components/CustomModalSimpleAlert";
 
 const MyNFT = () => {
-  const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
-  const textMyNFT = !flagLanguage ? TEXT_MyNFT.EN : TEXT_MyNFT.CH;
   const token = localStorage.getItem("token");
   const [myNFTData, setMyNFTData] = useState();
+  const [textMyNFT, setSiteCopy] = useState(
+    localStorage.getItem("flagLang") === "1" ? TEXT_MyNFT.CH : TEXT_MyNFT.EN
+  );
+  const switchLangCallback = () => {
+    setSiteCopy(
+      localStorage.getItem("flagLang") === "1" ? TEXT_MyNFT.CH : TEXT_MyNFT.EN
+    );
+  };
 
   const [openConnectWallet, setOpenConnectWallet] = useState(false);
   const handleOpenConnectWallet = () => {
@@ -103,7 +109,7 @@ const MyNFT = () => {
 
   return (
     <StyledComponent>
-      <TopNavbarAccount />
+      <TopNavbarAccount switchLangCallback={switchLangCallback} />
       <PartContent01>
         <PartContent02>
           <PartSidebar01>
@@ -202,11 +208,10 @@ const MyNFT = () => {
       >
         <PartModalWalletConnect01>
           <TextTitleWalletConnect01>
-            Connect web3 wallet
+            {textMyNFT.tConnectWallet01}
           </TextTitleWalletConnect01>
           <TextContentWalletConnect01>
-            By connecting to the blockchain (Solana), you can withdraw and read
-            AiR CITIZEN between AiR and your wallet
+            {textMyNFT.byconnecting}
           </TextContentWalletConnect01>
           <ButtonConnectPhantom01 onClick={() => handleConnectWallet()}>
             <ImagePhantom01>

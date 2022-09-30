@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textCreatePlayer } from "../../Config/Text_";
 import { customColor } from "../../Config/Color";
 import TopNavbarAccount from "../../Layouts/TopNavbarAccount";
 import FooterAccount from "../../Layouts/FooterAccount";
@@ -11,8 +10,19 @@ import ManIcon from "@mui/icons-material/Man";
 import WomanIcon from "@mui/icons-material/Woman";
 import CheckIcon from "@mui/icons-material/Check";
 import { actionCreatePlayer } from "../../Actions/Auth";
+import { TEXT_CreatePlayer } from "../../Config/Text";
 
 const CreatePlayer = () => {
+
+  const [textCreatePlayer, setSiteCopy] = useState(
+    localStorage.getItem("flagLang") === "1" ? TEXT_CreatePlayer.CH : TEXT_CreatePlayer.EN
+  );
+  const switchLangCallback = () => {
+    setSiteCopy(
+      localStorage.getItem("flagLang") === "1" ? TEXT_CreatePlayer.CH : TEXT_CreatePlayer.EN
+    );
+  };
+
   const navigate = useNavigate();
   const [flagGender, setFlagGender] = useState(false);
   const [flagCheck, setFlagCheck] = useState(false);
@@ -44,7 +54,7 @@ const CreatePlayer = () => {
   };
   return (
     <StyledComponent>
-      <TopNavbarAccount />
+      <TopNavbarAccount switchLangCallback={switchLangCallback} />
       <PartCreate01>
         <PartHeader01>
           <img src={imgMark01} width={"170px"} height={"47px"} alt="" />
