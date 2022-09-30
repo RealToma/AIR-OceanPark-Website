@@ -50,7 +50,7 @@ const StyledCancel = styled.div`
 
 const BuyNFTContainer = (props) => {
   const { children, step, siteCopy } = props
-
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"))
   const navigate = useNavigate()
   const onCancel = () => {
     navigate('/myNFT')
@@ -59,7 +59,7 @@ const BuyNFTContainer = (props) => {
     <StyledComponent>
       {step < 4 && (
         <StyledHead>
-          <StyledReturn><Link to="/"><SvgReturn /></Link></StyledReturn>
+          <StyledReturn><Link to={userInfo ? '/myNFT' : '/'}><SvgReturn /></Link></StyledReturn>
           <StyledBuyHeading>{siteCopy.headline}</StyledBuyHeading>
           <div></div>
         </StyledHead>
