@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { actionLogin } from "../../Actions/Auth";
 
 const Login = (props) => {
-  const { redirectPath = '/buyNFT' } = props
+  const { redirectPath = '/myNFT' } = props
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
