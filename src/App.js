@@ -12,11 +12,13 @@ import CreatePlayer from "./Pages/Auth/CreatePlayer";
 import MyNFT from "./Pages/MyNFT";
 import BuyNFT from "./Pages/BuyNFT/[id]";
 import Tnc from "./Pages/Tnc";
+import ScrollTop from "./Components/Common/ScrollTop";
 
 const App = () => {
   return (
     <StyledComponent>
       <BrowserRouter>
+        <ScrollTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
