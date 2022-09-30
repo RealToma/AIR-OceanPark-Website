@@ -7,7 +7,8 @@ import imgLogo02 from "../Assets/image/logo02.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
 import { useNavigate } from "react-router-dom";
 
-const TopNavbarAccount = () => {
+const TopNavbarAccount = (props) => {
+  const { switchLangCallback } = props
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagLanguage, setFlagLanguage] = useState(false);
@@ -20,6 +21,12 @@ const TopNavbarAccount = () => {
       setFlagScroll(false);
     }
   };
+
+  const switchFlagLanguage = (value) => {
+    setFlagLanguage(value)
+    localStorage.setItem("flagLang", value ? 1 : 0);
+    if (switchLangCallback) switchLangCallback(value)
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -59,7 +66,7 @@ const TopNavbarAccount = () => {
               <>
                 <ButtonClicked01
                   onClick={() => {
-                    setFlagLanguage(false);
+                    switchFlagLanguage(false);
 
                   }}
                 >
@@ -67,7 +74,7 @@ const TopNavbarAccount = () => {
                 </ButtonClicked01>
                 <ButtonUnclicked01
                   onClick={() => {
-                    setFlagLanguage(true);
+                    switchFlagLanguage(true);
                   }}
                 >
                   中文
@@ -77,14 +84,14 @@ const TopNavbarAccount = () => {
               <>
                 <ButtonUnclicked01
                   onClick={() => {
-                    setFlagLanguage(false);
+                    switchFlagLanguage(false);
                   }}
                 >
                   ENG
                 </ButtonUnclicked01>
                 <ButtonClicked01
                   onClick={() => {
-                    setFlagLanguage(true);
+                    switchFlagLanguage(true);
                   }}
                 >
                   中文
@@ -99,6 +106,7 @@ const TopNavbarAccount = () => {
 };
 
 const StyledComponent = styled(Box)`
+  z-index: 200;
   display: flex;
   width: 100%;
   min-height: 80px;

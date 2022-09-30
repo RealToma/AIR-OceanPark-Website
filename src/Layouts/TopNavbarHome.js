@@ -21,6 +21,7 @@ const TopNavbarHome = ({
   setFlagScroll,
   flagTerms,
   setFlagTerms,
+  switchLangCallback,
 }) => {
   const navigate = useNavigate();
 
@@ -46,6 +47,13 @@ const TopNavbarHome = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, [flagTerms]);
+
+  const switchFlagLanguage = (value) => {
+    setFlagLanguage(value)
+    localStorage.setItem("flagLang", value ? 1 : 0);
+    if (switchLangCallback) switchLangCallback(value)
+  }
+
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
       <PartMax01>
@@ -169,18 +177,26 @@ const TopNavbarHome = ({
                 <>
                   <ButtonClicked01
                     onClick={() => {
+<<<<<<< HEAD
                       setFlagLanguage(false);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", false);
+=======
+                      switchFlagLanguage(false);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonClicked01>
                   <ButtonUnclicked01
                     onClick={() => {
+<<<<<<< HEAD
                       setFlagLanguage(true);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", true);
+=======
+                      switchFlagLanguage(true);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
@@ -190,18 +206,26 @@ const TopNavbarHome = ({
                 <>
                   <ButtonUnclicked01
                     onClick={() => {
+<<<<<<< HEAD
                       setFlagLanguage(false);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", false);
+=======
+                      switchFlagLanguage(false);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonUnclicked01>
                   <ButtonClicked01
                     onClick={() => {
+<<<<<<< HEAD
                       setFlagLanguage(true);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", true);
+=======
+                      switchFlagLanguage(true);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
@@ -310,19 +334,27 @@ const TopNavbarHome = ({
                 <>
                   <ButtonClicked01
                     onClick={() => {
+<<<<<<< HEAD
                       console.log(flagLanguage);
                       setFlagLanguage(false);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", false);
+=======
+                      switchFlagLanguage(false);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonClicked01>
                   <ButtonUnclicked01
                     onClick={() => {
+<<<<<<< HEAD
                       setFlagLanguage(true);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", true);
+=======
+                      switchFlagLanguage(true);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
@@ -332,18 +364,26 @@ const TopNavbarHome = ({
                 <>
                   <ButtonUnclicked01
                     onClick={() => {
+<<<<<<< HEAD
                       setFlagLanguage(false);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", false);
+=======
+                      switchFlagLanguage(false);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonUnclicked01>
                   <ButtonClicked01
                     onClick={() => {
+<<<<<<< HEAD
                       setFlagLanguage(true);
                       localStorage.removeItem("languageHome");
                       localStorage.setItem("languageHome", true);
+=======
+                      switchFlagLanguage(true);
+>>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
@@ -359,6 +399,7 @@ const TopNavbarHome = ({
 };
 
 const StyledComponent = styled(Box)`
+  z-index: 200;
   display: flex;
   width: 100%;
   position: fixed;

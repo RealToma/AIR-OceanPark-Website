@@ -12,4 +12,5 @@ export const customColor = {
   textColor03: "black",
   textColor04: "#E93030",
   textTerms: "#414141",
+  progressBar: "#989898",
 };
