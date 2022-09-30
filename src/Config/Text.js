@@ -102,6 +102,58 @@ export const TEXT_HomeProgress = {
     tdes07: "舉辦海洋公園的 AiR元住民的元宇宙社區遊戲。",
   },
 };
+
+export const TEXT_FAQ = {
+  EN: {
+    title01: "//FAQ",
+    content: [
+      {
+        title: "What is AiR Citizen?",
+        description: "AiR.Citizens are energetic beings from diverse origins living in the adventurous and ever-evolving Metaverse of AiR to carry out Play-to-Earn",
+      },
+      {
+        title: "What is AiR?",
+        description: "AiR is a unique location-based mobile first Metaverse that is closely connected to the real world for Play-to-Earn and as a gamified loyalty network",
+      },
+      {
+        title: "What is NFT?",
+        description: "A non-fungible token (NFT) is a data record on a blockchain which proves the ownership of a particular digital or physical asset",
+      },
+      {
+        title: "How many units will be available in this collection?",
+        description: "2000 uniquely crafted AiR Citizens in 3D with different attributes under the Ocean Park Halloween 2022 theme, each with real world benefits and Metaverse game plays",
+      },
+      {
+        title: "What are the benefits of owning an AiR Citizen?",
+        description: "Each Ocean Park Halloween AiR Citizen comes with a buy-one-get-one Ocean Park admission ticket benefit, eligibility to participate in the current and future Play-to-Earn game plays in the AiR Metaverse, and potential future real world loyalty utility",
+      },
+      {
+        title: "How much is each AiR Citizen of this collection?",
+        description: "HKD666 to add a Halloween vibe",
+      },
+      {
+        title: "How can I buy AiR Citizen?",
+        description: "Simply create or login to an AiR account on this site and go through the purchase steps via PayPal. The AiR Citizen purchased will be linked to your AiR account and you can browse your purchases on this site",
+      },
+      {
+        title: "Why is AiR Citizen selling for fiat not for cryptocurrency?",
+        description: "The vision of AiR is to lower the entry barrier into Metaverse for everybody. Therefore, we want to be able to allow people with limited knowledge of Web3 to participate too. As a result, we are provide payment method that everybody is familiar with.",
+      },
+      {
+        title: "What chain are AiR Citizens minted on?",
+        description: "Solana chain for its performance and low gas fees",
+      },
+      {
+        title: "How do I transfer my purchase to my own wallet?",
+        description: 'Once you have logged in your AiR account through this site, you will see a list of your AiR Citizens. Connect to your Solana chain wallet (Phantom) and you can click the "Withdraw" button to transfer your AiR Citizen to your personal wallet',
+      }
+    ],
+  },
+  CH: {
+    title01: "//FAQ",
+  },
+};
+
 export const TEXT_Footer = {
   EN: {
     tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
