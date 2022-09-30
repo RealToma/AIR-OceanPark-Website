@@ -11,7 +11,7 @@ const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
       <PartMax01>
         {textFooter.tt01}
 
-        {"\u00a0"}
+        {"\u00a0\u00a0"}
         <Box
           display={"flex"}
           onClick={() => {
@@ -20,7 +20,11 @@ const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
           }}
           style={{ cursor: "pointer" }}
         >
-          <u>{textFooter.textTerm}</u>
+          {textFooter.textTerm}
+        </Box>
+        {"\u00a0\u00a0|\u00a0\u00a0"}
+        <Box display={"flex"} onClick={() => {}} style={{ cursor: "pointer" }}>
+          {textFooter.textContactUs}
         </Box>
       </PartMax01>
     </StyledComponent>

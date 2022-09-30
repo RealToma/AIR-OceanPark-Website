@@ -1,12 +1,13 @@
 export const TEXT_TopNavbar = {
   EN: {
-    tb01: "Buy Now!",
+    tb01: "Get it Now!",
     tb02: "Ocean Park Halloween 2022",
     tb03: "About",
     tb04: "Utility",
     tb05: "Progress",
     tb06: "Account",
-    textComingSoon: "COMING SEP 30th!",
+    textComingSoon01: "COMING SEP 30th!",
+    textComingSoon02: "Oct 2nd noon",
   },
   CH: {
     tb01: "立即購買！",
@@ -15,7 +16,8 @@ export const TEXT_TopNavbar = {
     tb04: "用途",
     tb05: "里程",
     tb06: "帳號",
-    textComingSoon: "9月30日上架！",
+    textComingSoon01: "COMING SEP 30th!",
+    textComingSoon02: "Oct 2nd noon",
   },
 };
 
@@ -109,23 +111,28 @@ export const TEXT_FAQ = {
     content: [
       {
         title: "What is AiR Citizen?",
-        description: "AiR.Citizens are energetic beings from diverse origins living in the adventurous and ever-evolving Metaverse of AiR to carry out Play-to-Earn",
+        description:
+          "AiR.Citizens are energetic beings from diverse origins living in the adventurous and ever-evolving Metaverse of AiR to carry out Play-to-Earn",
       },
       {
         title: "What is AiR?",
-        description: "AiR is a unique location-based mobile first Metaverse that is closely connected to the real world for Play-to-Earn and as a gamified loyalty network",
+        description:
+          "AiR is a unique location-based mobile first Metaverse that is closely connected to the real world for Play-to-Earn and as a gamified loyalty network",
       },
       {
         title: "What is NFT?",
-        description: "A non-fungible token (NFT) is a data record on a blockchain which proves the ownership of a particular digital or physical asset",
+        description:
+          "A non-fungible token (NFT) is a data record on a blockchain which proves the ownership of a particular digital or physical asset",
       },
       {
         title: "How many units will be available in this collection?",
-        description: "2000 uniquely crafted AiR Citizens in 3D with different attributes under the Ocean Park Halloween 2022 theme, each with real world benefits and Metaverse game plays",
+        description:
+          "2000 uniquely crafted AiR Citizens in 3D with different attributes under the Ocean Park Halloween 2022 theme, each with real world benefits and Metaverse game plays",
       },
       {
         title: "What are the benefits of owning an AiR Citizen?",
-        description: "Each Ocean Park Halloween AiR Citizen comes with a buy-one-get-one Ocean Park admission ticket benefit, eligibility to participate in the current and future Play-to-Earn game plays in the AiR Metaverse, and potential future real world loyalty utility",
+        description:
+          "Each Ocean Park Halloween AiR Citizen comes with a buy-one-get-one Ocean Park admission ticket benefit, eligibility to participate in the current and future Play-to-Earn game plays in the AiR Metaverse, and potential future real world loyalty utility",
       },
       {
         title: "How much is each AiR Citizen of this collection?",
@@ -133,11 +140,13 @@ export const TEXT_FAQ = {
       },
       {
         title: "How can I buy AiR Citizen?",
-        description: "Simply create or login to an AiR account on this site and go through the purchase steps via PayPal. The AiR Citizen purchased will be linked to your AiR account and you can browse your purchases on this site",
+        description:
+          "Simply create or login to an AiR account on this site and go through the purchase steps via PayPal. The AiR Citizen purchased will be linked to your AiR account and you can browse your purchases on this site",
       },
       {
         title: "Why is AiR Citizen selling for fiat not for cryptocurrency?",
-        description: "The vision of AiR is to lower the entry barrier into Metaverse for everybody. Therefore, we want to be able to allow people with limited knowledge of Web3 to participate too. As a result, we are provide payment method that everybody is familiar with.",
+        description:
+          "The vision of AiR is to lower the entry barrier into Metaverse for everybody. Therefore, we want to be able to allow people with limited knowledge of Web3 to participate too. As a result, we are provide payment method that everybody is familiar with.",
       },
       {
         title: "What chain are AiR Citizens minted on?",
@@ -145,23 +154,87 @@ export const TEXT_FAQ = {
       },
       {
         title: "How do I transfer my purchase to my own wallet?",
-        description: 'Once you have logged in your AiR account through this site, you will see a list of your AiR Citizens. Connect to your Solana chain wallet (Phantom) and you can click the "Withdraw" button to transfer your AiR Citizen to your personal wallet',
-      }
+        description:
+          'Once you have logged in your AiR account through this site, you will see a list of your AiR Citizens. Connect to your Solana chain wallet (Phantom) and you can click the "Withdraw" button to transfer your AiR Citizen to your personal wallet',
+      },
+      {
+        title: "Can I sell my AiR Citizen?",
+        description:
+          "Yes, you can withdraw your Citizens to your own wallet and put them on sale on popular marketplace such as Opensea",
+      },
     ],
   },
   CH: {
     title01: "//FAQ",
+    content: [
+      {
+        title: "元住民是甚麼?",
+        description:
+          "元住民是充滿活力的AiR元宇宙居民。他們生活於AiR這個持續進化的冒險世界中，並為所有玩家帶來「玩住賺」（Play-to-Earn）體驗。",
+      },
+      {
+        title: "甚麼是AiR?",
+        description:
+          "AiR 是首個實地化元宇宙（Location-based Mateverse），將現實中的地標與街道投射到元宇宙這個虛擬世界中。AiR積極與不同商店與品牌合作推出「玩住賺」（Play-to-Earn）活動，玩家只需達成特定條件或收集指定物品即可以得到實體獎品。將你於虛擬世界的體驗昇華，結合虛與現實，跨越次元的限制，強化現實的氣氛與各種平常不易留意的細節；而現實世界則富富玩家於AiR元宇宙中不同的遊戲體驗。",
+      },
+      {
+        title: "甚麼是NFT？",
+        description:
+          "NFT全稱是非同質化代幣，是區塊鏈上的一種數據紀錄。它既可以是數碼資產，又可以是代幣化的現實世界資產。它常被應用在藝術品、音樂、虛擬收藏品、圖檔、視頻檔等，讓大家可以於網上交易平台進行買賣，具有一定的投資價值。NFT的誕生，不但保護了創意藝術家，更為市場提供了不少投資機會。",
+      },
+      {
+        title: "這系列推出多少個NFT？",
+        description:
+          "這次共推出2000個獨一無二的海洋公園「哈囉喂」主題。每一個的造形都是立體，而且與別不同。每個都能用於收集實體禮物及於元宇宙中遊戲。",
+      },
+      {
+        title: "持有元住民有甚麼好處？",
+        description:
+          "每一個海洋公園主題元住民都付帶一張海洋公園「買一送一」優惠券。另外，持有元住民NFT的人可參與將來「玩住賺」任務。元住民持有者可於未來的Gamefi（遊戲化金融系統）中賺到意想不到的數碼資產。",
+      },
+      {
+        title: "這系列的NFT售價多少？",
+        description: "每個售價為$666 。",
+      },
+      {
+        title: "我怎樣購買元住民？",
+        description:
+          "只要創建或建立一個AiR帳號，並使用PayPal完成購買流程即可得到一個元住民NFT。每個NFT都連結買家的AiR帳號，並可以通過元住民網站查看所有已購買的元住民NFT。",
+      },
+      {
+        title: "我可以使用一般法定貨幣嗎? 為何不使用加密貨幣?",
+        description:
+          "AiR目標是使所有人都能夠體驗及感受元宇宙的樂趣，即使對Web 3.0的認知不多，也能參與AiR元宇宙。為此我們使用一個每人也熟知的付款方式。",
+      },
+      {
+        title: "元住民使用哪個區塊鏈? 為甚麼?",
+        description:
+          "元住民使用Solana這個區塊鏈。Solana快速、安全、效能高而且費用便宜。",
+      },
+      {
+        title: "怎樣將購買的NFT轉移到自己的錢包？",
+        description:
+          "只要買家通過網站登入AiR帳號，即可查看到擁有的元住民NFT。連接到您的Solana錢包 （Phantom），然後點擊提取，即可以將您的NFT轉移到您的錢包中。（除非您已售出，否則在網站中仍可查看到您擁有的NFT）",
+      },
+      {
+        title: "我可以交易元住民嗎？",
+        description:
+          "買家將元住民收入自己的web 3錢包後可以放到其他NFT交易平台，如：OPENSEA上交易。",
+      },
+    ],
   },
 };
 
 export const TEXT_Footer = {
   EN: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
     textTerm: "Terms",
+    textContactUs: "Contact Us",
   },
   CH: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
     textTerm: "Terms",
+    textContactUs: "Contact Us",
   },
 };
 
