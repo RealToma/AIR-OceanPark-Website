@@ -1,12 +1,13 @@
 export const TEXT_TopNavbar = {
   EN: {
-    tb01: "Buy Now!",
+    tb01: "Get it Now!",
     tb02: "Ocean Park Halloween 2022",
     tb03: "About",
     tb04: "Utility",
     tb05: "Progress",
     tb06: "Account",
-    textComingSoon: "COMING SEP 30th!",
+    textComingSoon01: "COMING SEP 30th!",
+    textComingSoon02: "Oct 2nd noon",
   },
   CH: {
     tb01: "立即購買！",
@@ -15,7 +16,8 @@ export const TEXT_TopNavbar = {
     tb04: "用途",
     tb05: "里程",
     tb06: "帳號",
-    textComingSoon: "9月30日上架！",
+    textComingSoon01: "COMING SEP 30th!",
+    textComingSoon02: "Oct 2nd noon",
   },
 };
 
@@ -109,23 +111,28 @@ export const TEXT_FAQ = {
     content: [
       {
         title: "What is AiR Citizen?",
-        description: "AiR.Citizens are energetic beings from diverse origins living in the adventurous and ever-evolving Metaverse of AiR to carry out Play-to-Earn",
+        description:
+          "AiR.Citizens are energetic beings from diverse origins living in the adventurous and ever-evolving Metaverse of AiR to carry out Play-to-Earn",
       },
       {
         title: "What is AiR?",
-        description: "AiR is a unique location-based mobile first Metaverse that is closely connected to the real world for Play-to-Earn and as a gamified loyalty network",
+        description:
+          "AiR is a unique location-based mobile first Metaverse that is closely connected to the real world for Play-to-Earn and as a gamified loyalty network",
       },
       {
         title: "What is NFT?",
-        description: "A non-fungible token (NFT) is a data record on a blockchain which proves the ownership of a particular digital or physical asset",
+        description:
+          "A non-fungible token (NFT) is a data record on a blockchain which proves the ownership of a particular digital or physical asset",
       },
       {
         title: "How many units will be available in this collection?",
-        description: "2000 uniquely crafted AiR Citizens in 3D with different attributes under the Ocean Park Halloween 2022 theme, each with real world benefits and Metaverse game plays",
+        description:
+          "2000 uniquely crafted AiR Citizens in 3D with different attributes under the Ocean Park Halloween 2022 theme, each with real world benefits and Metaverse game plays",
       },
       {
         title: "What are the benefits of owning an AiR Citizen?",
-        description: "Each Ocean Park Halloween AiR Citizen comes with a buy-one-get-one Ocean Park admission ticket benefit, eligibility to participate in the current and future Play-to-Earn game plays in the AiR Metaverse, and potential future real world loyalty utility",
+        description:
+          "Each Ocean Park Halloween AiR Citizen comes with a buy-one-get-one Ocean Park admission ticket benefit, eligibility to participate in the current and future Play-to-Earn game plays in the AiR Metaverse, and potential future real world loyalty utility",
       },
       {
         title: "How much is each AiR Citizen of this collection?",
@@ -133,11 +140,13 @@ export const TEXT_FAQ = {
       },
       {
         title: "How can I buy AiR Citizen?",
-        description: "Simply create or login to an AiR account on this site and go through the purchase steps via PayPal. The AiR Citizen purchased will be linked to your AiR account and you can browse your purchases on this site",
+        description:
+          "Simply create or login to an AiR account on this site and go through the purchase steps via PayPal. The AiR Citizen purchased will be linked to your AiR account and you can browse your purchases on this site",
       },
       {
         title: "Why is AiR Citizen selling for fiat not for cryptocurrency?",
-        description: "The vision of AiR is to lower the entry barrier into Metaverse for everybody. Therefore, we want to be able to allow people with limited knowledge of Web3 to participate too. As a result, we are provide payment method that everybody is familiar with.",
+        description:
+          "The vision of AiR is to lower the entry barrier into Metaverse for everybody. Therefore, we want to be able to allow people with limited knowledge of Web3 to participate too. As a result, we are provide payment method that everybody is familiar with.",
       },
       {
         title: "What chain are AiR Citizens minted on?",
@@ -145,23 +154,76 @@ export const TEXT_FAQ = {
       },
       {
         title: "How do I transfer my purchase to my own wallet?",
-        description: 'Once you have logged in your AiR account through this site, you will see a list of your AiR Citizens. Connect to your Solana chain wallet (Phantom) and you can click the "Withdraw" button to transfer your AiR Citizen to your personal wallet',
-      }
+        description:
+          'Once you have logged in your AiR account through this site, you will see a list of your AiR Citizens. Connect to your Solana chain wallet (Phantom) and you can click the "Withdraw" button to transfer your AiR Citizen to your personal wallet',
+      },
     ],
   },
   CH: {
     title01: "//FAQ",
+    content: [
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+      {
+        titile: "",
+        description: "",
+      },
+    ],
   },
 };
 
 export const TEXT_Footer = {
   EN: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
     textTerm: "Terms",
+    textContactUs: "Contact Us",
   },
   CH: {
-    tt01: "© AiR 2022 ALL RIGHTS RESERVED.  |",
+    tt01: "© AiR 2022 ALL RIGHTS RESERVED.",
     textTerm: "Terms",
+    textContactUs: "Contact Us",
   },
 };
 
