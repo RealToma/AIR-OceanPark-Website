@@ -215,9 +215,10 @@ const Checkout = (props) => {
   // const klookCodeRef = useRef()
   const price = 666
   const total = price * amount
+  const maxAmount = 5
 
   const increase = () => {
-    if (amount < 10) setAmount(amount + 1)
+    if (amount < maxAmount) setAmount(amount + 1)
   }
 
   const descrease = () => {
@@ -237,41 +238,45 @@ const Checkout = (props) => {
     //   showPaymentModal()
     // }
     
-    return await axios.post(
-      process.env.REACT_APP_CITIZEN_URL + "/createOrder",
-      {
-        productName: 'OP_HW_2022',
-        paymentType: 'paypal',
-        unit: amount,
-        price: total,
-      },
-      {
-        headers: {
-          token,
-        },
-      }
-    ).then(({ data }) => {
-      if (get(data, 'success')) {
-        if (get(data, 'result.orderID')) {
-          return actions.order.create({
-            purchase_units: [
-                {
-                    invoice_id: `${data.result.orderID}`,
-                    reference_id: `${data.result.orderID}`,
-                    amount: {
-                        value: total,
+    if (total >= price && amount > 0 && amount <= maxAmount) {
+      return await axios.post(
+        process.env.REACT_APP_CITIZEN_URL + "/createOrder",
+          {
+            productName: 'OP_HW_2022',
+            paymentType: 'paypal',
+            unit: amount,
+            price: total,
+          },
+          {
+            headers: {
+              token,
+            },
+          }
+        ).then(({ data }) => {
+          if (get(data, 'success')) {
+            if (get(data, 'result.orderID')) {
+              return actions.order.create({
+                purchase_units: [
+                    {
+                        invoice_id: `${data.result.orderID}`,
+                        reference_id: `${data.result.orderID}`,
+                        amount: {
+                            value: total,
+                        },
                     },
-                },
-            ],
-          })
-        } else {
-          console.log('no order id')
-        }
-      } else {
-        alert('soldout')
-        // closePaymentModal()
-      }
-    })
+                ],
+              })
+            } else {
+              console.log('no order id')
+            }
+          } else {
+            alert('soldout')
+            // closePaymentModal()
+          }
+        })
+    } else {
+      alert('at least buy 1')
+    }
   }
 
   const showPaymentModal = () => {
