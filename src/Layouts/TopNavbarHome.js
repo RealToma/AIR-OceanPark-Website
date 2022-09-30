@@ -177,26 +177,16 @@ const TopNavbarHome = ({
                 <>
                   <ButtonClicked01
                     onClick={() => {
-<<<<<<< HEAD
                       setFlagLanguage(false);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", false);
-=======
                       switchFlagLanguage(false);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonClicked01>
                   <ButtonUnclicked01
                     onClick={() => {
-<<<<<<< HEAD
                       setFlagLanguage(true);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", true);
-=======
                       switchFlagLanguage(true);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
@@ -206,26 +196,16 @@ const TopNavbarHome = ({
                 <>
                   <ButtonUnclicked01
                     onClick={() => {
-<<<<<<< HEAD
                       setFlagLanguage(false);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", false);
-=======
                       switchFlagLanguage(false);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonUnclicked01>
                   <ButtonClicked01
                     onClick={() => {
-<<<<<<< HEAD
                       setFlagLanguage(true);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", true);
-=======
                       switchFlagLanguage(true);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
@@ -334,27 +314,17 @@ const TopNavbarHome = ({
                 <>
                   <ButtonClicked01
                     onClick={() => {
-<<<<<<< HEAD
                       console.log(flagLanguage);
                       setFlagLanguage(false);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", false);
-=======
                       switchFlagLanguage(false);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonClicked01>
                   <ButtonUnclicked01
                     onClick={() => {
-<<<<<<< HEAD
                       setFlagLanguage(true);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", true);
-=======
                       switchFlagLanguage(true);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
@@ -364,26 +334,16 @@ const TopNavbarHome = ({
                 <>
                   <ButtonUnclicked01
                     onClick={() => {
-<<<<<<< HEAD
                       setFlagLanguage(false);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", false);
-=======
                       switchFlagLanguage(false);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     ENG
                   </ButtonUnclicked01>
                   <ButtonClicked01
                     onClick={() => {
-<<<<<<< HEAD
                       setFlagLanguage(true);
-                      localStorage.removeItem("languageHome");
-                      localStorage.setItem("languageHome", true);
-=======
                       switchFlagLanguage(true);
->>>>>>> dacfe44408058a9b7b2fe9ebf4dea88fef416c7b
                     }}
                   >
                     中文
