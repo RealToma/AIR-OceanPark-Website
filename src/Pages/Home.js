@@ -77,9 +77,8 @@ const Home = () => {
     speed: -3,
     offset: 0.1,
   });
-
-  const [flagRotate, setFlagRotate] = useState(0);
   const [flagLanguage, setFlagLanguage] = useState(false);
+  const [flagRotate, setFlagRotate] = useState(0);
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagTerms, setFlagTerms] = useState(false);
 

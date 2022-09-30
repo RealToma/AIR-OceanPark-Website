@@ -23,6 +23,7 @@ const TopNavbarHome = ({
   setFlagTerms,
 }) => {
   const navigate = useNavigate();
+
   const textNavbar = !flagLanguage ? TEXT_TopNavbar.EN : TEXT_TopNavbar.CH;
   const handleClose = () => setOpen(false);
   const [open, setOpen] = useState(false);
@@ -169,6 +170,8 @@ const TopNavbarHome = ({
                   <ButtonClicked01
                     onClick={() => {
                       setFlagLanguage(false);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", false);
                     }}
                   >
                     ENG
@@ -176,6 +179,8 @@ const TopNavbarHome = ({
                   <ButtonUnclicked01
                     onClick={() => {
                       setFlagLanguage(true);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", true);
                     }}
                   >
                     中文
@@ -186,6 +191,8 @@ const TopNavbarHome = ({
                   <ButtonUnclicked01
                     onClick={() => {
                       setFlagLanguage(false);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", false);
                     }}
                   >
                     ENG
@@ -193,6 +200,8 @@ const TopNavbarHome = ({
                   <ButtonClicked01
                     onClick={() => {
                       setFlagLanguage(true);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", true);
                     }}
                   >
                     中文
@@ -301,7 +310,10 @@ const TopNavbarHome = ({
                 <>
                   <ButtonClicked01
                     onClick={() => {
+                      console.log(flagLanguage);
                       setFlagLanguage(false);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", false);
                     }}
                   >
                     ENG
@@ -309,6 +321,8 @@ const TopNavbarHome = ({
                   <ButtonUnclicked01
                     onClick={() => {
                       setFlagLanguage(true);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", true);
                     }}
                   >
                     中文
@@ -319,6 +333,8 @@ const TopNavbarHome = ({
                   <ButtonUnclicked01
                     onClick={() => {
                       setFlagLanguage(false);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", false);
                     }}
                   >
                     ENG
@@ -326,6 +342,8 @@ const TopNavbarHome = ({
                   <ButtonClicked01
                     onClick={() => {
                       setFlagLanguage(true);
+                      localStorage.removeItem("languageHome");
+                      localStorage.setItem("languageHome", true);
                     }}
                   >
                     中文
