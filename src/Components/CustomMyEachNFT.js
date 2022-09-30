@@ -46,14 +46,11 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
   };
 
   const handleConfirm = () => {
-
-    let data ={
+    let data = {
       nftID: dataNFT.nftID,
-      walletAddress: publicKey
-    }
-    actionWithdraw(data, token).then(res=>{
-
-    })
+      walletAddress: publicKey,
+    };
+    actionWithdraw(data, token).then((res) => {});
   };
 
   return (
