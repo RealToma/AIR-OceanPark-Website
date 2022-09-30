@@ -281,6 +281,11 @@ const PartContent02 = styled(Box)`
   box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   background-color: ${customColor.mainColor01};
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    height: 70%;
+  }
 `;
 
 const PartSidebar01 = styled(Box)`
@@ -293,6 +298,11 @@ const PartSidebar01 = styled(Box)`
   padding-bottom: 30px;
   box-sizing: border-box;
   justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const PartList01 = styled(Box)`
@@ -357,6 +367,10 @@ const PartDisplayNFT02 = styled(Box)`
   @media (max-width: 1400px) {
     grid-template-columns: auto auto auto;
   }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: auto auto auto auto;
+  }
 `;
 
 const PartGetMore01 = styled(Box)`
@@ -373,6 +387,9 @@ const PartGetMore01 = styled(Box)`
   background-color: ${customColor.mainColor02};
   color: ${customColor.backColor01};
   cursor: pointer;
+
+  transition: 0.5s;
+
 `;
 
 const PartGetMoreIcon01 = styled(Box)`

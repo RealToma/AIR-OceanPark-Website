@@ -204,6 +204,12 @@ const StyledComponent = styled(Box)`
   width: 200px;
   height: 200px;
   cursor: pointer;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 
 const PartImage01 = styled(Box)`
