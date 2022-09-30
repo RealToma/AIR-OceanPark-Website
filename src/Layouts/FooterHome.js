@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 import { TEXT_Footer } from "../Config/Text";
 import { customColor } from "../Config/Color";
+import { Link } from 'react-router-dom'
 
 const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
   const textFooter = !flagLanguage ? TEXT_Footer.EN : TEXT_Footer.CH;
@@ -20,7 +21,7 @@ const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
           }}
           style={{ cursor: "pointer" }}
         >
-          {textFooter.textTerm}
+          <Link to="/tnc" style={{ color: 'white', textDecoration: 'none' }}>{textFooter.textTerm}</Link>
         </Box>
         {"\u00a0\u00a0|\u00a0\u00a0"}
         <Box display={"flex"} onClick={() => {}} style={{ cursor: "pointer" }}>
