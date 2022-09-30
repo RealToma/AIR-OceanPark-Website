@@ -113,7 +113,7 @@ const Signup = () => {
             </ButtonNext01>
           </PartNext01>
           <TextMessage01>{msgAlert}</TextMessage01>
-          <PartBorder01>
+          {/* <PartBorder01>
             <PartLine01></PartLine01>
             <TextOr01>or</TextOr01>
             <PartLine01></PartLine01>
@@ -133,7 +133,7 @@ const Signup = () => {
                 alt={""}
               />
             </EachSign01>
-          </PartOtherSign01>
+          </PartOtherSign01> */}
         </PartContent01>
         <PartSignup01
           onClick={() => {
