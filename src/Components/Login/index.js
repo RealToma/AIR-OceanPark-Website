@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { actionLogin } from "../../Actions/Auth";
 
 const Login = (props) => {
-  const { redirectPath = '/myNFT' } = props
+  const { redirectPath = "/buyNFT" } = props;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -108,12 +108,7 @@ const Login = (props) => {
             <img src={imgGoogle01} width={"100%"} height={"100%"} alt={""} />
           </EachSign01>
           <EachSign01>
-            <img
-              src={imgFacebook01}
-              width={"100%"}
-              height={"100%"}
-              alt={""}
-            />
+            <img src={imgFacebook01} width={"100%"} height={"100%"} alt={""} />
           </EachSign01>
         </PartOtherSign01>
       </PartContent01>

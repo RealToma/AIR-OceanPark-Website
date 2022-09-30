@@ -53,7 +53,7 @@ const BuyNFTContainer = (props) => {
 
   const navigate = useNavigate()
   const onCancel = () => {
-    navigate('/buyNFT')
+    navigate('/myNFT')
   }
   return (
     <StyledComponent>
