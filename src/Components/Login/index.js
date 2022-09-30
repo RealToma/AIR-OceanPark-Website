@@ -95,7 +95,7 @@ const Login = (props) => {
           </ButtonNext01>
         </PartNext01>
         <TextMessage01>{msgAlert}</TextMessage01>
-        <PartBorder01>
+        {/* <PartBorder01>
           <PartLine01></PartLine01>
           <TextOr01>or</TextOr01>
           <PartLine01></PartLine01>
@@ -115,7 +115,7 @@ const Login = (props) => {
               alt={""}
             />
           </EachSign01>
-        </PartOtherSign01>
+        </PartOtherSign01> */}
       </PartContent01>
       <PartSignin01
         onClick={() => {
