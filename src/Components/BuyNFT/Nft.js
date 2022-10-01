@@ -140,7 +140,14 @@ const Nft = (props) => {
         <Slider {...settings}>
           {viewport === 'desktop' && (
             <div>
-              <div style={{width: 'calc(50vw - 300px - 40px)'}} />
+              {nftData.length > 1 && (
+                <div style={{width: 'calc(50vw - 300px - 40px)'}} />
+              )}
+
+              {nftData.length === 1 && (
+                <div style={{width: `calc(50vw - 150px - 20px)`}} >a</div>
+              )}
+              
             </div>
           )}
           {list}

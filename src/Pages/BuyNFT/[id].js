@@ -31,6 +31,7 @@ const BuyNFT = () => {
   const [step, setStep] = useState(stepNumber)
   const [nftData, setNftData] = useState()
   const [siteCopy, setSiteCopy] = useState(localStorage.getItem("flagLang") === '1' ? TEXT_BuyNFTContent.CH : TEXT_BuyNFTContent.EN)
+  const [error, setError] = useState()
   const switchLangCallback = () => {
     setSiteCopy(localStorage.getItem("flagLang") === '1' ? TEXT_BuyNFTContent.CH : TEXT_BuyNFTContent.EN)
   }
@@ -47,10 +48,10 @@ const BuyNFT = () => {
       component = <LoginPane setStep={setStep} redirectPath="/buyNFT" siteCopy={siteCopy} />
       break
     case 2:
-      component = <Checkout setStep={setStep} setNftData={setNftData} siteCopy={siteCopy} />
+      component = <Checkout setStep={setStep} setNftData={setNftData} siteCopy={siteCopy} setError={setError} />
       break
     case 3:
-      component = <Payment setStep={setStep} nftData={nftData} siteCopy={siteCopy} />
+      component = <Payment setStep={setStep} nftData={nftData} siteCopy={siteCopy} error={error} />
       break
     case 4:
       component = <Nft nftData={nftData} siteCopy={siteCopy} />
