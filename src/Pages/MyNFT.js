@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
-import { textMyNFT } from "../Config/Text_";
+// import { textMyNFT } from "../Config/Text_";
 import { TEXT_MyNFT } from "../Config/Text";
 import { customColor } from "../Config/Color";
 import TopNavbarAccount from "../Layouts/TopNavbarAccount";
@@ -15,7 +15,7 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomMyEachNFT from "../Components/CustomMyEachNFT";
 
-import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
+// import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
 // import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"

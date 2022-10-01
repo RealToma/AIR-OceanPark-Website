@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../../Config/Color";
