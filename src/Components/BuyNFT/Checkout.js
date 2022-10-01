@@ -215,8 +215,8 @@ const Checkout = (props) => {
 
   const redeemable = (!redeemProcessing && !!klookAgreement && !!klookCode)
   // const klookCodeRef = useRef()
-  // const price = 666
-  const price = 1
+  const price = 666
+  // const price = 1
   const total = price * amount
   const maxAmount = 5
 
