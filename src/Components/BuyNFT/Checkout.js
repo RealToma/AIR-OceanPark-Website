@@ -247,7 +247,7 @@ const Checkout = (props) => {
           {
             productName: 'OP_HW_2022',
             paymentType: 'paypal',
-            unit: amount,
+            unit: 1,
             price: total,
           },
           {
