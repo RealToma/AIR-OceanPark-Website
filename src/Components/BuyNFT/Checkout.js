@@ -339,7 +339,7 @@ const Checkout = (props) => {
   }
 
   const checkOrder = async (invoice_id) => {
-    const maxRetryCount = 10
+    const maxRetryCount = 30
     let retryCount = 0
     const fetch = () => {
       axios.get(
