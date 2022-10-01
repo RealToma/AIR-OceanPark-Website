@@ -75,6 +75,8 @@ const StyledSliderWrapper = styled.div`
 `
 
 const StyledImageWrapper = styled.div`
+  border-radius: 16px;
+  overflow: hidden;
   @media (min-width: 900px) {
     width: 300px;
   }
@@ -82,6 +84,29 @@ const StyledImageWrapper = styled.div`
 
 const Nft = (props) => {
   const { nftData, siteCopy } = props
+  // const { siteCopy } = props
+  // const nftData = [
+  //   {
+  //     images: ["https://ophw22.air-world.io/a/air_c0907.png"],
+  //     nftID: "abc",
+  //   },
+  //   {
+  //     images: ["https://ophw22.air-world.io/a/air_c0907.png"],
+  //     nftID: "abc",
+  //   },
+  //   {
+  //     images: ["https://ophw22.air-world.io/a/air_c0907.png"],
+  //     nftID: "abc",
+  //   },
+  //   {
+  //     images: ["https://ophw22.air-world.io/a/air_c0907.png"],
+  //     nftID: "abc",
+  //   },
+  //   {
+  //     images: ["https://ophw22.air-world.io/a/air_c0907.png"],
+  //     nftID: "abc",
+  //   },
+  // ]
   const detectViewport = () => {
     return window.innerWidth >= 900 ? 'desktop' : 'mobile'
   }
