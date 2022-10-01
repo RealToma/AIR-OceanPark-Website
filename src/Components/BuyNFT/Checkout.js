@@ -202,7 +202,7 @@ const StyledKlookRedemptionCodeWrapper = styled.div`
 
 const Checkout = (props) => {
   const navigate = useNavigate()
-  const { setStep, setNftData, siteCopy } = props
+  const { setStep, setNftData, siteCopy, setError } = props
   const token = localStorage.getItem("token")
   const [amount, setAmount] = useState(1)
   const [agreement, setAgreement] = useState(false)
@@ -216,6 +216,7 @@ const Checkout = (props) => {
   const redeemable = (!redeemProcessing && !!klookAgreement && !!klookCode)
   // const klookCodeRef = useRef()
   const price = 666
+  // const price = 1
   const total = price * amount
   const maxAmount = 5
 
@@ -272,7 +273,30 @@ const Checkout = (props) => {
               console.log('no order id')
             }
           } else {
-            alert('soldout')
+            if (get(data, 'message_name') === 'unit_exceeded') setError(siteCopy.unit_exceeded)
+            if (get(data, 'message_name') === 'unit_exceeded') setError(siteCopy.unit_exceeded)
+            if (get(data, 'message_name') === 'unit_exceeded') setError(siteCopy.unit_exceeded)
+            if (get(data, 'message_name') === 'unit_exceeded') setError(siteCopy.unit_exceeded)
+
+            switch (get(data, 'message_name')) {
+              case 'unit_exceeded':
+                setError(siteCopy.order_error_other)
+                break
+              case 'sold_out':
+                setError(siteCopy.sold_out)
+                break
+              case 'try_again':
+                setError(siteCopy.try_again)
+                break
+              case 'order_error':
+                setError(siteCopy.order_error)
+                break
+              default:
+                setError(siteCopy.order_error_other)
+                break
+            }
+
+            setStep(4)
             // closePaymentModal()
           }
         })
@@ -338,7 +362,7 @@ const Checkout = (props) => {
   }
 
   const checkOrder = async (invoice_id) => {
-    const maxRetryCount = 10
+    const maxRetryCount = 30
     let retryCount = 0
     const fetch = () => {
       axios.get(

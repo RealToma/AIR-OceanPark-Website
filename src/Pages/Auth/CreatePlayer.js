@@ -99,7 +99,7 @@ const CreatePlayer = () => {
             <TextAgree01>
               {textCreatePlayer.ti02.en}
               {"\u00a0"}
-              <u style={{ cursor: "pointer" }}>{textCreatePlayer.tiu02.en}</u>
+              <u style={{ cursor: "pointer" }} onClick={() => navigate('/tnc')}>{textCreatePlayer.tiu02.en}</u>
             </TextAgree01>
           </PartAgree01>
           <ButtonCreate01

@@ -23,18 +23,15 @@ const StyledComponent = styled(Box)`
 const BuyNFT = () => {
   const { step: stepParam } = useParams();
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  let stepNumber = Number(stepParam || 1);
-  if (!userInfo && stepNumber > 1) stepNumber = 1;
-  if (userInfo && stepNumber < 2) stepNumber = 2;
-  if (userInfo && stepParam > 4) stepNumber = 4;
-
-  const [step, setStep] = useState(stepNumber);
-  const [nftData, setNftData] = useState();
-  const [siteCopy, setSiteCopy] = useState(
-    localStorage.getItem("flagLang") === "1"
-      ? TEXT_BuyNFTContent.CH
-      : TEXT_BuyNFTContent.EN
-  );
+  let stepNumber = Number(stepParam || 1)
+  if (!userInfo && stepNumber > 1) stepNumber = 1
+  if (userInfo && stepNumber < 2) stepNumber = 2
+  if (userInfo && stepParam > 4) stepNumber = 4
+  
+  const [step, setStep] = useState(stepNumber)
+  const [nftData, setNftData] = useState()
+  const [siteCopy, setSiteCopy] = useState(localStorage.getItem("flagLang") === '1' ? TEXT_BuyNFTContent.CH : TEXT_BuyNFTContent.EN)
+  const [error, setError] = useState()
   const switchLangCallback = () => {
     setSiteCopy(
       localStorage.getItem("flagLang") === "1"
@@ -61,19 +58,11 @@ const BuyNFT = () => {
       );
       break;
     case 2:
-      component = (
-        <Checkout
-          setStep={setStep}
-          setNftData={setNftData}
-          siteCopy={siteCopy}
-        />
-      );
-      break;
+      component = <Checkout setStep={setStep} setNftData={setNftData} siteCopy={siteCopy} setError={setError} />
+      break
     case 3:
-      component = (
-        <Payment setStep={setStep} nftData={nftData} siteCopy={siteCopy} />
-      );
-      break;
+      component = <Payment setStep={setStep} nftData={nftData} siteCopy={siteCopy} error={error} />
+      break
     case 4:
       component = <Nft nftData={nftData} siteCopy={siteCopy} />;
       break;
