@@ -1,22 +1,46 @@
 import React from "react";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import { textFooter } from "../Config/Text_";
+import { TEXT_Footer } from "../Config/Text";
 import { customColor } from "../Config/Color";
+import { Link } from "react-router-dom";
 
 const FooterAccount = () => {
+  const textFooter =
+    localStorage.getItem("flagLang") === "1" ? TEXT_Footer.CH : TEXT_Footer.EN;
   return (
     <StyledComponent>
-      <PartMax01>{textFooter.tt01.en}</PartMax01>
+      <PartMax01>
+        <Box display={"flex"}>{textFooter.tt01}</Box>
+        <TextBetween>{"|"}</TextBetween>
+        <TermBox01>
+          <Text01>
+            <Link to="/tnc" style={{ color: "black", textDecoration: "none" }}>
+              {textFooter.textTerm}
+            </Link>
+          </Text01>
+          {"|"}
+          <a
+            href="mailto:gm@air-world.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            <Text01>{textFooter.textContactUs}</Text01>
+          </a>
+        </TermBox01>
+      </PartMax01>
     </StyledComponent>
   );
 };
 
 const StyledComponent = styled(Box)`
   display: flex;
+  width: 100%;
+  color: ${customColor.textColor03};
+  opacity: 0.3;
   position: fixed;
   bottom: 0px;
-  width: 100%;
   justify-content: center;
 `;
 
@@ -24,8 +48,7 @@ const PartMax01 = styled(Box)`
   display: flex;
   width: 100%;
   max-width: 1440px;
-  min-height: 50px;
-  opacity: 0.3;
+  min-height: 175px;
   padding-left: 120px;
   padding-right: 120px;
   box-sizing: border-box;
@@ -36,8 +59,8 @@ const PartMax01 = styled(Box)`
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
+  gap: 10px;
   transition: 0.5s;
-  color: ${customColor.textColor03};
 
   @media (max-width: 1400px) {
     padding-left: 90px;
@@ -50,9 +73,12 @@ const PartMax01 = styled(Box)`
   @media (max-width: 1024px) {
     padding-left: 40px;
     padding-right: 40px;
-    min-height: 50px;
+    min-height: 120px;
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
   }
+
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
@@ -64,4 +90,30 @@ const PartMax01 = styled(Box)`
   }
 `;
 
+const TermBox01 = styled(Box)`
+  display: flex;
+  gap: 10px;
+`;
+
+const Text01 = styled(Box)`
+  display: flex;
+  cursor: pointer;
+  color: ${customColor.textColor03};
+
+  transition: 0.3s;
+  &:hover {
+    text-shadow: 0px 0px 10px ${customColor.textColor03};
+  }
+  &:active {
+    text-shadow: none;
+  }
+`;
+
+const TextBetween = styled(Box)`
+  display: flex;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
 export default FooterAccount;
