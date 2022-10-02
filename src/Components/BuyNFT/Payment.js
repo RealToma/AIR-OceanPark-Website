@@ -43,7 +43,7 @@ const StyledBtnWrapper = styled.div`
 `
 
 const Payment = (props) => {
-  const { setStep, siteCopy, error } = props
+  const { nftData = [], setStep, siteCopy, error } = props
   const success = !!nftData.length
 
   const onReveal = () => {
@@ -70,7 +70,6 @@ const Payment = (props) => {
       {!success && (
         <StyledFailedPane>
           <SvgFail />
-          asdasd
           <StyledMsg>{error ? error : siteCopy.order_error_other}</StyledMsg>
           <StyledBtnWrapper onClick={onRetry}>
             <RoundBtn>
