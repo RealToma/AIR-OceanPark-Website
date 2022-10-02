@@ -6,12 +6,14 @@ import imgLogo01 from "../Assets/image/logo01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
 import imgBoat02 from "../Assets/image/boat02.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
+import imgMark02 from "../Assets/image/mark01.png";
 import { useNavigate } from "react-router-dom";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import imgMergeMark01 from "../Assets/image/markMerge01.png";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { TEXT_MyNFT } from "../Config/Text";
+
 
 const TopNavbarAccount = (props) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -169,6 +171,9 @@ const TopNavbarAccount = (props) => {
               </HeaderRight01>
             </ModalHeader01>
             <ModalAccountPart01>
+              <ImgMark01>
+              <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
+              </ImgMark01>
               <TextUsername01>{userInfo.name}</TextUsername01>
               <TextID01>{userInfo.displayID}</TextID01>
 
@@ -602,6 +607,12 @@ const PartWalletText01 = styled(Box)`
   line-height: 160%;
   color: ${customColor.mainColor01};
 `;
+
+const ImgMark01 = styled(Box)`
+  display: flex;
+  width: 55px;
+  height: 40px;
+`
 
 export const customBackdrop = styled(Box)`
   width: 100%;

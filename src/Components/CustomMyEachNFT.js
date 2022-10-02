@@ -18,6 +18,7 @@ const CustomMyEachNFT = ({
 }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
   const token = localStorage.getItem("token");
+  const [flagWithdraw, setFlagWithdraw] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -55,7 +56,18 @@ const CustomMyEachNFT = ({
       nftID: dataNFT.nftID,
       walletAddress: publicKey,
     };
-    actionWithdraw(data, token).then((res) => {});
+    setFlagWithdraw(true);
+    handleCloseAlertWalletConfirm();
+
+    actionWithdraw(data, token).then((res) => {
+      if (res.status === 2000) {
+        handleClose();
+        window.location.reload();
+      } else {
+        handleClose();
+        setFlagWithdraw(false);
+      }
+    });
   };
 
   return (
@@ -122,7 +134,7 @@ const CustomMyEachNFT = ({
             style={{ borderRadius: "6px" }}
             alt=""
           />
-          <PartModalFooter01>
+          <PartModalFooter01 flagwithdraw={dataNFT.withdrawn ? 1 : 0}>
             <PartLeft01>
               <PartText02>{dataNFT.nftID}</PartText02>
             </PartLeft01>
@@ -149,18 +161,25 @@ const CustomMyEachNFT = ({
                     />
                   </PartIcon02>
                 </PartIcons01>
-
-                <ButtonWithdraw01 onClick={() => handleWithdraw()}>
-                  <PartIcon03>
-                    <img
-                      src={imgWithdraw02}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartIcon03>
-                  <PartTextWithdraw01>{textMyNFT.withdraw}</PartTextWithdraw01>
-                </ButtonWithdraw01>
+                {!flagWithdraw ? (
+                  <ButtonWithdraw01 onClick={() => handleWithdraw()}>
+                    <PartIcon03>
+                      <img
+                        src={imgWithdraw02}
+                        width={"100%"}
+                        height={"100%"}
+                        alt=""
+                      />
+                    </PartIcon03>
+                    <PartTextWithdraw01>
+                      {textMyNFT.withdraw}
+                    </PartTextWithdraw01>
+                  </ButtonWithdraw01>
+                ) : (
+                  <ButtonProceeding01>
+                    {textMyNFT.proceeding}
+                  </ButtonProceeding01>
+                )}
               </PartWithdraw02>
             ) : (
               <PartWithdraw02>
@@ -200,7 +219,7 @@ const CustomMyEachNFT = ({
               {textMyNFT.cancel}
             </ButtonCancel01>
             <ButtonConfirm01 onClick={() => handleConfirm()}>
-              {textMyNFT.conconfirm}
+              {textMyNFT.confirm}
             </ButtonConfirm01>
           </ButtonPart02>
         </ModalPart02>
@@ -318,6 +337,23 @@ const ButtonWithdraw01 = styled(Box)`
   cursor: pointer;
 `;
 
+const ButtonProceeding01 = styled(Box)`
+  display: flex;
+  width: 128px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 2px solid ${customColor.textColor03};
+  color: ${customColor.textColor03};
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  cursor: pointer;
+`;
+
 const PartIcon01 = styled(Box)`
   display: flex;
   min-width: 36px;
@@ -425,7 +461,7 @@ const PartModalFooter01 = styled(Box)`
 
   transition: 0.5s;
   @media (max-width: 1024px) {
-    bottom: -100px;
+    bottom: ${({ flagwithdraw }) => (!flagwithdraw ? "-100px" : "-40px")};
     align-items: flex-start;
   }
 `;
