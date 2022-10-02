@@ -49,10 +49,10 @@ const TopNavbarHome = ({
   }, [flagTerms]);
 
   const switchFlagLanguage = (value) => {
-    setFlagLanguage(value)
+    setFlagLanguage(value);
     localStorage.setItem("flagLang", value ? 1 : 0);
-    if (switchLangCallback) switchLangCallback(value)
-  }
+    if (switchLangCallback) switchLangCallback(value);
+  };
 
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
@@ -73,9 +73,14 @@ const TopNavbarHome = ({
           />
         </PartLogo01>
         <PartLink01>
-          <Button01 flagscroll={flagScroll ? 1 : 0}>
+          <Button01
+            flagscroll={flagScroll ? 1 : 0}
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
             {textNavbar.tb01}
-            <PartComingSoon01 flagscroll={flagScroll ? 1 : 0}>
+            {/* <PartComingSoon01 flagscroll={flagScroll ? 1 : 0}>
               <TextComingSoon01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.textComingSoon01}
               </TextComingSoon01>
@@ -102,7 +107,7 @@ const TopNavbarHome = ({
               <TextComingSoon02 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.textComingSoon02}
               </TextComingSoon02>
-            </PartComingSoon02>
+            </PartComingSoon02> */}
           </Button01>
           <PartMenuIcon01
             flagscroll={flagScroll ? 1 : 0}

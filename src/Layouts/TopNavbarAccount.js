@@ -14,7 +14,6 @@ import imgMergeMark01 from "../Assets/image/markMerge01.png";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { TEXT_MyNFT } from "../Config/Text";
 
-
 const TopNavbarAccount = (props) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const { switchLangCallback } = props;
@@ -170,44 +169,48 @@ const TopNavbarAccount = (props) => {
                 />
               </HeaderRight01>
             </ModalHeader01>
-            <ModalAccountPart01>
-              <ImgMark01>
-              <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
-              </ImgMark01>
-              <TextUsername01>{userInfo.name}</TextUsername01>
-              <TextID01>{userInfo.displayID}</TextID01>
+            {userInfo ? (
+              <ModalAccountPart01>
+                <ImgMark01>
+                  <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
+                </ImgMark01>
+                <TextUsername01>{userInfo ? userInfo.name : ""}</TextUsername01>
+                <TextID01>{userInfo ? userInfo.displayID : ""}</TextID01>
 
-              <ButtonLogout01
-                onClick={() => {
-                  localStorage.removeItem("userInfo");
-                  localStorage.removeItem("userToken");
-                  localStorage.removeItem("token");
-                  navigate("/login");
-                  window.location.reload();
-                }}
-              >
-                {textMyNFT.tLogout01}
-              </ButtonLogout01>
+                <ButtonLogout01
+                  onClick={() => {
+                    localStorage.removeItem("userInfo");
+                    localStorage.removeItem("userToken");
+                    localStorage.removeItem("token");
+                    navigate("/login");
+                    window.location.reload();
+                  }}
+                >
+                  {textMyNFT.tLogout01}
+                </ButtonLogout01>
 
-              <PartBorder01></PartBorder01>
-              <PartConnectWallet01
-                onClick={() => {
-                  if (flagWalletConnected) {
-                    return;
-                  }
-                  handleOpenConnectWallet();
-                }}
-              >
-                <PartWalletIcon01>
-                  <AccountBalanceWalletIcon sx={{ fontSize: "1.5rem" }} />
-                </PartWalletIcon01>
-                <PartWalletText01>
-                  {!flagWalletConnected
-                    ? textMyNFT.tConnectWallet01
-                    : shortWalletAddress(publicKey)}
-                </PartWalletText01>
-              </PartConnectWallet01>
-            </ModalAccountPart01>
+                <PartBorder01></PartBorder01>
+                <PartConnectWallet01
+                  onClick={() => {
+                    if (flagWalletConnected) {
+                      return;
+                    }
+                    handleOpenConnectWallet();
+                  }}
+                >
+                  <PartWalletIcon01>
+                    <AccountBalanceWalletIcon sx={{ fontSize: "1.5rem" }} />
+                  </PartWalletIcon01>
+                  <PartWalletText01>
+                    {!flagWalletConnected
+                      ? textMyNFT.tConnectWallet01
+                      : shortWalletAddress(publicKey)}
+                  </PartWalletText01>
+                </PartConnectWallet01>
+              </ModalAccountPart01>
+            ) : (
+              <></>
+            )}
           </ModalPartUp01>
 
           <ModalFooter01>
@@ -612,7 +615,7 @@ const ImgMark01 = styled(Box)`
   display: flex;
   width: 55px;
   height: 40px;
-`
+`;
 
 export const customBackdrop = styled(Box)`
   width: 100%;
