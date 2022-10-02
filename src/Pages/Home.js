@@ -7,7 +7,7 @@ import {
   TEXT_HomeUtility,
   TEXT_HomeProgress,
   TEXT_Terms,
-  TEXT_FAQ
+  TEXT_FAQ,
 } from "../Config/Text";
 import EachProgress from "../Components/EachProgress";
 import imgPolygon01 from "../Assets/image/back_polygon01.png";
@@ -77,11 +77,10 @@ const Home = () => {
     speed: -3,
     offset: 0.1,
   });
-  const storageFlagLanguage = localStorage.getItem("flagLang")
-  const [flagLanguage, setFlagLanguage] = useState(storageFlagLanguage === '1');
+  const storageFlagLanguage = localStorage.getItem("flagLang");
+  const [flagLanguage, setFlagLanguage] = useState(storageFlagLanguage === "1");
   const [flagRotate, setFlagRotate] = useState(0);
   const [flagScroll, setFlagScroll] = useState(false);
-  const [flagTerms, setFlagTerms] = useState(false);
 
   const textHomeContent = !flagLanguage
     ? TEXT_HomeContent.EN
@@ -93,7 +92,7 @@ const Home = () => {
     ? TEXT_HomeProgress.EN
     : TEXT_HomeProgress.CH;
   const textTerms = !flagLanguage ? TEXT_Terms.EN : TEXT_Terms.CH;
-  const textFAQ = !flagLanguage? TEXT_FAQ.EN: TEXT_FAQ.CH;
+  const textFAQ = !flagLanguage ? TEXT_FAQ.EN : TEXT_FAQ.CH;
 
   useEffect(() => {
     setTimeout(() => {
@@ -116,544 +115,463 @@ const Home = () => {
   }, []);
 
   return (
-    <StyledComponent flagterms={flagTerms ? 1 : 0}>
+    <StyledComponent >
       <TopNavbarHome
         flagLanguage={flagLanguage}
         setFlagLanguage={setFlagLanguage}
         flagScroll={flagScroll}
         setFlagScroll={setFlagScroll}
-        flagTerms={flagTerms}
-        setFlagTerms={setFlagTerms}
       />
-      {!flagTerms ? (
-        <>
-          <PartTop01>
-            <PartMaxTop01>
-              <PartPolygon01>
-                <img
-                  src={imgPolygon01}
-                  weight={"100%"}
-                  height={"100%"}
-                  alt={""}
-                />
-              </PartPolygon01>
-              <PartLeaf02>
-                <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
-              </PartLeaf02>
-              <PartMarkHallo01>
-                <a
-                  href={
-                    !flagLanguage
-                      ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
-                      : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
-                  }
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt={""}
-                  />
-                </a>
-              </PartMarkHallo01>
-
-              <PartMarkDescription01>
-                <PartMark01>
-                  <img
-                    src={imgMark01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt={""}
-                  />
-                </PartMark01>
-                <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
-              </PartMarkDescription01>
-
-              <PartMarkGroup01>
-                <PartMarkOcean01>
-                  <img
-                    src={imgMarkOcean01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartMarkOcean01>
-                <PartMutiple01>
-                  <CloseIcon
-                    size="small"
-                    sx={{ color: "#88836A", fontSize: "1.5rem" }}
-                  />
-                </PartMutiple01>
-                <PartMark02>
-                  <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
-                </PartMark02>
-              </PartMarkGroup01>
-
-              <PartNFTRotate01>
-                {/* <PartShadow01>
-                  <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
-                </PartShadow01> */}
-                {Array(8)
-                  .fill(0)
-                  .map((_, index) => {
-                    return (
-                      <PartEachNFT
-                        key={index}
-                        flagrotate={(flagRotate + index) % 8}
-                      >
-                        <img
-                          src={require(`../Assets/image/nfts__/0${
-                            index + 1
-                          }.png`)}
-                          width={"100%"}
-                          height={"100%"}
-                          alt=""
-                        />
-                      </PartEachNFT>
-                    );
-                  })}
-              </PartNFTRotate01>
-            </PartMaxTop01>
-          </PartTop01>
-          <PartMainOcean01 id="ocean">
-            <PartMaxMainOcean01>
-              <PartOcean01>
-                <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                  <TextTitle02>{textHomeContent.tt01}</TextTitle02>
-                  <img
-                    src={!flagLanguage ? imgBackEN01 : imgBackCH01}
-                    width={"100%"}
-                    style={{ borderRadius: "6px" }}
-                    alt=""
-                  />
-                </PartOceanLeft01>
-                <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
-                  <TextTitle03>{textHomeContent.tt01}</TextTitle03>
-                  <TextContent01>{textHomeContent.tc01}</TextContent01>
-                  <a
-                    href={
-                      !flagLanguage
-                        ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
-                        : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
-                    }
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      textDecoration: "none",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <ButtonVisitLink01 onClick={() => {}}>
-                      <InsertLinkRoundedIcon />
-                      {"\u00a0"}
-                      {"\u00a0"}
-                      {textHomeContent.textVisitSite}
-                    </ButtonVisitLink01>
-                  </a>
-                </PartOceanRight01>
-              </PartOcean01>
-              <PartOcean01>
-                <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
-                  <TextTitle01>{textHomeContent.tt02}</TextTitle01>
-                  <TextContent01>{textHomeContent.tc02}</TextContent01>
-                </PartOceanLeft01>
-                <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
-                  <img src={imgBack02} width={"100%"} alt="" />
-                  <PartNFT01>
-                    <img
-                      src={imgCNFT01}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartNFT01>
-                  <PartNFT02>
-                    <img
-                      src={imgCNFT02}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartNFT02>
-                  <PartNFT03>
-                    <img
-                      src={imgCNFT03}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartNFT03>
-                </PartOceanRight01>
-              </PartOcean01>
-            </PartMaxMainOcean01>
-            <PartBottle01
-              data-aos="fade-right"
-              data-aos-offset="150"
-              data-aos-duration="500"
+      <PartTop01>
+        <PartMaxTop01>
+          <PartPolygon01>
+            <img src={imgPolygon01} weight={"100%"} height={"100%"} alt={""} />
+          </PartPolygon01>
+          <PartLeaf02>
+            <img src={imgLeaf02} width={"100%"} height={"100%"} alt={""} />
+          </PartLeaf02>
+          <PartMarkHallo01>
+            <a
+              href={
+                !flagLanguage
+                  ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
+                  : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
+              }
+              target="_blank"
+              rel="noreferrer"
             >
               <img
-                src={imgBottle01}
+                src={!flagLanguage ? imgMarkHalloEN01 : imgMarkHalloCH01}
                 width={"100%"}
-                style={{ transform: "rotate(0deg)", filter: "blur(1.5px)" }}
+                height={"100%"}
+                alt={""}
+              />
+            </a>
+          </PartMarkHallo01>
+
+          <PartMarkDescription01>
+            <PartMark01>
+              <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
+            </PartMark01>
+            <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
+          </PartMarkDescription01>
+
+          <PartMarkGroup01>
+            <PartMarkOcean01>
+              <img src={imgMarkOcean01} width={"100%"} height={"100%"} alt="" />
+            </PartMarkOcean01>
+            <PartMutiple01>
+              <CloseIcon
+                size="small"
+                sx={{ color: "#88836A", fontSize: "1.5rem" }}
+              />
+            </PartMutiple01>
+            <PartMark02>
+              <img src={imgMark02} width={"100%"} height={"100%"} alt="" />
+            </PartMark02>
+          </PartMarkGroup01>
+
+          <PartNFTRotate01>
+            {/* <PartShadow01>
+                  <img src={imgShadow01} width={"100%"} height={"100%"} alt="" />
+                </PartShadow01> */}
+            {Array(8)
+              .fill(0)
+              .map((_, index) => {
+                return (
+                  <PartEachNFT
+                    key={index}
+                    flagrotate={(flagRotate + index) % 8}
+                  >
+                    <img
+                      src={require(`../Assets/image/nfts__/0${index + 1}.png`)}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartEachNFT>
+                );
+              })}
+          </PartNFTRotate01>
+        </PartMaxTop01>
+      </PartTop01>
+      <PartMainOcean01 id="ocean">
+        <PartMaxMainOcean01>
+          <PartOcean01>
+            <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+              <TextTitle02>{textHomeContent.tt01}</TextTitle02>
+              <img
+                src={!flagLanguage ? imgBackEN01 : imgBackCH01}
+                width={"100%"}
+                style={{ borderRadius: "6px" }}
                 alt=""
               />
-            </PartBottle01>
-
-            <PartClean01
-              data-aos="fade-right"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgClean01} width={"100%"} alt="" />
-            </PartClean01>
-            <PartBat01
-              data-aos="fade-left"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgBat01} width={"100%"} alt="" />
-            </PartBat01>
-          </PartMainOcean01>
-          <PartAbout01 id="about" ref={parallaxAbout.ref}>
-            <PartMaxAbout01>
-              <PartMarkGroup02
-                data-aos="slide-up"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                <PartMarkOcean02>
-                  <img
-                    src={imgMarkOcean02}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartMarkOcean02>
-                <PartMutiple02>
-                  <CloseIcon
-                    size="small"
-                    sx={{ color: "white", fontSize: "2.5rem" }}
-                  />
-                </PartMutiple02>
-                <PartMark03>
-                  <img src={imgMark03} width={"100%"} height={"100%"} alt="" />
-                </PartMark03>
-              </PartMarkGroup02>
-              <PartDetailsText01
-                data-aos="slide-up"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                {textHomeContent.tc03}
-              </PartDetailsText01>
-            </PartMaxAbout01>
-            <PartBox01
-              data-aos="fade-right"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgBox01} width={"100%"} alt="" />
-            </PartBox01>
-            <PartCover01
-              data-aos="fade-left"
-              data-aos-offset="150"
-              data-aos-duration="500"
-            >
-              <img src={imgCover01} width={"100%"} alt="" />
-            </PartCover01>
-          </PartAbout01>
-          <PartUtility01 id="utility" ref={parallaxUtility.ref}>
-            <PartMaxUtility01>
-              <TextTitle01
-                data-aos="fade-up"
-                data-aos-offset="250"
-                data-aos-duration="500"
-              >
-                {textHomeUtility.tt01}
-              </TextTitle01>
-              <TextDescription01
-                data-aos="fade-up"
-                data-aos-offset="250"
-                data-aos-duration="500"
-              >
-                {textHomeUtility.tdes01}
-              </TextDescription01>
-              <PartGrid01>
-                <GridEach01
-                  data-aos="fade-up"
-                  data-aos-offset="250"
-                  data-aos-duration="1000"
-                >
-                  <PartIcon01>
-                    <img
-                      src={iconGroup01}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartIcon01>
-                  <TextDescription02>{textHomeUtility.tc01}</TextDescription02>
-                </GridEach01>
-                <GridEach01
-                  data-aos="fade-up"
-                  data-aos-offset="250"
-                  data-aos-duration="1000"
-                >
-                  <PartIcon01>
-                    <img
-                      src={iconTicket01}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartIcon01>
-                  <TextDescription02>{textHomeUtility.tc02}</TextDescription02>
-                </GridEach01>
-                <GridEach01
-                  data-aos="fade-up"
-                  data-aos-offset="250"
-                  data-aos-duration="1000"
-                >
-                  <PartIcon01>
-                    <img
-                      src={iconDiscount01}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartIcon01>
-                  <TextDescription02>{textHomeUtility.tc03}</TextDescription02>
-                </GridEach01>
-                <GridEach01
-                  data-aos="fade-up"
-                  data-aos-offset="250"
-                  data-aos-duration="1000"
-                >
-                  <PartIcon01>
-                    <img
-                      src={iconUser01}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartIcon01>
-                  <TextDescription02>{textHomeUtility.tc04}</TextDescription02>
-                </GridEach01>
-                <GridEach01
-                  data-aos="fade-up"
-                  data-aos-offset="250"
-                  data-aos-duration="1000"
-                >
-                  <PartIcon01>
-                    <img
-                      src={iconPeace01}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartIcon01>
-                  <TextDescription02>{textHomeUtility.tc05}</TextDescription02>
-                </GridEach01>
-                <GridEach01
-                  data-aos="fade-up"
-                  data-aos-offset="250"
-                  data-aos-duration="1000"
-                >
-                  <PartIcon01>
-                    <img
-                      src={iconChest01}
-                      width={"100%"}
-                      height={"100%"}
-                      alt=""
-                    />
-                  </PartIcon01>
-                  <TextDescription02>{textHomeUtility.tc06}</TextDescription02>
-                </GridEach01>
-              </PartGrid01>
-              <PartDolphin01
-                data-aos="fade-left"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                <img src={imgDolphin01} width={"100%"} alt="" />
-              </PartDolphin01>
-            </PartMaxUtility01>
-          </PartUtility01>
-          <PartProgress01 id="progress">
-            <PartMaxProgress01>
-              <TextTitle01
-                data-aos="fade-up"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                {textHomeProgress.tt01}
-              </TextTitle01>
-              <PartRoadmap01>
-                <EachProgress
-                  date={textHomeProgress.tdate01}
-                  image={imgProgress01}
-                  text={textHomeProgress.tdes01}
-                />
-                <EachProgress
-                  date={textHomeProgress.tdate02}
-                  image={imgProgress02}
-                  text={textHomeProgress.tdes02}
-                />
-                <EachProgress
-                  date={textHomeProgress.tdate03}
-                  image={imgProgress03}
-                  text={textHomeProgress.tdes03}
-                />
-                <EachProgress
-                  date={textHomeProgress.tdate04}
-                  image=""
-                  text={textHomeProgress.tdes04}
-                />
-                <EachProgress
-                  date={textHomeProgress.tdate05}
-                  image=""
-                  text={textHomeProgress.tdes05}
-                />
-                <EachProgress
-                  date={textHomeProgress.tdate06}
-                  image=""
-                  text={textHomeProgress.tdes06}
-                />
-                <EachProgress
-                  date={textHomeProgress.tdate07}
-                  image=""
-                  text={textHomeProgress.tdes07}
-                />
-              </PartRoadmap01>
-              <PartPen01
-                data-aos="fade-right"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                <img src={imgPen01} width={"100%"} height={"100%"} alt="" />
-              </PartPen01>
-              <PartCap01
-                data-aos="fade-left"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                <img src={imgCap01} width={"100%"} height={"100%"} alt="" />
-              </PartCap01>
-              <PartRing01
-                data-aos="fade-right"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                <img src={imgRing01} width={"100%"} alt="" />
-              </PartRing01>
-              <PartKnife01
-                data-aos="fade-left"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                <img src={imgKnife01} width={"100%"} alt="" />
-              </PartKnife01>
-            </PartMaxProgress01>
-          </PartProgress01>
-          <PartFAQ01>
-            <PartMaxFAQ01>
-              <TextTitle01
-                data-aos="fade-up"
-                data-aos-offset="150"
-                data-aos-duration="500"
-              >
-                {textFAQ.title01}
-              </TextTitle01>
-              <ContentFAQ01>
-                {
-                  (textFAQ.content).map((each, index)=>{
-                    return(
-                      <CustomDropdownFAQ content={each} key={index} />
-                    )
-                  })
+            </PartOceanLeft01>
+            <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+              <TextTitle03>{textHomeContent.tt01}</TextTitle03>
+              <TextContent01>{textHomeContent.tc01}</TextContent01>
+              <a
+                href={
+                  !flagLanguage
+                    ? "https://www.oceanpark.com.hk/en/park-experience/halloween-fest-2022"
+                    : "https://www.oceanpark.com.hk/tc/park-experience/halloween-fest-2022"
                 }
-              </ContentFAQ01>
-            </PartMaxFAQ01>
-          </PartFAQ01>
-        </>
-      ) : (
-        <PartTems01>
-          <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
-          <PartTermsContent01>
-            Age requirements
-            <br />
-            If you’re under the age required to manage your own Google Account,
-            you must have your parent or legal guardian’s permission to use a
-            Google Account. Please ask your parent or legal guardian to read
-            these terms with you.
-            <br />
-            <br />
-            If you’re a parent or legal guardian, and you allow your child to
-            use the services, then these terms apply to you and you’re
-            responsible for your child’s activity on the services.
-            <br />
-            <br />
-            Some Google services have additional age requirements as described
-            in their service-specific additional terms and policies.
-            <br />
-            <br />
-            Your relationship with Google <br />
-            These terms help define the relationship between you and Google.
-            Broadly speaking, we give you permission to use our services if you
-            agree to follow these terms, which reflect how Google’s business
-            works and how we earn money. When we speak of 'Google', 'we', 'us'
-            and 'our', we mean Google LLC and its affiliates.
-            <br />
-            <br />
-            What you can expect from us <br />
-            Provide a broad range of useful services
-            <br />
-            <br />
-            We provide a broad range of services that are subject to these
-            terms, including: <br />
-            apps and sites (like Search and Maps)
-            <br /> platforms (like Google Shopping) <br />
-            integrated services (like Maps embedded in other companies’ apps or
-            sites)
-            <br /> devices (like Google Nest)
-            <br /> Many of these services also include content that you can
-            stream or interact with.
-            <br />
-            <br />
-            Our services are designed to work together, making it easier for you
-            to move from one activity to the next. For example, if your Calendar
-            event includes an address, you can click on that address and Maps
-            can show you how to get there.
-            <br />
-            <br />
-            Develop, improve and update Google services
-            <br />
-            <br /> We’re constantly developing new technologies and features to
-            improve our services. For example, we use artificial intelligence
-            and machine learning to provide you with simultaneous translations
-            and to better detect and block spam and malware. As part of this
-            continual improvement, we sometimes add or remove features and
-            functionalities, increase or decrease limits to our services and
-            start offering new services or stop offering old ones. When a
-            service requires or includes downloadable software, that software
-            sometimes updates automatically on your device once a new version or
-            feature is available. Some services let you adjust your automatic
-            update settings. <br />
-            <br />
-            If we make material changes that negatively impact your use of our
-            services or if we stop offering a service, we’ll provide you with
-            reasonable advance notice, except in urgent situations such as
-            preventing abuse, responding to legal requirements or addressing
-            security and operability issues. We’ll also provide you with an
-            opportunity to export your content from your Google Account using
-            Google Takeout, subject to applicable law and policies.
-          </PartTermsContent01>
-        </PartTems01>
-      )}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <ButtonVisitLink01 onClick={() => {}}>
+                  <InsertLinkRoundedIcon />
+                  {"\u00a0"}
+                  {"\u00a0"}
+                  {textHomeContent.textVisitSite}
+                </ButtonVisitLink01>
+              </a>
+            </PartOceanRight01>
+          </PartOcean01>
+          <PartOcean01>
+            <PartOceanLeft01 data-aos="fade-up" data-aos-duration="1000">
+              <TextTitle01>{textHomeContent.tt02}</TextTitle01>
+              <TextContent01>{textHomeContent.tc02}</TextContent01>
+            </PartOceanLeft01>
+            <PartOceanRight01 data-aos="fade-up" data-aos-duration="1000">
+              <img src={imgBack02} width={"100%"} alt="" />
+              <PartNFT01>
+                <img src={imgCNFT01} width={"100%"} height={"100%"} alt="" />
+              </PartNFT01>
+              <PartNFT02>
+                <img src={imgCNFT02} width={"100%"} height={"100%"} alt="" />
+              </PartNFT02>
+              <PartNFT03>
+                <img src={imgCNFT03} width={"100%"} height={"100%"} alt="" />
+              </PartNFT03>
+            </PartOceanRight01>
+          </PartOcean01>
+        </PartMaxMainOcean01>
+        <PartBottle01
+          data-aos="fade-right"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img
+            src={imgBottle01}
+            width={"100%"}
+            style={{ transform: "rotate(0deg)", filter: "blur(1.5px)" }}
+            alt=""
+          />
+        </PartBottle01>
+
+        <PartClean01
+          data-aos="fade-right"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgClean01} width={"100%"} alt="" />
+        </PartClean01>
+        <PartBat01
+          data-aos="fade-left"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgBat01} width={"100%"} alt="" />
+        </PartBat01>
+      </PartMainOcean01>
+      <PartAbout01 id="about" ref={parallaxAbout.ref}>
+        <PartMaxAbout01>
+          <PartMarkGroup02
+            data-aos="slide-up"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            <PartMarkOcean02>
+              <img src={imgMarkOcean02} width={"100%"} height={"100%"} alt="" />
+            </PartMarkOcean02>
+            <PartMutiple02>
+              <CloseIcon
+                size="small"
+                sx={{ color: "white", fontSize: "2.5rem" }}
+              />
+            </PartMutiple02>
+            <PartMark03>
+              <img src={imgMark03} width={"100%"} height={"100%"} alt="" />
+            </PartMark03>
+          </PartMarkGroup02>
+          <PartDetailsText01
+            data-aos="slide-up"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            {textHomeContent.tc03}
+          </PartDetailsText01>
+        </PartMaxAbout01>
+        <PartBox01
+          data-aos="fade-right"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgBox01} width={"100%"} alt="" />
+        </PartBox01>
+        <PartCover01
+          data-aos="fade-left"
+          data-aos-offset="150"
+          data-aos-duration="500"
+        >
+          <img src={imgCover01} width={"100%"} alt="" />
+        </PartCover01>
+      </PartAbout01>
+      <PartUtility01 id="utility" ref={parallaxUtility.ref}>
+        <PartMaxUtility01>
+          <TextTitle01
+            data-aos="fade-up"
+            data-aos-offset="250"
+            data-aos-duration="500"
+          >
+            {textHomeUtility.tt01}
+          </TextTitle01>
+          <TextDescription01
+            data-aos="fade-up"
+            data-aos-offset="250"
+            data-aos-duration="500"
+          >
+            {textHomeUtility.tdes01}
+          </TextDescription01>
+          <PartGrid01>
+            <GridEach01
+              data-aos="fade-up"
+              data-aos-offset="250"
+              data-aos-duration="1000"
+            >
+              <PartIcon01>
+                <img src={iconGroup01} width={"100%"} height={"100%"} alt="" />
+              </PartIcon01>
+              <TextDescription02>{textHomeUtility.tc01}</TextDescription02>
+            </GridEach01>
+            <GridEach01
+              data-aos="fade-up"
+              data-aos-offset="250"
+              data-aos-duration="1000"
+            >
+              <PartIcon01>
+                <img src={iconTicket01} width={"100%"} height={"100%"} alt="" />
+              </PartIcon01>
+              <TextDescription02>{textHomeUtility.tc02}</TextDescription02>
+            </GridEach01>
+            <GridEach01
+              data-aos="fade-up"
+              data-aos-offset="250"
+              data-aos-duration="1000"
+            >
+              <PartIcon01>
+                <img
+                  src={iconDiscount01}
+                  width={"100%"}
+                  height={"100%"}
+                  alt=""
+                />
+              </PartIcon01>
+              <TextDescription02>{textHomeUtility.tc03}</TextDescription02>
+            </GridEach01>
+            <GridEach01
+              data-aos="fade-up"
+              data-aos-offset="250"
+              data-aos-duration="1000"
+            >
+              <PartIcon01>
+                <img src={iconUser01} width={"100%"} height={"100%"} alt="" />
+              </PartIcon01>
+              <TextDescription02>{textHomeUtility.tc04}</TextDescription02>
+            </GridEach01>
+            <GridEach01
+              data-aos="fade-up"
+              data-aos-offset="250"
+              data-aos-duration="1000"
+            >
+              <PartIcon01>
+                <img src={iconPeace01} width={"100%"} height={"100%"} alt="" />
+              </PartIcon01>
+              <TextDescription02>{textHomeUtility.tc05}</TextDescription02>
+            </GridEach01>
+            <GridEach01
+              data-aos="fade-up"
+              data-aos-offset="250"
+              data-aos-duration="1000"
+            >
+              <PartIcon01>
+                <img src={iconChest01} width={"100%"} height={"100%"} alt="" />
+              </PartIcon01>
+              <TextDescription02>{textHomeUtility.tc06}</TextDescription02>
+            </GridEach01>
+          </PartGrid01>
+          <PartDolphin01
+            data-aos="fade-left"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            <img src={imgDolphin01} width={"100%"} alt="" />
+          </PartDolphin01>
+        </PartMaxUtility01>
+      </PartUtility01>
+      <PartProgress01 id="progress">
+        <PartMaxProgress01>
+          <TextTitle01
+            data-aos="fade-up"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            {textHomeProgress.tt01}
+          </TextTitle01>
+          <PartRoadmap01>
+            <EachProgress
+              date={textHomeProgress.tdate01}
+              image={imgProgress01}
+              text={textHomeProgress.tdes01}
+            />
+            <EachProgress
+              date={textHomeProgress.tdate02}
+              image={imgProgress02}
+              text={textHomeProgress.tdes02}
+            />
+            <EachProgress
+              date={textHomeProgress.tdate03}
+              image={imgProgress03}
+              text={textHomeProgress.tdes03}
+            />
+            <EachProgress
+              date={textHomeProgress.tdate04}
+              image=""
+              text={textHomeProgress.tdes04}
+            />
+            <EachProgress
+              date={textHomeProgress.tdate05}
+              image=""
+              text={textHomeProgress.tdes05}
+            />
+            <EachProgress
+              date={textHomeProgress.tdate06}
+              image=""
+              text={textHomeProgress.tdes06}
+            />
+            <EachProgress
+              date={textHomeProgress.tdate07}
+              image=""
+              text={textHomeProgress.tdes07}
+            />
+          </PartRoadmap01>
+          <PartPen01
+            data-aos="fade-right"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            <img src={imgPen01} width={"100%"} height={"100%"} alt="" />
+          </PartPen01>
+          <PartCap01
+            data-aos="fade-left"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            <img src={imgCap01} width={"100%"} height={"100%"} alt="" />
+          </PartCap01>
+          <PartRing01
+            data-aos="fade-right"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            <img src={imgRing01} width={"100%"} alt="" />
+          </PartRing01>
+          <PartKnife01
+            data-aos="fade-left"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            <img src={imgKnife01} width={"100%"} alt="" />
+          </PartKnife01>
+        </PartMaxProgress01>
+      </PartProgress01>
+      <PartFAQ01>
+        <PartMaxFAQ01>
+          <TextTitle01
+            data-aos="fade-up"
+            data-aos-offset="150"
+            data-aos-duration="500"
+          >
+            {textFAQ.title01}
+          </TextTitle01>
+          <ContentFAQ01>
+            {textFAQ.content.map((each, index) => {
+              return <CustomDropdownFAQ content={each} key={index} />;
+            })}
+          </ContentFAQ01>
+        </PartMaxFAQ01>
+      </PartFAQ01>
+      {/* //{" "}
+      <PartTems01>
+        // <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
+        //{" "}
+        <PartTermsContent01>
+          // Age requirements // <br />
+          // If you’re under the age required to manage your own Google Account,
+          // you must have your parent or legal guardian’s permission to use a
+          // Google Account. Please ask your parent or legal guardian to read //
+          these terms with you. // <br />
+          // <br />
+          // If you’re a parent or legal guardian, and you allow your child to
+          // use the services, then these terms apply to you and you’re //
+          responsible for your child’s activity on the services. // <br />
+          // <br />
+          // Some Google services have additional age requirements as described
+          // in their service-specific additional terms and policies. // <br />
+          // <br />
+          // Your relationship with Google <br />
+          // These terms help define the relationship between you and Google. //
+          Broadly speaking, we give you permission to use our services if you //
+          agree to follow these terms, which reflect how Google’s business //
+          works and how we earn money. When we speak of 'Google', 'we', 'us' //
+          and 'our', we mean Google LLC and its affiliates. // <br />
+          // <br />
+          // What you can expect from us <br />
+          // Provide a broad range of useful services // <br />
+          // <br />
+          // We provide a broad range of services that are subject to these //
+          terms, including: <br />
+          // apps and sites (like Search and Maps) // <br /> platforms (like
+          Google Shopping) <br />
+          // integrated services (like Maps embedded in other companies’ apps or
+          // sites) // <br /> devices (like Google Nest) // <br /> Many of these
+          services also include content that you can // stream or interact with.
+          // <br />
+          // <br />
+          // Our services are designed to work together, making it easier for
+          you // to move from one activity to the next. For example, if your
+          Calendar // event includes an address, you can click on that address
+          and Maps // can show you how to get there. // <br />
+          // <br />
+          // Develop, improve and update Google services // <br />
+          // <br /> We’re constantly developing new technologies and features to
+          // improve our services. For example, we use artificial intelligence
+          // and machine learning to provide you with simultaneous translations
+          // and to better detect and block spam and malware. As part of this //
+          continual improvement, we sometimes add or remove features and //
+          functionalities, increase or decrease limits to our services and //
+          start offering new services or stop offering old ones. When a //
+          service requires or includes downloadable software, that software //
+          sometimes updates automatically on your device once a new version or
+          // feature is available. Some services let you adjust your automatic
+          // update settings. <br />
+          // <br />
+          // If we make material changes that negatively impact your use of our
+          // services or if we stop offering a service, we’ll provide you with
+          // reasonable advance notice, except in urgent situations such as //
+          preventing abuse, responding to legal requirements or addressing //
+          security and operability issues. We’ll also provide you with an //
+          opportunity to export your content from your Google Account using //
+          Google Takeout, subject to applicable law and policies. //{" "}
+        </PartTermsContent01>
+        //{" "}
+      </PartTems01> */}
       <FooterHome
-        setFlagTerms={setFlagTerms}
         setFlagScroll={setFlagScroll}
         flagLanguage={flagLanguage}
       />
@@ -1842,12 +1760,11 @@ const PartMaxFAQ01 = styled(Box)`
   }
 `;
 
-const ContentFAQ01= styled(Box)`
+const ContentFAQ01 = styled(Box)`
   display: flex;
   width: 100%;
   flex-direction: column;
   gap: 15px;
   margin-top: 50px;
-
-`
+`;
 export default Home;
