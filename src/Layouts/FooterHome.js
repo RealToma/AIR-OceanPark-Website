@@ -13,19 +13,20 @@ const FooterHome = ({ flagLanguage }) => {
         <Box display={"flex"}>{textFooter.tt01}</Box>
         {"|"}
         <TermBox01>
-          <Box display={"flex"} style={{ cursor: "pointer" }}>
+          <Text01>
             <Link to="/tnc" style={{ color: "white", textDecoration: "none" }}>
               {textFooter.textTerm}
             </Link>
-          </Box>
+          </Text01>
           {"|"}
-          <Box
-            display={"flex"}
-            onClick={() => {}}
-            style={{ cursor: "pointer" }}
+          <a
+            href="mailto:gm@air-world.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
           >
-            {textFooter.textContactUs}
-          </Box>
+            <Text01>{textFooter.textContactUs}</Text01>
+          </a>
         </TermBox01>
       </PartMax01>
     </StyledComponent>
@@ -91,4 +92,17 @@ const TermBox01 = styled(Box)`
   gap: 10px;
 `;
 
+const Text01 = styled(Box)`
+  display: flex;
+  cursor: pointer;
+  color: ${customColor.mainColor01};
+
+  transition: 0.3s;
+  &:hover {
+    text-shadow: 0px 0px 10px ${customColor.mainColor01};
+  }
+  &:active {
+    text-shadow: none;
+  }
+`;
 export default FooterHome;
