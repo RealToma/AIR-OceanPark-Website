@@ -90,13 +90,12 @@ const MyNFT = () => {
     if (typeof window.solana === "undefined") {
       NotificationManager.error(
         "Please install Solana Phantom Wallet Plugin.",
-        "Hi!",
         3000
       );
       return;
     }
     if (true !== window.solana.isPhantom) {
-      NotificationManager.error("No Phantom Wallet found.", "Hi!", 3000);
+      NotificationManager.error("No Phantom Wallet found.", 3000);
       return;
     }
     try {
@@ -104,7 +103,7 @@ const MyNFT = () => {
       response = await window.solana.connect();
       if (!window.solana.isConnected) {
         if (true !== window.solana.isPhantom) {
-          NotificationManager.error("Not connected.", "Hi!", 3000);
+          NotificationManager.error("Not connected.", 3000);
           return;
         }
         handleCloseConnectWallet();
@@ -453,7 +452,6 @@ const PartDisplayNFT02 = styled(Box)`
   @media (min-width: 1024px) {
     ::-webkit-scrollbar {
       width: 15px;
-      transition: 0.5s;
     }
 
     ::-webkit-scrollbar-track {
