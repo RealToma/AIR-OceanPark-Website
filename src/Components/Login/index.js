@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { customColor } from "../../Config/Color";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import imgMark01 from "../../Assets/image/mark_AiR03.png";
-import imgApple01 from "../../Assets/image/icons/apple01.png";
-import imgGoogle01 from "../../Assets/image/icons/google01.png";
-import imgFacebook01 from "../../Assets/image/icons/facebook01.png";
+// import imgApple01 from "../../Assets/image/icons/apple01.png";
+// import imgGoogle01 from "../../Assets/image/icons/google01.png";
+// import imgFacebook01 from "../../Assets/image/icons/facebook01.png";
 import imgNFT01 from "../../Assets/image/nfts/OP nft_IT_A 1_shadow.png";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
@@ -268,44 +268,44 @@ const TextMessage01 = styled(Box)`
   margin-top: 10px;
 `;
 
-const PartBorder01 = styled(Box)`
-  display: flex;
-  width: 100%;
-  margin-top: 10px;
-  gap: 10px;
-  align-items: center;
-`;
-const PartLine01 = styled(Box)`
-  display: flex;
-  height: 1px;
-  flex: 1;
-  background-color: ${customColor.backColor01};
-`;
+// const PartBorder01 = styled(Box)`
+//   display: flex;
+//   width: 100%;
+//   margin-top: 10px;
+//   gap: 10px;
+//   align-items: center;
+// `;
+// const PartLine01 = styled(Box)`
+//   display: flex;
+//   height: 1px;
+//   flex: 1;
+//   background-color: ${customColor.backColor01};
+// `;
 
-const TextOr01 = styled(Box)`
-  display: flex;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 160%;
-  color: ${customColor.textColor01};
-`;
+// const TextOr01 = styled(Box)`
+//   display: flex;
+//   font-family: "Rubik";
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: 160%;
+//   color: ${customColor.textColor01};
+// `;
 
-const PartOtherSign01 = styled(Box)`
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-`;
+// const PartOtherSign01 = styled(Box)`
+//   display: flex;
+//   width: 100%;
+//   justify-content: space-evenly;
+// `;
 
-const EachSign01 = styled(Box)`
-  display: flex;
-  width: 45px;
-  height: 45px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
+// const EachSign01 = styled(Box)`
+//   display: flex;
+//   width: 45px;
+//   height: 45px;
+//   justify-content: center;
+//   align-items: center;
+//   cursor: pointer;
+// `;
 
 const PartImage01 = styled(Box)`
   display: flex;
