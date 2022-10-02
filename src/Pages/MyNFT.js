@@ -200,18 +200,7 @@ const MyNFT = () => {
             </PartAccount01>
           </PartSidebar01>
           <PartDisplayNFT01>
-            <PartDisplayNFT02>
-              {myNFTData?.map((each, index) => {
-                return (
-                  <CustomMyEachNFT
-                    key={index}
-                    dataNFT={each.citizen}
-                    flagWalletConnected={flagWalletConnected}
-                    publicKey={publicKey}
-                    textMyNFT={textMyNFT}
-                  />
-                );
-              })}
+            <Box display={"flex"} width="100%" position={"relative"}>
               <PartGetMore01
                 onClick={() => {
                   navigate("/buyNFT");
@@ -227,7 +216,21 @@ const MyNFT = () => {
                 </PartGetMoreIcon01>
                 <PartGetMoreText01>{textMyNFT.tGetMore}</PartGetMoreText01>
               </PartGetMore01>
-            </PartDisplayNFT02>
+              <PartDisplayNFT02>
+                {myNFTData?.map((each, index) => {
+                  return (
+                    <CustomMyEachNFT
+                      key={index}
+                      dataNFT={each.citizen}
+                      flagWalletConnected={flagWalletConnected}
+                      publicKey={publicKey}
+                      textMyNFT={textMyNFT}
+                    />
+                  );
+                })}
+               
+              </PartDisplayNFT02>
+            </Box>
           </PartDisplayNFT01>
         </PartContent02>
       </PartContent01>
@@ -406,7 +409,6 @@ const PartDisplayNFT01 = styled(Box)`
 const PartDisplayNFT02 = styled(Box)`
   display: grid;
   overflow-y: auto;
-  position: relative;
   /* flex-wrap: wrap;
   justify-content: space-between; */
   width: 100%;
@@ -434,6 +436,7 @@ const PartDisplayNFT02 = styled(Box)`
 
 const PartGetMore01 = styled(Box)`
   display: flex;
+  z-index: 30;
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -448,7 +451,9 @@ const PartGetMore01 = styled(Box)`
   cursor: pointer;
 
   transition: 0.5s;
+
 `;
+
 
 const PartGetMoreIcon01 = styled(Box)`
   display: flex;
