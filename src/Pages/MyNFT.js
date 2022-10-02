@@ -449,6 +449,24 @@ const PartDisplayNFT02 = styled(Box)`
   @media (max-width: 370px) {
     grid-template-columns: auto;
   }
+
+  @media (min-width: 1024px) {
+    ::-webkit-scrollbar {
+      width: 15px;
+      transition: 0.5s;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #e4e4e4;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: ${customColor.mainColor02};
+      border-radius: 100px;
+    }
+  }
 `;
 
 const PartGetMore01 = styled(Box)`
