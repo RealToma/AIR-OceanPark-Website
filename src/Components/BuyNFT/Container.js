@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const StyledComponent = styled.div`
   padding: 100px 20px;
+  min-height: 100vh;
 `
 
 const StyledProgressWrapper = styled.div`
