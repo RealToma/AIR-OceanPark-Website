@@ -10,7 +10,7 @@ import LoginPane from "../../Components/Login";
 import Checkout from "../../Components/BuyNFT/Checkout";
 import Payment from "../../Components/BuyNFT/Payment";
 import Nft from "../../Components/BuyNFT/Nft";
-import { TEXT_BuyNFTContent } from "../../Config/Text";
+import { TEXT_BuyNFTContent, TEXT_Login } from "../../Config/Text";
 
 const StyledComponent = styled(Box)`
   width: 100%;
@@ -32,6 +32,9 @@ const BuyNFT = () => {
   const [nftData, setNftData] = useState()
   const [siteCopy, setSiteCopy] = useState(localStorage.getItem("flagLang") === '1' ? TEXT_BuyNFTContent.CH : TEXT_BuyNFTContent.EN)
   const [error, setError] = useState()
+
+  const textLogin = localStorage.getItem("flagLang") === "1" ? TEXT_Login.CH : TEXT_Login.EN
+
   const switchLangCallback = () => {
     setSiteCopy(
       localStorage.getItem("flagLang") === "1"
@@ -54,6 +57,7 @@ const BuyNFT = () => {
           setStep={setStep}
           redirectPath="/buyNFT"
           siteCopy={siteCopy}
+          textLogin={textLogin}
         />
       );
       break;

@@ -78,7 +78,7 @@ const TopNavbarHome = ({
           <Button01
             flagscroll={flagScroll ? 1 : 0}
             onClick={() => {
-              navigate("/login");
+              navigate("/buyNFT");
             }}
           >
             {textNavbar.tb01}
