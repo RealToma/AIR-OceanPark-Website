@@ -490,7 +490,7 @@ const Home = () => {
           </PartKnife01>
         </PartMaxProgress01>
       </PartProgress01>
-      <PartFAQ01>
+      <PartFAQ01 id="faq">
         <PartMaxFAQ01>
           <TextTitle01
             data-aos="fade-up"
