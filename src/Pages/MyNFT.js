@@ -348,6 +348,7 @@ const PartAccount01 = styled(Box)`
   flex-direction: column;
   color: ${customColor.mainColor01};
 `;
+
 const TextUsername01 = styled(Box)`
   display: flex;
   width: 100%;
@@ -469,6 +470,7 @@ const ButtonLogout01 = styled(Box)`
   line-height: 160%;
   cursor: pointer;
 `;
+
 const PartMark01 = styled(Box)`
   display: flex;
   width: 55px;
