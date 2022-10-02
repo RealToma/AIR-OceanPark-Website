@@ -82,6 +82,11 @@ const StyledImageWrapper = styled.div`
   }
 `
 
+const StyledCenterEle = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const Nft = (props) => {
   const { nftData, siteCopy } = props
   // const { siteCopy } = props
@@ -162,21 +167,22 @@ const Nft = (props) => {
     <StyledContainer>
       <StyledCongrats>{siteCopy.congrats}</StyledCongrats>
       <StyledSliderWrapper>
-        <Slider {...settings}>
-          {viewport === 'desktop' && (
-            <div>
-              {nftData.length > 1 && (
+        {nftData.length > 1 && (
+          <Slider {...settings}>
+            {viewport === 'desktop' && (
+              <div>
                 <div style={{width: 'calc(50vw - 300px - 40px)'}} />
-              )}
+              </div>
+            )}
+            {list}
+          </Slider>
+        )}
 
-              {nftData.length === 1 && (
-                <div style={{width: `calc(50vw - 150px - 20px)`}} >a</div>
-              )}
-              
-            </div>
-          )}
-          {list}
-        </Slider>
+        {nftData.length === 1 && (
+          <StyledCenterEle>
+            {list}
+          </StyledCenterEle>
+        )}
       </StyledSliderWrapper>
 
       <StyledBtnWrapper>
