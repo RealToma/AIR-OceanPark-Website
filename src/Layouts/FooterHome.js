@@ -11,7 +11,8 @@ const FooterHome = ({ flagLanguage }) => {
     <StyledComponent>
       <PartMax01>
         <Box display={"flex"}>{textFooter.tt01}</Box>
-        {"|"}
+        <TextBetween>{"|"}</TextBetween>
+
         <TermBox01>
           <Text01>
             <Link to="/tnc" style={{ color: "white", textDecoration: "none" }}>
@@ -103,6 +104,14 @@ const Text01 = styled(Box)`
   }
   &:active {
     text-shadow: none;
+  }
+`;
+
+const TextBetween = styled(Box)`
+  display: flex;
+
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
 export default FooterHome;

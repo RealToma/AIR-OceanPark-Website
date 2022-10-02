@@ -13,13 +13,16 @@ import { actionCreatePlayer } from "../../Actions/Auth";
 import { TEXT_CreatePlayer } from "../../Config/Text";
 
 const CreatePlayer = () => {
-
   const [textCreatePlayer, setSiteCopy] = useState(
-    localStorage.getItem("flagLang") === "1" ? TEXT_CreatePlayer.CH : TEXT_CreatePlayer.EN
+    localStorage.getItem("flagLang") === "1"
+      ? TEXT_CreatePlayer.CH
+      : TEXT_CreatePlayer.EN
   );
   const switchLangCallback = () => {
     setSiteCopy(
-      localStorage.getItem("flagLang") === "1" ? TEXT_CreatePlayer.CH : TEXT_CreatePlayer.EN
+      localStorage.getItem("flagLang") === "1"
+        ? TEXT_CreatePlayer.CH
+        : TEXT_CreatePlayer.EN
     );
   };
 
@@ -99,7 +102,9 @@ const CreatePlayer = () => {
             <TextAgree01>
               {textCreatePlayer.ti02}
               {"\u00a0"}
-              <u style={{ cursor: "pointer" }} onClick={() => navigate('/tnc')}>{textCreatePlayer.tiu02}</u>
+              <u style={{ cursor: "pointer" }} onClick={() => navigate("/tnc")}>
+                {textCreatePlayer.tiu02}
+              </u>
             </TextAgree01>
           </PartAgree01>
           <ButtonCreate01

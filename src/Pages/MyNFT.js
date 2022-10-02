@@ -67,10 +67,24 @@ const MyNFT = () => {
     });
   }, []);
 
+  useEffect(() => {
+    // console.log(window["solana"]);
+    // if (window["solana"].isConnected) {
+    //   setFlagWalletConnected(true);
+    // } else {
+    //   setFlagWalletConnected(false);
+    // }
+  }, []);
+
   const shortWalletAddress = (address) => {
     return address.slice(0, 4) + "..." + address.slice(-4);
   };
 
+  const getPUblickey = async () => {
+    let response;
+    response = await window.solana.connect();
+    return response.publicKey.toString();
+  };
   const handleConnectWallet = async () => {
     if (typeof window.solana === "undefined") {
       NotificationManager.error(
