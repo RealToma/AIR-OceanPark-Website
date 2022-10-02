@@ -15,15 +15,14 @@ export const actionWithdraw = async (data, token) => {
       }
     );
     console.log(response);
-    // let code = response.data.code;
-    // if (code === 2000) {
-    //   return {
-    //     status: code,
-    //     playerInfo: response.data.result,
-    //   };
-    // } else {
-    //   return { status: code };
-    // }
+    let code = response.data.code;
+    if (code === 2000) {
+      return {
+        status: code,
+      };
+    } else {
+      return { status: code };
+    }
   } catch (error) {
     console.log(error);
   }

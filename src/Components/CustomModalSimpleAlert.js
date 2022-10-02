@@ -3,7 +3,7 @@ import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../Config/Color";
 
-const CustomModalSimpleAlert = ({ title, text, open, handleClose }) => {
+const CustomModalSimpleAlert = ({ title, text, open, handleClose, textOK }) => {
   return (
     <Modal
       open={open}
@@ -14,7 +14,7 @@ const CustomModalSimpleAlert = ({ title, text, open, handleClose }) => {
         <TextTitleWalletConnect01>{title}</TextTitleWalletConnect01>
         <TextContentWalletConnect01>{text}</TextContentWalletConnect01>
         <Button01 onClick={() => handleClose()}>
-          <TextPhantom01>OK</TextPhantom01>
+          <TextPhantom01>{textOK}</TextPhantom01>
         </Button01>
       </ModalPart01>
     </Modal>
@@ -103,5 +103,7 @@ const TextPhantom01 = styled(Box)`
   text-align: center;
   color: ${customColor.mainColor01};
 `;
+
+
 
 export default CustomModalSimpleAlert;

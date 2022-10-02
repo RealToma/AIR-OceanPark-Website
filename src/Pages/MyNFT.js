@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
-import { textMyNFT } from "../Config/Text_";
+// import { textMyNFT } from "../Config/Text_";
 import { TEXT_MyNFT } from "../Config/Text";
 import { customColor } from "../Config/Color";
 import TopNavbarAccount from "../Layouts/TopNavbarAccount";
@@ -15,7 +15,7 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomMyEachNFT from "../Components/CustomMyEachNFT";
 
-import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
+// import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
 // import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
 // import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
 // import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
@@ -24,12 +24,18 @@ import { NotificationManager } from "react-notifications";
 import CustomModalSimpleAlert from "../Components/CustomModalSimpleAlert";
 
 const MyNFT = () => {
-  const flagLanguage = false;
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const navigate = useNavigate();
-  const textMyNFT = !flagLanguage ? TEXT_MyNFT.EN : TEXT_MyNFT.CH;
   const token = localStorage.getItem("token");
   const [myNFTData, setMyNFTData] = useState();
+  const [textMyNFT, setSiteCopy] = useState(
+    localStorage.getItem("flagLang") === "1" ? TEXT_MyNFT.CH : TEXT_MyNFT.EN
+  );
+  const switchLangCallback = () => {
+    setSiteCopy(
+      localStorage.getItem("flagLang") === "1" ? TEXT_MyNFT.CH : TEXT_MyNFT.EN
+    );
+  };
 
   const [openConnectWallet, setOpenConnectWallet] = useState(false);
   const handleOpenConnectWallet = () => {
@@ -103,8 +109,18 @@ const MyNFT = () => {
 
   return (
     <StyledComponent>
-      <TopNavbarAccount />
+      <TopNavbarAccount switchLangCallback={switchLangCallback} />
       <PartContent01>
+        <PartList02>
+          <EachList
+            image={imgLogo02}
+            text={
+              myNFTData
+                ? "My AiR CITIZEN" + " (" + Object.keys(myNFTData).length + ")"
+                : "My AiR CITIZEN (0)"
+            }
+          />
+        </PartList02>
         <PartContent02>
           <PartSidebar01>
             <PartList01>
@@ -171,6 +187,7 @@ const MyNFT = () => {
                     dataNFT={each.citizen}
                     flagWalletConnected={flagWalletConnected}
                     publicKey={publicKey}
+                    textMyNFT={textMyNFT}
                   />
                 );
               })}
@@ -202,31 +219,31 @@ const MyNFT = () => {
       >
         <PartModalWalletConnect01>
           <TextTitleWalletConnect01>
-            Connect web3 wallet
+            {textMyNFT.tConnectWallet01}
           </TextTitleWalletConnect01>
           <TextContentWalletConnect01>
-            By connecting to the blockchain (Solana), you can withdraw and read
-            AiR CITIZEN between AiR and your wallet
+            {textMyNFT.byconnecting}
           </TextContentWalletConnect01>
           <ButtonConnectPhantom01 onClick={() => handleConnectWallet()}>
             <ImagePhantom01>
               <img src={imgPhantom01} width={"100%"} height={"100%"} alt="" />
             </ImagePhantom01>
-            <TextPhantom01>Connect Phantom</TextPhantom01>
+            <TextPhantom01>{textMyNFT.connectPhantom}</TextPhantom01>
           </ButtonConnectPhantom01>
           <ButtonCancelConnectPhantom01
             onClick={() => {
               handleCloseConnectWallet();
             }}
           >
-            Cancel
+            {textMyNFT.cancel}
           </ButtonCancelConnectPhantom01>
         </PartModalWalletConnect01>
       </Modal>
       <CustomModalSimpleAlert
-        title={"Wallet Connected"}
-        text={"Wallet connected to" + shortWalletAddress(publicKey)}
+        title={textMyNFT.walletConnected}
+        text={textMyNFT.walletConnected + " " + shortWalletAddress(publicKey)}
         open={openAlertWalletConnected}
+        textOK={textMyNFT.ok}
         handleClose={handleCloseAlertWalletConnected}
       />
     </StyledComponent>
@@ -263,6 +280,7 @@ const PartContent01 = styled(Box)`
   @media (max-width: 1024px) {
     padding-left: 40px;
     padding-right: 40px;
+    flex-direction: column;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
@@ -281,6 +299,11 @@ const PartContent02 = styled(Box)`
   box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   background-color: ${customColor.mainColor01};
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    height: 70%;
+  }
 `;
 
 const PartSidebar01 = styled(Box)`
@@ -293,12 +316,27 @@ const PartSidebar01 = styled(Box)`
   padding-bottom: 30px;
   box-sizing: border-box;
   justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const PartList01 = styled(Box)`
   display: flex;
   width: 100%;
   flex-direction: column;
+`;
+
+const PartList02 = styled(Box)`
+  display: none;
+  width: 100%;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: flex;
+  }
 `;
 
 const PartAccount01 = styled(Box)`
@@ -310,6 +348,7 @@ const PartAccount01 = styled(Box)`
   flex-direction: column;
   color: ${customColor.mainColor01};
 `;
+
 const TextUsername01 = styled(Box)`
   display: flex;
   width: 100%;
@@ -352,10 +391,23 @@ const PartDisplayNFT02 = styled(Box)`
   width: 100%;
   grid-template-columns: auto auto auto auto;
   grid-column-gap: auto;
-  grid-row-gap: 40px;
+  grid-row-gap: 50px;
   transition: 0.5s;
   @media (max-width: 1400px) {
     grid-template-columns: auto auto auto;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: auto auto;
+  }
+  @media (max-width: 370px) {
+    grid-template-columns: auto;
   }
 `;
 
@@ -373,6 +425,8 @@ const PartGetMore01 = styled(Box)`
   background-color: ${customColor.mainColor02};
   color: ${customColor.backColor01};
   cursor: pointer;
+
+  transition: 0.5s;
 `;
 
 const PartGetMoreIcon01 = styled(Box)`
@@ -416,6 +470,7 @@ const ButtonLogout01 = styled(Box)`
   line-height: 160%;
   cursor: pointer;
 `;
+
 const PartMark01 = styled(Box)`
   display: flex;
   width: 55px;

@@ -10,9 +10,15 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CustomModalSimpleAlert from "./CustomModalSimpleAlert";
 import { actionWithdraw } from "../Actions/MyNFT";
 
-const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
+const CustomMyEachNFT = ({
+  dataNFT,
+  flagWalletConnected,
+  publicKey,
+  textMyNFT,
+}) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
   const token = localStorage.getItem("token");
+  const [flagWithdraw, setFlagWithdraw] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -50,7 +56,18 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
       nftID: dataNFT.nftID,
       walletAddress: publicKey,
     };
-    actionWithdraw(data, token).then((res) => {});
+    setFlagWithdraw(true);
+    handleCloseAlertWalletConfirm();
+
+    actionWithdraw(data, token).then((res) => {
+      if (res.status === 2000) {
+        handleClose();
+        window.location.reload();
+      } else {
+        handleClose();
+        setFlagWithdraw(false);
+      }
+    });
   };
 
   return (
@@ -62,7 +79,7 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
       >
         <PartImage01>
           <img
-            src={dataNFT.images}
+            src={dataNFT.imageURL}
             width={"100%"}
             height={"100%"}
             style={{ borderRadius: "6px" }}
@@ -111,48 +128,58 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
       >
         <PartModal01>
           <img
-            src={dataNFT.images}
+            src={dataNFT.imageURL}
             width={"100%"}
             height={"100%"}
             style={{ borderRadius: "6px" }}
             alt=""
           />
-          <PartModalFooter01>
+          <PartModalFooter01 flagwithdraw={dataNFT.withdrawn ? 1 : 0}>
             <PartLeft01>
               <PartText02>{dataNFT.nftID}</PartText02>
             </PartLeft01>
             {!dataNFT.withdrawn ? (
               <PartWithdraw02>
-                <PartIcon02>
-                  <img
-                    src={imgAiRMark01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartIcon02>
-                <PartRightIcon01>
-                  <ArrowForwardIcon />
-                </PartRightIcon01>
-                <PartIcon02>
-                  <img
-                    src={imgSolana01}
-                    width={"100%"}
-                    height={"100%"}
-                    alt=""
-                  />
-                </PartIcon02>
-                <ButtonWithdraw01 onClick={() => handleWithdraw()}>
-                  <PartIcon03>
+                <PartIcons01>
+                  <PartIcon02>
                     <img
-                      src={imgWithdraw02}
+                      src={imgAiRMark01}
                       width={"100%"}
                       height={"100%"}
                       alt=""
                     />
-                  </PartIcon03>
-                  <PartTextWithdraw01>{"Withdraw"}</PartTextWithdraw01>
-                </ButtonWithdraw01>
+                  </PartIcon02>
+                  <PartRightIcon01>
+                    <ArrowForwardIcon />
+                  </PartRightIcon01>
+                  <PartIcon02>
+                    <img
+                      src={imgSolana01}
+                      width={"100%"}
+                      height={"100%"}
+                      alt=""
+                    />
+                  </PartIcon02>
+                </PartIcons01>
+                {!flagWithdraw ? (
+                  <ButtonWithdraw01 onClick={() => handleWithdraw()}>
+                    <PartIcon03>
+                      <img
+                        src={imgWithdraw02}
+                        width={"100%"}
+                        height={"100%"}
+                        alt=""
+                      />
+                    </PartIcon03>
+                    <PartTextWithdraw01>
+                      {textMyNFT.withdraw}
+                    </PartTextWithdraw01>
+                  </ButtonWithdraw01>
+                ) : (
+                  <ButtonProceeding01>
+                    {textMyNFT.proceeding}
+                  </ButtonProceeding01>
+                )}
               </PartWithdraw02>
             ) : (
               <PartWithdraw02>
@@ -168,10 +195,11 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
             )}
           </PartModalFooter01>
           <CustomModalSimpleAlert
-            title={"Please connect wallet"}
-            text={"Please connect to Phantom wallet before withdraw"}
+            title={textMyNFT.pleaseConnect}
+            text={textMyNFT.pleaseConnectbeforeWithdraw}
             open={openAlertWalletConnect}
             handleClose={handleCloseAlertWalletConnect}
+            textOK={textMyNFT.ok}
           />
         </PartModal01>
       </Modal>
@@ -182,14 +210,16 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey }) => {
         aria-describedby="modal-modal-description"
       >
         <ModalPart02>
-          <TextTitleWalletConnect02>Withdraw to</TextTitleWalletConnect02>
+          <TextTitleWalletConnect02>
+            {textMyNFT.withdrawto}
+          </TextTitleWalletConnect02>
           <TextContentWalletConnect02>{publicKey}</TextContentWalletConnect02>
           <ButtonPart02>
             <ButtonCancel01 onClick={() => handleCloseAlertWalletConfirm()}>
-              Cancel
+              {textMyNFT.cancel}
             </ButtonCancel01>
             <ButtonConfirm01 onClick={() => handleConfirm()}>
-              Confirm
+              {textMyNFT.confirm}
             </ButtonConfirm01>
           </ButtonPart02>
         </ModalPart02>
@@ -204,6 +234,12 @@ const StyledComponent = styled(Box)`
   width: 200px;
   height: 200px;
   cursor: pointer;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 
 const PartImage01 = styled(Box)`
@@ -216,10 +252,15 @@ const PartImage01 = styled(Box)`
 const PartFooter01 = styled(Box)`
   display: flex;
   position: absolute;
-  bottom: -30px;
+  bottom: -50px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    bottom: -50px;
+  }
 `;
 const PartLeft01 = styled(Box)`
   display: flex;
@@ -228,19 +269,36 @@ const PartLeft01 = styled(Box)`
 
 const PartWithdraw01 = styled(Box)`
   display: flex;
-  width: 26px;
-  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    min-width: 20px;
+    min-height: 20px;
+  }
 `;
 
 const PartWithdraw02 = styled(Box)`
   display: flex;
   align-items: center;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 const PartIcon02 = styled(Box)`
   display: flex;
-  width: 46px;
-  height: 46px;
+  min-width: 46px;
   margin-right: 10px;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    min-width: 30px;
+    margin-right: 0px;
+  }
 `;
 
 const PartIcon03 = styled(Box)`
@@ -256,6 +314,14 @@ const PartRightIcon01 = styled(Box)`
   color: ${customColor.mainColor01};
   > svg {
     font-size: 2rem;
+    transition: 0.5s;
+    @media (max-width: 1024px) {
+      width: 1.5rem;
+    }
+  }
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    margin-right: 0px;
   }
 `;
 
@@ -271,10 +337,26 @@ const ButtonWithdraw01 = styled(Box)`
   cursor: pointer;
 `;
 
+const ButtonProceeding01 = styled(Box)`
+  display: flex;
+  width: 128px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 2px solid ${customColor.textColor03};
+  color: ${customColor.textColor03};
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  cursor: pointer;
+`;
+
 const PartIcon01 = styled(Box)`
   display: flex;
-  width: 36px;
-  height: 36px;
+  min-width: 36px;
 `;
 const PartText01 = styled(Box)`
   display: flex;
@@ -286,6 +368,11 @@ const PartText01 = styled(Box)`
   line-height: 160%;
   color: ${customColor.textColor02};
   margin-right: 10px;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
 `;
 
 const PartText02 = styled(Box)`
@@ -298,6 +385,27 @@ const PartText02 = styled(Box)`
   line-height: 31px;
   /* identical to box height */
   letter-spacing: -0.02em;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height */
+
+    letter-spacing: -0.02em;
+  }
+`;
+
+const PartIcons01 = styled(Box)`
+  display: flex;
+  align-items: center;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 
 const PartTextWithdraw01 = styled(Box)`
@@ -331,6 +439,16 @@ const PartModal01 = styled(Box)`
       opacity: 100%;
     }
   }
+
+  @media (max-width: 1024px) {
+    width: 350px;
+    height: 350px;
+  }
+
+  @media (max-width: 500px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 const PartModalFooter01 = styled(Box)`
@@ -340,6 +458,12 @@ const PartModalFooter01 = styled(Box)`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    bottom: ${({ flagwithdraw }) => (!flagwithdraw ? "-100px" : "-40px")};
+    align-items: flex-start;
+  }
 `;
 
 const ModalPart02 = styled(Box)`

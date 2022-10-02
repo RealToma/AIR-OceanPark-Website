@@ -4,12 +4,14 @@ import styled from "styled-components";
 import { customColor } from "../Config/Color";
 
 const EachList = ({ image, text }) => {
-//   const [flagSelect, setFlagSelect] = useState(false);
+  //   const [flagSelect, setFlagSelect] = useState(false);
 
   return (
-    <ListEach01 onClick={()=>{
+    <ListEach01
+      onClick={() => {
         // setFlagSelect(true);
-    }}>
+      }}
+    >
       <PartListEachContent01>
         <PartListEachImage01>
           <img src={image} width={"100%"} height={"100%"} alt="" />
@@ -33,6 +35,12 @@ const ListEach01 = styled(Box)`
   &:hover {
     border-left: 5px solid ${customColor.mainColor01};
   }
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 `;
 
 const PartListEachContent01 = styled(Box)`
@@ -43,6 +51,11 @@ const PartListEachContent01 = styled(Box)`
 const PartListEachImage01 = styled(Box)`
   width: 34px;
   height: 18px;
+  margin-right: 10px;
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 const PartListEachText01 = styled(Box)`
   color: ${customColor.mainColor01};
@@ -51,7 +64,11 @@ const PartListEachText01 = styled(Box)`
   font-weight: 700;
   font-size: 14px;
   line-height: 160%;
-  margin-left: 10px;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    color: ${customColor.mainColor02};
+  }
 `;
 
 export default EachList;
