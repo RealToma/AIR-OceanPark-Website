@@ -623,11 +623,11 @@ export const TEXT_Terms = {
         {
           title_child:
             "•	在適用法律允許的最大範圍內，您承諾賠償、保護公司並使公司免受因下列原因而蒙受損失： ",
-          content_child: "",
+          content_child: [""],
         },
         {
           title_child: "•	您不得侵犯公司的聲譽或其任何利益。",
-          content_child: "",
+          content_child: [""],
         },
       ],
     },
@@ -637,7 +637,7 @@ export const TEXT_Terms = {
         {
           title_child:
             "•	公司承諾以本領域專業人士通常應有的謹慎行事，並遵守現行的最佳實踐。 盡最大努力義務僅對公司具有約束力。",
-          content_child: "",
+          content_child: [""],
         },
         {
           title_child:
@@ -665,7 +665,7 @@ export const TEXT_Terms = {
         {
           title_child:
             "•	不可抗力事件 -  在因超出其合理控制的情況（“不可抗力事件”）而延遲履行的任何期間，公司不對其未能履行其在本協議項下對買方的任何義務承擔責任。 雙方明確同意，區塊鏈協議或技術（例如錢包）的故障將被視為不可抗力事件。 如果發生不可抗力事件，公司應盡快將此類事件通知買方該事件妨礙銷售的正常執行。",
-          content_child: "",
+          content_child: [""],
         },
       ],
     },
@@ -673,7 +673,7 @@ export const TEXT_Terms = {
       title: "8. 修改或更新",
       content:
         "•	公司可自行決定修改、更改、更新或添加當前條款和條件，恕不另行通知。 在這種情況下，您將收到通知並有權：",
-      child1: [
+      child: [
         "(i) 接受更新或",
         "(ii) 停止參與銷售。 如果您繼續參與，則視為您已接受修改。",
       ],

@@ -112,8 +112,7 @@ const Tnc = () => {
           return <TextSectionContent key={index}>{each}</TextSectionContent>;
         })}
 
-
-<TextSectionTitle> {textTerms.section10.title}</TextSectionTitle>
+        <TextSectionTitle> {textTerms.section10.title}</TextSectionTitle>
         {textTerms.section10.content.map((each, index) => {
           return (
             <TextSectionContent key={index}>
