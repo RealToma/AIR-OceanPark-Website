@@ -109,7 +109,14 @@ const MyNFT = () => {
 
   return (
     <StyledComponent>
-      <TopNavbarAccount switchLangCallback={switchLangCallback} />
+      <TopNavbarAccount
+        switchLangCallback={switchLangCallback}
+        publicKey={publicKey}
+        setPublicKey={setPublicKey}
+        flagWalletConnected={flagWalletConnected}
+        handleConnectWallet={handleConnectWallet}
+        handleOpenConnectWallet={handleOpenConnectWallet}
+      />
       <PartContent01>
         <PartList02>
           <EachList
