@@ -160,18 +160,16 @@ const TopNavbarHome = ({
                 {textNavbar.tb05}
               </EachLink01>
             </a>
-            {!userInfo && (
-              <Button02
-                flagscroll={flagScroll ? 1 : 0}
-                onClick={() => {
-                  setFlagScroll(false);
-                  navigate("/login");
-                  handleClose();
-                }}
-              >
-                {textNavbar.tb06}
-              </Button02>
-            )}
+            <Button02
+              flagscroll={flagScroll ? 1 : 0}
+              onClick={() => {
+                setFlagScroll(false);
+                navigate(userInfo ? "/myNFT" : "/login");
+                handleClose();
+              }}
+            >
+              {textNavbar.tb06}
+            </Button02>
             <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
               <img
                 src={!flagScroll ? imgBoat01 : imgBoat02}
