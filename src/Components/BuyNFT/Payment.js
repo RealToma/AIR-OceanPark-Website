@@ -43,7 +43,7 @@ const StyledBtnWrapper = styled.div`
 `
 
 const Payment = (props) => {
-  const { setStep, siteCopy, error } = props
+  const { nftData = [], setStep, siteCopy, error } = props
   const success = !!nftData.length
 
   const onReveal = () => {
