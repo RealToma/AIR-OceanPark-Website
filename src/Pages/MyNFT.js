@@ -11,6 +11,7 @@ import imgMark01 from "../Assets/image/mark01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
 import imgGetMore01 from "../Assets/image/icons/get_more01.png";
 import imgPhantom01 from "../Assets/image/icons/phantom01.png";
+import imgPlaceholder from "../Assets/image/placeholder.png";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomMyEachNFT from "../Components/CustomMyEachNFT";
@@ -228,7 +229,23 @@ const MyNFT = () => {
                     />
                   );
                 })}
-               
+
+                {myNFTData?.length < 8 ? (
+                  [...Array(12 - myNFTData?.length)].map((each, index) => {
+                    return (
+                      <ImagePlaceholder key={index}>
+                        <img
+                          src={imgPlaceholder}
+                          width={"100%"}
+                          height={"100%"}
+                          alt=""
+                        />
+                      </ImagePlaceholder>
+                    );
+                  })
+                ) : (
+                  <></>
+                )}
               </PartDisplayNFT02>
             </Box>
           </PartDisplayNFT01>
@@ -451,9 +468,7 @@ const PartGetMore01 = styled(Box)`
   cursor: pointer;
 
   transition: 0.5s;
-
 `;
-
 
 const PartGetMoreIcon01 = styled(Box)`
   display: flex;
@@ -565,7 +580,6 @@ const PartModalWalletConnect01 = styled(Box)`
     width: 300px;
     padding: 20px;
   }
-
 `;
 
 const TextTitleWalletConnect01 = styled(Box)`
@@ -641,5 +655,18 @@ const ButtonCancelConnectPhantom01 = styled(Box)`
   color: ${customColor.mainColor02};
   cursor: pointer;
   margin-top: 20px;
+`;
+
+const ImagePlaceholder = styled(Box)`
+  display: flex;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 export default MyNFT;
