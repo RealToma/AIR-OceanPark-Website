@@ -110,11 +110,11 @@ const TopNavbarHome = ({
             <MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
           </PartMenuIcon01>
           <PartPageLink01>
-            <a href="#ocean" style={{ textDecoration: "none" }}>
+            {/* <a href="#ocean" style={{ textDecoration: "none" }}>
               <EachLink01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.tb02}
               </EachLink01>
-            </a>
+            </a> */}
             <a href="#about" style={{ textDecoration: "none" }}>
               <EachLink01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.tb03}
@@ -128,6 +128,11 @@ const TopNavbarHome = ({
             <a href="#progress" style={{ textDecoration: "none" }}>
               <EachLink01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.tb05}
+              </EachLink01>
+            </a>
+            <a href="#faq" style={{ textDecoration: "none" }}>
+              <EachLink01 flagscroll={flagScroll ? 1 : 0}>
+                {textNavbar.tb07}
               </EachLink01>
             </a>
             <Button02
@@ -229,7 +234,7 @@ const TopNavbarHome = ({
               </HeaderRight01>
             </ModalHeader01>
             <ModalLinkPart01>
-              <a href="#ocean" style={{ textDecoration: "none" }}>
+              {/* <a href="#ocean" style={{ textDecoration: "none" }}>
                 <ModalEachLink01
                   onClick={() => {
                     handleClose();
@@ -237,7 +242,7 @@ const TopNavbarHome = ({
                 >
                   {textNavbar.tb02}
                 </ModalEachLink01>
-              </a>
+              </a> */}
               <a href="#about" style={{ textDecoration: "none" }}>
                 <ModalEachLink01
                   onClick={() => {
@@ -263,6 +268,15 @@ const TopNavbarHome = ({
                   }}
                 >
                   {textNavbar.tb05}
+                </ModalEachLink01>
+              </a>
+              <a href="#faq" style={{ textDecoration: "none" }}>
+                <ModalEachLink01
+                  onClick={() => {
+                    handleClose();
+                  }}
+                >
+                  {textNavbar.tb07}
                 </ModalEachLink01>
               </a>
               <Button02

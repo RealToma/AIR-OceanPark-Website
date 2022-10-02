@@ -559,6 +559,13 @@ const PartModalWalletConnect01 = styled(Box)`
       opacity: 100%;
     }
   }
+
+  transition: 0.5s;
+  @media (max-width: 500px) {
+    width: 300px;
+    padding: 20px;
+  }
+
 `;
 
 const TextTitleWalletConnect01 = styled(Box)`
