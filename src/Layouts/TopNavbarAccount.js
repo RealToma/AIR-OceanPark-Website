@@ -15,9 +15,14 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { TEXT_MyNFT } from "../Config/Text";
 
 const TopNavbarAccount = (props) => {
-  const storageFlagLanguage = localStorage.getItem("flagLang")
+  const storageFlagLanguage = localStorage.getItem("flagLang");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const { switchLangCallback } = props;
+  const {
+    switchLangCallback,
+    publicKey,
+    flagWalletConnected,
+    handleOpenConnectWallet,
+  } = props;
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagLanguage, setFlagLanguage] = useState(storageFlagLanguage === "1");
@@ -41,15 +46,6 @@ const TopNavbarAccount = (props) => {
     if (switchLangCallback) switchLangCallback(value);
   };
 
-  const [flagWalletConnected, setFlagWalletConnected] = useState(false);
-  const [publicKey, setPublicKey] = useState("");
-  const [openConnectWallet, setOpenConnectWallet] = useState(false);
-  const handleOpenConnectWallet = () => {
-    setOpenConnectWallet(true);
-  };
-  const handleCloseConnectWallet = () => {
-    setOpenConnectWallet(false);
-  };
   const shortWalletAddress = (address) => {
     return address.slice(0, 4) + "..." + address.slice(-4);
   };
@@ -548,13 +544,6 @@ const TextID01 = styled(Box)`
   color: ${customColor.mainColor01};
 `;
 
-const PartLogout01 = styled(Box)`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-`;
 const ButtonLogout01 = styled(Box)`
   display: flex;
   border: 1px solid ${customColor.mainColor01};
@@ -575,11 +564,6 @@ const ButtonLogout01 = styled(Box)`
   cursor: pointer;
 `;
 
-const PartMark01 = styled(Box)`
-  display: flex;
-  width: 55px;
-  height: 40px;
-`;
 const PartBorder01 = styled(Box)`
   display: flex;
   width: 100%;
