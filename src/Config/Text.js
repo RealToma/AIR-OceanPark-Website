@@ -303,7 +303,7 @@ export const TEXT_Signup = {
 export const TEXT_CreatePlayer = {
   EN: {
     tt01: "Player Info",
-    ti01: "NFTcollector",
+    ti01: "Type your name.",
     ta01: "Type your name.",
     ta02: "Please agree to the T&C.",
     ta03: "Type your name.",
@@ -316,13 +316,13 @@ export const TEXT_CreatePlayer = {
   },
   CH: {
     tt01: "玩家資訊",
-    ti01: "NFTcollector",
+    ti01: "Type your name.",
     ta01: "Type your name.",
     ta02: "Please agree to the T&C.",
     ta03: "Type your name.",
     ta04: "Invalid token.",
-    ti02: "I agree to the",
-    tiu02: "T&C",
+    ti02: "我同意",
+    tiu02: "政策及條款",
     tb01: "創建帳號",
     tb02: "完成",
     tb03: "取消",
@@ -342,12 +342,12 @@ export const TEXT_MyNFT = {
     walletConnected: "Wallet Connected",
     ok: "OK",
     pleaseConnect: "Please connect wallet",
-    pleaseConnectbeforeWithdraw: "Pelase connect to Phantom wallet before withdraw",
+    pleaseConnectbeforeWithdraw:
+      "Pelase connect to Phantom wallet before withdraw",
     withdraw: "Withdraw",
-    withdrawto:"Withdraw to",
+    withdrawto: "Withdraw to",
     confirm: "Confirm",
     proceeding: "Proceeding...",
-
   },
   CH: {
     tLogout01: "登出",
@@ -363,9 +363,9 @@ export const TEXT_MyNFT = {
     pleaseConnect: "請連接錢包",
     pleaseConnectbeforeWithdraw: "提取前請連接至Phantom錢包",
     withdraw: "提取",
-    withdrawto:"提取至",
+    withdrawto: "提取至",
     confirm: "確定",
-    proceeding: "進行中..."
+    proceeding: "進行中...",
   },
 };
 
@@ -407,7 +407,7 @@ export const TEXT_BuyNFTContent = {
     try_again: "Please try again",
     order_error: "Order failed. Please try again",
     order_error_other: "System busy. Please try again later",
-    tryAgain: 'Try Again',
+    tryAgain: "Try Again",
   },
   CH: {
     errorMsg: "錯誤信息",
@@ -433,6 +433,6 @@ export const TEXT_BuyNFTContent = {
     try_again: "請重新嘗試",
     order_error: "購買失敗，請再次嘗試",
     order_error_other: "系統繁忙，請稍後再嘗試",
-    tryAgain: '重試',
+    tryAgain: "重試",
   },
 };

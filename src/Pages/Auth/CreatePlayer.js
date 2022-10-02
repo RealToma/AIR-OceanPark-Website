@@ -33,11 +33,11 @@ const CreatePlayer = () => {
     const token = localStorage.getItem("token");
     console.log("token:", token);
     if (username === "") {
-      setMsgAlert(textCreatePlayer.ta01.en);
+      setMsgAlert(textCreatePlayer.ta01);
       return;
     }
     if (flagCheck === false) {
-      setMsgAlert(textCreatePlayer.ta02.en);
+      setMsgAlert(textCreatePlayer.ta02);
       return;
     }
     let playerData = {
@@ -48,7 +48,7 @@ const CreatePlayer = () => {
       if (res.status === 2000) {
         navigate("/login");
       } else if (res.status === 1010) {
-        setMsgAlert(textCreatePlayer.ta04.en);
+        setMsgAlert(textCreatePlayer.ta04);
       }
     });
   };
@@ -60,10 +60,10 @@ const CreatePlayer = () => {
           <img src={imgMark01} width={"170px"} height={"47px"} alt="" />
         </PartHeader01>
         <PartContent01>
-          <TextTitle01>{textCreatePlayer.tt01.en}</TextTitle01>
+          <TextTitle01>{textCreatePlayer.tt01}</TextTitle01>
           <InputCustom01
             component={"input"}
-            placeholder={textCreatePlayer.ti01.en}
+            placeholder={textCreatePlayer.ti01}
             value={username}
             onChange={(e) => {
               setUsername(e.target.value);
@@ -97,9 +97,9 @@ const CreatePlayer = () => {
               {!flagCheck ? <></> : <CheckIcon sx={{ fontSize: "1rem" }} />}
             </CheckBox01>
             <TextAgree01>
-              {textCreatePlayer.ti02.en}
+              {textCreatePlayer.ti02}
               {"\u00a0"}
-              <u style={{ cursor: "pointer" }} onClick={() => navigate('/tnc')}>{textCreatePlayer.tiu02.en}</u>
+              <u style={{ cursor: "pointer" }} onClick={() => navigate('/tnc')}>{textCreatePlayer.tiu02}</u>
             </TextAgree01>
           </PartAgree01>
           <ButtonCreate01
@@ -107,7 +107,7 @@ const CreatePlayer = () => {
               handleCreatePlayer();
             }}
           >
-            {textCreatePlayer.tb01.en}
+            {textCreatePlayer.tb01}
           </ButtonCreate01>
         </PartContent01>
       </PartCreate01>
