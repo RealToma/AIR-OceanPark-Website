@@ -70,7 +70,6 @@ const Payment = (props) => {
       {!success && (
         <StyledFailedPane>
           <SvgFail />
-          asdasd
           <StyledMsg>{error ? error : siteCopy.order_error_other}</StyledMsg>
           <StyledBtnWrapper onClick={onRetry}>
             <RoundBtn>
