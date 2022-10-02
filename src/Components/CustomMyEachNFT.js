@@ -9,6 +9,7 @@ import { customColor } from "../Config/Color";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CustomModalSimpleAlert from "./CustomModalSimpleAlert";
 import { actionWithdraw } from "../Actions/MyNFT";
+import { NotificationManager } from "react-notifications";
 
 const CustomMyEachNFT = ({
   dataNFT,
@@ -64,7 +65,7 @@ const CustomMyEachNFT = ({
         handleClose();
         window.location.reload();
       } else {
-        handleClose();
+        NotificationManager.error("This is a invalid citizen.", "Hi!", 3000);
         setFlagWithdraw(false);
       }
     });
