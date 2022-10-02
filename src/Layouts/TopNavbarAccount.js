@@ -14,7 +14,6 @@ import imgMergeMark01 from "../Assets/image/markMerge01.png";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { TEXT_MyNFT } from "../Config/Text";
 
-
 const TopNavbarAccount = (props) => {
   const storageFlagLanguage = localStorage.getItem("flagLang");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -22,7 +21,7 @@ const TopNavbarAccount = (props) => {
     switchLangCallback,
     publicKey,
     flagWalletConnected,
-    handleOpenConnectWallet
+    handleOpenConnectWallet,
   } = props;
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
@@ -545,13 +544,6 @@ const TextID01 = styled(Box)`
   color: ${customColor.mainColor01};
 `;
 
-const PartLogout01 = styled(Box)`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-`;
 const ButtonLogout01 = styled(Box)`
   display: flex;
   border: 1px solid ${customColor.mainColor01};
@@ -572,11 +564,6 @@ const ButtonLogout01 = styled(Box)`
   cursor: pointer;
 `;
 
-const PartMark01 = styled(Box)`
-  display: flex;
-  width: 55px;
-  height: 40px;
-`;
 const PartBorder01 = styled(Box)`
   display: flex;
   width: 100%;
@@ -613,110 +600,6 @@ const ImgMark01 = styled(Box)`
   display: flex;
   width: 55px;
   height: 40px;
-`;
-
-const PartModalWalletConnect01 = styled(Box)`
-  display: flex;
-  position: fixed;
-  width: 420px;
-  flex-direction: column;
-  align-items: center;
-  padding: 35px;
-  box-sizing: border-box;
-  border-radius: 16px;
-  background-color: ${customColor.mainColor01};
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: box-shadow 300ms;
-  transition: transform 505ms cubic-bezier(0, 0, 0.2, 1) 0ms !important;
-  outline: none;
-  animation: back_animation1 0.5s 1;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-  @keyframes back_animation1 {
-    0% {
-      opacity: 0%;
-    }
-    100% {
-      opacity: 100%;
-    }
-  }
-`;
-
-const TextTitleWalletConnect01 = styled(Box)`
-  display: flex;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 160%;
-  /* identical to box height, or 26px */
-
-  text-align: center;
-  color: ${customColor.mainColor02};
-`;
-
-const TextContentWalletConnect01 = styled(Box)`
-  display: flex;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 160%;
-  /* or 22px */
-
-  text-align: center;
-  color: ${customColor.textColor03};
-  margin-top: 10px;
-`;
-
-const ButtonConnectPhantom01 = styled(Box)`
-  display: flex;
-  height: 45px;
-  width: 100%;
-  background-color: ${customColor.backColor06};
-  color: ${customColor.mainColor01};
-  border-radius: 6px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin-top: 20px;
-`;
-
-const ImagePhantom01 = styled(Box)`
-  display: flex;
-  width: 32px;
-  height: 26px;
-  margin-right: 10px;
-`;
-
-const TextPhantom01 = styled(Box)`
-  display: flex;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 160%;
-  /* or 22px */
-
-  text-align: center;
-  color: ${customColor.mainColor01};
-`;
-
-const ButtonCancelConnectPhantom01 = styled(Box)`
-  display: flex;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 160%;
-  /* or 22px */
-
-  text-align: center;
-  color: ${customColor.mainColor02};
-  cursor: pointer;
-  margin-top: 20px;
 `;
 
 export const customBackdrop = styled(Box)`

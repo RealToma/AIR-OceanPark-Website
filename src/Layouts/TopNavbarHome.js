@@ -7,8 +7,8 @@ import imgLogo01 from "../Assets/image/logo01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
 import imgBoat01 from "../Assets/image/boat01.png";
 import imgBoat02 from "../Assets/image/boat02.png";
-import imgIconCalendar01 from "../Assets/image/icons/calendar01.png";
-import imgIconHand01 from "../Assets/image/icons/hand_left01.png";
+// import imgIconCalendar01 from "../Assets/image/icons/calendar01.png";
+// import imgIconHand01 from "../Assets/image/icons/hand_left01.png";
 import imgMergeMark01 from "../Assets/image/markMerge01.png";
 import { useNavigate } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
@@ -491,131 +491,131 @@ const Button01 = styled(Box)`
   }
 `;
 
-const PartComingSoon01 = styled(Box)`
-  display: flex;
-  position: absolute;
-  width: 105px;
-  height: 105px;
-  border-radius: 100%;
-  background-color: ${({ flagscroll }) =>
-    !flagscroll ? customColor.backColor01 : customColor.mainColor02};
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
-  justify-content: center;
-  align-items: center;
-  left: -90px;
-  top: -50px;
+// const PartComingSoon01 = styled(Box)`
+//   display: flex;
+//   position: absolute;
+//   width: 105px;
+//   height: 105px;
+//   border-radius: 100%;
+//   background-color: ${({ flagscroll }) =>
+//     !flagscroll ? customColor.backColor01 : customColor.mainColor02};
+//   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+//   justify-content: center;
+//   align-items: center;
+//   left: -90px;
+//   top: -50px;
 
-  transition: 0.5s;
-  @media (max-width: 1024px) {
-    left: -75px;
-    top: -40px;
-    width: 92px;
-    height: 92px;
-  }
-`;
+//   transition: 0.5s;
+//   @media (max-width: 1024px) {
+//     left: -75px;
+//     top: -40px;
+//     width: 92px;
+//     height: 92px;
+//   }
+// `;
 
-const TextComingSoon01 = styled(Box)`
-  display: flex;
-  width: 60%;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 130%;
-  /* or 18px */
+// const TextComingSoon01 = styled(Box)`
+//   display: flex;
+//   width: 60%;
+//   font-family: "Rubik";
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 14px;
+//   line-height: 130%;
+//   /* or 18px */
 
-  text-align: center;
-  text-decoration-line: line-through;
-  color: ${({ flagscroll }) =>
-    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
-  opacity: 0.6;
-  transform: rotate(-15deg);
+//   text-align: center;
+//   text-decoration-line: line-through;
+//   color: ${({ flagscroll }) =>
+//     !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+//   opacity: 0.6;
+//   transform: rotate(-15deg);
 
-  transition: 0.5s;
-  @media (max-width: 1200px) {
-    width: 70%;
-  }
-`;
+//   transition: 0.5s;
+//   @media (max-width: 1200px) {
+//     width: 70%;
+//   }
+// `;
 
-const PartComingSoon02 = styled(Box)`
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  width: 105px;
-  height: 105px;
-  border-radius: 100%;
-  background-color: ${({ flagscroll }) =>
-    flagscroll ? customColor.backColor01 : customColor.mainColor02};
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
-  justify-content: center;
-  align-items: center;
-  left: -150px;
-  top: -50px;
+// const PartComingSoon02 = styled(Box)`
+//   display: flex;
+//   position: absolute;
+//   flex-direction: column;
+//   width: 105px;
+//   height: 105px;
+//   border-radius: 100%;
+//   background-color: ${({ flagscroll }) =>
+//     flagscroll ? customColor.backColor01 : customColor.mainColor02};
+//   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+//   justify-content: center;
+//   align-items: center;
+//   left: -150px;
+//   top: -50px;
 
-  transition: 0.5s;
-  @media (max-width: 1024px) {
-    left: -100px;
-    top: -40px;
-    width: 92px;
-    height: 92px;
-  }
-`;
+//   transition: 0.5s;
+//   @media (max-width: 1024px) {
+//     left: -100px;
+//     top: -40px;
+//     width: 92px;
+//     height: 92px;
+//   }
+// `;
 
-const PartImageComingsoon02 = styled(Box)`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  gap: 5px;
-  margin-bottom: 3px;
-`;
+// const PartImageComingsoon02 = styled(Box)`
+//   display: flex;
+//   width: 100%;
+//   justify-content: center;
+//   gap: 5px;
+//   margin-bottom: 3px;
+// `;
 
-const ImageComingsoonCalendar01 = styled(Box)`
-  display: flex;
-  width: 30px;
-  height: 30px;
-  transform: rotate(-15deg);
-  transition: 0.5s;
-  @media (max-width: 1024px) {
-    width: 21px;
-    height: 21px;
-  }
-`;
+// const ImageComingsoonCalendar01 = styled(Box)`
+//   display: flex;
+//   width: 30px;
+//   height: 30px;
+//   transform: rotate(-15deg);
+//   transition: 0.5s;
+//   @media (max-width: 1024px) {
+//     width: 21px;
+//     height: 21px;
+//   }
+// `;
 
-const ImageComingsoonHand01 = styled(Box)`
-  display: flex;
-  width: 30px;
-  height: 30px;
-  transform: rotate(-30deg);
-  transition: 0.5s;
-  @media (max-width: 1024px) {
-    width: 21px;
-    height: 21px;
-  }
-`;
+// const ImageComingsoonHand01 = styled(Box)`
+//   display: flex;
+//   width: 30px;
+//   height: 30px;
+//   transform: rotate(-30deg);
+//   transition: 0.5s;
+//   @media (max-width: 1024px) {
+//     width: 21px;
+//     height: 21px;
+//   }
+// `;
 
-const TextComingSoon02 = styled(Box)`
-  display: flex;
-  width: 60%;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 90.5%;
-  /* or 13px */
+// const TextComingSoon02 = styled(Box)`
+//   display: flex;
+//   width: 60%;
+//   font-family: "Rubik";
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 14px;
+//   line-height: 90.5%;
+//   /* or 13px */
 
-  text-align: center;
-  /* or 13px */
+//   text-align: center;
+//   /* or 13px */
 
-  text-align: center;
-  color: ${({ flagscroll }) =>
-    flagscroll ? customColor.mainColor02 : customColor.mainColor01};
-  opacity: 0.6;
-  transform: rotate(-15deg);
-  transition: 0.5s;
-  @media (max-width: 1200px) {
-    width: 70%;
-  }
-`;
+//   text-align: center;
+//   color: ${({ flagscroll }) =>
+//     flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+//   opacity: 0.6;
+//   transform: rotate(-15deg);
+//   transition: 0.5s;
+//   @media (max-width: 1200px) {
+//     width: 70%;
+//   }
+// `;
 
 const PartMenuIcon01 = styled(Box)`
   display: none;
