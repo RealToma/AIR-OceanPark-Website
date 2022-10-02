@@ -6,7 +6,7 @@ export const TEXT_TopNavbar = {
     tb04: "Utility",
     tb05: "Progress",
     tb06: "Account",
-    textComingSoon01: "COMING SEP 30th!",
+    textComingSoon01: "COMING Oct 2nd noon!",
     textComingSoon02: "Oct 2nd noon",
   },
   CH: {
@@ -16,7 +16,7 @@ export const TEXT_TopNavbar = {
     tb04: "用途",
     tb05: "里程",
     tb06: "帳號",
-    textComingSoon01: "COMING SEP 30th!",
+    textComingSoon01: "COMING Oct 2nd noon!",
     textComingSoon02: "Oct 2nd noon",
   },
 };
@@ -337,6 +337,16 @@ export const TEXT_MyNFT = {
     pleaseconnect: "Pelase connect to Phantom wallet before withdraw",
     byconnecting:
       "By connecting to the blockchain (Solana), you can withdraw and read AiR CITIZEN between AiR and your wallet",
+    cancel: "Cancel",
+    connectPhantom: "Connect Phantom",
+    walletConnected: "Wallet Connected",
+    ok: "OK",
+    pleaseConnect: "Please connect wallet",
+    pleaseConnectbeforeWithdraw: "Pelase connect to Phantom wallet before withdraw",
+    withdrawto:"Withdraw to",
+    confirm: "Confirm",
+    proceeding: "Proceeding...",
+
   },
   CH: {
     tLogout01: "登出",
@@ -345,6 +355,15 @@ export const TEXT_MyNFT = {
     pleaseconnect: "提取前請連接至Phantom錢包",
     byconnecting:
       "連接至區塊鏈（Solana）後，您可以提取並在錢包及AiR中讀取您的元住民",
+    cancel: "取消",
+    connectPhantom: "連接至Phantom",
+    walletConnected: "已連接錢包",
+    ok: "完成",
+    pleaseConnect: "請連接錢包",
+    pleaseConnectbeforeWithdraw: "提取前請連接至Phantom錢包",
+    withdrawto:"提取至",
+    confirm: "確定",
+    proceeding: "進行中..."
   },
 };
 

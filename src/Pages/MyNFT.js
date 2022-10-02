@@ -111,6 +111,16 @@ const MyNFT = () => {
     <StyledComponent>
       <TopNavbarAccount switchLangCallback={switchLangCallback} />
       <PartContent01>
+        <PartList02>
+          <EachList
+            image={imgLogo02}
+            text={
+              myNFTData
+                ? "My AiR CITIZEN" + " (" + Object.keys(myNFTData).length + ")"
+                : "My AiR CITIZEN (0)"
+            }
+          />
+        </PartList02>
         <PartContent02>
           <PartSidebar01>
             <PartList01>
@@ -177,6 +187,7 @@ const MyNFT = () => {
                     dataNFT={each.citizen}
                     flagWalletConnected={flagWalletConnected}
                     publicKey={publicKey}
+                    textMyNFT = {textMyNFT}
                   />
                 );
               })}
@@ -217,21 +228,22 @@ const MyNFT = () => {
             <ImagePhantom01>
               <img src={imgPhantom01} width={"100%"} height={"100%"} alt="" />
             </ImagePhantom01>
-            <TextPhantom01>Connect Phantom</TextPhantom01>
+            <TextPhantom01>{textMyNFT.connectPhantom}</TextPhantom01>
           </ButtonConnectPhantom01>
           <ButtonCancelConnectPhantom01
             onClick={() => {
               handleCloseConnectWallet();
             }}
           >
-            Cancel
+            {textMyNFT.cancel}
           </ButtonCancelConnectPhantom01>
         </PartModalWalletConnect01>
       </Modal>
       <CustomModalSimpleAlert
-        title={"Wallet Connected"}
-        text={"Wallet connected to" + shortWalletAddress(publicKey)}
+        title={textMyNFT.walletConnected}
+        text={textMyNFT.walletConnected + " " + shortWalletAddress(publicKey)}
         open={openAlertWalletConnected}
+        textOK={textMyNFT.ok}
         handleClose={handleCloseAlertWalletConnected}
       />
     </StyledComponent>
@@ -268,6 +280,7 @@ const PartContent01 = styled(Box)`
   @media (max-width: 1024px) {
     padding-left: 40px;
     padding-right: 40px;
+    flex-direction: column;
   }
   @media (max-width: 500px) {
     padding-left: 20px;
@@ -314,6 +327,16 @@ const PartList01 = styled(Box)`
   display: flex;
   width: 100%;
   flex-direction: column;
+`;
+
+const PartList02 = styled(Box)`
+  display: none;
+  width: 100%;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: flex;
+  }
 `;
 
 const PartAccount01 = styled(Box)`
@@ -394,7 +417,6 @@ const PartGetMore01 = styled(Box)`
   cursor: pointer;
 
   transition: 0.5s;
-
 `;
 
 const PartGetMoreIcon01 = styled(Box)`
