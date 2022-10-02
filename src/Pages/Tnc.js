@@ -11,7 +11,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Tnc = () => {
-  const [flagLanguage, setFlagLanguage] = useState(false);
+  const storageFlagLanguage = localStorage.getItem("flagLang")
+  const [flagLanguage, setFlagLanguage] = useState(storageFlagLanguage === '1');
   const [flagRotate, setFlagRotate] = useState(0);
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagTerms, setFlagTerms] = useState(false);

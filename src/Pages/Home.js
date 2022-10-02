@@ -77,7 +77,8 @@ const Home = () => {
     speed: -3,
     offset: 0.1,
   });
-  const [flagLanguage, setFlagLanguage] = useState(false);
+  const storageFlagLanguage = localStorage.getItem("flagLang")
+  const [flagLanguage, setFlagLanguage] = useState(storageFlagLanguage === '1');
   const [flagRotate, setFlagRotate] = useState(0);
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagTerms, setFlagTerms] = useState(false);
