@@ -187,7 +187,7 @@ const MyNFT = () => {
                     dataNFT={each.citizen}
                     flagWalletConnected={flagWalletConnected}
                     publicKey={publicKey}
-                    textMyNFT = {textMyNFT}
+                    textMyNFT={textMyNFT}
                   />
                 );
               })}
@@ -390,7 +390,7 @@ const PartDisplayNFT02 = styled(Box)`
   width: 100%;
   grid-template-columns: auto auto auto auto;
   grid-column-gap: auto;
-  grid-row-gap: 40px;
+  grid-row-gap: 50px;
   transition: 0.5s;
   @media (max-width: 1400px) {
     grid-template-columns: auto auto auto;
@@ -398,6 +398,15 @@ const PartDisplayNFT02 = styled(Box)`
 
   @media (max-width: 1024px) {
     grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: auto auto;
+  }
+  @media (max-width: 370px) {
+    grid-template-columns: auto;
   }
 `;
 

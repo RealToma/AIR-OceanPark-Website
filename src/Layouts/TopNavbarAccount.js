@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../Config/Color";
 import imgLogo01 from "../Assets/image/logo01.png";
 import imgLogo02 from "../Assets/image/logo02.png";
+import imgBoat02 from "../Assets/image/boat02.png";
 import imgMark01 from "../Assets/image/mark_AiR01.png";
 import { useNavigate } from "react-router-dom";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import imgMergeMark01 from "../Assets/image/markMerge01.png";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import { TEXT_MyNFT } from "../Config/Text";
 
 const TopNavbarAccount = (props) => {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const { switchLangCallback } = props;
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
   const [flagLanguage, setFlagLanguage] = useState(false);
+
+  const textMyNFT = !flagLanguage ? TEXT_MyNFT.EN : TEXT_MyNFT.CH;
+  const handleClose = () => setOpen(false);
+  const [open, setOpen] = useState(false);
 
   const handleScroll = () => {
     let position = window.pageYOffset;
@@ -26,6 +37,19 @@ const TopNavbarAccount = (props) => {
     setFlagLanguage(value);
     localStorage.setItem("flagLang", value ? 1 : 0);
     if (switchLangCallback) switchLangCallback(value);
+  };
+
+  const [flagWalletConnected, setFlagWalletConnected] = useState(false);
+  const [publicKey, setPublicKey] = useState("");
+  const [openConnectWallet, setOpenConnectWallet] = useState(false);
+  const handleOpenConnectWallet = () => {
+    setOpenConnectWallet(true);
+  };
+  const handleCloseConnectWallet = () => {
+    setOpenConnectWallet(false);
+  };
+  const shortWalletAddress = (address) => {
+    return address.slice(0, 4) + "..." + address.slice(-4);
   };
 
   useEffect(() => {
@@ -60,6 +84,7 @@ const TopNavbarAccount = (props) => {
             />
           </LogoRight01>
         </PartLogo01>
+
         <PartLink01>
           <ButtonLanguage01>
             {!flagLanguage ? (
@@ -99,7 +124,137 @@ const TopNavbarAccount = (props) => {
             )}
           </ButtonLanguage01>
         </PartLink01>
+        <PartMenuIcon01
+          flagscroll={flagScroll ? 1 : 0}
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          <MenuRoundedIcon sx={{ fontSize: "2.5rem" }} />
+        </PartMenuIcon01>
       </PartMax01>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        BackdropComponent={customBackdrop}
+      >
+        <ModalBox>
+          <ModalPartUp01>
+            <ModalHeader01>
+              <HeaderLeft01>
+                <CloseRoundedIcon
+                  sx={{
+                    fontSize: "2rem",
+                  }}
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                />
+              </HeaderLeft01>
+              <HeaderRight01
+                onClick={() => {
+                  navigate("/");
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  handleClose();
+                }}
+              >
+                <img
+                  src={imgMergeMark01}
+                  width={"100%"}
+                  height={"100%"}
+                  alt={""}
+                />
+              </HeaderRight01>
+            </ModalHeader01>
+            <ModalAccountPart01>
+              <TextUsername01>{userInfo.name}</TextUsername01>
+              <TextID01>{userInfo.displayID}</TextID01>
+
+              <ButtonLogout01
+                onClick={() => {
+                  localStorage.removeItem("userInfo");
+                  localStorage.removeItem("userToken");
+                  localStorage.removeItem("token");
+                  navigate("/login");
+                  window.location.reload();
+                }}
+              >
+                {textMyNFT.tLogout01}
+              </ButtonLogout01>
+
+              <PartBorder01></PartBorder01>
+              <PartConnectWallet01
+                onClick={() => {
+                  if (flagWalletConnected) {
+                    return;
+                  }
+                  handleOpenConnectWallet();
+                }}
+              >
+                <PartWalletIcon01>
+                  <AccountBalanceWalletIcon sx={{ fontSize: "1.5rem" }} />
+                </PartWalletIcon01>
+                <PartWalletText01>
+                  {!flagWalletConnected
+                    ? textMyNFT.tConnectWallet01
+                    : shortWalletAddress(publicKey)}
+                </PartWalletText01>
+              </PartConnectWallet01>
+            </ModalAccountPart01>
+          </ModalPartUp01>
+
+          <ModalFooter01>
+            <ImgBoat02>
+              <img src={imgBoat02} width="100%" height="100%" alt="" />
+            </ImgBoat02>
+
+            <ButtonLanguage01 ml={"20px"}>
+              {!flagLanguage ? (
+                <>
+                  <ButtonClicked01
+                    onClick={() => {
+                      console.log(flagLanguage);
+                      setFlagLanguage(false);
+                      switchFlagLanguage(false);
+                    }}
+                  >
+                    ENG
+                  </ButtonClicked01>
+                  <ButtonUnclicked01
+                    onClick={() => {
+                      setFlagLanguage(true);
+                      switchFlagLanguage(true);
+                    }}
+                  >
+                    中文
+                  </ButtonUnclicked01>
+                </>
+              ) : (
+                <>
+                  <ButtonUnclicked01
+                    onClick={() => {
+                      setFlagLanguage(false);
+                      switchFlagLanguage(false);
+                    }}
+                  >
+                    ENG
+                  </ButtonUnclicked01>
+                  <ButtonClicked01
+                    onClick={() => {
+                      setFlagLanguage(true);
+                      switchFlagLanguage(true);
+                    }}
+                  >
+                    中文
+                  </ButtonClicked01>
+                </>
+              )}
+            </ButtonLanguage01>
+          </ModalFooter01>
+        </ModalBox>
+      </Modal>
     </StyledComponent>
   );
 };
@@ -179,6 +334,7 @@ const LogoRight01 = styled(Box)`
   margin-left: 20px;
   transition: 0.5s;
   cursor: pointer;
+  transition: 0.5s;
   @media (max-width: 500px) {
     width: 80px;
     height: 25px;
@@ -191,6 +347,24 @@ const PartLink01 = styled(Box)`
   justify-content: flex-end;
   align-items: center;
   gap: 30px;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+const PartMenuIcon01 = styled(Box)`
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: ${({ flagscroll }) =>
+    !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  cursor: pointer;
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    display: flex;
+  }
 `;
 
 const ButtonLanguage01 = styled(Box)`
@@ -243,4 +417,198 @@ const ButtonUnclicked01 = styled(Box)`
   cursor: pointer;
 `;
 
+const ModalBox = styled(Box)`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  backdrop-filter: blur(3px);
+
+  padding: 50px;
+  box-sizing: border-box;
+
+  transition: box-shadow 300ms;
+  transition: transform 505ms cubic-bezier(0, 0, 0.2, 1) 0ms !important;
+  outline: none;
+  animation: back_animation1 0.5s 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  @keyframes back_animation1 {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    transition: 0.5s !important;
+    padding: 20px;
+  }
+`;
+
+const ModalHeader01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: ${customColor.mainColor01};
+`;
+const HeaderLeft01 = styled(Box)`
+  display: flex;
+  cursor: pointer;
+`;
+const HeaderRight01 = styled(Box)`
+  display: flex;
+  width: 260px;
+  height: 60px;
+  transition: 0.5s;
+  @media (max-width: 500px) {
+    width: 220px;
+    height: 50px;
+  }
+  cursor: pointer;
+`;
+
+const ModalPartUp01 = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+const ModalFooter01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+
+const ImgBoat02 = styled(Box)`
+  display: flex;
+  width: 34px;
+  height: 34px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: ${customColor.mainColor02};
+  cursor: pointer;
+
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 10px
+      ${({ flagscroll }) =>
+        !flagscroll ? customColor.mainColor02 : customColor.mainColor01};
+  }
+  &:active {
+    box-shadow: none;
+  }
+`;
+
+const ModalAccountPart01 = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 50px;
+`;
+
+const TextUsername01 = styled(Box)`
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 31px;
+  /* identical to box height */
+
+  text-align: right;
+  letter-spacing: -0.02em;
+  color: ${customColor.mainColor01};
+`;
+
+const TextID01 = styled(Box)`
+  display: flex;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+
+  color: ${customColor.mainColor01};
+`;
+
+const PartLogout01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+`;
+const ButtonLogout01 = styled(Box)`
+  display: flex;
+  border: 1px solid ${customColor.mainColor01};
+  border-radius: 6px;
+  width: 80px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 22px */
+
+  text-align: center;
+  color: ${customColor.mainColor01};
+  cursor: pointer;
+`;
+
+const PartMark01 = styled(Box)`
+  display: flex;
+  width: 55px;
+  height: 40px;
+`;
+const PartBorder01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  background-color: ${customColor.backColor01};
+  opacity: 0.5;
+  height: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+const PartConnectWallet01 = styled(Box)`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+`;
+
+const PartWalletIcon01 = styled(Box)`
+  align-items: center;
+  color: ${customColor.mainColor01};
+`;
+
+const PartWalletText01 = styled(Box)`
+  /* web content 14B */
+
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  color: ${customColor.mainColor01};
+`;
+
+export const customBackdrop = styled(Box)`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: ${customColor.mainColor02};
+
+  opacity: 0.8;
+`;
 export default TopNavbarAccount;

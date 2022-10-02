@@ -10,7 +10,12 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CustomModalSimpleAlert from "./CustomModalSimpleAlert";
 import { actionWithdraw } from "../Actions/MyNFT";
 
-const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey,textMyNFT }) => {
+const CustomMyEachNFT = ({
+  dataNFT,
+  flagWalletConnected,
+  publicKey,
+  textMyNFT,
+}) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
   const token = localStorage.getItem("token");
   const [open, setOpen] = useState(false);
@@ -154,7 +159,7 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey,textMyNFT }) 
                       alt=""
                     />
                   </PartIcon03>
-                  <PartTextWithdraw01>{"Withdraw"}</PartTextWithdraw01>
+                  <PartTextWithdraw01>{textMyNFT.withdraw}</PartTextWithdraw01>
                 </ButtonWithdraw01>
               </PartWithdraw02>
             ) : (
@@ -171,10 +176,11 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey,textMyNFT }) 
             )}
           </PartModalFooter01>
           <CustomModalSimpleAlert
-            title={"Please connect wallet"}
-            text={"Please connect to Phantom wallet before withdraw"}
+            title={textMyNFT.pleaseConnect}
+            text={textMyNFT.pleaseConnectbeforeWithdraw}
             open={openAlertWalletConnect}
             handleClose={handleCloseAlertWalletConnect}
+            textOK={textMyNFT.ok}
           />
         </PartModal01>
       </Modal>
@@ -185,7 +191,9 @@ const CustomMyEachNFT = ({ dataNFT, flagWalletConnected, publicKey,textMyNFT }) 
         aria-describedby="modal-modal-description"
       >
         <ModalPart02>
-          <TextTitleWalletConnect02>{textMyNFT.withdrawto}</TextTitleWalletConnect02>
+          <TextTitleWalletConnect02>
+            {textMyNFT.withdrawto}
+          </TextTitleWalletConnect02>
           <TextContentWalletConnect02>{publicKey}</TextContentWalletConnect02>
           <ButtonPart02>
             <ButtonCancel01 onClick={() => handleCloseAlertWalletConfirm()}>
@@ -225,14 +233,14 @@ const PartImage01 = styled(Box)`
 const PartFooter01 = styled(Box)`
   display: flex;
   position: absolute;
-  bottom: -30px;
+  bottom: -50px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
 
   transition: 0.5s;
   @media (max-width: 1024px) {
-    bottom: -25px;
+    bottom: -50px;
   }
 `;
 const PartLeft01 = styled(Box)`
@@ -287,12 +295,14 @@ const PartRightIcon01 = styled(Box)`
   color: ${customColor.mainColor01};
   > svg {
     font-size: 2rem;
-
     transition: 0.5s;
     @media (max-width: 1024px) {
       width: 1.5rem;
-      margin-right: 0px;
     }
+  }
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    margin-right: 0px;
   }
 `;
 
@@ -412,6 +422,12 @@ const PartModalFooter01 = styled(Box)`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    bottom: -100px;
+    align-items: flex-start;
+  }
 `;
 
 const ModalPart02 = styled(Box)`

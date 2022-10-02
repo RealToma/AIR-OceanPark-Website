@@ -343,6 +343,7 @@ export const TEXT_MyNFT = {
     ok: "OK",
     pleaseConnect: "Please connect wallet",
     pleaseConnectbeforeWithdraw: "Pelase connect to Phantom wallet before withdraw",
+    withdraw: "Withdraw",
     withdrawto:"Withdraw to",
     confirm: "Confirm",
     proceeding: "Proceeding...",
@@ -361,6 +362,7 @@ export const TEXT_MyNFT = {
     ok: "完成",
     pleaseConnect: "請連接錢包",
     pleaseConnectbeforeWithdraw: "提取前請連接至Phantom錢包",
+    withdraw: "提取",
     withdrawto:"提取至",
     confirm: "確定",
     proceeding: "進行中..."
