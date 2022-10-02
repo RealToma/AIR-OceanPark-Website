@@ -30,7 +30,7 @@ const App = () => {
           />
           <Route path="/buyNFT" element={<BuyNFT />} />
           <Route path="/tnc" element={<Tnc />} />
-          {/* <Route path="/buyNFT/:step" element={<BuyNFT />} /> */}
+          <Route path="/buyNFT/:step" element={<BuyNFT />} />
         </Routes>
       </BrowserRouter>
       <NotificationContainer />

@@ -16,11 +16,12 @@ import { TEXT_MyNFT } from "../Config/Text";
 
 
 const TopNavbarAccount = (props) => {
+  const storageFlagLanguage = localStorage.getItem("flagLang")
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const { switchLangCallback } = props;
   const navigate = useNavigate();
   const [flagScroll, setFlagScroll] = useState(false);
-  const [flagLanguage, setFlagLanguage] = useState(false);
+  const [flagLanguage, setFlagLanguage] = useState(storageFlagLanguage === "1");
 
   const textMyNFT = !flagLanguage ? TEXT_MyNFT.EN : TEXT_MyNFT.CH;
   const handleClose = () => setOpen(false);
