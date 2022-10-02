@@ -19,12 +19,10 @@ const TopNavbarHome = ({
   setFlagLanguage,
   flagScroll,
   setFlagScroll,
-  flagTerms,
-  setFlagTerms,
   switchLangCallback,
 }) => {
   const navigate = useNavigate();
-
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const textNavbar = !flagLanguage ? TEXT_TopNavbar.EN : TEXT_TopNavbar.CH;
   const handleClose = () => setOpen(false);
   const [open, setOpen] = useState(false);
@@ -37,31 +35,23 @@ const TopNavbarHome = ({
     }
   };
 
-  useEffect(() => {
-    if (flagTerms) {
-      setFlagScroll(true);
-      return;
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [flagTerms]);
-
   const switchFlagLanguage = (value) => {
     setFlagLanguage(value);
     localStorage.setItem("flagLang", value ? 1 : 0);
     if (switchLangCallback) switchLangCallback(value);
   };
 
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <StyledComponent flagscroll={flagScroll ? 1 : 0}>
       <PartMax01>
         <PartLogo01
           onClick={() => {
-            setFlagTerms(false);
             setFlagScroll(false);
             navigate("/");
             window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -121,42 +111,22 @@ const TopNavbarHome = ({
           </PartMenuIcon01>
           <PartPageLink01>
             <a href="#ocean" style={{ textDecoration: "none" }}>
-              <EachLink01
-                flagscroll={flagScroll ? 1 : 0}
-                onClick={() => {
-                  setFlagTerms(false);
-                }}
-              >
+              <EachLink01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.tb02}
               </EachLink01>
             </a>
             <a href="#about" style={{ textDecoration: "none" }}>
-              <EachLink01
-                flagscroll={flagScroll ? 1 : 0}
-                onClick={() => {
-                  setFlagTerms(false);
-                }}
-              >
+              <EachLink01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.tb03}
               </EachLink01>
             </a>
             <a href="#utility" style={{ textDecoration: "none" }}>
-              <EachLink01
-                flagscroll={flagScroll ? 1 : 0}
-                onClick={() => {
-                  setFlagTerms(false);
-                }}
-              >
+              <EachLink01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.tb04}
               </EachLink01>
             </a>
             <a href="#progress" style={{ textDecoration: "none" }}>
-              <EachLink01
-                flagscroll={flagScroll ? 1 : 0}
-                onClick={() => {
-                  setFlagTerms(false);
-                }}
-              >
+              <EachLink01 flagscroll={flagScroll ? 1 : 0}>
                 {textNavbar.tb05}
               </EachLink01>
             </a>
@@ -264,7 +234,6 @@ const TopNavbarHome = ({
               <a href="#ocean" style={{ textDecoration: "none" }}>
                 <ModalEachLink01
                   onClick={() => {
-                    setFlagTerms(false);
                     handleClose();
                   }}
                 >
@@ -274,7 +243,6 @@ const TopNavbarHome = ({
               <a href="#about" style={{ textDecoration: "none" }}>
                 <ModalEachLink01
                   onClick={() => {
-                    setFlagTerms(false);
                     handleClose();
                   }}
                 >
@@ -284,7 +252,6 @@ const TopNavbarHome = ({
               <a href="#utility" style={{ textDecoration: "none" }}>
                 <ModalEachLink01
                   onClick={() => {
-                    setFlagTerms(false);
                     handleClose();
                   }}
                 >
@@ -294,7 +261,6 @@ const TopNavbarHome = ({
               <a href="#progress" style={{ textDecoration: "none" }}>
                 <ModalEachLink01
                   onClick={() => {
-                    setFlagTerms(false);
                     handleClose();
                   }}
                 >

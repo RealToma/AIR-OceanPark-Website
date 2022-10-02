@@ -5,30 +5,28 @@ import { TEXT_Footer } from "../Config/Text";
 import { customColor } from "../Config/Color";
 import { Link } from "react-router-dom";
 
-const FooterHome = ({ setFlagTerms, setFlagScroll, flagLanguage }) => {
+const FooterHome = ({ flagLanguage }) => {
   const textFooter = !flagLanguage ? TEXT_Footer.EN : TEXT_Footer.CH;
   return (
     <StyledComponent>
       <PartMax01>
-        {textFooter.tt01}
-
-        {"\u00a0\u00a0"}
-        <Box
-          display={"flex"}
-          onClick={() => {
-            setFlagScroll(true);
-            setFlagTerms(true);
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          <Link to="/tnc" style={{ color: "white", textDecoration: "none" }}>
-            {textFooter.textTerm}
-          </Link>
-        </Box>
-        {"\u00a0\u00a0|\u00a0\u00a0"}
-        <Box display={"flex"} onClick={() => {}} style={{ cursor: "pointer" }}>
-          {textFooter.textContactUs}
-        </Box>
+        <Box display={"flex"}>{textFooter.tt01}</Box>
+        {"|"}
+        <TermBox01>
+          <Box display={"flex"} style={{ cursor: "pointer" }}>
+            <Link to="/tnc" style={{ color: "white", textDecoration: "none" }}>
+              {textFooter.textTerm}
+            </Link>
+          </Box>
+          {"|"}
+          <Box
+            display={"flex"}
+            onClick={() => {}}
+            style={{ cursor: "pointer" }}
+          >
+            {textFooter.textContactUs}
+          </Box>
+        </TermBox01>
       </PartMax01>
     </StyledComponent>
   );
@@ -57,7 +55,7 @@ const PartMax01 = styled(Box)`
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
-
+  gap: 10px;
   transition: 0.5s;
 
   @media (max-width: 1400px) {
@@ -73,7 +71,10 @@ const PartMax01 = styled(Box)`
     padding-right: 40px;
     min-height: 120px;
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
   }
+
   @media (max-width: 500px) {
     padding-left: 20px;
     padding-right: 20px;
@@ -83,6 +84,11 @@ const PartMax01 = styled(Box)`
     padding-left: 10px;
     padding-right: 10px;
   }
+`;
+
+const TermBox01 = styled(Box)`
+  display: flex;
+  gap: 10px;
 `;
 
 export default FooterHome;
