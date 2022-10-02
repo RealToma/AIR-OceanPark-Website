@@ -15,7 +15,11 @@ const FooterAccount = () => {
         <TextBetween>{"|"}</TextBetween>
         <TermBox01>
           <Text01>
-            <Link to="/tnc" style={{ color: "black", textDecoration: "none" }}>
+            <Link
+              to="/tnc"
+              target="_blank"
+              style={{ color: "black", textDecoration: "none" }}
+            >
               {textFooter.textTerm}
             </Link>
           </Text01>
