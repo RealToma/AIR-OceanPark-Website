@@ -162,7 +162,7 @@ const CustomMyEachNFT = ({
                     />
                   </PartIcon02>
                 </PartIcons01>
-                {!flagWithdraw ? (
+                {/* {!flagWithdraw ? (
                   <ButtonWithdraw01 onClick={() => handleWithdraw()}>
                     <PartIcon03>
                       <img
@@ -180,7 +180,7 @@ const CustomMyEachNFT = ({
                   <ButtonProceeding01>
                     {textMyNFT.proceeding}
                   </ButtonProceeding01>
-                )}
+                )} */}
               </PartWithdraw02>
             ) : (
               <PartWithdraw02>
@@ -462,7 +462,7 @@ const PartModalFooter01 = styled(Box)`
 
   transition: 0.5s;
   @media (max-width: 1024px) {
-    bottom: ${({ flagwithdraw }) => (!flagwithdraw ? "-100px" : "-40px")};
+    bottom: ${({ flagwithdraw }) => (!flagwithdraw ? "-60px" : "-40px")};
     align-items: flex-start;
   }
 `;
