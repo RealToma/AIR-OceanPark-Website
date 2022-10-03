@@ -163,19 +163,20 @@ const CustomMyEachNFT = ({
                   </PartIcon02>
                 </PartIcons01>
                 {!flagWithdraw ? (
-                  // <ButtonWithdraw01 onClick={() => handleWithdraw()}>
-                  <ButtonWithdraw01>
-                    <PartIcon03>
-                      <img
-                        src={imgWithdraw02}
-                        width={"100%"}
-                        height={"100%"}
-                        alt=""
-                      />
-                    </PartIcon03>
-                    <PartTextWithdraw01>
-                      {textMyNFT.withdraw}
-                    </PartTextWithdraw01>
+                  <ButtonWithdraw01 onClick={() => handleWithdraw()}>
+                    <ButtonWithdraw01>
+                      <PartIcon03>
+                        <img
+                          src={imgWithdraw02}
+                          width={"100%"}
+                          height={"100%"}
+                          alt=""
+                        />
+                      </PartIcon03>
+                      <PartTextWithdraw01>
+                        {textMyNFT.withdraw}
+                      </PartTextWithdraw01>
+                    </ButtonWithdraw01>
                   </ButtonWithdraw01>
                 ) : (
                   <ButtonProceeding01>
