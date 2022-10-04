@@ -20,7 +20,7 @@ code {
   scroll-behavior: smooth;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   ::-webkit-scrollbar {
     width: 15px;
   }
@@ -35,4 +35,4 @@ code {
     background-color: #01c5f0;
     border-radius: 100px;
   }
-}
+} */

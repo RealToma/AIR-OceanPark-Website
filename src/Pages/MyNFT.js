@@ -471,7 +471,7 @@ const PartDisplayNFT02 = styled(Box)`
   @media (max-width: 370px) {
     grid-template-columns: auto;
   }
-
+/* 
   @media (min-width: 1024px) {
     ::-webkit-scrollbar {
       width: 15px;
@@ -487,7 +487,7 @@ const PartDisplayNFT02 = styled(Box)`
       background-color: ${customColor.mainColor02};
       border-radius: 100px;
     }
-  }
+  } */
 `;
 
 const PartGetMore01 = styled(Box)`
