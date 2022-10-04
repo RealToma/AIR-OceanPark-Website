@@ -15,7 +15,11 @@ const FooterHome = ({ flagLanguage }) => {
 
         <TermBox01>
           <Text01>
-            <Link to="/tnc" style={{ color: "white", textDecoration: "none" }}>
+            <Link
+              to="/tnc"
+              target="_blank"
+              style={{ color: "white", textDecoration: "none" }}
+            >
               {textFooter.textTerm}
             </Link>
           </Text01>

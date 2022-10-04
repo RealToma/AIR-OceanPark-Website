@@ -44,6 +44,7 @@ const StyledComponent = styled(Box)`
   height: 100%;
   flex-direction: column;
   background-color: ${customColor.mainColor01};
+
 `;
 
 export default App;

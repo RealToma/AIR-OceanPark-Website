@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
-// import { textMyNFT } from "../Config/Text_";
 import { TEXT_MyNFT } from "../Config/Text";
 import { customColor } from "../Config/Color";
 import TopNavbarAccount from "../Layouts/TopNavbarAccount";
@@ -15,11 +14,6 @@ import imgPlaceholder from "../Assets/image/placeholder.png";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomMyEachNFT from "../Components/CustomMyEachNFT";
-
-// import imgNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
-// import imgNFT02 from "../Assets/image/nfts/OceanParkNFT_7.png"
-// import imgNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png"
-// import imgNFT04 from "../Assets/image/nfts/OP nft_IT_A 1.png"
 import { actionGetCitizens } from "../Actions/Auth";
 import { NotificationManager } from "react-notifications";
 import CustomModalSimpleAlert from "../Components/CustomModalSimpleAlert";
@@ -68,53 +62,82 @@ const MyNFT = () => {
     });
   }, []);
 
-  useEffect(() => {
-    // console.log(window["solana"]);
-    // if (window["solana"].isConnected) {
-    //   setFlagWalletConnected(true);
-    // } else {
-    //   setFlagWalletConnected(false);
-    // }
-  }, []);
+  // const [phantom, setPhantom] = useState();
+
+  // useEffect(() => {
+  //   if (window["solana"]?.isPhantom) {
+  //     setPhantom(window["solana"]);
+  //   }
+  //   // let temp = isConnected();
+  //   // if (temp.success === false) {
+  //   //   setFlagWalletConnected(false);
+  //   // } else {
+  //   //   setFlagWalletConnected(true);
+  //   //   setPublicKey(temp.publicKey);
+  //   // }
+  // }, []);
+  // useEffect(() => {
+  //   console.log(phantom)
+  //   phantom?.on("connect", () => {
+  //     setFlagWalletConnected(true);
+  //   });
+
+  //   phantom?.on("disconnect", () => {
+  //     setFlagWalletConnected(false);
+  //   });
+  // }, [phantom]);
 
   const shortWalletAddress = (address) => {
     return address.slice(0, 4) + "..." + address.slice(-4);
   };
 
-  const getPUblickey = async () => {
+  const isConnected = async () => {
     let response;
-    response = await window.solana.connect();
-    return response.publicKey.toString();
+    try {
+      response = await window.solana.connect();
+    } catch (error) {
+      console.log(error);
+    }
+    if (response === undefined) {
+      return { success: false };
+    } else {
+      return { success: true, publicKey: response.publicKey.toString() };
+    }
   };
   const handleConnectWallet = async () => {
     if (typeof window.solana === "undefined") {
       NotificationManager.error(
         "Please install Solana Phantom Wallet Plugin.",
+        "",
         3000
       );
       return;
     }
     if (true !== window.solana.isPhantom) {
-      NotificationManager.error("No Phantom Wallet found.", 3000);
+      NotificationManager.error("No Phantom Wallet found.", "", 3000);
       return;
     }
     try {
       let response;
-      response = await window.solana.connect();
-      if (!window.solana.isConnected) {
-        if (true !== window.solana.isPhantom) {
-          NotificationManager.error("Not connected.", 3000);
+      try {
+        response = await window.solana.connect();
+        if (!window.solana.isConnected) {
+          if (true !== window.solana.isPhantom) {
+            NotificationManager.error("Not connected.", "", 3000);
+            return;
+          }
+          handleCloseConnectWallet();
           return;
         }
-        handleCloseConnectWallet();
-        return;
-      }
 
-      let tempPublicKey = response.publicKey.toString();
-      setPublicKey(tempPublicKey);
-      setFlagWalletConnected(true);
-      handleCloseConnectWallet();
-      handleOpenAlertWalletConnected();
+        let tempPublicKey = response.publicKey.toString();
+        setPublicKey(tempPublicKey);
+        setFlagWalletConnected(true);
+        handleCloseConnectWallet();
+        handleOpenAlertWalletConnected();
+      } catch (error) {
+        console.log(error);
+      }
     } catch (error) {
       console.log(error);
       return;
@@ -448,7 +471,7 @@ const PartDisplayNFT02 = styled(Box)`
   @media (max-width: 370px) {
     grid-template-columns: auto;
   }
-
+/* 
   @media (min-width: 1024px) {
     ::-webkit-scrollbar {
       width: 15px;
@@ -464,7 +487,7 @@ const PartDisplayNFT02 = styled(Box)`
       background-color: ${customColor.mainColor02};
       border-radius: 100px;
     }
-  }
+  } */
 `;
 
 const PartGetMore01 = styled(Box)`

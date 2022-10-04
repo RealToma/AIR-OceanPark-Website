@@ -37,6 +37,7 @@ const StyledComponent = styled(Box)`
   width: 100%;
   gap: 20px;
   align-items: flex-start;
+  margin-top: 20px;
 
   transition: 0.5s;
   @media (max-width: 900px) {
