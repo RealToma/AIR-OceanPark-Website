@@ -43,6 +43,7 @@ const Login = (props) => {
       type: "email",
       handle: email,
       password: password,
+      keepToken: true,
     };
     actionLogin(loginData).then((res) => {
       if (res.status === 1001) {

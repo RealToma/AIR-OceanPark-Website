@@ -6,7 +6,6 @@ import {
   TEXT_HomeContent,
   TEXT_HomeUtility,
   TEXT_HomeProgress,
-  TEXT_Terms,
   TEXT_FAQ,
 } from "../Config/Text";
 import EachProgress from "../Components/EachProgress";
@@ -24,20 +23,12 @@ import imgBack02 from "../Assets/image/back02.png";
 import imgLeaf02 from "../Assets/image/leaf03.png";
 import imgClean01 from "../Assets/image/clean01.png";
 import imgBottle01 from "../Assets/image/bottle01.png";
-// import imgPumpkin01 from "../Assets/image/pumpkin01.png";
 import imgKnife01 from "../Assets/image/knife01.png";
 import imgDolphin01 from "../Assets/image/dolphin01.png";
 import imgBat01 from "../Assets/image/bat01.png";
 import imgCap01 from "../Assets/image/cap01.png";
 import imgPen01 from "../Assets/image/pen01.png";
 import imgRing01 from "../Assets/image/ring01.png";
-
-// import imgTNFT01 from "../Assets/image/nfts/OceanParkNFT_6.png";
-// import imgTNFT02 from "../Assets/image/nfts/OP nft_IT_A 1.png";
-// import imgTNFT03 from "../Assets/image/nfts/OceanParkNFT_13 1.png";
-// import imgTNFT04 from "../Assets/image/nfts/OceanParkNFT_7.png";
-
-// import imgShadow01 from "../Assets/image/bottom_ellipse01.png";
 import imgCNFT01 from "../Assets/image/nfts/op-nft_dolphin_0003_op-nft_pufferfish.png";
 import imgCNFT02 from "../Assets/image/nfts/op-nft_dolphin_0000_op-nft_walrus.png";
 import imgCNFT03 from "../Assets/image/nfts/op-nft_dolphin_0001_op-nft_orca.png";
@@ -48,7 +39,6 @@ import imgProgress02 from "../Assets/image/scene02.png";
 import imgProgress03 from "../Assets/image/scene03.png";
 import imgBox01 from "../Assets/image/box01.png";
 import imgCover01 from "../Assets/image/cover01.png";
-
 import iconGroup01 from "../Assets/image/icons/group 1.png";
 import iconTicket01 from "../Assets/image/icons/ticket 1.png";
 import iconDiscount01 from "../Assets/image/icons/discount 1.png";
@@ -57,15 +47,12 @@ import iconPeace01 from "../Assets/image/icons/peace 1.png";
 import iconChest01 from "../Assets/image/icons/chest 1.png";
 import CloseIcon from "@mui/icons-material/Close";
 import InsertLinkRoundedIcon from "@mui/icons-material/InsertLinkRounded";
-
 import TopNavbarHome from "../Layouts/TopNavbarHome";
 import FooterHome from "../Layouts/FooterHome";
 import CustomDropdownFAQ from "../Components/CustomDropdownFAQ";
-
+import { useParallax } from "react-scroll-parallax";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-import { useParallax } from "react-scroll-parallax";
 
 const Home = () => {
   const parallaxAbout = useParallax({
@@ -91,7 +78,6 @@ const Home = () => {
   const textHomeProgress = !flagLanguage
     ? TEXT_HomeProgress.EN
     : TEXT_HomeProgress.CH;
-  const textTerms = !flagLanguage ? TEXT_Terms.EN : TEXT_Terms.CH;
   const textFAQ = !flagLanguage ? TEXT_FAQ.EN : TEXT_FAQ.CH;
 
   useEffect(() => {
@@ -115,7 +101,7 @@ const Home = () => {
   }, []);
 
   return (
-    <StyledComponent >
+    <StyledComponent>
       <TopNavbarHome
         flagLanguage={flagLanguage}
         setFlagLanguage={setFlagLanguage}
@@ -506,75 +492,7 @@ const Home = () => {
           </ContentFAQ01>
         </PartMaxFAQ01>
       </PartFAQ01>
-      {/* //{" "}
-      <PartTems01>
-        // <PartTermsTitle01>{textTerms.title01}</PartTermsTitle01>
-        //{" "}
-        <PartTermsContent01>
-          // Age requirements // <br />
-          // If you’re under the age required to manage your own Google Account,
-          // you must have your parent or legal guardian’s permission to use a
-          // Google Account. Please ask your parent or legal guardian to read //
-          these terms with you. // <br />
-          // <br />
-          // If you’re a parent or legal guardian, and you allow your child to
-          // use the services, then these terms apply to you and you’re //
-          responsible for your child’s activity on the services. // <br />
-          // <br />
-          // Some Google services have additional age requirements as described
-          // in their service-specific additional terms and policies. // <br />
-          // <br />
-          // Your relationship with Google <br />
-          // These terms help define the relationship between you and Google. //
-          Broadly speaking, we give you permission to use our services if you //
-          agree to follow these terms, which reflect how Google’s business //
-          works and how we earn money. When we speak of 'Google', 'we', 'us' //
-          and 'our', we mean Google LLC and its affiliates. // <br />
-          // <br />
-          // What you can expect from us <br />
-          // Provide a broad range of useful services // <br />
-          // <br />
-          // We provide a broad range of services that are subject to these //
-          terms, including: <br />
-          // apps and sites (like Search and Maps) // <br /> platforms (like
-          Google Shopping) <br />
-          // integrated services (like Maps embedded in other companies’ apps or
-          // sites) // <br /> devices (like Google Nest) // <br /> Many of these
-          services also include content that you can // stream or interact with.
-          // <br />
-          // <br />
-          // Our services are designed to work together, making it easier for
-          you // to move from one activity to the next. For example, if your
-          Calendar // event includes an address, you can click on that address
-          and Maps // can show you how to get there. // <br />
-          // <br />
-          // Develop, improve and update Google services // <br />
-          // <br /> We’re constantly developing new technologies and features to
-          // improve our services. For example, we use artificial intelligence
-          // and machine learning to provide you with simultaneous translations
-          // and to better detect and block spam and malware. As part of this //
-          continual improvement, we sometimes add or remove features and //
-          functionalities, increase or decrease limits to our services and //
-          start offering new services or stop offering old ones. When a //
-          service requires or includes downloadable software, that software //
-          sometimes updates automatically on your device once a new version or
-          // feature is available. Some services let you adjust your automatic
-          // update settings. <br />
-          // <br />
-          // If we make material changes that negatively impact your use of our
-          // services or if we stop offering a service, we’ll provide you with
-          // reasonable advance notice, except in urgent situations such as //
-          preventing abuse, responding to legal requirements or addressing //
-          security and operability issues. We’ll also provide you with an //
-          opportunity to export your content from your Google Account using //
-          Google Takeout, subject to applicable law and policies. //{" "}
-        </PartTermsContent01>
-        //{" "}
-      </PartTems01> */}
-      <FooterHome
-        setFlagScroll={setFlagScroll}
-        flagLanguage={flagLanguage}
-      />
+      <FooterHome setFlagScroll={setFlagScroll} flagLanguage={flagLanguage} />
     </StyledComponent>
   );
 };
@@ -1651,71 +1569,6 @@ const PartRoadmap01 = styled(Box)`
   }
 `;
 
-const PartTems01 = styled(Box)`
-  display: flex;
-  flex: 1;
-  max-width: 1920px;
-  height: 100%;
-  overflow-y: auto;
-  margin-top: 0px;
-  padding-left: 300px;
-  padding-right: 300px;
-  margin-top: 150px;
-  margin-bottom: 50px;
-  box-sizing: border-box;
-  flex-direction: column;
-  color: ${customColor.textTerms};
-
-  transition: 0.5s;
-  @media (max-width: 1400px) {
-    padding-left: 200px;
-    padding-right: 200px;
-  }
-  @media (max-width: 1200px) {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-  @media (max-width: 700px) {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-  @media (max-width: 500px) {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-`;
-
-const PartTermsTitle01 = styled(Box)`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 26px;
-  line-height: 31px;
-  /* identical to box height */
-  letter-spacing: -0.02em;
-
-  transition: 0.5s;
-  @media (max-width: 500px) {
-    font-size: 20px;
-  }
-`;
-
-const PartTermsContent01 = styled(Box)`
-  display: flex;
-  width: 100%;
-  margin-top: 50px;
-  text-align: start;
-  font-family: "Rubik";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 160%;
-`;
-
 const PartFAQ01 = styled(Box)`
   display: flex;
   width: 100%;
@@ -1764,7 +1617,6 @@ const ContentFAQ01 = styled(Box)`
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 15px;
   margin-top: 50px;
 `;
 export default Home;

@@ -3,12 +3,8 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../Config/Color";
 import { TEXT_Terms } from "../Config/Text";
-
 import TopNavbarHome from "../Layouts/TopNavbarHome";
 import FooterHome from "../Layouts/FooterHome";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const Tnc = () => {
   const storageFlagLanguage = localStorage.getItem("flagLang");
@@ -23,12 +19,6 @@ const Tnc = () => {
       setFlagRotate((flagRotate + 1) % 8);
     }, 3000);
   }, [flagRotate]);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 3000,
-    });
-  }, []);
 
   return (
     <StyledComponent>

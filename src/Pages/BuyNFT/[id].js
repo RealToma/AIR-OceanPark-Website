@@ -14,7 +14,6 @@ import { TEXT_BuyNFTContent, TEXT_Login } from "../../Config/Text";
 
 const StyledComponent = styled(Box)`
   width: 100%;
-  min-height: 100vh;
   background-color: ${customColor.backColor01};
   position: relative;
   font-family: "Rubik";
@@ -80,7 +79,7 @@ const BuyNFT = () => {
       <BuyNFTContainer step={step} siteCopy={siteCopy}>
         <div>{component}</div>
       </BuyNFTContainer>
-      <FooterAccount />
+      <FooterAccount isFixed={false} />
     </StyledComponent>
   );
 };

@@ -46,7 +46,6 @@ const CustomDropdownFAQ = ({ content }) => {
 const StyledComponent = styled(Box)`
   display: flex;
   position: relative;
-
   width: 100%;
   padding: 30px;
   box-sizing: border-box;
@@ -54,11 +53,11 @@ const StyledComponent = styled(Box)`
   border-radius: 11px;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   transition: 0.5s;
 
-  transition: 0.5s;
   @media (max-width: 1024px) {
     padding: 20px;
     gap: 30px;
