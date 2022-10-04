@@ -44,22 +44,7 @@ const StyledComponent = styled(Box)`
   height: 100%;
   flex-direction: column;
   background-color: ${customColor.mainColor01};
-  @media (max-width: 1024px) {
-    ::-webkit-scrollbar {
-      width: 15px;
-    }
 
-    ::-webkit-scrollbar-track {
-      background-color: #e4e4e4;
-      border-radius: 100px;
-      cursor: pointer;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #01c5f0;
-      border-radius: 100px;
-    }
-  }
 `;
 
 export default App;
