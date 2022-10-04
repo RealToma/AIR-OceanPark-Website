@@ -5,11 +5,12 @@ import { TEXT_Footer } from "../Config/Text";
 import { customColor } from "../Config/Color";
 import { Link } from "react-router-dom";
 
-const FooterAccount = () => {
+const FooterAccount = (props) => {
+  const { isFixed = true } = props
   const textFooter =
     localStorage.getItem("flagLang") === "1" ? TEXT_Footer.CH : TEXT_Footer.EN;
   return (
-    <StyledComponent>
+    <StyledComponent isFixed={isFixed}>
       <PartMax01>
         <Box display={"flex"}>{textFooter.tt01}</Box>
         <TextBetween>{"|"}</TextBetween>
@@ -43,7 +44,7 @@ const StyledComponent = styled(Box)`
   width: 100%;
   color: ${customColor.textColor03};
   opacity: 0.3;
-  position: fixed;
+  position: ${(props) => props.isFixed ? 'fixed' : 'relative'};
   bottom: 0px;
   justify-content: center;
 `;
