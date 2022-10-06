@@ -8,6 +8,7 @@ export const actionLogin = async (loginData) => {
       loginData
     );
     let code = response.data.code;
+    console.log(response)
     if (code === 2000) {
       return {
         status: code,
@@ -55,27 +56,6 @@ export const actionCreatePlayer = async (token, playerData) => {
     );
     let code = response.data.code;
     return { status: code };
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const actionGetCitizens = async (token) => {
-  let response;
-  let url = process.env.REACT_APP_CITIZEN_URL + "/citizens";
-  try {
-    response = await axios.get(url, {
-      headers: {
-        token: token,
-      },
-    });
-    let code = response.data.code;
-    if (code === 2000) {
-      console.log(response.data.result.citizens);
-      return { status: code, citizens: response.data.result.citizens };
-    } else {
-      return { status: code };
-    }
   } catch (error) {
     console.log(error);
   }

@@ -10,6 +10,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CustomModalSimpleAlert from "./CustomModalSimpleAlert";
 import { actionWithdraw } from "../Actions/MyNFT";
 import { NotificationManager } from "react-notifications";
+import { useNavigate } from "react-router-dom";
 
 const CustomMyEachNFT = ({
   dataNFT,
@@ -18,6 +19,7 @@ const CustomMyEachNFT = ({
   textMyNFT,
 }) => {
   //   const [flagSelect, setFlagSelect] = useState(false);
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [flagWithdraw, setFlagWithdraw] = useState(false);
   const [open, setOpen] = useState(false);
@@ -64,6 +66,9 @@ const CustomMyEachNFT = ({
       if (res.status === 2000) {
         handleClose();
         window.location.reload();
+      } else if (res.status === 1000) {
+        navigate('/login');
+        setFlagWithdraw(false);
       } else {
         NotificationManager.error("This is a invalid citizen.", "", 3000);
         setFlagWithdraw(false);
