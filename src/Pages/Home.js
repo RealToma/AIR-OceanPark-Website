@@ -238,7 +238,9 @@ const Home = () => {
           <PartMarqueeItem01>
             <Marquee
               gradient={false}
-              speed={"40"}
+              speed={"30"}
+              // gradientColor={[250, 249, 250]}
+              // gradientWidth={"50px"}
             >
               <PartEachItem01>
                 <PartItemImage01>
