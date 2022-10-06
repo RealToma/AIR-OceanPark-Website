@@ -3,12 +3,17 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 import { customColor } from "../Config/Color";
 import {
+  TEXT_Benefit,
   TEXT_HomeContent,
   TEXT_HomeUtility,
   TEXT_HomeProgress,
   TEXT_FAQ,
 } from "../Config/Text";
 import EachProgress from "../Components/EachProgress";
+import imgBenefitBack01 from "../Assets/image/benefits/back01.png";
+import imgBenefitItem01 from "../Assets/image/benefits/image01.png";
+import imgBenefitItem02 from "../Assets/image/benefits/image02.png";
+import imgBenefitItem03 from "../Assets/image/benefits/image03.png";
 import imgPolygon01 from "../Assets/image/back_polygon01.png";
 import imgMarkHalloEN01 from "../Assets/image/markHallo01_en.png";
 import imgMarkHalloCH01 from "../Assets/image/markHallo01_ch.png";
@@ -53,6 +58,7 @@ import CustomDropdownFAQ from "../Components/CustomDropdownFAQ";
 import { useParallax } from "react-scroll-parallax";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Marquee from "react-fast-marquee";
 
 const Home = () => {
   const parallaxAbout = useParallax({
@@ -79,6 +85,7 @@ const Home = () => {
     ? TEXT_HomeProgress.EN
     : TEXT_HomeProgress.CH;
   const textFAQ = !flagLanguage ? TEXT_FAQ.EN : TEXT_FAQ.CH;
+  const textBenefit = !flagLanguage ? TEXT_Benefit.EN : TEXT_Benefit.CH;
 
   useEffect(() => {
     setTimeout(() => {
@@ -181,6 +188,106 @@ const Home = () => {
           </PartNFTRotate01>
         </PartMaxTop01>
       </PartTop01>
+      <PartBenefit01>
+        <PartMaxBenefit01>
+          <TextTitleBenefit01>{textBenefit.title}</TextTitleBenefit01>
+          <PartItem01>
+            <PartEachItem01>
+              <PartItemImage01>
+                <img
+                  src={imgBenefitItem01}
+                  width={"100%"}
+                  height={"100%"}
+                  alt=""
+                />
+              </PartItemImage01>
+              <TextItemTitle01>{textBenefit.item01.title}</TextItemTitle01>
+              <TextItemDescription01>
+                {textBenefit.item01.description}
+              </TextItemDescription01>
+            </PartEachItem01>
+            <PartEachItem01>
+              <PartItemImage01>
+                <img
+                  src={imgBenefitItem02}
+                  width={"100%"}
+                  height={"100%"}
+                  alt=""
+                />
+              </PartItemImage01>
+              <TextItemTitle01>{textBenefit.item02.title}</TextItemTitle01>
+              <TextItemDescription01>
+                {textBenefit.item02.description}
+              </TextItemDescription01>
+            </PartEachItem01>
+            <PartEachItem01>
+              <PartItemImage01>
+                <img
+                  src={imgBenefitItem03}
+                  width={"100%"}
+                  height={"100%"}
+                  alt=""
+                />
+              </PartItemImage01>
+              <TextItemTitle01>{textBenefit.item03.title}</TextItemTitle01>
+              <TextItemDescription01>
+                {textBenefit.item03.description}
+              </TextItemDescription01>
+            </PartEachItem01>
+          </PartItem01>
+          <PartMarqueeItem01>
+            <Marquee
+              gradient={false}
+              speed={"30"}
+              // gradientColor={[250, 249, 250]}
+              // gradientWidth={"50px"}
+            >
+              <PartEachItem01>
+                <PartItemImage01>
+                  <img
+                    src={imgBenefitItem01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartItemImage01>
+                <TextItemTitle01>{textBenefit.item01.title}</TextItemTitle01>
+                <TextItemDescription01>
+                  {textBenefit.item01.description}
+                </TextItemDescription01>
+              </PartEachItem01>
+              <PartEachItem01>
+                <PartItemImage01>
+                  <img
+                    src={imgBenefitItem02}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartItemImage01>
+                <TextItemTitle01>{textBenefit.item02.title}</TextItemTitle01>
+                <TextItemDescription01>
+                  {textBenefit.item02.description}
+                </TextItemDescription01>
+              </PartEachItem01>
+              <PartEachItem01>
+                <PartItemImage01>
+                  <img
+                    src={imgBenefitItem03}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartItemImage01>
+                <TextItemTitle01>{textBenefit.item03.title}</TextItemTitle01>
+                <TextItemDescription01>
+                  {textBenefit.item03.description}
+                </TextItemDescription01>
+              </PartEachItem01>
+            </Marquee>
+          </PartMarqueeItem01>
+        </PartMaxBenefit01>
+      </PartBenefit01>
       <PartMainOcean01 id="ocean">
         <PartMaxMainOcean01>
           <PartOcean01>
@@ -506,6 +613,140 @@ const StyledComponent = styled(Box)`
   overflow-x: hidden;
 `;
 
+const PartBenefit01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-image: url(${imgBenefitBack01});
+`;
+
+const PartMaxBenefit01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  height: 320px;
+  transition: 0.5s;
+
+  padding-left: 120px;
+  padding-right: 120px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.5s;
+  @media (max-width: 1400px) {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 1024px) {
+    align-items: flex-start;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: 768px) {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  /* @media (max-width: 350px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  } */
+`;
+
+const TextTitleBenefit01 = styled(Box)`
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 31px;
+  /* identical to box height */
+
+  letter-spacing: -0.02em;
+  color: ${customColor.mainColor01};
+
+  transition: .5s;
+  @media (max-width: 768px) {
+    margin-left: 40px;
+  }
+  @media (max-width: 500px) {
+    margin-left: 20px;
+  }
+  @media (max-width: 350px) {
+    margin-left: 10px;
+  }
+`;
+
+const PartItem01 = styled(Box)`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    justify-content: space-between;
+  }
+  @media (max-width: 768px) {
+    /* display: none; */
+    overflow-x: auto;
+  }
+`;
+
+const PartMarqueeItem01 = styled(Box)`
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+const PartEachItem01 = styled(Box)`
+  display: flex;
+  width: 230px;
+  min-width: 230px;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+`;
+
+const TextItemTitle01 = styled(Box)`
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  /* or 26px */
+
+  text-align: center;
+  color: ${customColor.mainColor01};
+`;
+
+const TextItemDescription01 = styled(Box)`
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  /* or 26px */
+
+  text-align: center;
+  color: ${customColor.mainColor01};
+`;
+
+const PartItemImage01 = styled(Box)`
+  width: 180px;
+  height: 180px;
+`;
+
 const PartTop01 = styled(Box)`
   display: flex;
   width: 100%;
@@ -527,6 +768,7 @@ const PartMaxTop01 = styled(Box)`
   padding-right: 120px;
   box-sizing: border-box;
 
+  transition: 0.5s;
   @media (max-width: 1400px) {
     padding-left: 90px;
     padding-right: 90px;
@@ -1417,8 +1659,10 @@ const PartGrid01 = styled(Box)`
     grid-template-rows: auto auto auto;
   }
   @media (max-width: 700px) {
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto auto;
+    /* grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto; */
+    display: flex;
+    overflow-x: auto;
   }
 `;
 
@@ -1432,6 +1676,15 @@ const GridEach01 = styled(Box)`
   background-color: ${customColor.mainColor01};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+
+  transition: .5s;
+  @media (max-width: 700px) {
+    width: 200px;
+    min-width: 200px;
+  }
+  @media (max-width: 500px) {
+    padding: 20px;
+  }
 `;
 
 const PartIcon01 = styled(Box)`
@@ -1619,4 +1872,5 @@ const ContentFAQ01 = styled(Box)`
   flex-direction: column;
   margin-top: 50px;
 `;
+
 export default Home;
