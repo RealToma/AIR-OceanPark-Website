@@ -23,6 +23,41 @@ export const TEXT_TopNavbar = {
   },
 };
 
+export const TEXT_Benefit = {
+  EN: {
+    title: "//Citizen Benefits",
+    item01: {
+      title: "“BUY-1-GET-1-FREE” ",
+      description: "Ocean Park admission ticket",
+    },
+    item02: {
+      title: "“Play-to-Earn” ",
+      description: "including free Ocean Park admission ticket and more",
+    },
+    item03: {
+      title: "“EC Home HKD100 Coupon”",
+      description:
+        "citizen  wearing a EC Home tee shirtOcean Park admission ticket",
+    },
+  },
+  CH: {
+    title: "//Citizen Benefits",
+    item01: {
+      title: "“BUY-1-GET-1-FREE” ",
+      description: "Ocean Park admission ticket",
+    },
+    item02: {
+      title: "“Play-to-Earn” ",
+      description: "including free Ocean Park admission ticket and more",
+    },
+    item03: {
+      title: "“EC Home HKD100 Coupon”",
+      description:
+        "citizen  wearing a EC Home tee shirtOcean Park admission ticket",
+    },
+  },
+};
+
 export const TEXT_HomeContent = {
   EN: {
     tdes01: "Play-to-Earn enabling NFTs debut with Ocean Park Halloween theme",
@@ -428,8 +463,7 @@ export const TEXT_Terms = {
       title: "6. Purchaser’s obligations",
       content: [
         {
-          title_child:
-            "•	By accepting the current Contract, You undertake to:",
+          title_child: "•	By accepting the current Contract, You undertake to:",
           content_child: [
             "o	COMPLY WITH THE PRESENT CONTRACT.",
             "o	ACT IN GOOD FAITH AND NOT MISUSE THE NFTS.",
@@ -485,7 +519,7 @@ export const TEXT_Terms = {
         {
           title_child:
             '•	Force Majeure Event. The Company shall not be liable for its failure to perform any of its obligations to Purchaser hereunder, during any period in which such performance is delayed by circumstances beyond its reasonable control ("Force Majeure Event"). The Parties expressly agree that a failure of a blockchain protocol or technology (e.g., a wallet) will be considered as a Force majeure Event. If a Force Majeure Event occurs, the Company shall notify the Purchaser as soon as possible of such an event preventing the normal execution of the Sale.',
-          content_child: [""]
+          content_child: [""],
         },
       ],
     },
