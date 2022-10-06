@@ -14,7 +14,7 @@ import imgPlaceholder from "../Assets/image/placeholder.png";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EachList from "../Components/EachList";
 import CustomMyEachNFT from "../Components/CustomMyEachNFT";
-import { actionGetCitizens } from "../Actions/Auth";
+import { actionGetCitizens } from "../Actions/MyNFT";
 import { NotificationManager } from "react-notifications";
 import CustomModalSimpleAlert from "../Components/CustomModalSimpleAlert";
 
@@ -56,6 +56,8 @@ const MyNFT = () => {
     actionGetCitizens(token).then((res) => {
       if (res.status === 2000) {
         setMyNFTData(res.citizens);
+      } else if (res.status === 1000) {
+        navigate("/login");
       } else {
         setMyNFTData([]);
       }
@@ -471,7 +473,7 @@ const PartDisplayNFT02 = styled(Box)`
   @media (max-width: 370px) {
     grid-template-columns: auto;
   }
-/* 
+  /* 
   @media (min-width: 1024px) {
     ::-webkit-scrollbar {
       width: 15px;
