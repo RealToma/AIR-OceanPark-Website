@@ -58,6 +58,7 @@ import CustomDropdownFAQ from "../Components/CustomDropdownFAQ";
 import { useParallax } from "react-scroll-parallax";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Marquee from "react-fast-marquee";
 
 const Home = () => {
   const parallaxAbout = useParallax({
@@ -190,7 +191,6 @@ const Home = () => {
       <PartBenefit01>
         <PartMaxBenefit01>
           <TextTitleBenefit01>{textBenefit.title}</TextTitleBenefit01>
-
           <PartItem01>
             <PartEachItem01>
               <PartItemImage01>
@@ -235,6 +235,55 @@ const Home = () => {
               </TextItemDescription01>
             </PartEachItem01>
           </PartItem01>
+          <PartMarqueeItem01>
+            <Marquee
+              gradient={false}
+              speed={"40"}
+            >
+              <PartEachItem01>
+                <PartItemImage01>
+                  <img
+                    src={imgBenefitItem01}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartItemImage01>
+                <TextItemTitle01>{textBenefit.item01.title}</TextItemTitle01>
+                <TextItemDescription01>
+                  {textBenefit.item01.description}
+                </TextItemDescription01>
+              </PartEachItem01>
+              <PartEachItem01>
+                <PartItemImage01>
+                  <img
+                    src={imgBenefitItem02}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartItemImage01>
+                <TextItemTitle01>{textBenefit.item02.title}</TextItemTitle01>
+                <TextItemDescription01>
+                  {textBenefit.item02.description}
+                </TextItemDescription01>
+              </PartEachItem01>
+              <PartEachItem01>
+                <PartItemImage01>
+                  <img
+                    src={imgBenefitItem03}
+                    width={"100%"}
+                    height={"100%"}
+                    alt=""
+                  />
+                </PartItemImage01>
+                <TextItemTitle01>{textBenefit.item03.title}</TextItemTitle01>
+                <TextItemDescription01>
+                  {textBenefit.item03.description}
+                </TextItemDescription01>
+              </PartEachItem01>
+            </Marquee>
+          </PartMarqueeItem01>
         </PartMaxBenefit01>
       </PartBenefit01>
       <PartMainOcean01 id="ocean">
@@ -583,6 +632,7 @@ const PartMaxBenefit01 = styled(Box)`
   justify-content: center;
   align-items: center;
 
+  transition: 0.5s;
   @media (max-width: 1400px) {
     padding-left: 90px;
     padding-right: 90px;
@@ -592,6 +642,7 @@ const PartMaxBenefit01 = styled(Box)`
     padding-right: 40px;
   }
   @media (max-width: 1024px) {
+    align-items: flex-start;
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -622,6 +673,26 @@ const PartItem01 = styled(Box)`
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
+
+  transition: 0.5s;
+  @media (max-width: 1024px) {
+    justify-content: space-between;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const PartMarqueeItem01 = styled(Box)`
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: 0.5s;
+  @media (max-width: 768px) {
+    display: flex;
+  }
 `;
 const PartEachItem01 = styled(Box)`
   display: flex;

@@ -41,19 +41,19 @@ export const TEXT_Benefit = {
     },
   },
   CH: {
-    title: "//Citizen Benefits",
+    title: "//居民福利",
     item01: {
-      title: "“BUY-1-GET-1-FREE” ",
-      description: "Ocean Park admission ticket",
+      title: "“買一送一” ",
+      description: "海洋公園買一送一優惠券",
     },
     item02: {
-      title: "“Play-to-Earn” ",
-      description: "including free Ocean Park admission ticket and more",
+      title: "“玩住賺” ",
+      description: "包括海洋公園入場券及其他豐富獎賞",
     },
     item03: {
-      title: "“EC Home HKD100 Coupon”",
+      title: "“「億世家」港幣100元現金券”",
       description:
-        "citizen  wearing a EC Home tee shirtOcean Park admission ticket",
+        "得到穿着「億世家」T恤的元住民，將獲得「億世家」送出的100元現金券",
     },
   },
 };
