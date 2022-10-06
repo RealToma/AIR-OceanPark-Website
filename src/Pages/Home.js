@@ -681,7 +681,8 @@ const PartItem01 = styled(Box)`
     justify-content: space-between;
   }
   @media (max-width: 768px) {
-    display: none;
+    /* display: none; */
+    overflow-x: auto;
   }
 `;
 
@@ -693,15 +694,17 @@ const PartMarqueeItem01 = styled(Box)`
 
   transition: 0.5s;
   @media (max-width: 768px) {
-    display: flex;
+    display: none;
   }
 `;
 const PartEachItem01 = styled(Box)`
   display: flex;
-  width: 220px;
+  width: 230px;
+  min-width: 230px;
   height: 100%;
   flex-direction: column;
   align-items: center;
+  margin-right: 20px;
 `;
 
 const TextItemTitle01 = styled(Box)`
@@ -754,6 +757,7 @@ const PartMaxTop01 = styled(Box)`
   padding-right: 120px;
   box-sizing: border-box;
 
+  transition: 0.5s;
   @media (max-width: 1400px) {
     padding-left: 90px;
     padding-right: 90px;
@@ -1644,8 +1648,10 @@ const PartGrid01 = styled(Box)`
     grid-template-rows: auto auto auto;
   }
   @media (max-width: 700px) {
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto auto;
+    /* grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto; */
+    display: flex;
+    overflow-x: auto;
   }
 `;
 
@@ -1659,6 +1665,15 @@ const GridEach01 = styled(Box)`
   background-color: ${customColor.mainColor01};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+
+  transition: .5s;
+  @media (max-width: 700px) {
+    width: 200px;
+    min-width: 200px;
+  }
+  @media (max-width: 500px) {
+    padding: 20px;
+  }
 `;
 
 const PartIcon01 = styled(Box)`
