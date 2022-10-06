@@ -67,7 +67,7 @@ const CustomMyEachNFT = ({
         handleClose();
         window.location.reload();
       } else if (res.status === 1000) {
-        navigate('/login');
+        navigate("/login");
         setFlagWithdraw(false);
       } else {
         NotificationManager.error("This is a invalid citizen.", "", 3000);
