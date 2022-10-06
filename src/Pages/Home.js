@@ -648,14 +648,14 @@ const PartMaxBenefit01 = styled(Box)`
     padding-left: 40px;
     padding-right: 40px;
   }
-  @media (max-width: 500px) {
-    padding-left: 20px;
-    padding-right: 20px;
+  @media (max-width: 768px) {
+    padding-left: 0px;
+    padding-right: 0px;
   }
-  @media (max-width: 350px) {
+  /* @media (max-width: 350px) {
     padding-left: 10px;
     padding-right: 10px;
-  }
+  } */
 `;
 
 const TextTitleBenefit01 = styled(Box)`
@@ -668,6 +668,17 @@ const TextTitleBenefit01 = styled(Box)`
 
   letter-spacing: -0.02em;
   color: ${customColor.mainColor01};
+
+  transition: .5s;
+  @media (max-width: 768px) {
+    margin-left: 40px;
+  }
+  @media (max-width: 500px) {
+    margin-left: 20px;
+  }
+  @media (max-width: 350px) {
+    margin-left: 10px;
+  }
 `;
 
 const PartItem01 = styled(Box)`
