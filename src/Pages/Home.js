@@ -146,7 +146,7 @@ const Home = () => {
             <PartMark01>
               <img src={imgMark01} width={"100%"} height={"100%"} alt={""} />
             </PartMark01>
-            <PartDescription01>{textHomeContent.tdes01}</PartDescription01>
+            <PartDescription01 flaglan={flagLanguage?1:0}>{textHomeContent.tdes01}</PartDescription01>
           </PartMarkDescription01>
 
           <PartMarkGroup01>
@@ -669,7 +669,7 @@ const TextTitleBenefit01 = styled(Box)`
   letter-spacing: -0.02em;
   color: ${customColor.mainColor01};
 
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 768px) {
     margin-left: 40px;
   }
@@ -1026,7 +1026,7 @@ const PartMarkDescription01 = styled(Box)`
 
 const PartDescription01 = styled(Box)`
   display: flex;
-  width: 380px;
+  width: ${({ flaglan }) => (flaglan ? "280px" : "380px")};
   margin-top: 10px;
   font-family: "Rubik";
   font-style: normal;
@@ -1677,7 +1677,7 @@ const GridEach01 = styled(Box)`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
 
-  transition: .5s;
+  transition: 0.5s;
   @media (max-width: 700px) {
     width: 200px;
     min-width: 200px;
