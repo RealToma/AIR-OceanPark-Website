@@ -145,15 +145,21 @@ const TopNavbarHome = ({
             >
               {textNavbar.tb06}
             </Button02>
-            <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
-              <img
-                src={!flagScroll ? imgBoat01 : imgBoat02}
-                width="100%"
-                height="100%"
-                alt=""
-              />
-            </ImgBoat01>
-
+            <a
+              href="https://opensea.io/collection/oceanparkhalloween22-air-citizen-v2"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <ImgBoat01 flagscroll={flagScroll ? 1 : 0}>
+                <img
+                  src={!flagScroll ? imgBoat01 : imgBoat02}
+                  width="100%"
+                  height="100%"
+                  alt=""
+                />
+              </ImgBoat01>
+            </a>
             <ButtonLanguage01>
               {!flagLanguage ? (
                 <>
@@ -292,10 +298,16 @@ const TopNavbarHome = ({
           </ModalPartUp01>
 
           <ModalFooter01>
-            <ImgBoat02>
-              <img src={imgBoat02} width="100%" height="100%" alt="" />
-            </ImgBoat02>
-
+            <a
+              href="https://opensea.io/collection/oceanparkhalloween22-air-citizen-v2"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <ImgBoat02>
+                <img src={imgBoat02} width="100%" height="100%" alt="" />
+              </ImgBoat02>
+            </a>
             <ButtonLanguage01 ml={"20px"}>
               {!flagLanguage ? (
                 <>

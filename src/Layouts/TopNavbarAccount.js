@@ -211,10 +211,16 @@ const TopNavbarAccount = (props) => {
           </ModalPartUp01>
 
           <ModalFooter01>
-            <ImgBoat02>
-              <img src={imgBoat02} width="100%" height="100%" alt="" />
-            </ImgBoat02>
-
+            <a
+              href="https://opensea.io/collection/oceanparkhalloween22-air-citizen-v2"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <ImgBoat02>
+                <img src={imgBoat02} width="100%" height="100%" alt="" />
+              </ImgBoat02>
+            </a>
             <ButtonLanguage01 ml={"20px"}>
               {!flagLanguage ? (
                 <>
