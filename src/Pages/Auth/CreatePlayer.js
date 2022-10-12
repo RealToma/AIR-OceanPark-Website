@@ -5,7 +5,7 @@ import { customColor } from "../../Config/Color";
 import TopNavbarAccount from "../../Layouts/TopNavbarAccount";
 import FooterAccount from "../../Layouts/FooterAccount";
 import imgMark01 from "../../Assets/image/mark_AiR03.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import ManIcon from "@mui/icons-material/Man";
 import WomanIcon from "@mui/icons-material/Woman";
 import CheckIcon from "@mui/icons-material/Check";
@@ -34,7 +34,8 @@ const CreatePlayer = () => {
 
   const handleCreatePlayer = () => {
     const token = localStorage.getItem("token");
-    console.log("token:", token);
+    // console.log("token:", token);
+    console.log("name", username);
     if (username === "") {
       setMsgAlert(textCreatePlayer.ta01);
       return;
@@ -102,9 +103,13 @@ const CreatePlayer = () => {
             <TextAgree01>
               {textCreatePlayer.ti02}
               {"\u00a0"}
-              <u style={{ cursor: "pointer" }} onClick={() => navigate("/tnc")}>
-                {textCreatePlayer.tiu02}
-              </u>
+              <Link
+                to="/tnc"
+                target="_blank"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                <u style={{ cursor: "pointer" }}>{textCreatePlayer.tiu02}</u>
+              </Link>
             </TextAgree01>
           </PartAgree01>
           <ButtonCreate01
